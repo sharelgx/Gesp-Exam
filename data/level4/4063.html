@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>少儿编程互动教学：四层循环与二维前缀和</title>
+<style>
+  /* 页面整体样式 */
+  body {
+    margin: 0; font-family: '微软雅黑', Arial, sans-serif; background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    display: flex; height: 100vh; overflow: hidden;
+    color: #333;
+  }
+  nav {
+    background: #2a65cc; color: #fff; padding: 1rem 2rem; font-weight: bold; font-size: 1.5rem;
+    flex-shrink: 0;
+    user-select: none;
+  }
+  #sidebar {
+    width: 320px; background: #fff; overflow-y: auto; box-shadow: 2px 0 8px rgb(42 101 204 / 0.3);
+    padding: 1rem 2rem;
+  }
+  #sidebar h2 {
+    margin-top: 0; font-weight: 700; border-bottom: 2px solid #2a65cc; padding-bottom: 0.5rem;
+  }
+  #sidebar p {
+    line-height: 1.6; color: #333;
+  }
+  #content {
+    flex-grow: 1; position: relative; display: flex; flex-direction: column; padding: 2rem;
+  }
+  #grid-container {
+    flex-grow: 1; display: grid; grid-template-columns: repeat(var(--cols), 48px);
+    grid-gap: 8px; justify-content: center; align-content: center;
+    margin-bottom: 12px;
+    user-select: none;
+  }
+  .cell {
+    width: 48px; height: 48px; border-radius: 12px; box-shadow: 0 0 6px #3333;
+    background: #eee; cursor: default; transition: background 0.4s, box-shadow 0.5s;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1.2rem; color: #444;
+  }
+  .cell.black {
+    background: #2a65cc;
+    box-shadow: 0 0 12px #2a65ccaa;
+    color: white;
+  }
+  .cell.highlight {
+    background: #ff9800;
+    box-shadow: 0 0 20px #ffae0044;
+  }
+  .cell.balanced {
+    background: #33cc33;
+    box-shadow: 0 0 20px #33cc3344;
+    color: white;
+  }
+  #controls {
+    margin-top: 8px; display: flex; justify-content: center; gap: 1rem;
+  }
+  button {
+    font-size: 1.1rem; padding: 0.6rem 1.8rem; border-radius: 999px;
+    border: none; background: #2a65cc; color: white; cursor: pointer;
+    box-shadow: 0 3px 6px #2a65ccaa;
+    transition: background 0.3s;
+    user-select: none;
+  }
+  button:hover:not(:disabled) {
+    background: #1e49a4;
+  }
+  button:disabled {
+    background: #a0a0a0; cursor: not-allowed;
+  }
+  #step-info {
+    margin-top: 0.6rem; text-align: center; font-weight: 600; color: #444;
+    min-height: 28px;
+    user-select: none;
+  }
+  /* 滚动条美化 */
+  #sidebar::-webkit-scrollbar {
+    width: 8px;
+  }
+  #sidebar::-webkit-scrollbar-thumb {
+    background-color: #2a65ccaa;
+    border-radius: 4px;
+  }
+  #sidebar::-webkit-scrollbar-track {
+    background: #f0f4ff;
+  }
+</style>
+</head>
+<body>
+
+<nav>少儿编程互动教学 - 四层循环与二维前缀和</nav>
+
+<div id="sidebar" role="complementary" aria-label="教学说明">
+  <h2>教学知识点</h2>
+  <p><strong>四层循环的作用：</strong><br>用四个循环变量，枚举所有可能的子矩形位置，遍历整个矩阵的每个子区域。</p>
+  <p><strong>二维前缀和：</strong><br>预先计算每个位置到左上角的区域和，快速求任意子矩形的和，大大减少计算量。</p>
+  <p><strong>权值转换：</strong><br>把白色(0)转换为 -1，黑色(1)转换为 +1，方便判断黑白格子数量是否相等。</p>
+  <p>点击“开始动画”，观察矩形遍历和计算过程。<br>绿色区域代表黑白数量相等的平衡子矩形。</p>
+</div>
+
+<div id="content" role="main">
+  <div id="grid-container" style="--cols:5" aria-label="网格矩阵"></div>
+  <div id="step-info" aria-live="polite">点击“开始动画”开始演示</div>
+  <div id="controls" role="group" aria-label="动画控制按钮">
+    <button id="btn-start" aria-pressed="false">开始动画 ▶️</button>
+    <button id="btn-prev" disabled>◀️ 上一步</button>
+    <button id="btn-next" disabled>下一步 ▶️</button>
+    <button id="btn-reset">重置 🔄</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  const gridContainer = document.getElementById('grid-container');
+  const stepInfo = document.getElementById('step-info');
+  const btnStart = document.getElementById('btn-start');
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  const btnReset = document.getElementById('btn-reset');
+
+  const n = 5, m = 5; // 网格行列数，后续可拓展动态修改
+  let grid = [];
+  let prefixSum = [];
+  let steps = [];
+  let currentStep = -1;
+
+  // 初始化网格，随机生成黑白格(1或0)
+  function initGrid() {
+    gridContainer.style.setProperty('--cols', m);
+    grid = Array.from({length: n + 1}, () => Array(m + 1).fill(0));
+    for(let i=1; i<=n; i++) {
+      for(let j=1; j<=m; j++) {
+        grid[i][j] = Math.random() > 0.5 ? 1 : 0;
+      }
+    }
+  }
+
+  // 渲染网格DOM元素
+  function renderGrid() {
+    gridContainer.innerHTML = '';
+    for(let i=1; i<=n; i++) {
+      for(let j=1; j<=m; j++) {
+        const cell = document.createElement('div');
+        cell.className = 'cell ' + (grid[i][j] === 1 ? 'black' : '');
+        cell.id = `cell-${i}-${j}`;
+        cell.textContent = ''; // 可改为显示数字，如grid[i][j]
+        gridContainer.appendChild(cell);
+      }
+    }
+  }
+
+  // 计算二维前缀和矩阵
+  function calcPrefixSum() {
+    prefixSum = Array.from({length: n+1}, () => Array(m+1).fill(0));
+    for(let i=1; i<=n; i++) {
+      for(let j=1; j<=m; j++) {
+        prefixSum[i][j] = prefixSum[i-1][j] + prefixSum[i][j-1] - prefixSum[i-1][j-1] + (grid[i][j] === 0 ? -1 : 1);
+      }
+    }
+  }
+
+  // 构造四层循环遍历所有子矩形的步骤
+  function buildSteps() {
+    steps = [];
+    for(let x1=1; x1<=n; x1++) {
+      for(let y1=1; y1<=m; y1++) {
+        for(let x2=x1; x2<=n; x2++) {
+          for(let y2=y1; y2<=m; y2++) {
+            let total = prefixSum[x2][y2] - prefixSum[x1-1][y2] - prefixSum[x2][y1-1] + prefixSum[x1-1][y1-1];
+            let area = (x2 - x1 + 1) * (y2 - y1 + 1);
+            steps.push({x1, y1, x2, y2, total, area});
+          }
+        }
+      }
+    }
+  }
+
+  // 清除所有方格高亮
+  function clearHighlights() {
+    for(let i=1; i<=n; i++) {
+      for(let j=1; j<=m; j++) {
+        const cell = document.getElementById(`cell-${i}-${j}`);
+        if(cell) {
+          cell.classList.remove('highlight','balanced');
+        }
+      }
+    }
+  }
+
+  // 高亮当前子矩形区域，绿色表示黑白平衡
+  function highlightStep(step) {
+    clearHighlights();
+    for(let i=step.x1; i<=step.x2; i++) {
+      for(let j=step.y1; j<=step.y2; j++) {
+        const cell = document.getElementById(`cell-${i}-${j}`);
+        if(cell) {
+          if(step.total === 0) {
+            cell.classList.add('balanced');
+          } else {
+            cell.classList.add('highlight');
+          }
+        }
+      }
+    }
+  }
+
+  // 更新步骤文本信息及按钮状态
+  function updateStepInfo() {
+    if(currentStep < 0 || currentStep >= steps.length) {
+      stepInfo.textContent = '遍历结束，点击重置开始新一轮';
+      btnPrev.disabled = true;
+      btnNext.disabled = true;
+      btnStart.disabled = false;
+      btnStart.setAttribute('aria-pressed', 'false');
+      return;
+    }
+    const step = steps[currentStep];
+    stepInfo.textContent = `当前子矩形：左上角 (${step.x1}, ${step.y1})，右下角 (${step.x2}, ${step.y2})，和 = ${step.total}，面积 = ${step.area}`;
+    btnPrev.disabled = currentStep === 0;
+    btnNext.disabled = currentStep === steps.length - 1;
+  }
+
+  // 按钮事件绑定
+  btnStart.onclick = () => {
+    btnStart.disabled = true;
+    btnStart.setAttribute('aria-pressed', 'true');
+    currentStep = 0;
+    highlightStep(steps[currentStep]);
+    updateStepInfo();
+    btnPrev.disabled = true;
+    btnNext.disabled = false;
+  };
+
+  btnNext.onclick = () => {
+    if(currentStep < steps.length -1) {
+      currentStep++;
+      highlightStep(steps[currentStep]);
+      updateStepInfo();
+    }
+  };
+
+  btnPrev.onclick = () => {
+    if(currentStep > 0) {
+      currentStep--;
+      highlightStep(steps[currentStep]);
+      updateStepInfo();
+    }
+  };
+
+  btnReset.onclick = () => {
+    initGrid();
+    renderGrid();
+    calcPrefixSum();
+    buildSteps();
+    clearHighlights();
+    stepInfo.textContent = '点击“开始动画”开始演示';
+    btnStart.disabled = false;
+    btnStart.setAttribute('aria-pressed', 'false');
+    btnPrev.disabled = true;
+    btnNext.disabled = true;
+    currentStep = -1;
+  };
+
+  // 页面初始化
+  btnReset.onclick();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "如果有以下C++代码：<pre><code>\ndouble s;\nint t;\ns = 18.5;\nt = int(s) + 10;\n</code></pre>那么 cout << t 的结果为？",
+        "options": ["A. 28.5", "B. 28", "C. 18", "D. 10"],
+        "correct": "B",
+        "explanation": "int(s)将18.5强制转换为整数18，然后18+10=28。变量t是int类型，所以结果是整数28，不是28.5。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 判断题第1题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "在C++中， cout << (5 % 2 && 5 % 3) 的输出是？",
+        "options": ["A. 1", "B. 2", "C. true", "D. false"],
+        "correct": "A",
+        "explanation": "5%2=1，5%3=2，都是非零值，在逻辑运算中视为true。true && true = true，在C++中true输出为1。",
+        "source": "2024年6月GESPC++二级真题.pdf 单选题第5题"
+    },
+    {
+        "id": "3",
+        "type": "truefalse",
+        "question": "cout << (8< 9< 10) 的输出结果为 true 。",
+        "correct": "×",
+        "explanation": "由于运算符优先级，表达式等价于cout << ((8<9)<10)。8<9为true（值为1），然后1<10为true，但在C++中true输出为1，不是字符串\"true\"。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 判断题第3题"
+    },
+    {
+        "id": "4",
+        "type": "truefalse",
+        "question": "C++中 cout << float(2022) 与 cout << float('2022') 运行后的输出结果均为2022。",
+        "correct": "×",
+        "explanation": "float(2022)将整数2022转换为浮点数2022.0；但'2022'是字符常量，在C++中字符常量只能是单个字符，'2022'是语法错误。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 判断题第5题"
+    }
+]
+

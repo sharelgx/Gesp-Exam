@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>复古计算器</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.0.0/dist/flowbite.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <style>
+    .retro-calculator {
+      background-color: #d4c8a9;
+      border: 12px solid #8b6b61;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      padding: 25px;
+      max-width: 340px;
+      margin: 0 auto;
+    }
+    .led-display {
+      background-color: #1a3c2c;
+      color: #ff6b6b;
+      font-family: 'VT323', monospace;
+      font-size: 2.8rem;
+      text-align: right;
+      padding: 15px 20px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      letter-spacing: 3px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: 4px inset #0d261a;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+    }
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    .calc-button {
+      background: linear-gradient(to bottom, #e6b17e, #d49a5f);
+      border: none;
+      border-radius: 12px;
+      padding: 18px 8px;
+      font-family: 'VT323', monospace;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #4e342e;
+      cursor: pointer;
+      box-shadow: 0 6px #8d6e63;
+      transition: all 0.1s;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .calc-button:active {
+      box-shadow: 0 2px #6d4c41;
+      transform: translateY(4px);
+    }
+    .function-button {
+      background: linear-gradient(to bottom, #a1887f, #8d6e63);
+      color: #f5f5f5;
+    }
+    .operator-button {
+      background: linear-gradient(to bottom, #ff9800, #f57c00);
+      color: #fff;
+    }
+    .equals-button {
+      background: linear-gradient(to bottom, #4caf50, #388e3c);
+      color: white;
+      grid-column: span 2;
+    }
+    .title {
+      font-family: 'VT323', monospace;
+      font-size: 2.2rem;
+      text-align: center;
+      color: #5d4037;
+      margin-bottom: 20px;
+      letter-spacing: 3px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+    .brand-label {
+      font-family: 'VT323', monospace;
+      font-size: 1.2rem;
+      text-align: center;
+      color: #5d4037;
+      margin-top: 15px;
+      letter-spacing: 1px;
+    }
+    body {
+      background-color: #b0a295;
+      background-image: repeating-linear-gradient(
+        45deg,
+        rgba(0,0,0,0.05),
+        rgba(0,0,0,0.05) 1px,
+        transparent 1px,
+        transparent 10px
+      );
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+  <div class="retro-calculator">
+    <div class="title">电子计算器</div>
+    <div class="led-display" id="display">0</div>
+    <div class="button-grid">
+      <button class="calc-button function-button" onclick="memoryClear()">MC</button>
+      <button class="calc-button function-button" onclick="memoryRecall()">MR</button>
+      <button class="calc-button function-button" onclick="memoryAdd()">M+</button>
+      <button class="calc-button function-button" onclick="memorySubtract()">M-</button>
+      <button class="calc-button function-button" onclick="clearAll()">AC</button>
+      
+      <button class="calc-button" onclick="appendToDisplay('7')">7</button>
+      <button class="calc-button" onclick="appendToDisplay('8')">8</button>
+      <button class="calc-button" onclick="appendToDisplay('9')">9</button>
+      <button class="calc-button operator-button" onclick="setOperation('/')">÷</button>
+      <button class="calc-button function-button" onclick="squareRoot()">√</button>
+      
+      <button class="calc-button" onclick="appendToDisplay('4')">4</button>
+      <button class="calc-button" onclick="appendToDisplay('5')">5</button>
+      <button class="calc-button" onclick="appendToDisplay('6')">6</button>
+      <button class="calc-button operator-button" onclick="setOperation('*')">×</button>
+      <button class="calc-button function-button" onclick="percentage()">%</button>
+      
+      <button class="calc-button" onclick="appendToDisplay('1')">1</button>
+      <button class="calc-button" onclick="appendToDisplay('2')">2</button>
+      <button class="calc-button" onclick="appendToDisplay('3')">3</button>
+      <button class="calc-button operator-button" onclick="setOperation('-')">-</button>
+      <button class="calc-button function-button" onclick="reciprocal()">1/x</button>
+      
+      <button class="calc-button" onclick="appendToDisplay('0')">0</button>
+      <button class="calc-button" onclick="appendToDisplay('.')">.</button>
+      <button class="calc-button equals-button" onclick="calculate()">=</button>
+      <button class="calc-button operator-button" onclick="setOperation('+')">+</button>
+    </div>
+    <div class="brand-label">SUPER 80</div>
+  </div>
+
+  <script>
+    let displayValue = '0';
+    let firstOperand = null;
+    let operator = null;
+    let waitingForSecondOperand = false;
+    let memory = 0;
+    
+    function updateDisplay() {
+      const display = document.getElementById('display');
+      display.textContent = displayValue;
+    }
+    
+    function appendToDisplay(value) {
+      if (waitingForSecondOperand) {
+        displayValue = value;
+        waitingForSecondOperand = false;
+      } else {
+        displayValue = displayValue === '0' ? value : displayValue + value;
+      }
+      updateDisplay();
+    }
+    
+    function setOperation(op) {
+      if (firstOperand === null) {
+        firstOperand = parseFloat(displayValue);
+      } else if (operator) {
+        const result = calculate();
+        displayValue = String(result);
+        firstOperand = result;
+        updateDisplay();
+      }
+      operator = op;
+      waitingForSecondOperand = true;
+    }
+    
+    function calculate() {
+      if (operator === null || waitingForSecondOperand) {
+        return parseFloat(displayValue);
+      }
+      
+      const secondOperand = parseFloat(displayValue);
+      let result;
+      
+      switch (operator) {
+        case '+': result = firstOperand + secondOperand; break;
+        case '-': result = firstOperand - secondOperand; break;
+        case '*': result = firstOperand * secondOperand; break;
+        case '/': result = firstOperand / secondOperand; break;
+        default: return secondOperand;
+      }
+      
+      // 保留两位小数，避免浮点数精度问题
+      return Math.round(result * 100) / 100;
+    }
+    
+    function clearAll() {
+      displayValue = '0';
+      firstOperand = null;
+      operator = null;
+      waitingForSecondOperand = false;
+      updateDisplay();
+    }
+    
+    function memoryClear() {
+      memory = 0;
+    }
+    
+    function memoryRecall() {
+      displayValue = String(memory);
+      updateDisplay();
+    }
+    
+    function memoryAdd() {
+      memory += parseFloat(displayValue);
+    }
+    
+    function memorySubtract() {
+      memory -= parseFloat(displayValue);
+    }
+    
+    function squareRoot() {
+      const value = parseFloat(displayValue);
+      if (value >= 0) {
+        displayValue = String(Math.sqrt(value).toFixed(4));
+        updateDisplay();
+      }
+    }
+    
+    function percentage() {
+      const value = parseFloat(displayValue);
+      displayValue = String(value / 100);
+      updateDisplay();
+    }
+    
+    function reciprocal() {
+      const value = parseFloat(displayValue);
+      if (value !== 0) {
+        displayValue = String((1 / value).toFixed(6));
+        updateDisplay();
+      }
+    }
+
+    // 初始化显示
+    updateDisplay();
+  </script>
+</body>
+</html>

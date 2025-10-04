@@ -1,0 +1,134 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "C++中，若要计算浮点数-3.14的绝对值，应使用以下哪个函数（ ）",
+        "options": ["A. abs()", "B. fabs()", "C. pow()", "D. min()"],
+        "correct": "B",
+        "explanation": "`fabs()`函数用于计算浮点数的绝对值，`abs()`用于整数，`pow()`是幂运算函数，`min()`用于求最小值。计算-3.14的绝对值需用`fabs()`，B选项正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "执行以下代码后，输出结果是（ ）<pre><code>#include <iostream>\n#include <cmath>\nusing namespace std;\nint main(){\n  double num = 64.0;\n  cout << sqrt(num);\n  return 0;\n}\n</code></pre>",
+        "options": ["A. 8", "B. 8.0", "C. 4096", "D. 0"],
+        "correct": "A",
+        "explanation": "`sqrt(64.0)`返回整数8，输出结果为8，A选项正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "在C++中，以下代码执行后的输出结果是（ ）<pre><code>#include <iostream>\n#include <algorithm>\nusing namespace std;\nint main(){\n  int a = 5, b = 15;\n  cout << max(a, b);\n  return 0;\n}\n</code></pre>",
+        "options": ["A. 5", "B. 15", "C. 20", "D. 75"],
+        "correct": "B",
+        "explanation": "`max(5, 15)`返回较大值15，输出结果为15，B选项正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "下列关于`pow`函数的说法，正确的是（ ）",
+        "options": ["A. `pow(x, y)`用于计算x的y次方", "B. `pow`函数只能计算整数次方", "C. 使用`pow`函数无需包含头文件", "D. `pow(2, 3)`的返回值是5"],
+        "correct": "A",
+        "explanation": "`pow(x, y)`确实用于计算x的y次方，A正确；该函数支持浮点数运算，B错误；需包含`<cmath>`头文件，C错误；`pow(2,3)=8`，D错误。",
+        "source": "模拟题"
+    },
+    {
+        "id": "5",
+        "type": "truefalse",
+        "question": "在C++中，`fabs(-5)`可以正确得到5这个结果。（对/错）",
+        "correct": "√",
+        "explanation": "`fabs(-5)`会将整数转换为浮点数后取绝对值，结果为5.0，输出时整数形式显示为5，说法正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "执行以下代码，输出结果是（ ）<pre><code>#include <iostream>\n#include <cmath>\nusing namespace std;\nint main(){\n  int num = -16;\n  cout << abs(num);\n  return 0;\n}\n</code></pre>",
+        "options": ["A. -16", "B. 16", "C. 0", "D. 16.0"],
+        "correct": "B",
+        "explanation": "`abs(-16)`取绝对值得到16，输出结果为16，B选项正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "7",
+        "type": "single",
+        "question": "以下代码执行后，输出的结果是（ ）<pre><code>#include <iostream>\n#include <algorithm>\nusing namespace std;\nint main(){\n  double x = 7.8, y = 4.2;\n  cout << min(x, y);\n  return 0;\n}\n</code></pre>",
+        "options": ["A. 7.8", "B. 4.2", "C. 3.6", "D. 12.0"],
+        "correct": "B",
+        "explanation": "`min(7.8, 4.2)`返回较小值4.2，输出结果为4.2，B选项正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "在计算圆面积的代码中，需要使用`pow`函数计算半径的平方，以下代码横线处应填入（ ）<pre><code>#include <iostream>\n#include <cmath>\nusing namespace std;\nint main(){\n  double r = 5.0, area;\n  area = 3.14 * ______;\n  cout << area;\n  return 0;\n}\n</code></pre>",
+        "options": ["A. r * 2", "B. pow(r, 2)", "C. sqrt(r)", "D. pow(2, r)"],
+        "correct": "B",
+        "explanation": "圆面积公式为πr²，`pow(r, 2)`表示r的平方，B选项正确；A为2r，C为√r，D为2的r次方，均错误。",
+        "source": "模拟题"
+    },
+    {
+        "id": "9",
+        "type": "single",
+        "question": "执行下列代码，输出结果是（ ）<pre><code>#include <iostream>\n#include <cmath>\nusing namespace std;\nint main(){\n  int a = -9, b = 36;\n  cout << abs(a) + sqrt(b);\n  return 0;\n}\n</code></pre>",
+        "options": ["A. 3", "B. 9", "C. 15", "D. 27"],
+        "correct": "C",
+        "explanation": "`abs(-9)=9`，`sqrt(36)=6`，9+6=15，输出结果为15，C选项正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "10",
+        "type": "truefalse",
+        "question": "在C++中，`min(2.5, 1.8)`的返回值是1.8。（对/错）",
+        "correct": "√",
+        "explanation": "`min(2.5, 1.8)`返回较小的浮点数1.8，说法正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "11",
+        "type": "single",
+        "question": "C++中，若要计算3的4次方，应使用以下哪个表达式（ ）",
+        "options": ["A. 3 * 4", "B. pow(3, 4)", "C. sqrt(3*4)", "D. max(3, 4)"],
+        "correct": "B",
+        "explanation": "`pow(3, 4)`表示3的4次方，结果为81，B选项正确；A为12，C为√12，D为4，均错误。",
+        "source": "模拟题"
+    },
+    {
+        "id": "12",
+        "type": "single",
+        "question": "执行以下代码后，输出结果是（ ）<pre><code>#include <iostream>\n#include <cmath>\nusing namespace std;\nint main(){\n  double num = 16.0;\n  cout << pow(num, 0.5);\n  return 0;\n}\n</code></pre>",
+        "options": ["A. 4", "B. 8", "C. 256", "D. 0"],
+        "correct": "A",
+        "explanation": "`pow(16.0, 0.5)`等价于求平方根，结果为4，输出4，A选项正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "13",
+        "type": "single",
+        "question": "下列关于数学函数的说法，错误的是（ ）",
+        "options": ["A. `sqrt(0)`的返回值是0", "B. `abs(-0)`的返回值是0", "C. `pow(2, -1)`的返回值是0.5", "D. `min(5, 5)`会导致程序报错"],
+        "correct": "D",
+        "explanation": "`min(5,5)`返回5，不会报错，D错误；A、B、C说法均正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "14",
+        "type": "truefalse",
+        "question": "在C++中，`max(3.14, 2.71)`的返回值是3.14。（对/错）",
+        "correct": "√",
+        "explanation": "3.14大于2.71，`max`函数返回3.14，说法正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "15",
+        "type": "single",
+        "question": "执行下列代码，输出结果是（ ）<pre><code>#include <iostream>\n#include <algorithm>\n#include <cmath>\nusing namespace std;\nint main(){\n  int a = -4, b = 9;\n  cout << fabs(a) + sqrt(b);\n  return 0;\n}\n</code></pre>",
+        "options": ["A. 1", "B. 5", "C. 7", "D. 13"],
+        "correct": "C",
+        "explanation": "`fabs(-4)=4.0`，`sqrt(9)=3`，4+3=7，输出结果为7，C选项正确。",
+        "source": "模拟题"
+    }
+]

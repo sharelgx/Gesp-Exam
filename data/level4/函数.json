@@ -1,0 +1,182 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "下面函数不能正常执行的是()<pre><code>0 #include<iostream>\n1 using namespace std;\n2 int func()\n3 {\n4     //…\n5 }\n6 int main()\n7 {\n8     func();\n9     return 0;\n10 }</code></pre>",
+        "options": ["A. 函数定义在main函数之前", "B. 函数定义在main函数之后且无声明", "C. 函数定义在main函数之后但有声明", "D. 函数声明在main函数之前，定义在之后"],
+        "correct": "B",
+        "explanation": "C++中函数调用前必须已知函数声明或定义。B选项中函数定义在main之后且无声明，编译时main中调用func会因未找到声明而报错。A、C、D均满足函数调用前已知声明或定义。",
+        "source": "2024年6月GESP C++四级真题.pdf 单选题第2题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "下面程序输出的是()<pre><code>1 #include<iostream>\n2 using namespace std;\n3 int func();\n4 int main()\n5 {\n6     int i=2;\n7     cout<<i<<endl;\n8     for(int x=0;x<1;x++)\n9     {\n10         int i=10;\n11         cout<<i<<endl;\n12     }\n13     i=i+1;\n14     cout<<i<<endl;\n15     {\n16         i=i*i;\n17         cout<<i<<endl;\n18     }\n19 }</code></pre>",
+        "options": ["A. 2 2 3 9", "B. 2 10 3 9", "C. 2 10 11 121", "D. 2 10 3 100"],
+        "correct": "B",
+        "explanation": "正确答案是B",
+        "source": "2024年6月GESP C++四级真题.pdf 单选题第3题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "若函数声明为int f(int &x){ x+=3; return x; }，则对声明的变量int a=3，下面哪个调用能够改变a的值( )。",
+        "options": ["A. f(&a)", "B. f(*a)", "C. f(a)", "D. f(a-3)"],
+        "correct": "C",
+        "explanation": "引用传递时，函数参数为int &x，调用f(a)时x是a的引用，修改x即修改a。A传递的是地址，需参数为int*；B语法错误；D传递a-3的临时值，无法修改a。",
+        "source": "2024年3月认证C++四级真题.pdf 单选题第1题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "执行下述代码将输出( )<pre><code>1 int x = 10;\n2 void func() { int x = 20; std::cout << x; }\n3 int main() {\n4     func();\n5     std::cout << x;\n6     return 0;\n7 }</code></pre>",
+        "options": ["A. 2020", "B. 2010", "C. 1020", "D. 编译错误"],
+        "correct": "B",
+        "explanation": "func()中输出局部变量x=20，main中输出全局变量x=10，最终输出2010。",
+        "source": "2025年3月认证C++四级试题.pdf 单选题第2题"
+    },
+    {
+        "id": "5",
+        "type": "single",
+        "question": "给定函数声明int multiply(int x, int y);，以下说法错误的是( )<pre><code>1 int multiply(int x, int y);\n2 int main() {\n3     int a = 4;\n4     int b = 5;\n5     int result = multiply(a, b);\n6     std::cout << \"The result is: \" << result << std::endl;\n7     return 0;\n8 }\n9 int multiply(int x, int y) {\n10     return x * y;\n11 }</code></pre>",
+        "options": ["A. 函数定义应放在main之前", "B. 函数声明指定返回值为int", "C. a和b作为实参传递给形参x和y", "D. 输出结果为20"],
+        "correct": "A",
+        "explanation": "C++中函数声明可放在调用前，定义可在之后。A选项错误，函数定义在main之后但有声明是合法的。B、C、D均正确。",
+        "source": "2025年3月认证C++四级试题.pdf 单选题第1题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "下面关于函数参数传递的说法正确的是( )。",
+        "options": ["A. 值传递时子函数修改参数不影响主函数变量", "B. 值传递时子函数修改参数会影响主函数变量", "C. 地址传递时子函数修改参数不影响主函数变量", "D. 参数传递可不满足参数个数要求"],
+        "correct": "A",
+        "explanation": "值传递时子函数操作的是实参副本，修改不影响主函数变量；地址传递（指针/引用）会修改实参。D选项参数个数必须匹配。",
+        "source": "GESP2023年12月认证C++四级真题无答案.pdf 单选题第1题"
+    },
+    {
+        "id": "7",
+        "type": "single",
+        "question": "以下哪个选项能正确定义一个计算浮点数平方的函数并调用( )。",
+        "options": ["A. float square(float x) { return x * x; } float area = square(2);", "B. square(float x) { return x * x; } float area = square(2);", "C. void square(float x) { return x * x; } area = square(2.0);", "D. void square(float x) { *x; return; } area = square(2);"],
+        "correct": "A",
+        "explanation": "A正确，函数有返回值类型和参数类型，调用正确。B缺少返回值类型；C返回值类型为void却return值；D参数为float却使用*x（指针操作），且void无返回值。",
+        "source": "2024年12月认证C++四级真题.pdf 单选题第1题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "运行下面代码，变量a的值为( )<pre><code>1 void func(int& x) {\n2     x = x * 2;\n3 }\n4 int a = 5;\n5 func(a);</code></pre>",
+        "options": ["A. 5", "B. 10", "C. 15", "D. 20"],
+        "correct": "B",
+        "explanation": "引用传递时，func中的x是a的引用，x*2即a=5*2=10。",
+        "source": "2024年12月认证C++四级真题.pdf 单选题第3题"
+    },
+    {
+        "id": "9",
+        "type": "single",
+        "question": "下面代码采用递推算法计算斐波那契数列，横线上应填写( )<pre><code>1 int fib(int n) {\n2     if (n == 0 || n == 1)\n3         return n;\n4     int f1 = 0, f2 = 1, result = 0;\n5     for (int i = 2; i <= n; i++) {\n6         // 在此处填入代码\n7     }\n8     return result;\n9 }</code></pre>",
+        "options": ["A. result = f1 + f2; f1 = f2; f2 = result;", "B. result += f1 + f2; f1 = f2; f2 = result;", "C. result += f1 + f2; f2 = result; f1 = f2;", "D. result = f1 + f2; f2 = result; f1 = f2;"],
+        "correct": "A",
+        "explanation": "斐波那契递推式为F(n)=F(n-1)+F(n-2)。每次迭代计算当前项result=f1+f2，然后更新f1=f2（前一项），f2=result（当前项），为下一次迭代做准备。",
+        "source": "2024年9月认证C++四级试题.pdf 单选题第9题"
+    },
+    {
+        "id": "10",
+        "type": "single",
+        "question": "下面函数中采用的算法是( )<pre><code>1 int fib(int n) {\n2     int i, f[n]={0, 1};\n3     for(int i=2; i<=n; i++)\n4         f[i]=f[i-1]+f[i-2];\n5     return f[n];\n6 }</code></pre>",
+        "options": ["A. 递推", "B. 递归", "C. 迭代", "D. 循环"],
+        "correct": "A",
+        "explanation": "函数通过已知的F(0)和F(1)，逐步计算到F(n)，符合递推算法从已知到未知的正向推导思想。递归需函数自身调用，此处为循环实现。",
+        "source": "2024年3月认证C++四级真题.pdf 单选题第8题"
+    },
+    {
+        "id": "11",
+        "type": "single",
+        "question": "下列关于函数的叙述正确的是( )。",
+        "options": ["A. 函数必须有名字", "B. 函数必须有参数", "C. 函数必须有返回值", "D. 函数定义必须在调用前"],
+        "correct": "A",
+        "explanation": "函数必须有名字才能被调用；参数、返回值可选（void函数无返回值）；定义可在调用后，只需提前声明。",
+        "source": "2023年9月GESPC++四级试卷解析.pdf 单选题第6题"
+    },
+    {
+        "id": "12",
+        "type": "single",
+        "question": "在C++中，函数的参数默认以什么方式传递( )。",
+        "options": ["A. 值传递", "B. 引用传递", "C. 指针传递", "D. 地址传递"],
+        "correct": "A",
+        "explanation": "C++中函数参数默认以值传递方式传递，即传递实参的副本，函数内修改不影响实参。引用/指针传递需显式声明。",
+        "source": "2023年6月GESP C++四级试题解析.pdf 判断题第3题"
+    },
+    {
+        "id": "13",
+        "type": "single",
+        "question": "以下哪个函数声明可以传递二维数组名作为参数( )。",
+        "options": ["A. void BubbleSort(int a[][4]);", "B. void BubbleSort(int a[3][]);", "C. void BubbleSort(int a[][]);", "D. void BubbleSort(int ** a);"],
+        "correct": "A",
+        "explanation": "二维数组作为函数参数时，必须指定除第一维外的其他维度大小。A选项int a[][4]正确，B、C未指定完整维度，D为指针数组，与二维数组不同。",
+        "source": "GESP C++四级样题卷.pdf 单选题第11题"
+    },
+    {
+        "id": "14",
+        "type": "single",
+        "question": "在下列代码横线处填写( )，使输出为“20 10”<pre><code>1 #include <iostream>\n2 using namespace std;\n3 void xchg(__________) {\n4     int t = x;\n5     x = y;\n6     y = t;\n7 }\n8 int main() {\n9     int a = 10, b = 20;\n10     xchg(a, b);\n11     cout << a << \" \" << b << endl;\n12     return 0;\n13 }</code></pre>",
+        "options": ["A. int x, int y", "B. int &x, int &y", "C. int a, int b", "D. int &a, int &b"],
+        "correct": "B",
+        "explanation": "需通过引用传递才能修改实参。A为值传递，修改副本；C、D参数名与main中变量名重复不影响，但参数类型需为引用。",
+        "source": "GESP C++四级样题卷.pdf 单选题第13题"
+    },
+    {
+        "id": "15",
+        "type": "single",
+        "question": "下面代码实现插入排序，横线上应填写( )<pre><code>1 void insertion_sort(vector<int> &nums) {\n2     for (int i = 1; i < nums.size(); i++) {\n3         int base = nums[i], j = i - 1;\n4         { // 在此处填入代码\n5             nums[j + 1] = nums[j];\n6             j--;\n7         }\n8         nums[j + 1] = base;\n9     }\n10 }</code></pre>",
+        "options": ["A. while (j >= 0 && nums[j] > base)", "B. while (j > 0 && nums[j] > base)", "C. while (j >= 0 && nums[j] < base)", "D. while (j > 0 && nums[j] < base)"],
+        "correct": "A",
+        "explanation": "插入排序中，当j>=0且前一个元素大于当前元素时，后移元素为当前元素腾出位置。条件应为nums[j] > base。",
+        "source": "2024年12月认证C++四级真题.pdf 单选题第13题"
+    },
+    {
+        "id": "16",
+        "type": "single",
+        "question": "冒泡排序函数的时间复杂度为( )。",
+        "options": ["A. O(n)", "B. O(n²)", "C. O(n log n)", "D. O(1)"],
+        "correct": "B",
+        "explanation": "冒泡排序最坏情况下需n-1轮，每轮比较n-i次，总比较次数为n(n-1)/2，时间复杂度为O(n²)。",
+        "source": "2024年9月认证C++四级试题.pdf 单选题第12题"
+    },
+    {
+        "id": "17",
+        "type": "single",
+        "question": "下面关于排序算法稳定性的描述正确的是( )。",
+        "options": ["A. 稳定性指时间复杂度恒定", "B. 稳定排序保证相同元素相对顺序不变", "C. 选择排序是稳定排序", "D. 插入排序不是稳定排序"],
+        "correct": "B",
+        "explanation": "稳定排序定义为相同元素排序后相对顺序不变。插入排序是稳定的，选择排序是不稳定的。",
+        "source": "2025年3月认证C++四级试题.pdf 单选题第12题"
+    },
+    {
+        "id": "18",
+        "type": "single",
+        "question": "函数参数传递时，若传常量值、常量引用和常量指针，能否修改实参( )。",
+        "options": ["A. 都不能修改", "B. 常量值不能，引用和指针可以", "C. 常量值和引用不能，指针可以", "D. 都可以修改"],
+        "correct": "A",
+        "explanation": "常量值传递副本不可修改；常量引用const int& x禁止通过引用修改；常量指针const int* p禁止通过指针修改指向的值，三者都不能修改实参。",
+        "source": "2024年6月GESP C++四级真题.pdf 判断题第6题"
+    },
+    {
+        "id": "19",
+        "type": "single",
+        "question": "函数不可以调用自己。( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "B",
+        "explanation": "C++支持递归函数，即函数可以调用自身，用于解决如斐波那契数列、阶乘等问题。",
+        "source": "2024年6月GESP C++四级真题.pdf 判断题第5题"
+    },
+    {
+        "id": "20",
+        "type": "single",
+        "question": "一个可能抛出异常的函数，必须在try子句里调用。( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "B",
+        "explanation": "不强制在try中调用，但异常会向上层传播，若未被捕获会导致程序终止。建议在try中调用以便处理异常。",
+        "source": "2023年9月GESPC++四级试卷解析.pdf 判断题第6题"
+    }
+]

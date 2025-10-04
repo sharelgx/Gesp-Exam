@@ -1,0 +1,212 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "下面哪一个不是操作系统名字( )",
+        "options": [
+            "A. Notepad",
+            "B. Linux",
+            "C. Windows",
+            "D. macOS"
+        ],
+        "correct": "A",
+        "explanation": "Notepad是Windows系统中的文本编辑器，并非操作系统；Linux、Windows、macOS均为常见的操作系统。",
+        "source": "2024CSP-J普及组题目含参考.pdf 单选题第10题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "编译器的主要作用是什么( )?",
+        "options": [
+            "A. 直接执行源代码",
+            "B. 将源代码转换为机器代码",
+            "C. 进行代码调试",
+            "D. 管理程序运行时的内存"
+        ],
+        "correct": "B",
+        "explanation": "编译器的主要功能是将高级语言编写的源代码转换为计算机可执行的机器代码。",
+        "source": "2024CSP-J普及组题目含参考.pdf 单选题第15题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "以下哪个不是C++中的循环语句?( )",
+        "options": [
+            "A. for",
+            "B. while",
+            "C. do-while",
+            "D. repeat-untill"
+        ],
+        "correct": "D",
+        "explanation": "repeat-untill是Pascal、lua等语言中的直到循环语句，C++并不支持。",
+        "source": "2024CSP-J普及组题目含参考.pdf 单选题第7题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "以下哪个不是C++中的基本数据类型?( )",
+        "options": [
+            "A. int",
+            "B. float",
+            "C. struct",
+            "D. char"
+        ],
+        "correct": "C",
+        "explanation": "struct是用户自定义的数据类型，用于定义结构体，不是C++的基本数据类型。",
+        "source": "2024CSP-J普及组题目含参考.pdf 单选题第6题"
+    },
+    {
+        "id": "5",
+        "type": "single",
+        "question": "以下哪种功能没有涉及C++语言的面向对象特性支持:( )。",
+        "options": [
+            "A. C++中调用printf函数",
+            "B. C++中调用用户定义的类成员函数",
+            "C. C++中构造一个class或struct",
+            "D. C++中构造来源于同一基类的多个派生类"
+        ],
+        "correct": "A",
+        "explanation": "printf函数是C语言的标准输入输出函数，属于过程式编程范畴，不涉及C++的面向对象特性；B、C、D分别涉及类、继承等面向对象特性。",
+        "source": "2022年CSP-J1真题.pdf 单选题第1题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "链表和数组的区别包括( )。",
+        "options": [
+            "A. 数组不能排序，链表可以",
+            "B. 链表比数组能存储更多的信息",
+            "C. 数组大小固定，链表大小可动态调整",
+            "D. 以上均正确"
+        ],
+        "correct": "C",
+        "explanation": "数组的大小在定义时固定，而链表的大小可通过动态添加或删除节点调整；数组和链表均可排序，存储信息量取决于元素类型。",
+        "source": "2022年CSP-J1真题.pdf 单选题第4题"
+    },
+    {
+        "id": "7",
+        "type": "single",
+        "question": "以下对数据结构的表述不恰当的一项为:( )。",
+        "options": [
+            "A. 图的深度优先遍历算法常使用的数据结构为栈。",
+            "B. 栈的访问原则为后进先出，队列的访问原则是先进先出。",
+            "C. 队列常常被用于广度优先搜索算法。",
+            "D. 栈与队列存在本质不同，无法用栈实现队列。"
+        ],
+        "correct": "D",
+        "explanation": "栈和队列本质不同，但可以通过两个栈模拟实现队列功能，因此D表述不恰当。",
+        "source": "2022年CSP-J1真题.pdf 单选题第10题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "以下排序算法的常见实现中，哪个选项的说法是错误的:( )。",
+        "options": [
+            "A. 冒泡排序算法是稳定的",
+            "B. 简单选择排序是稳定的",
+            "C. 简单插入排序是稳定的",
+            "D. 归并排序算法是稳定的"
+        ],
+        "correct": "B",
+        "explanation": "简单选择排序在选择最小元素与当前元素交换时，可能改变相同元素的相对顺序，是不稳定的排序算法；其他选项均为稳定排序算法。",
+        "source": "2022年CSP-J1真题.pdf 单选题第12题"
+    },
+    {
+        "id": "9",
+        "type": "single",
+        "question": "以下不属于面向对象程序设计语言的是( )。",
+        "options": [
+            "A. C++",
+            "B. Python",
+            "C. Java",
+            "D. C"
+        ],
+        "correct": "D",
+        "explanation": "C语言是面向过程的程序设计语言，C++、Python、Java均为面向对象程序设计语言。",
+        "source": "2021普及组junior-C++.pdf 单选题第1题"
+    },
+    {
+        "id": "10",
+        "type": "single",
+        "question": "以下奖项与计算机领域最相关的是( )。",
+        "options": [
+            "A. 奥斯卡奖",
+            "B. 图灵奖",
+            "C. 诺贝尔奖",
+            "D. 普利策奖"
+        ],
+        "correct": "B",
+        "explanation": "图灵奖是计算机科学领域的最高奖项，被誉为“计算机界的诺贝尔奖”。",
+        "source": "2021普及组junior-C++.pdf 单选题第2题"
+    },
+    {
+        "id": "11",
+        "type": "single",
+        "question": "目前主流的计算机储存数据最终都是转换成( )数据进行储存。",
+        "options": [
+            "A. 二进制",
+            "B. 十进制",
+            "C. 八进制",
+            "D. 十六进制"
+        ],
+        "correct": "A",
+        "explanation": "计算机内部采用二进制存储数据，因其物理实现简单、可靠性高。",
+        "source": "2021普及组junior-C++.pdf 单选题第3题"
+    },
+    {
+        "id": "12",
+        "type": "single",
+        "question": "在内存储器中每个存储单元都被赋予一个唯一的序号，称为( )。",
+        "options": [
+            "A. 下标",
+            "B. 地址",
+            "C. 序号",
+            "D. 编号"
+        ],
+        "correct": "B",
+        "explanation": "内存中每个存储单元的唯一标识称为地址，用于定位和访问数据。",
+        "source": "csp2020 (J1+S1).pdf 单选题第1题"
+    },
+    {
+        "id": "13",
+        "type": "single",
+        "question": "编译器的主要功能是( )。",
+        "options": [
+            "A. 将源程序翻译成机器指令代码",
+            "B. 将一种高级语言翻译成另一种高级语言",
+            "C. 将源程序重新组合",
+            "D. 将低级语言翻译成高级语言"
+        ],
+        "correct": "A",
+        "explanation": "编译器的核心功能是将高级语言编写的源程序转换为计算机可执行的机器指令代码。",
+        "source": "csp2020 (J1+S1).pdf 单选题第2题"
+    },
+    {
+        "id": "14",
+        "type": "single",
+        "question": "中国的国家顶级域名是( )",
+        "options": [
+            "A..cn",
+            "B..ch",
+            "C..chn",
+            "D..china"
+        ],
+        "correct": "A",
+        "explanation": ".cn是中国的国家顶级域名，.ch是瑞士的，.chn和.china并非标准国家顶级域名。",
+        "source": "2019-CCF-CSP-J1.pdf 单选题第1题"
+    },
+    {
+        "id": "15",
+        "type": "single",
+        "question": "以下哪个奖项是计算机科学领域的最高奖?( )",
+        "options": [
+            "A. 图灵奖",
+            "B. 鲁班奖",
+            "C. 诺贝尔奖",
+            "D. 普利策奖"
+        ],
+        "correct": "A",
+        "explanation": "图灵奖是计算机科学领域的最高荣誉，用于表彰对计算机科学有重大贡献的人士。",
+        "source": "2019-CCF-CSP-J1.pdf 单选题第15题"
+    }
+]

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>C++ 最小公倍数 动画演示</title>
+  <style>
+    body {
+      font-family: "Microsoft YaHei", sans-serif;
+      background: #f4f4f4;
+      padding: 2em;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #fff;
+      border-radius: 1em;
+      padding: 2em;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .flex {
+      display: flex;
+      gap: 2em;
+      align-items: flex-start;
+    }
+    .code-section {
+      flex: 1;
+    }
+    .animation-section {
+      flex: 1;
+      max-height: 500px;
+      overflow-y: auto;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 1em;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-top: 0;
+      white-space: pre-wrap;
+    }
+    .highlight {
+      background: #44475a;
+      display: block;
+      padding: 0 4px;
+      border-radius: 4px;
+    }
+    .step {
+      padding: 1em;
+      border-left: 5px solid #e67e22;
+      margin-bottom: 1em;
+      background: #ecf0f1;
+      border-radius: 5px;
+      position: relative;
+    }
+    .step::before {
+      content: "\2192";
+      position: absolute;
+      left: -1.5em;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5em;
+      color: #e67e22;
+    }
+    button {
+      margin-top: 1em;
+      padding: 0.6em 1.2em;
+      background-color: #e67e22;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    button:hover {
+      background-color: #d35400;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>最小公倍数（LCM）动画演示（C++）</h1>
+    <div class="flex">
+      <div class="code-section" id="codeSection">
+        <pre id="code">
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int lcm(int a, int b) {
+    return a * b / gcd(a, b);
+}
+        </pre>
+      </div>
+      <div class="animation-section">
+        <div id="animation"></div>
+        <button onclick="nextStep()">下一步</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const steps = [
+      { explanation: "输入：a = 12, b = 18，调用 gcd(12, 18)", highlight: 1 },
+      { explanation: "gcd：进入 while 循环，temp = 18", highlight: 2 },
+      { explanation: "gcd：计算 b = 12 % 18 = 12", highlight: 3 },
+      { explanation: "gcd：a = 18", highlight: 4 },
+      { explanation: "继续循环，temp = 12", highlight: 2 },
+      { explanation: "gcd：b = 18 % 12 = 6", highlight: 3 },
+      { explanation: "gcd：a = 12", highlight: 4 },
+      { explanation: "继续循环，temp = 6", highlight: 2 },
+      { explanation: "gcd：b = 12 % 6 = 0", highlight: 3 },
+      { explanation: "gcd：a = 6，返回 6", highlight: 5 },
+      { explanation: "回到 lcm 函数，执行 a * b / gcd = 12 * 18 / 6 = 36", highlight: 9 }
+    ];
+
+    let currentStep = 0;
+    function nextStep() {
+      const animDiv = document.getElementById("animation");
+      const codeBlock = document.getElementById("code");
+      const raw = codeBlock.textContent.trim().split("\n");
+      const step = steps[currentStep];
+      if (!step) return;
+      const html = raw.map((line, index) => {
+        return index === step.highlight ? `<span class='highlight'>${line}</span>` : line;
+      }).join("\n");
+      codeBlock.innerHTML = `<code>${html}</code>`;
+      const div = document.createElement("div");
+      div.className = "step";
+      div.innerText = step.explanation;
+      animDiv.appendChild(div);
+      currentStep++;
+    }
+  </script>
+</body>
+</html>

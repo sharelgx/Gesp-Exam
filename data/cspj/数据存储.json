@@ -1,0 +1,128 @@
+[
+    {
+        "id": "1",
+        "question": "计算 \\((14_{8}-1010_{2}) * D_{16}-1101_{2}\\) 的结果，并选择答案的十进制值：( )",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. 13",
+            "B. 14",
+            "C. 15",
+            "D. 16"
+        ],
+        "correct": "A",
+        "explanation": "将各数转换为十进制计算：\\(14_8=12\\)，\\(1010_2=10\\)，\\(D_{16}=13\\)，\\(1101_2=13\\)。原式=\\( (12-10) \\times 13 - (13-13) = 2 \\times 13 - 0 = 13 \\)。",
+        "source": "2024CSP-J普及组真题"
+    },
+    {
+        "id": "2",
+        "question": "记1Kb为1024字节（byte），1MB为1024KB，那么1MB是多少二进制位（bit）？( )",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. 1000000",
+            "B. 1048576",
+            "C. 8000000",
+            "D. 8388608"
+        ],
+        "correct": "D",
+        "explanation": "1MB=1024KB=1024×1024B，1B=8bit，故1MB=\\( 1024 \\times 1024 \\times 8 = 8388608 \\) bit。",
+        "source": "2024CSP-J普及组真题"
+    },
+    {
+        "id": "3",
+        "question": "八进制数32.1对应的十进制数是( )",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. 24.125",
+            "B. 24.250",
+            "C. 26.125",
+            "D. 26.250"
+        ],
+        "correct": "C",
+        "explanation": "整数部分：\\( 3 \\times 8^1 + 2 \\times 8^0 = 24 + 2 = 26 \\)；小数部分：\\( 1 \\times 8^{-1} = 0.125 \\)，合计26.125。",
+        "source": "2022CSP-J1真题"
+    },
+    {
+        "id": "4",
+        "question": "二进制数101.11对应的十进制数是( )",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. 6.5",
+            "B. 5.5",
+            "C. 5.75",
+            "D. 5.25"
+        ],
+        "correct": "C",
+        "explanation": "整数部分：\\( 1 \\times 2^2 + 0 \\times 2^1 + 1 \\times 2^0 = 4 + 0 + 1 = 5 \\)；小数部分：\\( 1 \\times 2^{-1} + 1 \\times 2^{-2} = 0.5 + 0.25 = 0.75 \\)，合计5.75。",
+        "source": "2021CSP-J普及组真题"
+    },
+    {
+        "id": "5",
+        "question": "二进制数1011转换成十进制数是( )",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. 10",
+            "B. 13",
+            "C. 11",
+            "D. 12"
+        ],
+        "correct": "C",
+        "explanation": " \\( 1 \\times 2^3 + 0 \\times 2^2 + 1 \\times 2^1 + 1 \\times 2^0 = 8 + 0 + 2 + 1 = 11 \\)。",
+        "source": "2020CSP-J1真题"
+    },
+    {
+        "id": "6",
+        "question": "二进制数11101110010111和01011011101011进行逻辑与运算的结果是( )",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. 01001010001011",
+            "B. 01001010010011",
+            "C. 01001010000001",
+            "D. 01001010000011"
+        ],
+        "correct": "D",
+        "explanation": "按位与运算规则：同1为1，其余为0。逐位计算得结果为01001010000011。",
+        "source": "2019CSP-J1真题"
+    },
+    {
+        "id": "7",
+        "question": "判断：1字节（Byte）等于8位（bit）。",
+        "image": "",
+        "type": "truefalse",
+        "correct": "对",
+        "explanation": "在计算机存储中，1字节（Byte）是基本存储单位，等于8位（bit）。",
+        "source": "GESP一级模拟题"
+    },
+    {
+        "id": "8",
+        "question": "阅读程序，回答问题：<pre><code>#include <iostream>\nusing namespace std;\nint main() {\n    int x = 0b1010;\n    cout << x << endl;\n    return 0;\n}\"</code></pre>程序的输出结果是多少？",
+        "image": "",
+        "type": "reading",
+        "sub_questions": [
+            {
+                "question": "程序中`0b1010`表示的二进制数对应的十进制是？",
+                "type": "single",
+                "options": [
+                    "A. 8",
+                    "B. 10",
+                    "C. 12",
+                    "D. 14"
+                ],
+                "correct": "B",
+                "explanation": "二进制数`1010`转换为十进制：\\( 1 \\times 2^3 + 0 \\times 2^2 + 1 \\times 2^1 + 0 \\times 2^0 = 8 + 0 + 2 + 0 = 10 \\)。"
+            },
+            {
+                "question": "判断：`0b`前缀用于表示二进制数。",
+                "type": "truefalse",
+                "correct": "对",
+                "explanation": "在C++中，`0b`前缀用于声明二进制字面量，如`0b1010`表示二进制数1010。"
+            }
+        ],
+        "source": "GESP一级模拟题"
+    }
+]

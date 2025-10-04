@@ -1,0 +1,217 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "2024年10月8日，诺贝尔物理学奖“意外地”颁给了两位计算机科学家约翰·霍普菲尔德(John J. Hopfield)和杰弗里·辛顿(Geoffrey E. Hinton)。这两位科学家的主要研究方向是( )。",
+    "options": ["A. 天体物理", "B. 流体力学", "C. 人工智能", "D. 量子理论"],
+    "correct": "C",
+    "explanation": "约翰·霍普菲尔德和杰弗里·辛顿均为人工智能领域的先驱，尤其在神经网络等方向有突出贡献，故正确答案为C。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "下列软件中是操作系统的是( )。",
+    "options": ["A. 高德地图", "B. 腾讯会议", "C. 纯血鸿蒙", "D. 金山永中"],
+    "correct": "C",
+    "explanation": "纯血鸿蒙是华为开发的操作系统，其他选项均为应用程序，故正确答案为C。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "有关下列C++代码的说法，正确的是( )。<pre><code>1 cout << \"Hello,GESP!\";</code></pre>",
+    "options": ["A. 配对双引号内，不可以有汉字", "B. 配对双引号可以相应改变为英文单引号而输出效果不变", "C. 配对双引号可以相应改变为三个连续英文单引号而输出效果不变", "D. 配对双引号可以相应改变为三个连续英文双引号而输出效果不变"],
+    "correct": "D",
+    "explanation": "C++中双引号用于表示字符串，三个连续双引号可用于多行字符串，此处替换后输出效果不变；单引号用于单个字符，替换后会报错，故正确答案为D。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "C++表达式12 - 3 * 2 && 2 的值是( )。",
+    "options": ["A. 0", "B. 1", "C. 6", "D. 9"],
+    "correct": "B",
+    "explanation": "先计算乘法3*2=6，再计算减法12-6=6；逻辑与运算中，非0值视为真，6&&2结果为1，故正确答案为B。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "在C++中，假设N为正整数2，则cout << (N / 3 + N % 3) 将输出( )。",
+    "options": ["A. 0", "B. 2", "C. 3", "D. 4"],
+    "correct": "B",
+    "explanation": "N/3=0（整数除法），N%3=2，两者之和为0+2=2，故正确答案为B。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "C++语句cout << 7%3 << ' '<< \"7%3\"<< ' ' << \"7%3={7%3}\" 执行后的输出是( )。",
+    "options": ["A. 1 1 1=1", "B. 1 7%3 1=1", "C. 1 7%3 7%3=1", "D. 1 7%3 7%3={7%3}"],
+    "correct": "D",
+    "explanation": "7%3=1，双引号内的内容原样输出，因此输出为1 7%3 7%3={7%3}，故正确答案为D。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "下面C++代码执行后，求出几天后星期几。如果星期日则输出\"星期天\"否则输出形如\"星期1\" 。横线上应填入的代码是( )。<pre><code>1 int today, days;\ncout << \"今天星期几?\";\ncin >> today;\ncout << \"求几天后星期几?\";\ncin >> days;\nint N = (today + days) % 7;\nif( )\ncout << \"星期天\";\nelse\ncout << \"星期%d\", N;</code></pre>",
+    "options": ["A. N % 7 != 0", "B. N % 7 == 0", "C. N == 0", "D. N % 7"],
+    "correct": "C",
+    "explanation": "N为(today + days) % 7的结果，星期日对应N=0，因此条件应为N == 0，故正确答案为C。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "下面C++代码执行后输出是( )。<pre><code>1 int N=0,i;\nfor (i = 1; i < 10; i++)\nN += 1;\ncout << (N + i);</code></pre>",
+    "options": ["A. 54", "B. 20", "C. 19", "D. 18"],
+    "correct": "C",
+    "explanation": "i从1到9，循环9次，N=9；循环结束后i=10，N+i=9+10=19，故正确答案为C。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "下面C++代码执行后输出的是( )。<pre><code>1 int tnt = 0;\nfor (int i = 0; i < 100; i++)\ntnt += i % 10;\ncout << tnt;</code></pre>",
+    "options": ["A. 4950", "B. 5050", "C. 450", "D. 100"],
+    "correct": "C",
+    "explanation": "i从0到99，i%10为0-9循环10次，总和为(0+1+2+...+9)*10=45*10=450，故正确答案为C。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "第10题下面C++代码执行后输出的是（）。<pre><code>1 int N=0,i;\n2 int tnt = 0;\n3 for (i = 5; i < 100; i+=5) {\n4     if (i % 2 == 0)\n5         continue;\n6     tnt += 1;\n7     if (i >= 50)\n8         break;\n9 }\n10 cout << tnt;</code></pre>",
+    "options": ["A. 10", "B. 9", "C. 6", "D. 5"],
+    "correct": "C",
+    "explanation": "分析循环中`i`的取值及操作：`i`从5开始，每次加5，依次取5、10、15、20、25、30、35、40、45、50、55……\n- 若`i`为偶数（如10、20、30、40、50），执行`continue`，跳过`tnt += 1`；\n- 若`i`为奇数，执行`tnt += 1`，随后判断`i >= 50`：\n  - 当`i=5、15、25、35、45`时，`i < 50`，循环继续；\n  - 当`i=55`时，`i >= 50`，执行`break`，循环终止。\n综上，`tnt`共成功累加6次（对应`i=5、15、25、35、45、55`），最终`cout`输出`tnt`的值为6，故正确答案为C。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "下面的程序用于判断输入的整数N是否为能被3整除的偶数，横线处应填写代码是( )。<pre><code>1 int N;\ncin >> N;\nif( )\ncout << \"能被3整除的偶数\" << endl;\nelse\ncout << \"其他情形\" << endl;</code></pre>",
+    "options": ["A. (N%2)&&(N%3)", "B. (N%2==0)&&(N%3)", "C. (N%2)&&(N%3==0)", "D. (N%2==0)&&(N%3==0)"],
+    "correct": "D",
+    "explanation": "能被3整除的偶数需满足既是偶数（N%2==0）又能被3整除（N%3==0），故正确答案为D。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )。<pre><code>1 int sum=0;\nfor(int i=1; i<=9; i++)\nsum += i;\ncout << sum;</code></pre>",
+    "options": ["A. 54", "B. 45", "C. 25", "D. 10"],
+    "correct": "B",
+    "explanation": "sum为1到9的累加和，1+2+...+9=45，故正确答案为B。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "int类型变量a的值是一个正方形的边长，如下图中的正方形的四条边长都为4 ，则下列哪个语句执行后能够使得正方形的周长（四条边长的和）增加4？( )。",
+    "options": ["A. a*4;", "B. a+4;", "C. a+1;", "D. ++a;"],
+    "correct": "D",
+    "explanation": "周长增加4即边长增加1（4*1=4）。++a使a的值增加1，周长变为4*(a+1)，增加4；其他选项不改变a的值或增加幅度不符，故正确答案为D。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "C++表达式(6 > 2) * 2 的值是( )。",
+    "options": ["A. 1", "B. 2", "C. true", "D. truetrue"],
+    "correct": "B",
+    "explanation": "6>2为真，在C++中逻辑真用1表示，1*2=2，故正确答案为B。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "下面C++代码用于判断输入的整数是否为位增数（即从首位到个位逐渐增大，是则输出1，如123是位增数）。横线处应填入的代码是( )。<pre><code>1 int N;\n2 int n1, n2;\n3 \n4 cin >> N;\n5 \n6 ____________;\n7 while(N) {\n8     n1 = N % 10;\n9     if(n1 >= n2) {\n10        cout << 0;\n11        return 0;\n12    }\n13    n2 = n1;\n14    N /= 10;\n15}\n16 cout << 1;\n17 return 0;</code></pre>",
+    "options": ["A. n2 = N%10", "B. N /= 10", "C. n2 = N/10, N %= 10", "D.  n2 = N%10, N /= 10"],
+    "correct": "D",
+    "explanation": "位增数要求每位数字从左到右递增，若n2（当前位）>=n1（前一位），则不是位增数，输出0，故正确答案为D。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "16",
+    "type": "truefalse",
+    "question": "在Windows的资源管理器中为已有文件A建立副本的操作是 Ctrl+C ，然后 Ctrl+V 。( )",
+    "correct": "√",
+    "explanation": "Ctrl+C为复制，Ctrl+V为粘贴，可实现文件副本的建立，故正确。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "17",
+    "type": "truefalse",
+    "question": "在C++中，表达式8/3 和8%3 的值相同。( )",
+    "correct": "√",
+    "explanation": "8/3=2（整数除法取商），8%3=2（取余），值相同。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "18",
+    "type": "truefalse",
+    "question": "X是C++语言的基本类型变量，则语句<pre><code>1 cin >> X;\ncout << X;</code></pre> 能接收键盘输入并原样输出。( )",
+    "correct": "×",
+    "explanation": "若X为整型，输入非整数时无法正确接收；若X为字符串，可接收任意字符，但并非所有基本类型都能保证“原样输出”，故错误。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "19",
+    "type": "truefalse",
+    "question": "下面C++代码执行后将输出10 。<pre><code>1 int cnt=0;\nfor (int i=0; i < 10; i++) {\ncnt++;\ncontinue;\n}\ncout << cnt;</code></pre>( )",
+    "correct": "√",
+    "explanation": "循环执行10次，每次cnt自增1，continue不影响cnt累加，最终cnt=10，故正确。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "20",
+    "type": "truefalse",
+    "question": "下面C++代码执行后将输出100 。<pre><code>1 int i;\nfor (i = 0; i <= 100; i++)\ncontinue;\ncout << i;</code></pre>( )",
+    "correct": "×",
+    "explanation": "循环条件i <= 100，当i=101时退出循环，输出i=101，故错误。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "21",
+    "type": "truefalse",
+    "question": "下面C++代码被执行时，将执行三次输出（即标记行L2将被执行一次）。<pre><code>1 for (int i=0; i<10; i+=3)\ncout << i << endl; //L2</code></pre>( )",
+    "correct": "×",
+    "explanation": "i取值0、3、6、9，循环3次，L2被执行4次，故错误。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "22",
+    "type": "truefalse",
+    "question": "C++语句<pre><code>1 cout << (3,2);</code></pre> 执行后，将输出3和2 ，且3和2之间有逗号间隔。( )",
+    "correct": "×",
+    "explanation": "逗号表达式取最后一个值，(3,2)的值为2，输出为2，故错误。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "23",
+    "type": "truefalse",
+    "question": "在C++代码中，studentName 、student_name 以及sStudentName 都是合法的变量名称。( )",
+    "correct": "√",
+    "explanation": "三者均由字母和下划线组成，且以字母开头，符合C++变量命名规则，故正确。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "24",
+    "type": "truefalse",
+    "question": "在C++中，对浮点变量float f ,则语句<pre><code>1 cin >> f;\ncout << (f < 1);</code></pre> 在输入是2e-1 时，输出是0 。( )",
+    "correct": "×",
+    "explanation": "2e-1表示0.2，0.2 < 1 为真，在C++中逻辑真输出1，故该说法错误。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  },
+  {
+    "id": "25",
+    "type": "truefalse",
+    "question": "在C++的循环体内部，如果 break 和 continue 语句连续在一起，那么作用抵消，可以顺利执行下一次循环。( )",
+    "correct": "×",
+    "explanation": "break语句会直接终止循环，不会执行后续的continue语句，两者连续使用时循环会被终止，无法执行下一次循环，故该说法错误。",
+    "source": "2024年12月GESP C++一级真题.pdf"
+  }
+]

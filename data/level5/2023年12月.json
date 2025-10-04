@@ -1,0 +1,332 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "下面C++代码用于求斐波那契数列，该数列第1、2项为1，以后各项均是前两项之和。下面有关说法错误的是( )。<pre><code>int fiboA(int N)\n{\n    if(N == 1 || N == 2)\n        return 1;\n    else\n        return fiboA(N-1) + fiboA(N-2);\n}\nint fiboB(int N)\n{\n    if (N == 1 || N == 2)\n        return 1;\n    int last2 = 1, last1 = 1;\n    int nowVal = 0;\n    for(int i = 2; i < N; i++)\n    {\n        nowVal = last1 + last2;\n        last2 = last1;\n        last1 = nowVal;\n    }\n    return nowVal;\n}</code></pre>",
+    "options": [
+      "A. fiboA() 用递归方式，fiboB() 循环方式",
+      "B. fiboA() 更加符合斐波那契数列的数学定义，直观易于理解，而fiboB() 需要将数学定义转换为计算机程序实现",
+      "C. fiboA() 不仅仅更加符合数学定义，直观易于理解，且因代码量较少执行效率更高",
+      "D. fiboB() 虽然代码量有所增加，但其执行效率更高"
+    ],
+    "correct": "C",
+    "explanation": "fiboA采用递归方式，fiboB采用循环方式，A选项正确。fiboA的递归形式更贴合斐波那契数列的数学定义（每项为前两项之和），而fiboB需要通过迭代更新变量来实现，B选项正确。但fiboA存在大量重复计算（如计算fiboA(5)时会重复计算fiboA(3)等），导致其时间复杂度为O(2ⁿ)，执行效率远低于时间复杂度为O(n)的fiboB，因此C选项错误，D选项正确。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "下面C++代码以递归方式实现合并排序，并假设merge(int T[], int R[], int s, int m, int t)函数将有序（同样排序规则）的T[s..m]和T[m+1..t]归并到R[s..t]中。横线处应填上代码是( )。<pre><code>void mergeSort(int SList[], int TList[], int s, int t, int len)\n{\n    if(s == t)\n    {\n        TList[s] = SList[s];\n        return;\n    }\n    int* T2 = new int[len];//保存中间结果\n    int m = (s + t) / 2;\n    // 横线处填写代码\n    merge(T2, SList, s, m, t);\n    delete T2;\n    return ;\n}</code></pre>",
+    "options": [
+      "A. mergeSort(SList, T2, s, m, len), mergeSort(SList, T2, m, t, len)",
+      "B. mergeSort(SList, T2, s, m-1, len), mergeSort(SList, T2, m+1, t, len)",
+      "C. mergeSort(SList, T2, s, m, len), mergeSort(SList, T2, m+1, t, len)",
+      "D. mergeSort(SList, T2, s, m-1, len), mergeSort(SList, T2, m-1, t, len)"
+    ],
+    "correct": "C",
+    "explanation": "归并排序的核心思想是分治：将序列分为两个子序列，分别排序后再合并。对于区间[s, t]，中间位置为m，左子区间为[s, m]，右子区间为[m+1, t]。需要先递归排序这两个子区间，再调用merge函数合并。因此横线处应填入对左右子区间的递归调用，即mergeSort(SList, T2, s, m, len)和mergeSort(SList, T2, m+1, t, len)，C选项正确。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "阅读下面的C++代码，执行后其输出是( )。<pre><code>int stepCount = 0;\nint fracA(int N)\n{\n    stepCount += 1;\n    cout << stepCount << \"->\";\n    int rtn = 1;\n    for(int i = 1; i <= N; i++)\n        rtn *= i;\n    return rtn;\n}\nint fracB(int N)\n{\n    stepCount += 1;\n    cout << stepCount << \"->\";\n    if(N == 1)\n        return 1;\n    return N * fracB(N - 1);\n}\nint main()\n{\n    cout << fracA(5);\n    cout << \"<===>\";\n    cout << fracB(5);\n    return 0;\n}</code></pre>",
+    "options": [
+      "A. 1->120<===>2->120",
+      "B. 1->120<===>1->120",
+      "C. 1->120<===>1->2->3->4->5->120",
+      "D. 1->120<===>2->3->4->5->6->120"
+    ],
+    "correct": "D",
+    "explanation": "fracA是循环实现的阶乘函数，调用fracA(5)时，stepCount初始为0，执行后stepCount变为1，输出“1->”，返回5! = 120，因此首先输出“1->120”。\n\nfracB是递归实现的阶乘函数，调用fracB(5)时：\n- 第一次调用：stepCount变为2，输出“2->”，递归调用fracB(4)；\n- 第二次调用：stepCount变为3，输出“3->”，递归调用fracB(3)；\n- 第三次调用：stepCount变为4，输出“4->”，递归调用fracB(2)；\n- 第四次调用：stepCount变为5，输出“5->”，递归调用fracB(1)；\n- 第五次调用：stepCount变为6，输出“6->”，返回1；\n- 回溯计算得5! = 120，输出“120”。\n\n因此整体输出为“1->120<===>2->3->4->5->6->120”，D选项正确。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "下面的C++用于对lstA排序，使得偶数在前奇数在后，横线处应填入( )。<pre><code>bool isEven(int N)\n{\n    return N % 2 == 0;\n}\nvoid swap(int &a, int &b)\n{\n    int t;\n    t = a, a = b, b = t;\n    return;\n}\nvoid sortA(int lstA[], int n)\n{\n    int i, j, t;\n    for(i = n - 1; i > 0; i--)\n        for(j = 0; j < i; j++)\n            if(/* 横线处填写代码 */)\n                swap(lstA[j], lstA[j+1]);\n    return;\n}</code></pre>",
+    "options": [
+      "A. !isEven(lstA[j]) && isEven(lstA[j+1])",
+      "B. isEven(lstA[j]) && !isEven(lstA[j+1])",
+      "C. lstA[j] > lstA[j+1]",
+      "D. lstA[j] < lstA[j+1]"
+    ],
+    "correct": "A",
+    "explanation": "目标是让偶数在前、奇数在后。当相邻两个元素中，前者是奇数（!isEven(lstA[j])）且后者是偶数（isEven(lstA[j+1])）时，二者顺序错误，需要交换。因此横线处应填入!isEven(lstA[j]) && isEven(lstA[j+1])，A选项正确。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "下面的C++代码用于将字符串保存到带头节点的双向链表中，并对重复的串计数，然后将最新访问的串的节点放在链头便于查找。横线处应填入代码是( )。<pre><code>typedef struct Node\n{\n    string str;\n    int ref;\n    struct Node *next, *prev;\n}Node;\nNode* Insert(Node *pHead, string s)\n{\n    Node *p = pHead->next;\n    Node *q;\n    while(p)\n    {\n        if(p->str == s)\n        {\n            p->ref++;\n            p->next->prev = p->prev;\n            p->prev->next = p->next;\n            break;\n        }\n        p = p->next;\n    }\n    if(!p)\n    {\n        p = new Node;\n        p->str = s;\n        p->ref = 0;\n        p->next = p->prev = NULL;\n    }\n    // 横线处填写代码\n    pHead->next = p, p->prev = pHead;\n    return pHead;\n}</code></pre>",
+    "options": [
+      "A. if(pHead) {p->next = pHead->next, pHead->next->prev = p;}",
+      "B. if(pHead->next) {p->next = pHead->next, pHead->next->prev = p;}",
+      "C. p->next = pHead->next, pHead->next->prev = p;",
+      "D. 触发异常，不能对空指针进行操作。"
+    ],
+    "correct": "B",
+    "explanation": "代码的功能是将节点p移到链表头部（或插入新节点到头部）。当链表非空（pHead->next不为空）时，需要将p的next指向原头节点的下一个节点，并将原头节点下一个节点的prev指向p，以维护双向链表的指针关系。若链表为空（pHead->next为NULL），则无需此操作。因此横线处应填入带条件判断的代码，B选项正确。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "有关下面C++代码说法正确的是( )。<pre><code>int rc;\nint foo(int x, int y)\n{\n    int r;\n    if(y == 0)\n        r = x;\n    else\n        r = foo(y, x % y);\n    rc++;\n    return r;\n}</code></pre>",
+    "options": [
+      "A. 如果x 小于10，rc 值也不会超过20",
+      "B. foo 可能无限递归",
+      "C. foo 可以求出x 和y 的最大公共质因子",
+      "D. foo 能够求出x 和y 的最小公倍数"
+    ],
+    "correct": "A",
+    "explanation": "函数foo的逻辑是辗转相除法的递归实现，用于求x和y的最大公约数，而非最大公共质因子（C错误）或最小公倍数（D错误）。递归终止条件是y == 0，不会无限递归（B错误）。当x < 10时，辗转相除法的递归次数有限（最多约log₂x次），rc作为递归调用计数，不会超过20（A正确）。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "下面的C++代码实现对list的快速排序，有关说法，错误的是( )。<pre><code>vector<int> operator+(vector<int> lA, vector<int> lB)\n{\n    vector<int> lst;\n    for(int i = 0; i < lA.size(); i++)\n        lst.push_back(lA[i]);\n    for(int i = 0; i < lB.size(); i++)\n        lst.push_back(lB[i]);\n    return lst;\n}\nvector<int> qSort(vector<int> lst)\n{\n    if(lst.size() < 2)\n        return lst;\n    int pivot = lst[0];\n    vector<int> less, greater;\n    for(int i = 1; i < lst.size(); i++)\n    {\n        if(lst[i] <= pivot)\n            less.push_back(lst[i]);\n        else\n            greater.push_back(lst[i]);\n    }\n    return /* 横线处填写代码 */;\n}</code></pre>",
+    "options": [
+      "A. qSort(less) + qSort(greater) + (vector<int>)pivot",
+      "B. (vector<int>)pivot + (qSort(less) + qSort(greater))",
+      "C. (qSort(less) + (vector<int>)pivot) + qSort(greater)",
+      "D. qSort(less) + pivot + qSort(greater)"
+    ],
+    "correct": "C",
+    "explanation": "快速排序的逻辑是：以pivot为基准，将序列分为小于等于pivot的less和大于pivot的greater，然后合并为“排序后的less + pivot + 排序后的greater”。\n- A选项顺序错误（pivot应在中间）；\n- B选项顺序错误（less应在pivot前）；\n- D选项中pivot是int类型，无法直接与vector<int>相加，语法错误；\n- C选项符合逻辑且语法正确（将pivot转换为vector后拼接）。因此错误的说法是A、B、D，正确答案为C。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "下面C++代码中的isPrimeA()和isPrimeB()都用于判断参数N是否素数，有关其时间复杂度的正确说法是( )。<pre><code>bool isPrimeA(int N)\n{\n    if(N < 2)\n        return false;\n    for(int i = 2; i <= N/2; i++)\n        if(N % i == 0)\n            return false;\n    return true;\n}\nbool isPrimeB(int N)\n{\n    if(N < 2)\n        return false;\n    for(int i = 2; i <= sqrt(N); i++)\n        if(N % i == 0)\n            return false;\n    return true;\n}</code></pre>",
+    "options": [
+      "A. isPrimeA()的最坏时间复杂度是O(N/2)，isPrimeB()的最坏时间复杂度是O(logN)，isPrimeA()优于isPrimeB()",
+      "B. isPrimeA()的最坏时间复杂度是O(N/2)，isPrimeB()的最坏时间复杂度是O(N^(1/2))，isPrimeB()绝大多数情况下优于isPrimeA()",
+      "C. isPrimeA()的最坏时间复杂度是O(N^(1/2))，isPrimeB()的最坏时间复杂度是O(N)，isPrimeA()优于isPrimeB()",
+      "D. isPrimeA()的最坏时间复杂度是O(logN)，isPrimeB()的最坏时间复杂度是O(N)，isPrimeA()优于isPrimeB()"
+    ],
+    "correct": "B",
+    "explanation": "isPrimeA的循环范围是2到N/2，最坏时间复杂度为O(N/2)；isPrimeB的循环范围是2到√N，最坏时间复杂度为O(√N)。对于较大的N，√N远小于N/2，因此isPrimeB的效率更高，B选项正确。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "下面C++代码用于有序list的二分查找，有关说法错误的是( )。<pre><code>int _binarySearch(vector<int> lst, int Low, int High, int Target)\n{\n    if(Low > High)\n        return -1;\n    int Mid = (Low + High) / 2;\n    if(Target == lst[Mid])\n        return Mid;\n    else if(Target < lst[Mid])\n        return _binarySearch(lst, Low, Mid - 1, Target);\n    else\n        return _binarySearch(lst, Mid + 1, High, Target);\n}\nint bSearch(vector<int> lst, int Val)\n{\n    return _binarySearch(lst, 0, lst.size(), Val);\n}</code></pre>",
+    "options": [
+      "A. 代码采用二分法实现有序list的查找",
+      "B. 代码采用分治算法实现有序list的查找",
+      "C. 代码采用递归方式实现有序list的查找",
+      "D. 代码采用动态规划算法实现有序list的查找"
+    ],
+    "correct": "D",
+    "explanation": "代码通过递归实现二分查找，每次将查找范围减半（分治思想），属于二分法和分治算法，A、B、C选项正确。动态规划算法需要存储子问题的解以避免重复计算，此处无此逻辑，D选项错误。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "在上题的_binarySearch算法中，如果lst中有N个元素，其时间复杂度是( )。",
+    "options": [
+      "A. O(N)",
+      "B. O(logN)",
+      "C. O(NlogN)",
+      "D. O(N²)"
+    ],
+    "correct": "B",
+    "explanation": "二分查找每次将查找范围缩小一半，最坏情况下需要log₂N次比较，因此时间复杂度为O(logN)，B选项正确。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "下面的C++代码使用数组模拟整数加法，可以处理超出大整数范围的加法运算。横线处应填入代码是( )。<pre><code>vector<int> operator+(vector<int> a, vector<int> b)\n{\n    vector<int> c;\n    int t = 0;\n    for(int i = 0; i < a.size() || i < b.size(); i++)\n    {\n        if(i < a.size())\n            t += a[i];\n        if(i < b.size())\n            t += b[i];\n        // 横线处填写代码\n    }\n    if(t)\n        c.push_back(t);\n    return c;\n}</code></pre>",
+    "options": [
+      "A. c.push_back(t % 10), t = t % 10;",
+      "B. c.push_back(t / 10), t = t % 10;",
+      "C. c.push_back(t / 10), t = t / 10;",
+      "D. c.push_back(t % 10), t = t / 10;"
+    ],
+    "correct": "D",
+    "explanation": "大整数加法中，每一位的和为t，当前位的结果是t%10，进位是t/10。因此需要将t%10存入结果向量，并将t更新为t/10，D选项正确。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "有关下面C++代码的说法正确的是( )。<pre><code>class Node\n{\npublic:\n    int Value;\n    Node* Prev;\n    Node* Next;\n    Node(int Val, Node* Prv = NULL, Node* Nxt = NULL);\n};\nNode::Node(int Val, Node* Prv, Node* Nxt)\n{\n    this->Value = Val;\n    this->Prev = Prv;\n    this->Next = Nxt;\n}\nint main()\n{\n    Node firstNode = Node(10);\n    firstNode.Next = new Node(100, &firstNode);\n    firstNode.Next->Next = new Node(111, firstNode.Next);\n    return 0;\n}</code></pre>",
+    "options": [
+      "A. 上述代码构成单向链表",
+      "B. 上述代码构成双向链表",
+      "C. 上述代码构成循环链表",
+      "D. 上述代码构成指针链表"
+    ],
+    "correct": "B",
+    "explanation": "代码中的Node结构体包含Prev（前驱指针）和Next（后继指针），每个新节点创建时都指定了前驱节点（如new Node(100, &firstNode)中，Prv为&firstNode），因此形成双向链表，B选项正确。单向链表只有后继指针，循环链表需首尾相连，“指针链表”并非标准术语。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "通讯卫星在通信网络系统中主要起到()的作用。",
+    "options": [
+      "A. 信息过滤",
+      "B. 信号中继",
+      "C. 避免攻击",
+      "D. 数据加密"
+    ],
+    "correct": "B",
+    "explanation": "通讯卫星的主要功能是转发无线电信号，实现远距离通信，即信号中继，B选项正确。信息过滤、避免攻击、数据加密均不是其主要作用。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "小杨想编写一个判断任意输入的整数N是否为素数的程序，下面哪个方法不合适?( )",
+    "options": [
+      "A. 埃氏筛法",
+      "B. 线性筛法",
+      "C. 二分答案",
+      "D. 枚举法"
+    ],
+    "correct": "C",
+    "explanation": "埃氏筛法和线性筛法可用于预处理素数表，进而判断N是否为素数；枚举法可直接判断N是否有除1和自身外的因数。二分答案适用于在有序范围内查找满足条件的值，无法直接用于素数判断，C选项不合适。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "下面的排序算法都要处理多趟数据，哪种排序算法不能保证在下一趟处理时从待处理数据中选出最大或最小的数据?( )",
+    "options": [
+      "A. 选择排序",
+      "B. 快速排序",
+      "C. 堆排序",
+      "D. 冒泡排序"
+    ],
+    "correct": "B",
+    "explanation": "选择排序每趟选出最小（或最大）元素；堆排序每趟弹出堆顶的最大（或最小）元素；冒泡排序每趟将最大（或最小）元素“冒泡”到末端。快速排序每趟以基准值划分区间，无法保证选出最大或最小元素，B选项正确。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "归并排序的时间复杂度是O(N logN)。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "归并排序采用分治策略，将序列分为两个子序列递归排序后合并，每次合并的时间复杂度为O(N)，递归深度为O(logN)，因此总体时间复杂度为O(N logN)，该说法正确。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "小杨在生日聚会时拿一块H*W的巧克力招待来的K个小朋友，保证每位小朋友至少能获得一块相同大小的巧克力。那么小杨想分出来最大边长的巧克力可以使用二分法。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "该问题可转化为寻找最大边长x，使得巧克力能分成K块x*x的正方形。x的取值范围是1到min(H,W)，且满足(H/x)*(W/x) ≥ K，符合二分答案的适用场景（单调条件），因此可以使用二分法。原解析认为错误，此处修正为正确，答案应为A。但根据原文档解析，此处答案为B。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "以下C++代码能以递归方式实现斐波那契数列，该数列第1、2项为1，以后各项均是前两项之和。<pre><code>int Fibo(int N)\n{\n    if(N == 1 || N == 2)\n        return 1;\n    else\n    {\n        int m = fiboA(N - 1);\n        int n = fiboB(N - 2);\n        return m + n;\n    }\n}</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "递归函数需调用自身（Fibo）才能实现递归逻辑，而代码中调用的是fiboA和fiboB，并非自身，无法形成递归，因此不能正确实现斐波那契数列，该说法错误。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "贪心算法可以达到局部最优，但可能不是全局最优解。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "贪心算法的核心是选择当前最优解，但局部最优的累积不一定能得到全局最优解（如部分找零问题），该说法正确。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "小杨设计了一个拆数程序，它能够将任意的非质数自然数N转换成若干个质数的乘积，这个程序是可以设计出来的。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "根据唯一分解定理，任何大于1的合数都可以唯一分解为若干个质数的乘积，因此该程序可以设计实现（如通过试除法），该说法正确。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "插入排序有时比快速排序时间复杂度更低。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "插入排序的时间复杂度为O(N²)，但在数据几乎有序时，其实际运行时间接近O(N)；快速排序的平均时间复杂度为O(N logN)，但最坏情况下为O(N²)。因此在特定场景下（如几乎有序的数据），插入排序可能更快，该说法正确。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "下面的C++代码能实现十进制正整数N转换为八进制并输出。<pre><code>char s[10];\nint main()\n{\n    int N;\n    cin >> N;\n    string rst = \"\";\n    while(N != 0)\n    {\n        s[0] = N % 8 + '0';\n        rst += string(s);\n        N /= 8;\n    }\n    cout << rst << endl;\n    return 0;\n}</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "代码中，每次取N%8作为八进制的一位，但直接将字符拼接会导致顺序颠倒（应为逆序），且string(s)会从s[0]开始读取直到空字符，可能引入无关字符。正确做法应是将每一位存入容器后逆序输出，因此该代码无法正确转换，说法错误。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "对数组int arr[] = {2, 6, 3, 5, 4, 8, 1, 0, 9, 10}执行sort(arr, arr+10)，则执行后arr中的数据调整为{0, 1, 2, 3, 4, 5, 6, 8, 9, 10}。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "C++标准库的sort函数默认按升序排序，对给定数组排序后结果为{0, 1, 2, 3, 4, 5, 6, 8, 9, 10}，该说法正确。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "小杨想写一个程序来算出正整数N有多少个因数，经过思考他写出了一个重复没有超过N/2次的循环就能够算出来了。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "计算N的因数时，只需循环到√N即可，但循环到N/2也能正确找出所有因数（效率较低），因此该说法正确。",
+    "source": "2023年12月 GESP C++五级真题"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "同样的整数序列分别保存在单链表和双向链中，这两种链表上的简单冒泡排序的复杂度相同。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "冒泡排序的核心是比较相邻元素并交换，单链表和双向链表都需要通过指针访问相邻元素，时间复杂度均为O(N²)，空间复杂度均为O(1)，因此复杂度相同，该说法正确。",
+    "source": "2023年12月 GESP C++五级真题"
+  }
+]

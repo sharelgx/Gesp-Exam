@@ -1,0 +1,159 @@
+    [
+        {
+      "id": "1",
+      "type": "single",
+      "question": "在C++中，用于从标准输入流读取数据的关键字是( )｡",
+      "options": ["A. cin", "B. cout", "C. scanf", "D. printf"],
+      "correct": "A",
+      "explanation": "cin是C++标准输入流对象，用于读取数据；cout是输出流，scanf/printf是C语言函数。",
+      "source": "2023年6月 GESP C++一级试题解析.pdf 单选题 第7题"
+    },
+    {
+      "id": "2",
+      "type": "single",
+      "question": "在C++中，能正确输出字符串Hello GESP!的语句是( )｡",
+      "options": ["A. cout << Hello GESP!;", "B. cout << \"Hello GESP!\" ;", "C. cin >> \"Hello GESP!\";", "D. cin << \"Hello GESP!\";"],
+      "correct": "B",
+      "explanation": "输出字符串需用双引号包裹，使用cout<<；cin用于输入，排除C/D；A缺少双引号，语法错误。",
+      "source": "2023年6月 GESP C++一级试题解析.pdf 单选题 第8题"
+    },
+    {
+      "id": "3",
+      "type": "truefalse",
+      "question": "C++语句cout<<(2,3,\"23\") 的输出为23｡(对/错)",
+      "correct": "√",
+      "explanation": "逗号表达式取最后一个值，\"23\"为字符串，输出为23。",
+      "source": "2023年9月 GESP C++一级试题解析.pdf 判断题 第4题"
+    },
+    {
+      "id": "4",
+      "type": "single",
+      "question": "在C++代码中，执行语句cout << 3+5; 会输出( )｡",
+      "options": ["A. 3+5", "B. 8", "C. 3+5=8", "D. 无法输出"],
+      "correct": "B",
+      "explanation": "cout可直接输出表达式计算结果，3+5=8，输出8。",
+      "source": "2023年6月 GESP C++一级试题解析.pdf 判断题 第3题（改编）"
+    },
+    {
+      "id": "5",
+      "type": "single",
+      "question": "下面C++代码段执行后的输出是( )｡\n1 int a=3,b=4;\n2 cout<<\"a+b=\"<<a+b;",
+      "options": ["A. 3+4=7", "B. a+b=7", "C. 7=a+b", "D. a+b=a+b"],
+      "correct": "B",
+      "explanation": "双引号内字符串直接输出，a+b计算为7，输出“a+b=7”。",
+      "source": "2023年9月 GESP C++一级试题解析.pdf 单选题 第4题"
+    },
+    {
+      "id": "6",
+      "type": "single",
+      "question": "在C++中，若要输出换行，可使用的操纵符是( )｡",
+      "options": ["A. endl", "B. end", "C. \\n", "D. ln"],
+      "correct": "A",
+      "explanation": "endl是C++标准操纵符，用于换行并刷新缓冲区；\\n是转义字符，但需用cout<<\"\\n\";，选项B、C、D格式错误。",
+      "source": "GESP C++ 一级样题.pdf 单选题 第4题"
+    },
+    {
+      "id": "7",
+      "type": "truefalse",
+      "question": "C++语句cout << \"Hello\" << \"World\"; 可以输出HelloWorld｡(对/错)",
+      "correct": "√",
+      "explanation": "多个字符串字面量会被连接输出，中间无空格，输出HelloWorld。",
+      "source": "2023年3月 GESP C++一级试题解析.pdf 判断题 第1题"
+    },
+    {
+      "id": "8",
+      "type": "single",
+      "question": "下面C++代码执行时输入5+2 ,下述说法正确的是( )｡<pre><code>\n1 int i;\n2 cin >> i;\n3 cout << i;</code></pre>",
+      "options": ["A. 将输出整数7", "B. 将输出5", "C. 语句执行将报错", "D. 输出内容不确定"],
+      "correct": "B",
+      "explanation": "cin遇到非数字字符停止读取，输入5+2时读取5赋值给i，输出5。",
+      "source": "2024年6月 GESP C++一级真题.pdf 单选题 第5题"
+    },
+    {
+      "id": "9",
+      "type": "single",
+      "question": "C++语句printf(\"5%%2={%d}\",5 % 2) 执行后的输出是( )｡",
+      "options": ["A. 1={1}", "B. 5%2={5%2}", "C. 5%2={1}", "D. 5 ={1}"],
+      "correct": "C",
+      "explanation": "%%转义为%，5%2=1，输出“5%2={1}”。",
+      "source": "2024年6月 GESP C++一级真题.pdf 单选题 第4题"
+    },
+    {
+      "id": "10",
+      "type": "single",
+      "question": "在C++中，以下关于cin和cout的叙述，正确的是( )｡",
+      "options": ["A. cin是输入流对象，cout是输出流对象", "B. cin是输出流对象，cout是输入流对象", "C. cin和cout都需要包含头文件stdio.h", "D. cin和cout的运算符是<<"],
+      "correct": "A",
+      "explanation": "cin是输入流（>>运算符），cout是输出流（<<运算符），均需包含头文件iostream。",
+      "source": "GESP C++ 一级样题.pdf 单选题 第8题"
+    },
+    {
+      "id": "11",
+      "type": "single",
+      "question": "下面C++代码执行后的输出是( )｡<pre><code>\n1 int a=1, b=2;\n2 cout << (a++ < b ? a : b) << endl;</code></pre>",
+      "options": ["A. 1", "B. 2", "C. 3", "D. 4"],
+      "correct": "B",
+      "explanation": "a++<b（1<2）为true，a++后a=2，条件表达式返回a的值2，输出2。",
+      "source": "2024年3月认证C++一级真题.pdf 单选题 第7题"
+    },
+    {
+      "id": "12",
+      "type": "truefalse",
+      "question": "C++中可以通过cout << 直接输出表达式的计算结果｡(对/错)",
+      "correct": "√",
+      "explanation": "cout支持直接输出表达式，如cout << 3+5; 输出8。",
+      "source": "2023年6月 GESP C++一级试题解析.pdf 判断题 第3题"
+    },
+    {
+      "id": "13",
+      "type": "single",
+      "question": "在C++代码中，若要输出字符型变量c的值，正确的语句是( )｡",
+      "options": ["A. cout << c;", "B. cout << &c;", "C. cin >> c;", "D. printf(c);"],
+      "correct": "A",
+      "explanation": "cout<<c直接输出字符变量的值；&c是取地址，cin用于输入，printf需格式字符串。",
+      "source": "2023年3月 GESP C++一级试题解析.pdf 单选题 第7题"
+    },
+    {
+      "id": "14",
+      "type": "single",
+      "question": "下面C++代码执行后的输出是( )｡\n1 cout << \"C\" << '\n' << \"GESP\";\n",
+      "options": ["A. C\nGESP", "B. C\\nGESP", "C. CGESP", "D. 语法错误"],
+      "correct": "A",
+      "explanation": "\n是换行符，输出C后换行，再输出GESP，结果为C\nGESP（实际显示为换行）。",
+      "source": "2024年9月 GESP C++一级真题.pdf 单选题 第4题"
+    },
+    {
+      "id": "15",
+      "type": "truefalse",
+      "question": "C++语句cout << 123 << \"456\"; 会输出123456｡(对/错)",
+      "correct": "√",
+      "explanation": "整数和字符串直接拼接输出，中间无空格，输出123456。",
+      "source": "2024年12月 GESP C++一级真题.pdf 隐含考点"
+    },
+    {
+      "id": "16",
+      "type": "single",
+      "question": "在C++中，执行以下代码段后输出是( )｡<pre><code>\n1 int x=10;\n2 cout << \"x=\" << x << endl;\n3 x=20;\n4 cout << \"x=\" << x;</code></pre>",
+      "options": ["A. x=10 \n x=20", "B. x=10x=20", "C. x=20 \n x=20", "D. x=20x=10"],
+      "correct": "A",
+      "explanation": "第一条cout输出x=10并换行，第二条cout输出x=20，结果为x=10\nx=20。",
+      "source": "GESP C++ 一级样题.pdf 改编题"
+    },
+    {
+      "id": "17",
+      "type": "truefalse",
+      "question": "cin >> a >> b; 可以读取两个整数分别赋值给a和b｡(对/错)",
+      "correct": "√",
+      "explanation": "cin通过>>运算符可连续读取多个数据，按顺序赋值给变量。",
+      "source": "2024年3月认证C++一级真题.pdf 隐含考点"
+    },
+    {
+      "id": "18",
+      "type": "single",
+      "question": "下列关于C++输入输出的叙述，错误的是( )｡",
+      "options": ["A. cout需要配合<<使用", "B. cin需要配合>>使用", "C. 输出多个数据时，中间会自动添加空格", "D. 输入时遇到空格或换行符会停止读取当前数据"],
+      "correct": "C",
+      "explanation": "cout输出多个数据时不会自动添加空格，需手动插入（如cout << a << \" \" << b;），选项C错误。",
+      "source": "GESP C++ 一级样题.pdf 单选题 第9题"
+    }
+  ]

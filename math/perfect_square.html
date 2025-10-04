@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎲 完全平方数找找看</title>
+  <style>
+    body {
+      background: #f0f9ff;
+      font-family: 'Comic Sans MS', cursive;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    h1 {
+      color: #0ea5e9;
+    }
+    .code-block {
+      background: #fff7ed;
+      border-radius: 12px;
+      padding: 1rem;
+      font-family: monospace;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 720px;
+      white-space: pre-wrap;
+      margin-bottom: 1rem;
+    }
+    .highlight {
+      background: #fde68a;
+      border-left: 5px solid #f59e0b;
+      padding-left: 0.5rem;
+    }
+    .output {
+      background: #ffffff;
+      border-left: 5px solid #38bdf8;
+      padding: 1rem;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 720px;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+    button {
+      background-color: #38bdf8;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0ea5e9;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 找出 1 到 100 里的完全平方数</h1>
+
+  <div class="code-block" id="code">
+<span>#include &lt;iostream&gt;</span>
+<span>#include &lt;cmath&gt;</span>
+<span>using namespace std;</span>
+<span></span>
+<span>for (int i = 1; i &lt;= 100; ++i) {</span>
+<span>    double root = sqrt(i);  // 计算平方根</span>
+<span>    if (root == (int)root) {  // 判断是否是整数</span>
+<span>        cout &lt;&lt; i &lt;&lt; " 是完全平方数" &lt;&lt; endl;</span>
+<span>    }</span>
+<span>}</span>
+  </div>
+
+  <button onclick="startDemo()">🌟 开始演示</button>
+  <button onclick="nextStep()">➡️ 下一步</button>
+
+  <div class="output" id="output">
+    准备好了吗？我们来逐个判断哪些数字是完全平方数吧！
+  </div>
+
+  <script>
+    let i = 1;
+    const codeLines = document.querySelectorAll("#code span");
+    const output = document.getElementById("output");
+
+    function startDemo() {
+      i = 1;
+      output.innerHTML = "🌱 从 i = 1 开始，我们准备找出完全平方数！";
+      codeLines.forEach(el => el.classList.remove("highlight"));
+    }
+
+    function nextStep() {
+      if (i > 100) {
+        output.innerHTML = "🎉 检查完毕！100 以内的完全平方数都找出来了！";
+        return;
+      }
+
+      let root = Math.sqrt(i);
+      codeLines.forEach(el => el.classList.remove("highlight"));
+      codeLines[4].classList.add("highlight");
+      codeLines[5].classList.add("highlight");
+      codeLines[6].classList.add("highlight");
+
+      if (Number.isInteger(root)) {
+        codeLines[7].classList.add("highlight");
+        output.innerHTML = `✅ ${i} 的平方根是 ${root}，所以它是完全平方数！`;
+      } else {
+        output.innerHTML = `❌ ${i} 的平方根是 ${root.toFixed(2)}，不是整数哦！`;
+      }
+      i++;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+[
+    {
+        "id": "1",
+        "type": "programming",
+        "question": "小 A 最近刚刚学习了乘法，为了帮助他练习，我们给他若干个正整数，并要求他将这些数乘起来。对于大部分题目，小 A 可以精准地算出答案，不过，如果这些数的乘积超过1000000，小 A 就不会做了。请你写一个程序，告诉我们小 A 会如何作答。",
+        "input": "第一行一个整数n，表示正整数的个数。接下来n行，每行一个整数ai。小 A 需要将所有的ai乘起来。保证1≤n≤100，1≤ai≤1000。",
+        "output": "输出一行，如果乘积超过1000000，则输出 >1000000 ；否则输出所有数的乘积。",
+        "sample_input": "2\n3\n5",
+        "sample_output": "15",
+        "options": ["A.会做", "B.不会做"],
+        "correct": "A",
+        "explanation": "使用循环读取所有数字，在计算过程中检查乘积是否会超过1000000。如果超过，立即输出'>1000000'并结束程序；否则输出最终乘积。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 编程题第1题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "下列说法错误的是？",
+        "options": ["A. while 循环满足循环条件时不断地运行，直到指定的条件不满足为止", "B. if 语句通常用于执行条件判断", "C. 在C++中可以使用 foreach 循环", "D. break 和 continue 语句都可以用在 for 循环和 while 循环中"],
+        "correct": "C",
+        "explanation": "C++中没有foreach循环，这是其他语言（如C#、Java）中的语法。C++中的循环结构主要有for、while、do-while。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 单选题第4题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "以下不是 C++关键字的是？",
+        "options": ["A. continue", "B. cout", "C. break", "D. goto"],
+        "correct": "B",
+        "explanation": "cout不是C++的关键字，它是iostream库中定义的一个对象，用于标准输出。continue、break、goto都是C++的关键字。",
+        "source": "2023年GESP9月认证C++二级试卷解析.pdf 单选题第4题"
+    }
+]
+

@@ -1,0 +1,183 @@
+[
+    {
+      "id": "1",
+      "type": "single",
+      "question": "下面C++数组的定义中，会丢失数据的是（ ）",
+      "options": [
+        "A. char dict_key[] = {'p','t','o'}",
+        "B. int dict_value[] = {33,22,11}",
+        "C. char dict_name[]={'chen','wang','zhou'}",
+        "D. float dict_value[]={3,2,1}"
+      ],
+      "correct": "C",
+      "explanation": "C选项中，试图将多个字符串常量赋值给单个字符数组，每个字符串常量以'\\0'结尾，会导致数组长度不足且类型不匹配（char[]无法直接存储多个字符串），造成数据丢失或编译错误。其他选项均为合法数组定义，不会丢失数据。",
+      "source": "GESP2023年12月认证C++三级真题.pdf 单选题第1题"
+    },
+    {
+      "id": "2",
+      "type": "single",
+      "question": "如果数组定义为<pre><code>long long array[] = {3, 5, 7, 2};</code></pre>，则数组array占用的字节数为（ ）",
+      "options": ["A. 32", "B. 16", "C. 8", "D. 4"],
+      "correct": "A",
+      "explanation": "long long类型在C++中通常占8字节，数组包含4个元素，总占用字节数为4×8=32字节，故A正确。",
+      "source": "2023年9月认证C++三级真题.pdf 单选题第5题"
+    },
+    {
+      "id": "3",
+      "type": "single",
+      "question": "一个数组定义为<pre><code>double array[3];</code></pre>，则可合理访问这个数组的元素的下标最大为（ ）",
+      "options": ["A. 2", "B. 3", "C. 23", "D. 24"],
+      "correct": "A",
+      "explanation": "C++数组下标从0开始，长度为3的数组下标范围为0~2，故最大下标为2，A正确。",
+      "source": "2023年9月认证C++三级真题.pdf 单选题第6题"
+    },
+    {
+      "id": "4",
+      "type": "single",
+      "question": "以下数组定义，符合C++语言语法的是（ ）",
+      "options": [
+        "A. double a[];",
+        "B. double b[] = {1, 2.0, '3'}",
+        "C. double c[3.0]",
+        "D. double[] d = new double[3]"
+      ],
+      "correct": "B",
+      "explanation": "A选项数组未初始化时必须指定长度；B选项数组初始化时可省略长度，且元素类型自动转换（'3'转为ASCII码51），符合语法；C选项数组长度必须为整数；D选项动态数组语法应为double* d = new double[3]。故B正确。",
+      "source": "2023年9月认证C++三级真题.pdf 单选题第7题"
+    },
+    {
+      "id": "5",
+      "type": "single",
+      "question": "下列关于C++语言中数组的叙述，不正确的是（ ）",
+      "options": [
+        "A. 可以定义0个元素的数组",
+        "B. 不能定义-1个元素的数组",
+        "C. 数组下标越界访问会产生编译错误",
+        "D. 程序运行时发生数组下标的越界访问，程序依然可能正常结束"
+      ],
+      "correct": "C",
+      "explanation": "数组下标越界属于运行时错误，编译时不会报错，故C错误。其他选项均正确。",
+      "source": "2023年9月认证C++三级真题.pdf 单选题第9题"
+    },
+    {
+      "id": "6",
+      "type": "single",
+      "question": "如果字符串定义为<pre><code>char str[] = \"Hello\";</code></pre>，则字符数组str的长度为（ ）",
+      "options": ["A. 0", "B. 5", "C. 6", "D. 7"],
+      "correct": "C",
+      "explanation": "字符串\"Hello\"包含5个字符，加上末尾自动添加的'\\0'，数组长度为6，故C正确。",
+      "source": "2023年GESP 6月认证C++三级真题.pdf 单选题第5题"
+    },
+    {
+      "id": "7",
+      "type": "single",
+      "question": "一个数组定义为<pre><code>double array[3];</code></pre>，则这个数组占用内存的大小为（ ）",
+      "options": ["A. 24", "B. 12", "C. 6", "D. 3"],
+      "correct": "A",
+      "explanation": "double类型占8字节，3个元素共占3×8=24字节，故A正确。",
+      "source": "2023年GESP 6月认证C++三级真题.pdf 单选题第6题"
+    },
+    {
+      "id": "8",
+      "type": "single",
+      "question": "以下数组定义，符合C++语言语法的是（ ）",
+      "options": [
+        "A. int a[];",
+        "B. int b['3']",
+        "C. int c[3.0]",
+        "D. int[3] d"
+      ],
+      "correct": "B",
+      "explanation": "'3'为字符常量，其ASCII码为51，等价于int b[51]，符合语法；A选项未初始化时必须指定长度；C选项长度非整数；D选项语法错误。故B正确。",
+      "source": "2023年GESP 6月认证C++三级真题.pdf 单选题第7题"
+    },
+    {
+      "id": "9",
+      "type": "single",
+      "question": "下列关于C++语言中数组的叙述，不正确的是（ ）",
+      "options": [
+        "A. 数组必须先定义后使用",
+        "B. 数组的所有元素在内存中是连续存放的",
+        "C. 除了字符数组，在定义数组时“[]”内必须有常数",
+        "D. 不能对数组赋值，但可以对数组的每个基础类型的元素赋值"
+      ],
+      "correct": "C",
+      "explanation": "所有类型的数组在初始化时均可省略长度，如int a[] = {1,2,3};，故C错误。",
+      "source": "2023年GESP 6月认证C++三级真题.pdf 单选题第9题"
+    },
+    {
+      "id": "10",
+      "type": "single",
+      "question": "在下列代码的横线处填写（ ），可以使得输出是“24 12”<pre><code>#include <iostream>\nusing namespace std;\nint main(){\n    int a=12,b=24;\n    ______;\n    a = a ^ b;\n    b = a ^ b;\n    cout << a << \" \" << b << endl;\n    return 0;\n}</code></pre>",
+      "options": ["A. a = a ^ b", "B. b = a ^ b", "C. a = a + b", "D. b = a + b"],
+      "correct": "A",
+      "explanation": "通过异或交换变量值，需先执行a = a ^ b，使a存储两者异或结果，后续步骤完成交换，故A正确。",
+      "source": "2023年GESP 6月认证C++三级真题.pdf 单选题第13题"
+    },
+    {
+      "id": "11",
+      "type": "single",
+      "question": "执行下面C++代码后输出的第一个数是（ ）<pre><code>int a[20],i;\nfor(i = 0; i < 20; i++)\n    a[i] = i+1;\nfor( ; i > 0; i--)\n    cout << a[i-1] << \" \";</code></pre>",
+      "options": ["A. 20", "B. 19", "C. 1", "D. 不确定"],
+      "correct": "A",
+      "explanation": "第一个循环初始化数组a为1~20，第二个循环从i=20开始逆序输出，i-1=19时输出a[19]=20，故第一个数为20，A正确。",
+      "source": "2024年3月认证C++三级真题.pdf 单选题第7题"
+    },
+    {
+      "id": "12",
+      "type": "single",
+      "question": "定义字符数组<pre><code>char str[20] = {'G', 'E', 'S', 'P'};</code></pre>，则str的字符串长度为（ ）",
+      "options": ["A. 4", "B. 5", "C. 19", "D. 20"],
+      "correct": "A",
+      "explanation": "字符串长度不计\\0，直接计算初始化的字符数，故长度为4，A正确。",
+      "source": "2024年3月认证C++三级真题.pdf 单选题第12题"
+    },
+    {
+      "id": "13",
+      "type": "single",
+      "question": "下列程序的功能是统计每种字符出现的次数，当输出为3时，横线上不能填入的代码是（ ）<pre><code>string str=\"GESP is a good programming test\";\nint x=0;\nfor(int i=0;i<str.length();i++)\n    if(______)\n        x++;\ncout<<x<<endl;</code></pre>",
+      "options": [
+        "A. str[i]=='o'",
+        "B. str[i]=='a'+14",
+        "C. str[i]==115",
+        "D. str[i]==111"
+      ],
+      "correct": "C",
+      "explanation": "字符's'的ASCII码为115，统计's'的出现次数为4次，而输出为3，故C不能填入。其他选项均统计'o'的次数（'o'的ASCII码为111），出现3次，故C错误。",
+      "source": "2023年12月认证C++三级真题.pdf 单选题第9题"
+    },
+    {
+      "id": "14",
+      "type": "truefalse",
+      "question": "在C++语言中，长度为n的数组，合理的下标范围是从0到n，包括0和n。（对/错）",
+      "correct": "×",
+      "explanation": "数组下标最大为n-1，越界访问n会导致未定义行为，故错误。",
+      "source": "2023年GESP 6月认证C++三级真题.pdf 判断题第4题"
+    },
+    {
+      "id": "15",
+      "type": "truefalse",
+      "question": "在C++语言中，数组被定义时，它的大小就确定了。（对/错）",
+      "correct": "√",
+      "explanation": "数组定义后长度固定，无法动态改变，故正确。",
+      "source": "2023年GESP 6月认证C++三级真题.pdf 判断题第7题"
+    },
+    {
+      "id": "16",
+      "type": "truefalse",
+      "question": "对定义的数组<pre><code>int a[7]={2,0,2,4,3,1,6}</code></pre>，可以用简单循环就找到其中最小的整数。（对/错）",
+      "correct": "√",
+      "explanation": "通过遍历数组元素比较大小，可找到最小值0，故正确。",
+      "source": "2024年3月认证C++三级真题.pdf 判断题第8题"
+    },
+    {
+      "id": "17",
+      "type": "single",
+      "question": "在数组中查找最大值索引的程序中，横线处应填写（ ）<pre><code>int arr[] = {3, 7, 2, 9, 5};\nint maxIndex = 0;\nfor (int i = 1; i < 5; i++)\n    if (______)\n        maxIndex = i;</code></pre>",
+      "options": ["A. arr[maxIndex] > arr[i]", "B. arr[i]-1 > arr[maxIndex]", "C. arr[i]+1 > arr[maxIndex]", "D. arr[i] > arr[maxIndex]"],
+      "correct": "D",
+      "explanation": "比较当前元素与最大值，若当前元素更大则更新索引，故D正确。",
+      "source": "CCF GESP 2025年3月认证 C++ 3级试题.pdf 单选题第11题"
+    }
+  ]
+  

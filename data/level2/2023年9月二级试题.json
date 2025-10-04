@@ -1,0 +1,229 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "我国第一台大型通用电子计算机使用的逻辑部件是()。",
+    "options": ["A. 集成电路", "B. 大规模集成电路", "C. 晶体管", "D. 电子管"],
+    "correct": "D",
+    "explanation": "中国第一台计算机通用数字电子计算机于1958年6月由中科院计算所研制成功，当时的逻辑部件是电子管。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "下列流程图的输出结果是()?",
+    "image":"/data/images/0220230902.png",
+    "options": ["A. 5 12", "B. 12 5", "C. 5 5", "D. 12 12"],
+    "correct": "B",
+    "explanation": "x=5，y=12，x>y不成立，执行否分支，a=y=12，b=x=5，输出12 5。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "如果要找出整数a、b中较大的一个，通常要用下面哪种程序结构?()。",
+    "options": ["A. 顺序结构", "B. 循环结构", "C. 分支结构", "D. 跳转结构"],
+    "correct": "C",
+    "explanation": "比较大小需要根据条件判断执行不同操作，属于分支结构。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "以下不是C++关键字的是()。",
+    "options": ["A. continue", "B. cout", "C. break", "D. goto"],
+    "correct": "B",
+    "explanation": "cout是ostream类的对象，用于输出，不是C++关键字。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "C++表达式int(-123.123 / 10) 的值是()。",
+    "options": ["A. -124", "B. -123", "C. -13", "D. -12"],
+    "correct": "D",
+    "explanation": "-123.123 / 10 的结果为-12.3123，强制转换为int类型时截断小数部分，结果为-12。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "以下C++代码实现从大到小的顺序输出N的所有因子。例如，输入N=18时输出18 9 6 3 2 1，横线处应填入()。<pre><code>int N=0;\ncin>> N;\nfor (______) \ncout <<i<<' ';</code></pre>",
+    "options": ["A. ; ;", "B. int i = 1; i < N; i++", "C. int i = N; i > 0; i--", "D. int i = N; i > 1; i--"],
+    "correct": "C",
+    "explanation": "从大到小输出因子需从N开始循环到1，C选项的循环条件符合要求，D选项缺少因子1。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "如下图所示，输出N行N列的矩阵，对角线为1，横线处应填入()。<pre><code>int N=0;\ncout<<\"请输入行列数量:\";\ncin>>N;\nfor(int i=1; i<N+1; i++){\n  for(int j=1;j<N+1;j++)\n    if(______) \n      cout<<1<<' ';\n    else\n      cout<<0<<' ';\n  cout<<endl;\n}</code></pre>",
+    "options": ["A. i = j", "B. j != j", "C. i >= j", "D. i == j"],
+    "correct": "D",
+    "explanation": "对角线元素的行坐标i与列坐标j相等，即i == j时输出1。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "下面C++代码用于判断N是否为质数(素数)，约定输入N为大于等于2的正整数，请在横线处填入合适的代码()。<pre><code>int N=0,i=0;\ncout<<\"请输入一个大于等于2的正整数\";\ncin>>N;\nfor (i=2; i<N; i++)\n  if(N%i==0){\n    cout<<\"非质数\";\n    ______;\n  }\nif(i==N)\n  cout<<\"是质数\";</code></pre>",
+    "options": ["A. break", "B. continue", "C. exit", "D. return"],
+    "correct": "A",
+    "explanation": "若N能被i整除，说明N不是质数，需跳出循环不再判断，break用于终止循环。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是()。<pre><code>int N=9;\nfor (int i=2;i<N;i++)\n  if(N%i)\n    cout<<1#;\ncout<<0<<endl;</code></pre>",
+    "options": ["A. 1#0", "B. 1#", "C. 1#1#1#1#1#1", "D. 1#1#1#1#1#1#0"],
+    "correct": "D",
+    "explanation": "i从2到8循环，N%i不为0时输出1#。i=2、4、5、6、7、8时满足条件，输出6个1#，最后输出0，结果为1#1#1#1#1#1#0。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是()。<pre><code>int cnt=0;\nfor (int i=1;i<9;i++)\n  for(int j=1;j<i;j+=2)\n    cnt +=1;\ncout<<cnt;</code></pre>",
+    "options": ["A. 16", "B. 28", "C. 35", "D. 36"],
+    "correct": "A",
+    "explanation": "外层i从1到8，内层j在j<i时每次加2。i=2时j循环1次，i=3时j循环1次，i=4时j循环2次，i=5时j循环2次，i=6时j循环3次，i=7时j循环3次，i=8时j循环4次，总次数为1+1+2+2+3+3+4=16。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是()。<pre><code>int cnt=0;\nfor(int i=1;i<13;i+=3)\n  for(int j=1;j<i;j+=2)\n    if(i*j%2==0)\n      break;\n    else\n      cnt+=1;\ncout<<cnt;</code></pre>",
+    "options": ["A. 1", "B. 3", "C. 15", "D. 没有输出"],
+    "correct": "B",
+    "explanation": "i的取值为1、4、7、10。i=1时j不循环；i=4时j为1，i*j=4为偶数，执行break；i=7时j为1、3、5，i*j均为奇数，cnt加3；i=10时j为1，i*j=10为偶数，执行break。最终cnt=3。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是()。<pre><code>int x=1;\nwhile(x<100){\n  if(!(x%3))\n    cout<<x<<,;\n  else if(x/10)\n    break;\n  x+=2;\n}\ncout<<x;</code></pre>",
+    "options": ["A. 1", "B. 3,9,11", "C. 3,6,9,10", "D. 1,5,7,11,13,15"],
+    "correct": "B",
+    "explanation": "x初始为1，每次加2。x=3时输出3,；x=5、7不满足条件；x=9时输出9,；x=11时x/10=1，执行break，最后输出11。结果为3,9,11。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "下面图形每一行从字母A开始，以ABC方式重复。行数为输入的整数。请在C++代码段横线处填入合适代码()。<pre><code>int N=0;\ncout<<\"请输入行列数量:\";\ncin>>N;\nfor (int i=1;i<N+1;i++){\n  for(int j=0;j<i;j++)\n    cout<<______;\n  cout<<endl;\n}</code></pre>",
+    "image":"/data/images/20230913.png",
+    "options": ["A. 'A' + j / 3", "B. (char)('A' + j / 3)", "C. 'A' + j % 3", "D. (char)('A' + j % 3)"],
+    "correct": "D",
+    "explanation": "需输出字符，需转换为char类型。j%3可实现0→A、1→B、2→C的循环，故D选项正确。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "输入行数，约定1≤lineCount ≤9，输出以下图形。应在C++代码横线处填入()。<pre><code>int lineCount=0;\ncout<<\"请输入行数量:\";\ncin>>lineCount;\nfor (int i=0;i<lineCount; i++){\n  for (int j=0;j<______;j++)\n    cout<<' ';\n  for(int j=1;j<i+1;j++)\n    cout<<j<<' ';\n  for(int j=i+1;j>0;j--)\n    cout<<j<<' ';\n  cout<<endl;\n}</code></pre>",
+    "options": ["A. (lineCount - i - 1) * 2", "B. (lineCount - i) * 2", "C. lineCount - i - 1", "D. lineCount - i"],
+    "correct": "A",
+    "explanation": "每行前面的空格需逐渐减少，且每个数字间有空格，A选项的计算方式符合空格数量要求。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "某班级人数不知，连续输入成绩直到输入负数停止，输入结束后求出平均成绩。在以下C++代码横线处应填入是()。<pre><code>double totalScore=0;//总分\nint studCount=0;//总人数\ndouble score;\nwhile(______){// 此处填写代码\n  cin>>score;\n  if(score<0)\n    break;\n  totalScore += score;\n  studCount +=1;\n}\ncout<<\"平均分=\"<<totalScore/studCount;</code></pre>",
+    "options": ["A. true", "B. false", "C. True", "D. False"],
+    "correct": "A",
+    "explanation": "需一直循环直到输入负数，while(true)可实现无限循环，符合需求。C、D为错误关键字，B直接退出循环。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "我们常说的互联网(Internet)是一个覆盖全球的广域网络，它不属于任何一个国家。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "互联网是全球范围内的广域网，不属于任何单一国家。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "神威·太湖之光超级计算机是中国自主研制的超级计算机，在全球超级计算机TOP500排行榜中多次荣膺榜首。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "神威·太湖之光是中国自主研制的超级计算机，曾多次位居全球超级计算机TOP500榜首。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "C++表达式7.8 / 2 的值为3.9，类型为float。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "C++中小数默认是double类型，7.8 / 2的结果类型为double。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "C++表达式(2 * 3) || (2 + 5) 的值为67。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "逻辑或运算||的结果为0或1，该表达式中两边均为真，结果为1。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "如果m和n为int类型变量，则执行for(m=0, n=1; n<9; n=((m=3 * n, m+1), m - 1))之后n的值为偶数。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "循环结束时n的值为14，是偶数。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "如果a为int类型的变量，则表达式(a>=5 && a<=10)与(5<=a<=10)的值总是相同的。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "5<=a<=10的执行顺序为(5<=a)<=10，与a>=5 && a<=10的逻辑不同，结果不一定相同。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "下面C++代码执行后的输出为10。<pre><code>int cnt=0;\nfor(int i=1;i<10;i++){\n  cnt +=1;\n  i+=1;\n}\ncout<<cnt;</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "循环中i每次增加2，i的取值为1、3、5、7、9，共循环5次，cnt=5，输出为5。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "执行以下C++代码后的输出为0。<pre><code>int rst=0;\nfor(int i=-100;i<100;i+=2)\n  rst +=i;\ncout<<rst;</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "i从-100到98每次加2，累加结果为-100，输出不为0。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "执行以下C++代码后的输出为30。<pre><code>int rst=0;\nfor(int i=0;i<10;i+=2)\n  rst +=i;\ncout<<rst;</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "i的取值为0、2、4、6、8，累加和为20，输出为20。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "C++是一种高级程序设计语言。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "C++属于高级程序设计语言。",
+    "source": "2023 年 GESP9 月认证 C++二级试卷"
+  }
+]

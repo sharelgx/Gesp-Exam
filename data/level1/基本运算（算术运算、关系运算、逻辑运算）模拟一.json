@@ -1,0 +1,131 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "常量'5'的数据类型是( )｡",
+        "options": ["A. int", "B. char", "C. float", "D. string"],
+        "correct": "B",
+        "explanation": "单引号包裹的单个字符属于char类型，'5'表示ASCII码为53的字符。",
+        "source": "模拟题"
+    },
+    {
+        "id": "2",
+        "type": "truefalse",
+        "question": "3.14 是一个float类型常量｡(对/错)",
+        "correct": "×",
+        "explanation": "C++中浮点常量默认类型为double，若需float类型需加后缀f（如3.14f）。",
+        "source": "模拟题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "表达式2 + '2' 的计算结果是( )｡",
+        "options": ["A. 4", "B. 52", "C. 50", "D. 22"],
+        "correct": "B",
+        "explanation": "字符'2'的ASCII码为50，2 + 50 = 52，结果为int类型。",
+        "source": "模拟题"
+    },
+    {
+        "id": "4",
+        "type": "truefalse",
+        "question": "在C++中，表达式int('A') 的值为65｡(对/错)",
+        "correct": "√",
+        "explanation": "字符'A'的ASCII码为65，强制类型转换为int后值为65。",
+        "source": "模拟题"
+    },
+    {
+        "id": "5",
+        "type": "single",
+        "question": "若有代码int x = 7.9;，则x的值为( )｡",
+        "options": ["A. 7", "B. 8", "C. 7.9", "D. 编译错误"],
+        "correct": "A",
+        "explanation": "浮点数赋值给int类型时会截断小数部分，7.9截断后为7。",
+        "source": "模拟题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "C++表达式10 / 3 * 3 的值是( )｡",
+        "options": ["A. 9", "B. 10", "C. 0", "D. 3.333"],
+        "correct": "A",
+        "explanation": "整数除法10 / 3 = 3，再乘以3结果为9，整个表达式类型为int。",
+        "source": "模拟题"
+    },
+    {
+        "id": "7",
+        "type": "truefalse",
+        "question": "表达式'9' - '0' 的计算结果为整数9｡(对/错)",
+        "correct": "√",
+        "explanation": "字符'9'和'0'的ASCII码差值为9，结果为int类型。",
+        "source": "模拟题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "常量3.1415926的默认数据类型是( )｡",
+        "options": ["A. float", "B. double", "C. long double", "D. decimal"],
+        "correct": "B",
+        "explanation": "C++中不带后缀的浮点常量默认类型为double。",
+        "source": "模拟题"
+    },
+    {
+        "id": "9",
+        "type": "single",
+        "question": "若a = 5，b = 2，则表达式a % b 的值是( )｡",
+        "options": ["A. 2", "B. 2.5", "C. 1", "D. 0"],
+        "correct": "C",
+        "explanation": "取模运算5 % 2结果为1，即5除以2的余数。",
+        "source": "模拟题"
+    },
+    {
+        "id": "10",
+        "type": "truefalse",
+        "question": "bool类型变量可以存储值2｡(对/错)",
+        "correct": "√",
+        "explanation": "非零值赋值给bool类型时会转为true，零值转为false，因此可以存储2。",
+        "source": "模拟题"
+    },
+    {
+        "id": "11",
+        "type": "single",
+        "question": "表达式3 + 2 * 4 / 2 的计算结果是( )｡",
+        "options": ["A. 7", "B. 10", "C. 11", "D. 14"],
+        "correct": "A",
+        "explanation": "先乘除后加减，2 * 4 / 2 = 4，再加上3结果为7。",
+        "source": "模拟题"
+    },
+    {
+        "id": "12",
+        "type": "single",
+        "question": "常量\"Hello\"的数据类型是( )｡",
+        "options": ["A. char", "B. string", "C. char数组", "D. const char*"],
+        "correct": "D",
+        "explanation": "字符串字面量类型为const char*，指向静态存储区的字符数组。",
+        "source": "模拟题"
+    },
+    {
+        "id": "13",
+        "type": "truefalse",
+        "question": "表达式5 / 2.0 的计算结果类型是double｡(对/错)",
+        "correct": "√",
+        "explanation": "整数与浮点数运算时，结果自动提升为浮点数类型（double）。",
+        "source": "模拟题"
+    },
+    {
+        "id": "14",
+        "type": "single",
+        "question": "若有int a = 3, b = 4;，则表达式a++ + b 的值是( )｡",
+        "options": ["A. 7", "B. 8", "C. 9", "D. 10"],
+        "correct": "A",
+        "explanation": "a++为先使用后自增，表达式中a取3，3 + 4 = 7，之后a变为4。",
+        "source": "模拟题"
+    },
+    {
+        "id": "15",
+        "type": "truefalse",
+        "question": "在C++中，表达式(5, 6, 7) 的值为7｡(对/错)",
+        "correct": "√",
+        "explanation": "逗号表达式的值为最后一个表达式的值，因此结果为7。",
+        "source": "模拟题"
+    }
+]

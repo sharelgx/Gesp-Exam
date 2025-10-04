@@ -1,0 +1,142 @@
+[
+    {
+      "id": "1",
+      "type": "single",
+      "question": "下列关于C++语言中数据类型转换的说法，正确的是（ ）",
+      "options": [
+        "A. char类型变量不能赋值给int类型变量",
+        "B. 两个int类型变量相乘，计算结果还是int类型",
+        "C. 计算两个int类型变量相乘时，如果乘积超出了int类型的取值范围，程序会报错崩溃",
+        "D. 计算两个double类型变量相除时，如果除数的值为0.0，程序会报错崩溃"
+      ],
+      "correct": "B",
+      "explanation": "A选项，char类型变量可以赋值给int类型变量，赋值结果为char类型变量的整数值；C选项，溢出会导致结果错误但程序不崩溃；D选项，除数为0.0会得到特殊值（如INF），程序不崩溃；B选项正确。",
+      "source": "2023年6月GESP C++二级试题解析.pdf"
+    },
+    {
+      "id": "2",
+      "type": "single",
+      "question": "C++表达式int(-123.123 / 10)的值是（ ）",
+      "options": ["A. -124", "B. -123", "C. -13", "D. -12"],
+      "correct": "D",
+      "explanation": "-123.123/10=-12.3123，int强制转换截断小数，结果为-12。",
+      "source": "2023年9月GESP C++二级真题.pdf"
+    },
+    {
+      "id": "3",
+      "type": "single",
+      "question": "如果a和b都是char类型的变量，下列哪个语句不符合C++语法？",
+      "options": [
+        "A. b=a+1;",
+        "B. b=a+'1';",
+        "C. b='a'++;",
+        "D. b=a++;"
+      ],
+      "correct": "C",
+      "explanation": "【解析】：A 选项，赋值号右侧表达式对a的ASCII码数值加1，结果为int类型，赋值给b时转换为char类型，也即比a的ASCII码值大1的对应字符。符合C++语法。B 选项，'1'为char类型常量，赋值号右侧表达式对a的ASCII码数值加'1'的ASCII码数值，结果为char类型，赋值给b。符合C++语法。C 选项，'a'为char类型常量，常量不能进行++自增运算，不符合C++语法。D选项，a为char类型常量，可以进行++自增运算。该语句将a变为ASCII码值增加1的对应字符，并将变化前的a值赋值给b。符合C++语法。所以本题正确答案为C。",
+      "source": "2023年3月GESP C++二级试题解析.pdf"
+    },
+    {
+      "id": "4",
+      "type": "single",
+      "question": "如果a为char类型的变量，且a的值为'C'（已知'C'的ASCII码为67），则执行cout << (a + 2);会输出（ ）",
+      "options": ["A. E", "B. C+2", "C. C2", "D. 69"],
+      "correct": "D",
+      "explanation": "a+2=67+2=69（int类型），直接输出整数69。",
+      "source": "2023年6月GESP C++二级试题解析.pdf"
+    },
+    {
+      "id": "5",
+      "type": "single",
+      "question": "在下列代码的横线处填写（ ），使得输出是9。\n1 #include <iostream>\n2 using namespace std;\n3 int main(){\n4 char a='3',b='6';\n5 cout<<______;\n6 return 0;\n7 }",
+      "options": [
+        "A. (a + b)",
+        "B. (a + b - '0')",
+        "C. (char)(a + b)",
+        "D. (char)(a + b - '0')"
+      ],
+      "correct": "D",
+      "explanation": "a+b='3'+'6'=51+54=105，减去'0'（48）得57（'9'的ASCII码），强制转换为char输出'9'。",
+      "source": "2023年6月GESP C++二级试题解析.pdf"
+    },
+    {
+      "id": "6",
+      "type": "single",
+      "question": "下面C++代码执行后的输出是（ ）\nint a = 5;\ndouble b = 3.14;\ncout << a + b;\n",
+      "options": ["A. 8", "B. 8.14", "C. 53.14", "D. 3.19"],
+      "correct": "B",
+      "explanation": "int隐式转换为double，5+3.14=8.14，输出double类型结果。",
+      "source": "根据知识点自编试题（参考2023年9月真题改编）"
+    },
+    {
+      "id": "7",
+      "type": "single",
+      "question": "C++表达式7.8 / 2的值的类型为（ ）",
+      "options": ["A. int", "B. float", "C. double", "D. long double"],
+      "correct": "C",
+      "explanation": "7.8是double类型，2是int类型，运算结果为double类型。",
+      "source": "2023年9月GESP C++二级真题.pdf（改编）"
+    },
+    {
+      "id": "8",
+      "type": "truefalse",
+      "question": "在C++中，将double类型变量赋值给int类型变量时，会自动四舍五入。（对/错）",
+      "correct": "×",
+      "explanation": "直接截断小数部分，不四舍五入，如3.9赋值给int为3。",
+      "source": "2024年6月GESP C++二级真题.pdf"
+    },
+    {
+      "id": "9",
+      "type": "single",
+      "question": "执行以下C++代码后，变量a的值是（ ）\nint a = 5;\na = (int)3.14;\n",
+      "options": ["A. 3", "B. 3.14", "C. 4", "D. 5"],
+      "correct": "A",
+      "explanation": "强制转换截断小数，3.14转换为3，赋值给a。",
+      "source": "根据知识点自编试题"
+    },
+    {
+      "id": "10",
+      "type": "single",
+      "question": "下面C++代码执行后的输出是（ ）\nchar c = 'A';\nint i = c + 3;\ncout << i;\n",
+      "options": ["A. 68", "B. D", "C. A3", "D. 无法确定"],
+      "correct": "A",
+      "explanation": "'A'+3=65+3=68（int类型），输出整数68。",
+      "source": "根据知识点自编试题"
+    },
+    {
+      "id": "11",
+      "type": "single",
+      "question": "如果a为char类型的变量，且a的值为'2'，则下列哪条语句执行后，a的值不会变为'3'？（ ）",
+      "options": [
+        "A. a = a + 1;",
+        "B. a + 1;",
+        "C. a = 1 + a;",
+        "D. ++a;"
+      ],
+      "correct": "B",
+      "explanation": "B选项未赋值，a值不变；其他选项均通过赋值或自增改变a的值。",
+      "source": "2023年3月GESP C++二级试题解析.pdf"
+    },
+    {
+      "id": "12",
+      "type": "single",
+      "question": "下列表达式中，结果类型为double的是（ ）",
+      "options": [
+        "A. 5 / 2",
+        "B. 5.0 / 2",
+        "C. 5 % 2",
+        "D. 5 * 2"
+      ],
+      "correct": "B",
+      "explanation": "A、C、D结果均为int类型；B选项5.0为double，运算结果为double类型。",
+      "source": "2024年9月GESP C++二级真题.pdf"
+    },
+    {
+      "id": "13",
+      "type": "truefalse",
+      "question": "C++表达式int(12.56)的值为13。（对/错）",
+      "correct": "×",
+      "explanation": "强制转换截断小数，结果为12，非13。",
+      "source": "2024年6月GESP C++二级真题.pdf"
+    }
+  ]

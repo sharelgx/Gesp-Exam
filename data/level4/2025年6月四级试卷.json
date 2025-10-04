@@ -1,0 +1,227 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "在C++中，声明一个指向整型变量的指针的正确语法是( )。",
+    "options": ["A. int* ptr;", "B. *int ptr;", "C. int ptr*;", "D. ptr int;"],
+    "correct": "A",
+    "explanation": "C++中指针声明的语法为“类型* 指针名”，指向整型变量的指针声明为int* ptr;，选项A正确。其他选项语法错误。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "下面的函数接收一个3行4列的二维数组并输出其中元素，则横线上不能填写( )。<pre><code>void printArray(________) {\n    for (int i = 0; i < 3; ++i)\n        for (int j = 0; j < 4; ++j)\n            std::cout << arr[i][j] << \" \";\n}</code></pre>",
+    "options": ["A. int arr[3][4]", "B. int arr[][4]", "C. int (*arr)[4]", "D. int** arr"],
+    "correct": "D",
+    "explanation": "int**arr表示指向指针的指针，无法直接表示二维数组，不能作为接收3行4列二维数组的参数。其他选项均可正确接收二维数组，选项D符合题意。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "在C++中，int arr[3][4]和int* arr = new int[12]均可模拟一个3行4列的二维数组。关于这两种方式，下面说法错误的是( )。",
+    "options": ["A. int arr[3][4]在栈上分配空间，适合数组较小的情况；", "B. int* arr = new int[12]在堆上分配空间，数组较大时也适用；", "C. 这两种方式申请的内存空间都是连续的。", "D. 这两种方式申请的内存都能自动释放。"],
+    "correct": "D",
+    "explanation": "int arr[3][4]在栈上分配，函数结束后自动释放；int* arr = new int[12]在堆上分配，需手动delete[]释放，不能自动释放，选项D说法错误。其他选项描述正确。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "关于以下C++代码，说法正确的是( )。<pre><code>int main() {\n    greet();\n    return 0;\n}\nvoid greet() {\n    cout << \"Hello!\" << endl;\n}</code></pre>",
+    "options": ["A. 正确编译并输出Hello!", "B. 编译错误：找不到函数greet()", "C. 编译警告但可以运行", "D. 链接错误"],
+    "correct": "B",
+    "explanation": "greet函数在main之后定义且未提前声明，main函数调用时编译器无法识别，导致编译错误，选项B正确。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "在C++中，如果希望通过函数修改传入的结构体对象的内容，应该使用哪种参数传递方式？",
+    "options": ["A. 值传递或引用传递", "B. 值传递或指针传递", "C. 引用传递或指针传递", "D. 仅指针传递"],
+    "correct": "C",
+    "explanation": "值传递会拷贝结构体对象，修改不影响原对象；引用传递和指针传递可直接操作原对象，实现修改，选项C正确。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "以下哪个选项正确描述了C++中形参和实参的区别？",
+    "options": ["A. 形参是函数调用时传递给函数的具体值，实参是函数定义中声明的变量。", "B. 形参是函数定义中声明的变量，实参是函数调用时传递给函数的具体值。", "C. 形参和实参在函数调用时是完全相同的。", "D. 形参只在函数内部可见，实参在函数外部可见。"],
+    "correct": "B",
+    "explanation": "形参是函数定义时声明的参数，实参是函数调用时传递给形参的值，选项B正确。选项A描述颠倒；形参和实参不同，选项C错误；实参的可见性与函数外部作用域相关，选项D不准确。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "运行如下代码会输出( )。<pre><code>int value = 100;\nvoid print1() {\n    int value = 50;\n    cout << value << \" \";\n    cout << ::value << \" \";\n}\nvoid print2() {\n    cout << value << \" \";\n}\nint main() {\n    print1();\n    print2();\n    return 0;\n}</code></pre>",
+    "options": ["A. 100 100 100", "B. 50 50 50", "C. 50 100 100", "D. 50 50 100"],
+    "correct": "C",
+    "explanation": "print1函数中，局部变量value为50，输出50；::value访问全局变量，输出100。print2函数中，value为全局变量，输出100。整体输出50 100 100，选项C正确。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "小杨在整理一副扑克牌的所有红心扑克牌，使其从小到大排列。他的做法是：最开始抓到第1张扑克牌被认为已经排好序；然后抓第2张扑克牌，将其插入至有序部分的正确位置；不断循环步骤，每次将新抓到扑克牌插入至有序部分，直至抓完所有扑克牌，这样抓牌结束时就完成了扑克牌的排序。小杨这种整理扑克牌的方式与( )排序的方式最接近。",
+    "options": ["A. 冒泡排序", "B. 插入排序", "C. 选择排序", "D. 直接排序"],
+    "correct": "B",
+    "explanation": "插入排序的核心是将新元素插入到已排序部分的正确位置，与小杨整理扑克牌的方式一致，选项B正确。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "以下哪种情况是使用插入排序的合适场景？",
+    "options": ["A. 数据量非常大，且乱序严重", "B. 希望获得稳定排序，但不要求实时性", "C. 数据几乎有序，只需少量调整", "D. 想在交换次数最少的前提下排好大数组"],
+    "correct": "C",
+    "explanation": "插入排序在数据几乎有序时效率很高（接近O(n)），适合这种场景，选项C正确。数据量大且乱序时插入排序效率低，选项A错误；稳定排序并非插入排序独有，选项B不具针对性；交换次数不是插入排序的优势，选项D错误。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "以下关于递推算法基本思想的描述，正确的是( )。",
+    "options": ["A. 递推算法通过将问题分解为相互独立的子问题来解决。", "B. 递推算法从已知的基础情况出发，通过某种关系逐步推导出更大规模问题的解。", "C. 递推算法通常用于穷举所有可能的解决方案。", "D. 递推算法适用于在每一步做出局部最优选择以达到全局最优。"],
+    "correct": "B",
+    "explanation": "递推算法从基础情况开始，利用递推关系逐步求解更大规模问题，选项B正确。分解为独立子问题是分治算法的特点，选项A错误；穷举不是递推的核心，选项C错误；局部最优选择是贪心算法的特点，选项D错误。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "给定如下算法，其时间复杂度为( )。<pre><code>bool f(int arr[], int n, int target) {\n    for (int i = 0; i < n; i++) {\n        int sum = 0;\n        for (int j = 0; j < n; j++) {\n            if (i & (1 << j)) {\n                sum += arr[j];\n            }\n        }\n        if (sum == target)\n            return true;\n    }\n    return false;\n}</code></pre>",
+    "options": ["A. O(n²)", "B. O(n×2ⁿ)", "C. O(2ⁿ)", "D. O(n log n)"],
+    "correct": "A",
+    "explanation": "外层循环执行n次，内层循环执行n次，时间复杂度为O(n²)，选项A正确。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "下述斐波那契数列计算的时间复杂度是( )。<pre><code>int fibonacci(int n) {\n    if (n == 0) return 0;\n    if (n == 1) return 1;\n    return fibonacci(n - 1) + fibonacci(n - 2);\n}</code></pre>",
+    "options": ["A. O(n)", "B. O(n²)", "C. O(2ⁿ)", "D. O(log n)"],
+    "correct": "C",
+    "explanation": "该递归实现的斐波那契数列计算，每次调用产生两个子调用，递归树深度为n，时间复杂度为O(2ⁿ)，选项C正确。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "关于下面C++程序的描述，( )最准确。<pre><code>ifstream in(\"data.txt\");\nstring line;\nwhile (getline(in, line)) {\n    cout << line << endl;\n}</code></pre>",
+    "options": ["A. 将从标准输入读取每行，并输出到屏幕", "B. 程序无法运行，因为getline只能读取cin", "C. 将data.txt中的每一行读取并输出到屏幕", "D. 程序将创建data.txt并写入默认文本"],
+    "correct": "C",
+    "explanation": "程序打开data.txt文件，通过getline循环读取每行内容并输出到屏幕，选项C正确。getline可读取文件流，选项B错误；A、D描述与程序功能不符。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "在C++中，异常处理机制（try-catch块）的主要目的是( )。",
+    "options": ["A. 提高程序的运行速度。", "B. 在程序发生运行时错误时，提供一种结构化的错误处理方式。", "C. 确保程序在编译时没有错误。", "D. 减少程序的内存占用。"],
+    "correct": "B",
+    "explanation": "异常处理机制用于捕获和处理运行时错误，提供结构化的错误处理方式，选项B正确。与运行速度、编译错误、内存占用无关，其他选项错误。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "为了提高冒泡排序的效率，如果某轮“冒泡”中没有执行任何交换操作，说明数组已经完成排序，可直接返回结果，则两条横线上分别应该填写( )。<pre><code>void bubbleSortWithFlag(vector&lt;int&gt; &nums) {\n    for (int i = nums.size() - 1; i > 0; i--) {\n        bool flag; // 在此处填入代码\n        for (int j = 0; j < i; j++) {\n            if (nums[j] > nums[j + 1]) {\n                swap(nums[j], nums[j + 1]);\n                // 在此处填入代码\n            }\n        }\n        if (!flag)\n            break;\n    }\n}</code></pre>",
+    "options": ["A. flag = true; flag = true;", "B. flag = false; flag = true;", "C. flag = false; flag = false;", "D. flag = true; flag = false;"],
+    "correct": "B",
+    "explanation": "初始flag设为false（表示未交换），当发生交换时将flag设为true。若一轮结束后flag仍为false，说明数组已排序，可跳出循环。因此横线处应依次填写flag = false;和flag = true;，选项B正确。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "下面C++代码正确声明了一个返回int类型、接受两个int参数的函数。<pre><code>int add(int, int);</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "函数声明中可以省略参数名，只保留类型，该声明正确，说法正确。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "下面C++代码的输出是15。<pre><code>void foo(int x) {\n    x += 5;\n}\nint main() {\n    int a = 10;\n    foo(a);\n    cout << a << endl;\n}</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "foo函数采用值传递，修改的是参数副本，a的值仍为10，输出应为10，说法错误。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "下面C++代码在一个结构体中又定义了别的结构体。这种结构嵌套定义的方式语法不正确。<pre><code>#include &lt;string&gt;\n#include &lt;vector&gt;\nusing namespace std;\nstruct Library {\n    struct Book {\n        struct Author {\n            string name;\n            int birthYear;\n        };\n        int year;\n        string title;\n        Author author;\n    };\n    string name;\n    vector&lt;Book&gt; books;\n};</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "C++支持结构体嵌套定义，该代码语法正确，说法错误。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "在C++中，相比于值传递，使用引用传递的优点是可以直接操作和修改原始变量，避免数据拷贝，提高效率。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "引用传递无需拷贝实参，可直接操作原始变量，能提高效率，说法正确。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "下面这段代码不合法，因为每一行都必须显式初始化3个元素。<pre><code>int arr[2][3] = {{1, 2}, {3}};</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "二维数组初始化时，未显式初始化的元素会被自动初始化为0，该代码合法，说法错误。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "以下程序中使用了递推方式计算阶乘（n! = 1×2×...×n），计算结果正确。<pre><code>int factorial(int n) {\n    int res = 1;\n    for (int i = 0; i < n; ++i) {\n        res *= i;\n    }\n    return res;\n}</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "循环变量i从0开始，第一次相乘为res *= 0，导致结果始终为0，计算错误，说法错误。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "无论初始数组是否有序，选择排序都执行O(n²)次比较。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "选择排序需要遍历未排序部分找最小元素，无论数组是否有序，比较次数均为O(n²)，说法正确。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "以下C++代码，尝试对有n个整数的数组arr进行排序。这个代码实现了选择排序算法。<pre><code>for (int i = 0; i < n - 1; ++i) {\n    int minIndex = i;\n    for (int j = i + 1; j < n; ++j) {\n        if (arr[j] < arr[minIndex])\n            minIndex = j;\n    }\n    if (minIndex != i)\n        swap(arr[i], arr[minIndex]);\n}</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "该代码通过每次选择未排序部分的最小元素与当前元素交换，符合选择排序的实现逻辑，说法正确。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "如果一个异常在try块中抛出但没有任何catch匹配，它将在编译时报错。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "未匹配的异常会导致运行时调用std::terminate，而非编译时报错，说法错误。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "下面C++代码实现将Hello写入data.txt。<pre><code>ofstream out(\"data.txt\");\nout << \"Hello\";\nout.close();</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "代码创建ofstream对象打开data.txt，写入“Hello”并关闭文件，实现正确，说法正确。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  }
+]

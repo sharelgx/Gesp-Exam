@@ -1,0 +1,227 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "以下不属于计算机输出设备的有( )。",
+    "options": ["A. 麦克风", "B. 音箱", "C. 打印机", "D. 显示器"],
+    "correct": "A",
+    "explanation": "“输入”指外界向机器内部传递信息，“输出”指计算机内部信息向外界展示信息。“麦克风”属于向内部输入声音，属于输入设备，所以本题正确答案为A。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "ChatGPT是OpenAI研发的聊天机器人程序，它能通过理解和学习人类的语言来进行对话，还能根据聊天的上下文进行互动，完成很多工作。请你猜猜看，下面任务中，ChatGPT不能完成的是( )。",
+    "options": ["A. 改邮件", "B. 编剧本", "C. 擦地板", "D. 写代码"],
+    "correct": "C",
+    "explanation": "ChatGPT聊天机器人程序可以帮助完成计算机上的操作，A、B、D都属于此范畴，C选项擦地板无法直接实现，所以本题正确答案为C。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "常量'3'的数据类型是( )。",
+    "options": ["A. double", "B. float", "C. char", "D. int"],
+    "correct": "C",
+    "explanation": "C++中的基本数据类型有整数型（int、long long）、实数型（float、double）、字符型（char）、布尔型（bool）。'3'是用单引号引起来的单个字符3，属于字符型char，所以本题正确答案为C。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "下列关于C++语言变量的叙述，正确的是( )。",
+    "options": ["A. 变量可以没有定义", "B. 对一个没有定义的变量赋值，相当于定义了一个新变量", "C. 执行赋值语句后，变量的类型可能会变化", "D. 执行赋值语句后，变量的值可能不会变化"],
+    "correct": "D",
+    "explanation": "变量需要“先定义，再使用”，A、B错误；赋值操作不会改变变量数据类型，C错误；如果赋值语句右侧的表达式计算结果与左侧的变量原值相同，变量的值不会变化，D正确，所以本题正确答案为D。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "以下可以作为C++标识符的是( )。",
+    "options": ["A. number_of_Chinese_people_in_millions", "B. 360AntiVirus", "C. Man&Woman", "D. break"],
+    "correct": "A",
+    "explanation": "C++中变量名能且只能包含字母、数字、下划线，且不能用数字开头，也不能使用关键字。B以数字开头，C含&，D是关键字，均不符合，A符合规则，所以本题正确答案为A。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "以下哪个不是C++语言的关键字?( )",
+    "options": ["A. double", "B. else", "C. while", "D. endl"],
+    "correct": "D",
+    "explanation": "double、else、while均为C++关键字，endl是I/O操纵符，不是关键字，所以本题正确答案为D。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "如果a、b和c都是int类型的变量，下列哪个语句不符合C++语法?( )",
+    "options": ["A. a=(b==c);", "B. b=5.5;", "C. c=a+b+c;", "D. a+c=b+c;"],
+    "correct": "D",
+    "explanation": "赋值运算符左边必须是变量，D中左边是算术运算，不符合语法；A中右边是关系运算，结果可赋给整型变量；B中实数可赋给int类型（取整数部分）；C符合语法，所以本题正确答案为D。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "如果用一个int类型的变量a表达正方形的边长，则下列哪个表达式不能用来计算正方形的面积?( )",
+    "options": ["A. a * a", "B. 1 * a * a", "C. a ^ 2", "D. a * 2 * a / 2"],
+    "correct": "C",
+    "explanation": "正方形面积是a*a，A、B、D结果均为a*a；C中^在C++中是“异或运算符”，不是乘方，所以本题正确答案为C。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "表达式(4 * (11 + 12) / 4)的计算结果为( )。",
+    "options": ["A. 47", "B. 20", "C. 23", "D. 56"],
+    "correct": "C",
+    "explanation": "先算小括号内11+12=23，再算4*23=92，最后92/4=23，所以本题正确答案为C。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "如果a为int类型的变量，且a的值为6，则执行a%=4之后，a的值会是( )。",
+    "options": ["A. 1", "B. 2", "C. 3", "D. 4"],
+    "correct": "B",
+    "explanation": "a%=4等价于a=a%4，6除以4的余数为2，所以本题正确答案为B。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "如果a和b均为int类型的变量，下列表达式能正确判断“a等于0且b等于0”的是( )。",
+    "options": ["A. (a==b==0)", "B. !(a || b)", "C. (a+b==0)", "D. (a==0)+(b==0)"],
+    "correct": "B",
+    "explanation": "A先判断a==b，结果再与0比较，无法正确判断；B中若a和b都为0，a||b为0，!后为1，正确；C中a和b互为相反数时也成立；D中只要一个为0结果就大于0，所以本题正确答案为B。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "如果a和b为int类型的变量，且值分别为7和2，则下列哪个表达式的计算结果不是3.5?( )",
+    "options": ["A. 0.0+a / b", "B. (a+0.0) / b", "C. (0.0+a) / b", "D. a / (0.0 + b)"],
+    "correct": "A",
+    "explanation": "A中a/b是整数除法（7/2=3），加0.0后为3.0；B、C、D中因有实数参与运算，结果为3.5，所以本题正确答案为A。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "在下列代码的横线处填写( )，使得输出是“20 10”。<pre><code>#include &lt;iostream&gt;\nusing namespace std;\nint main(){\n    int a=10,b=20;\n    a= ;//在此处填入代码\n    b=a+b;\n    a=b-a;\n    cout&lt;&lt;a&lt;&lt;\" \"&lt;&lt;b&lt;&lt;endl;\n    return 0;\n}</code></pre>",
+    "options": ["A. a + b", "B. b", "C. a - b", "D. b - a"],
+    "correct": "C",
+    "explanation": "已知输出为“20 10”，即最终a=20、b=10。第7行a=b-a，此时b为10，故第7行前a为-10、b为10；第6行b=a+b，故第6行前a为-10、b为20；第5行a的值应为-10，只有选项C（a-b=10-20=-10）符合，所以本题正确答案为C。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "在下列代码的横线处填写( )，可以使得输出是“147”。<pre><code>#include &lt;iostream&gt;\nusing namespace std;\nint main(){\n    for(int i=1;i&lt;=8; i++)\n        if( )//在此处填入代码\n            cout&lt;&lt;i;\n    return 0;\n}</code></pre>",
+    "options": ["A. i % 2 == 1", "B. i % 3 == 1", "C. i = i + 3", "D. i + 3"],
+    "correct": "B",
+    "explanation": "A输出1、3、5、7；B中i=1（1%3=1）、i=4（4%3=1）、i=7（7%3=1），输出147；C是赋值表达式，值为真，输出4、8；D中i+3非0，输出1-8，所以本题正确答案为B。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "执行以下C++语言程序后，输出结果是( )。<pre><code>#include&lt;iostream&gt;\nusing namespace std;\nint main(){\n    int sum;\n    for (int i=1;i&lt;=20; i++)\n        if(i%3==0||i%5==0)\n            sum+=i;\n    cout&lt;&lt;sum&lt;&lt;endl;\n    return 0;\n}</code></pre>",
+    "options": ["A. 63", "B. 98", "C. 113", "D. 无法确定"],
+    "correct": "D",
+    "explanation": "变量sum定义在主函数内但未初始化，初始值不确定，累加结果无法确定，所以本题正确答案为D。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "计算机硬件主要包括运算器、控制器、存储器、输入设备和输出设备。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "计算机组成的五大部分即运算器、控制器、存储器、输入设备和输出设备，所以本题正确。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "诞生于1958年的103机是中国第一台通用数字电子计算机，比1946年在美国诞生的第一台通用电子计算机ENIAC晚了十多年。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "中国第一台通用数字电子计算机103机于1958年研制成功，ENIAC诞生于1946年，相差约12年，所以本题正确。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "在C++语言中，计算结果必须存储在变量中才能输出。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "输出语句可以直接输出表达式的运算结果，无需存储在变量中，所以本题错误。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "在C++语言中，标识符的命名不能完全由数字组成，至少有一个字母就可以。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "标识符可包含字母、数字、下划线，且不能以数字开头。可以没有字母（如_123），有字母也可能不合法（如2ab），所以本题错误。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "10是一个int类型常量。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "10是整型常量，默认类型为int，所以本题正确。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "if语句可以没有else子句。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "if语句可独立存在，条件满足则执行下级代码，不满足则跳过，无需else子句，所以本题正确。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "do ... while语句的循环体至少会执行一次。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "do...while先执行一次循环体，再判断条件，循环体至少执行一次，所以本题正确。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "如果a和b为int类型的变量，则表达式a = b可以判断a和b是否相等。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "a = b是赋值操作，判断相等需用a == b，所以本题错误。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "如果a为int类型的变量，则表达式(a % 4==2)可以判断a的值是否为偶数。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "该表达式表示“被4除余2”，这样的数是偶数，但偶数不一定满足（如4被4除余0），不能判断是否为偶数，所以本题错误。",
+    "source": "2023年6月 GESP C++一级试题"
+  },
+
+  {
+    "id": "25",
+    "type": "truefalse",
+    "question": "表达式(37 / 4)的计算结果为9，且结果类型为int。( )",
+    "correct": "√",
+    "explanation": "本题考察整数除法。C++中整数相除结果向下取整，37/4=9，类型为int，故正确。",
+    "source": "2023年6月 GESP C++一级试题解析.pdf"
+  }
+]

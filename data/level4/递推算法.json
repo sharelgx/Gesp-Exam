@@ -1,0 +1,92 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "下面关于递推的说法不正确的是( )｡",
+        "options": ["A. 递推表现为自己调用自己", "B. 递推是从简单问题出发，一步步的向前发展，最终求得问题，是正向的", "C. 递推中，问题的n要求是在计算中确定，不要求计算前就知道n", "D. 斐波那契数列可以用递推实现求解"],
+        "correct": "A",
+        "explanation": "递推是从已知条件出发，逐步推导后续结果，而“自己调用自己”是递归的特征。斐波那契数列通过前两项推导后续项，是典型递推应用。",
+        "source": "2024年6月GESP C++四级真题.pdf 单选题第9题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "小杨正在爬楼梯，需要爬n阶才能到达楼顶｡如果每次可以爬1个或2个台阶，下面代码采用递推算法来计算一共有多少种不同的方法可以爬到楼顶，则横线上应填写( )｡<pre><code>int f(int n) {\n    if (n == 1 || n == 2)\n        return n;\n    int f1 = 1; int f2 = 2;\n    int res = 0;\n    for (int i = 3; i <= n; i++) {\n        // 在此处填入代码\n    }\n    return res;\n}</code></pre>",
+        "options": ["A. res += f1 + f2; f1 = f2; f2 = res;", "B. res = f1 + f2; f1 = f2; f2 = res;", "C. res += f1 + f2; f2 = res; f1 = f2;", "D. res = f1 + f2; f2 = res; f1 = f2;"],
+        "correct": "B",
+        "explanation": "爬楼梯问题的递推式为f(n) = f(n-1) + f(n-2)。初始f1=f(1)=1，f2=f(2)=2，循环中每次计算res=f1+f2（即f(i)），然后更新f1=f2（前一项）、f2=res（当前项），为下一次迭代做准备。",
+        "source": "2025年3月认证C++四级试题.pdf 单选题第10题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "下面代码采用递推算法来计算斐波那契数列f(n)=f(n-1)+f(n-2)，则横线上应填写( )｡<pre><code>int fib(int n) {\n    if (n == 0 || n == 1)\n        return n;\n    int f1 = 0; int f2 = 1; int result = 0;\n    for (int i = 2; i <= n; i++) {\n        // 在此处填入代码\n    }\n    return result;\n}</code></pre>",
+        "options": ["A. result = f1 + f2; f1 = f2; f2 = result;", "B. result += f1 + f2; f1 = f2; f2 = result;", "C. result += f1 + f2; f2 = result; f1 = f2;", "D. result = f1 + f2; f2 = result; f1 = f2;"],
+        "correct": "A",
+        "explanation": "斐波那契递推需从f(0)和f(1)开始，依次计算f(2)到f(n)。每次迭代中，result=f1+f2得到当前项，然后f1更新为前一项f2，f2更新为当前项result，确保递推关系正确。",
+        "source": "2024年12月认证C++四级真题.pdf 单选题第9题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "下列递推关系式表示斐波那契数列的是( )｡",
+        "options": ["A. F(n)=F(n-1)+F(n-2)+F(n-3)", "B. F(n)=F(n-1)+F(n-2)", "C. F(n)=F(n-1) * F(n-2)", "D. F(n)=F(n-1) / F(n-2)"],
+        "correct": "B",
+        "explanation": "斐波那契数列的定义是从第三项开始，每一项等于前两项之和，即F(n) = F(n-1) + F(n-2)，初始条件F(0)=0，F(1)=1。",
+        "source": "GESP C++四级样题卷.pdf 单选题第10题"
+    },
+    {
+        "id": "5",
+        "type": "single",
+        "question": "下面函数中采用的算法是( )｡<pre><code>int fib(int n) {\n    int i, f[n]={0, 1};\n    for(int i=2; i<=n; i++)\n        f[i]=f[i-1]+f[i-2];\n    return f[n];\n}</code></pre>",
+        "options": ["A. 递推", "B. 递归", "C. 迭代", "D. 循环"],
+        "correct": "A",
+        "explanation": "函数通过已知的F(0)和F(1)，利用循环逐步计算出F(2)到F(n)，符合递推算法“从已知到未知”的正向推导思想，而非递归的自身调用。",
+        "source": "2024年3月认证C++四级真题.pdf 单选题第8题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "递推是一种通过已知的初始值和递推公式，逐步求解目标值的算法｡( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "A",
+        "explanation": "递推算法的核心是利用初始条件和递推关系式，依次计算出后续每个状态的值，例如斐波那契数列、阶乘等问题的求解。",
+        "source": "2025年3月认证C++四级试题.pdf 判断题第6题"
+    },
+    {
+        "id": "7",
+        "type": "single",
+        "question": "数列1, 1, 2, 3, 5, 8 ... 是以意大利数学家列昂纳多·斐波那契命名的数列，从第三个数开始，每个数是前面两项之和｡如果计算该数列的第n项（其中n>3）fib(n)，我们采用如下方法：①令fib(1)=fib(2)=1 ②用循环for i=3 to n 分别计算f(i) ③输出fib(n)｡这体现了递推的编程思想｡( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "A",
+        "explanation": "该方法通过已知的前两项，利用循环逐步计算后续项，符合递推算法的定义，与递归的自调用方式不同，是典型的递推实现。",
+        "source": "2023年6月GESP C++四级试题解析.pdf 判断题第2题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "下面代码采用递推算法来实现整数的阶乘（n! = n × (n-1) ×...×2×1），则横线上应填写( )｡<pre><code>int factorial(int n) {\n    int result = 1;\n    for (int i = 2; i <= n; i++) {\n        // 在此处填入代码\n    }\n    return result;\n}</code></pre>",
+        "options": ["A. result *= i;", "B. result += i;", "C. result *= result;", "D. result += result;"],
+        "correct": "A",
+        "explanation": "阶乘的递推关系式为n! = n × (n-1)!，初始条件1! = 1。循环中每次将当前i乘到result上，即result = result × i，逐步计算出n!。",
+        "source": "2024年9月认证C++四级试题.pdf 单选题第9题"
+    },
+    {
+        "id": "9",
+        "type": "single",
+        "question": "某算法的递推关系式为T(n)=T(n-1)+n（n为正整数）及T(0)=1，则该算法的时间复杂度为( )｡",
+        "options": ["A. O(n)", "B. O(n²)", "C. O(n log n)", "D. O(log n)"],
+        "correct": "B",
+        "explanation": "展开递推式：T(n) = T(n-1)+n = T(n-2)+(n-1)+n = ... = T(0)+1+2+...+n = 1 + n(n+1)/2，最高次项为n²，故时间复杂度为O(n²)。",
+        "source": "2024年12月认证C++四级真题.pdf 判断题第6题"
+    },
+    {
+        "id": "10",
+        "type": "single",
+        "question": "递推算法通常有初始值｡( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "A",
+        "explanation": "递推算法需要从已知的初始条件出发（如斐波那契数列的F(0)和F(1)），没有初始值则无法推导后续结果，这是递推的基本特征。",
+        "source": "GESP C++四级样题卷.pdf 判断题第4题"
+    }
+]

@@ -1,0 +1,173 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "常量\"Hello\"的数据类型是( )｡",
+        "options": ["A. char", "B. char数组", "C. string", "D. int"],
+        "correct": "B",
+        "explanation": "双引号包裹的字符串字面量是char类型数组，末尾自动添加空字符\\0，选项B正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "2",
+        "type": "truefalse",
+        "question": "C++中bool类型变量可以存储数值-5｡(对/错)",
+        "correct": "√",
+        "explanation": "非零数值赋值给bool变量时自动转为true，-5非零，因此可以存储，说法正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "表达式3.5 + 2的计算结果类型是( )｡",
+        "options": ["A. int", "B. float", "C. double", "D. char"],
+        "correct": "C",
+        "explanation": "整数2自动提升为double类型与3.5运算，结果为double类型5.5，选项C正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "4",
+        "type": "truefalse",
+        "question": "字符'A'和整数65在C++中是等价的｡(对/错)",
+        "correct": "√",
+        "explanation": "字符\\'A\\'的ASCII码值为65，在算术运算中会自动转换为对应整数，因此等价，说法正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "5",
+        "type": "single",
+        "question": "执行语句int x = 5.8; 后，x的值是( )｡",
+        "options": ["A. 5", "B. 6", "C. 5.8", "D. 0"],
+        "correct": "A",
+        "explanation": "浮点型转换为int类型时截断小数部分，5.8转为5，选项A正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "C++中表示逻辑非的运算符是( )｡",
+        "options": ["A. ~", "B. !", "C. ^", "D. &&"],
+        "correct": "B",
+        "explanation": "逻辑非运算符为!，~是按位取反，^是异或，&&是逻辑与，选项B正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "7",
+        "type": "truefalse",
+        "question": "表达式5 / 2的结果是2.5｡(对/错)",
+        "correct": "×",
+        "explanation": "整数除法5/2的结果为2（截断小数），类型为int，说法错误。",
+        "source": "模拟题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "若a=3，b=5，表达式a += b * 2的值是( )｡",
+        "options": ["A. 13", "B. 10", "C. 8", "D. 5"],
+        "correct": "A",
+        "explanation": "先计算b*2=10，再执行a+=10（等价于a=a+10），3+10=13，选项A正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "9",
+        "type": "truefalse",
+        "question": "cout << 1 << 'A' << 3.5; 可以混合输出不同类型数据｡(对/错)",
+        "correct": "√",
+        "explanation": "cout支持混合类型输出，自动进行类型转换：1为int，'A'为char（输出ASCII码65），3.5为double，输出1A3.5，说法正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "10",
+        "type": "single",
+        "question": "下列常量中，属于float类型的是( )｡",
+        "options": ["A. 100", "B. 3.14", "C. 6.2f", "D. 'c'"],
+        "correct": "C",
+        "explanation": "float类型常量需加f后缀，选项C（6.2f）正确；A是int，B是double，D是char。",
+        "source": "模拟题"
+    },
+    {
+        "id": "11",
+        "type": "single",
+        "question": "表达式!(3 < 5) || (6 % 2 == 0)的值是( )｡",
+        "options": ["A. true", "B. false", "C. 1", "D. 0"],
+        "correct": "A",
+        "explanation": "3<5为true，!true为false；6%2==0为true；false||true为true，布尔表达式结果为true，选项A正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "12",
+        "type": "truefalse",
+        "question": "cin >> a; 语句可以读取包含空格的字符串｡(对/错)",
+        "correct": "×",
+        "explanation": "cin >> 遇到空格、换行符会停止读取，读取含空格的字符串需用getline(cin, str);，说法错误。",
+        "source": "模拟题"
+    },
+    {
+        "id": "13",
+        "type": "single",
+        "question": "在C++中，以下对常量的定义正确的是( )｡",
+        "options": ["A. const int a=10;", "B. int const a=10;", "C. const a=10;", "D. A和B都正确"],
+        "correct": "A",
+        "explanation": "选项A正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "14",
+        "type": "truefalse",
+        "question": "表达式'a' + 'b'的结果是字符'c'｡(对/错)",
+        "correct": "×",
+        "explanation": "字符'a'（ASCII97）+'b'（ASCII98）=195，并非'c'（ASCII99），结果为int类型195，说法错误。",
+        "source": "模拟题"
+    },
+    {
+        "id": "15",
+        "type": "single",
+        "question": "执行以下代码段的输出是( )｡<pre><code>int x=10; cout << x++ << ++x; </code></pre>",
+        "options": ["A. 10 12", "B. 11 11", "C. 10 11", "D. 11 12"],
+        "correct": "A",
+        "explanation": "x++先输出10，再自增为11；++x先自增为12，再输出12，结果为10 12，选项A正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "16",
+        "type": "truefalse",
+        "question": "C++中允许将int类型变量直接赋值给bool类型变量｡(对/错)",
+        "correct": "√",
+        "explanation": "int类型非零值赋给bool为true，0为false，允许隐式类型转换，说法正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "17",
+        "type": "single",
+        "question": "表达式10 % 3的结果是( )｡",
+        "options": ["A. 0", "B. 1", "C. 2", "D. 3"],
+        "correct": "B",
+        "explanation": "10除以3商3余1，取余结果为1，选项B正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "18",
+        "type": "truefalse",
+        "question": "float类型的精度比long类型高｡(对/错)",
+        "correct": "×",
+        "explanation": "float是浮点型（表示小数），long是整型（表示整数），两者精度衡量方式不同，无法直接比较，说法错误。",
+        "source": "模拟题"
+    },
+    {
+        "id": "19",
+        "type": "single",
+        "question": "在C++中，输出换行的转义字符是( )｡",
+        "options": ["A. /n", "B. \\n", "C. endl", "D. \r"],
+        "correct": "B",
+        "explanation": "\\n是换行转义字符，endl是操纵符（等价于\n+刷新缓冲区），选项B正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "20",
+        "type": "truefalse",
+        "question": "表达式3 == 5 ? 1 : 2的结果是2｡(对/错)",
+        "correct": "√",
+        "explanation": "3==5为false，条件表达式取冒号后的值2，说法正确。",
+        "source": "模拟题"
+    }
+]

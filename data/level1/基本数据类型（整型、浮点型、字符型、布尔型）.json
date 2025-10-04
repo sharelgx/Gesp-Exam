@@ -1,0 +1,192 @@
+[
+    {
+      "id": "1",
+      "type": "single",
+      "question": "常量'3'的数据类型是( )｡",
+      "options": ["A. double", "B. float", "C. char", "D. int"],
+      "correct": "C",
+      "explanation": "单引号包裹的单个字符为字符型（char），'3'表示ASCII码为51的字符，属于字符型常量。",
+      "source": "2023年6月 GESP C++一级试题解析.pdf 单选题 第3题"
+    },
+    {
+      "id": "2",
+      "type": "truefalse",
+      "question": "10 是一个int 类型常量｡(对/错)",
+      "correct": "√",
+      "explanation": "整型常量默认类型为int，10无小数部分，属于int类型。",
+      "source": "2023年6月 GESP C++一级试题解析.pdf 判断题 第5题"
+    },
+    {
+      "id": "3",
+      "type": "single",
+      "question": "常量7.0 的数据类型是( )｡",
+      "options": ["A. double", "B. float", "C. void", "D. int"],
+      "correct": "A",
+      "explanation": "C++中浮点常量默认类型为double，7.0含小数部分，属于双精度浮点型。",
+      "source": "2023年3月 GESP C++一级试题解析.pdf 单选题 第3题"
+    },
+    {
+      "id": "4",
+      "type": "truefalse",
+      "question": "'3'是一个int 类型常量｡(对/错)",
+      "correct": "×",
+      "explanation": "单引号表示字符型（char），'3'的类型为char，而非int。",
+      "source": "2023年3月 GESP C++一级试题解析.pdf 判断题 第5题"
+    },
+    {
+      "id": "5",
+      "type": "single",
+      "question": "下面C++代码段执行后的输出是( )｡ int a=3,b=4; cout<<\"a+b=\"<<a+b;",
+      "options": ["A. 3+4=7", "B. a+b=7", "C. 7=a+b", "D. a+b=a+b"],
+      "correct": "B",
+      "explanation": "a和b为int类型，相加结果为7，字符串直接输出，结果为“a+b=7”。",
+      "source": "2023年9月 GESP C++一级试题解析.pdf 单选题 第4题"
+    },
+    {
+      "id": "6",
+      "type": "single",
+      "question": "C++表达式2 - 1 && 2 % 10 的值是( )｡",
+      "options": ["A. 0", "B. 1", "C. 2", "D. 3"],
+      "correct": "B",
+      "explanation": "算术运算优先级高于逻辑运算，2-1=1（非零，转为bool为true），2%10=2（非零，转为bool为true），true && true结果为1（bool型参与运算时true对应1）。",
+      "source": "2023年9月 GESP C++一级试题解析.pdf 单选题 第3题"
+    },
+    {
+      "id": "7",
+      "type": "truefalse",
+      "question": "C++表达式('1' + '1') 的值为'2'｡(对/错)",
+      "correct": "×",
+      "explanation": "字符型'1'对应ASCII码49，相加为98，对应字符'b'，而非'2'（ASCII码50）。",
+      "source": "2023年9月 GESP C++一级试题解析.pdf 判断题 第6题"
+    },
+    {
+      "id": "8",
+      "type": "single",
+      "question": "在C++中，假设N为正整数，则表达式cout << (N % 3 + N % 7) 可能输出的最大值是( )｡",
+      "options": ["A. 6", "B. 8", "C. 9", "D. 10"],
+      "correct": "B",
+      "explanation": "N%3最大值为2（当N=3k+2时），N%7最大值为6（当N=7m+6时），两者之和最大为2+6=8。",
+      "source": "2024年6月 GESP C++一级真题.pdf 单选题 第3题"
+    },
+    {
+      "id": "9",
+      "type": "single",
+      "question": "C++语句printf(\"5%%2={%d}\",5 % 2) 执行后的输出是( )｡",
+      "options": ["A. 1={1}", "B. 5%2={5%2}", "C. 5%2={1}", "D. 5 ={1}"],
+      "correct": "C",
+      "explanation": "%%转义为%，5%2=1，输出“5%2={1}”。",
+      "source": "2024年6月 GESP C++一级真题.pdf 单选题 第4题"
+    },
+    {
+      "id": "10",
+      "type": "single",
+      "question": "下面C++代码执行时输入5+2 ,下述说法正确的是( )｡ int i; cin >> i; cout << i;",
+      "options": ["A. 将输出整数7", "B. 将输出5", "C. 语句执行将报错", "D. 输出内容不确定"],
+      "correct": "B",
+      "explanation": "cin遇到非数字字符停止读取，输入5+2时读取5赋值给int变量i，输出5。",
+      "source": "2024年6月 GESP C++一级真题.pdf 单选题 第5题"
+    },
+    {
+      "id": "11",
+      "type": "single",
+      "question": "float a; a = 101.101; a = 101; printf(\"a+1={%.0f}\",a+1); 执行后的输出是( )｡",
+      "options": ["A. 102={102}", "B. a+1={a+1}", "C. a+1={102}", "D. 执行将报错"],
+      "correct": "C",
+      "explanation": "a先被赋值为101.101，后转为int为101（截断小数），a+1=102，%.0f格式化为整数102，输出“a+1={102}”。",
+      "source": "2024年6月 GESP C++一级真题.pdf 单选题 第6题"
+    },
+    {
+      "id": "12",
+      "type": "single",
+      "question": "表达式9/4 - 6 % (6 - 2) * 10 的值是( )｡",
+      "options": ["A. -17.75", "B. -18", "C. -14", "D. -12.75"],
+      "correct": "B",
+      "explanation": "9/4=2（整数除法），6-2=4，6%4=2，2*10=20，最终2-20=-18。",
+      "source": "2024年9月 GESP C++一级真题.pdf 单选题 第7题"
+    },
+    {
+      "id": "13",
+      "type": "truefalse",
+      "question": "在C++中，表达式10/4 和10%4 的值相同，都是整数2｡(对/错)",
+      "correct": "√",
+      "explanation": "10/4=2（整数除法），10%4=2（取余），值相同,所以说法正确。",
+      "source": "2024年9月 GESP C++一级真题.pdf 判断题 第2题"
+    },
+    {
+      "id": "14",
+      "type": "single",
+      "question": "C++表达式(3 - 2) * 3 + 5 的值是( )｡",
+      "options": ["A. -13", "B. 8", "C. 2", "D. 0"],
+      "correct": "B",
+      "explanation": "先算括号内3-2=1，再1*3=3，最后3+5=8，结果为int类型8。",
+      "source": "2024年3月认证C++一级真题.pdf 单选题 第1题"
+    },
+    {
+      "id": "15",
+      "type": "truefalse",
+      "question": "C++语句cout << (2 * 3, 3 % 10, 2+3) 的输出为6,3,5｡(对/错)",
+      "correct": "×",
+      "explanation": "逗号表达式取最后一个值2+3=5，输出为5，而非多个值。",
+      "source": "2024年3月认证C++一级真题.pdf 判断题 第2题"
+    },
+    {
+      "id": "16",
+      "type": "single",
+      "question": "下列关于C++语言的叙述，正确的是( )｡",
+      "options": ["A. 3.0 是一个int 类型常量", "B. char类型变量可存储单个字符", "C. bool类型只有0和1两个值", "D. float类型精度高于double"],
+      "correct": "B",
+      "explanation": "A错误（3.0是double）；B正确（char存储单个字符）；C错误（bool值为true/false，对应1/0）；D错误（double精度更高）。",
+      "source": "GESP C++ 一级样题.pdf 改编题"
+    },
+    {
+      "id": "17",
+      "type": "truefalse",
+      "question": "3.0 是一个int 类型常量｡(对/错)",
+      "correct": "×",
+      "explanation": "3.0含小数部分，是double类型常量，非int。",
+      "source": "GESP C++ 一级样题.pdf 判断题 第5题"
+    },
+    {
+      "id": "18",
+      "type": "single",
+      "question": "常量\"A\"的数据类型是( )｡",
+      "options": ["A. char", "B. string", "C. char数组", "D. int"],
+      "correct": "C",
+      "explanation": "双引号包裹的字符是字符串字面量，类型为char数组（含空字符结尾），非单个char。",
+      "source": "2024年12月 GESP C++一级真题.pdf 隐含考点"
+    },
+    {
+      "id": "19",
+      "type": "truefalse",
+      "question": "bool类型变量可以赋值为-1｡(对/错)",
+      "correct": "√",
+      "explanation": "C++中非零值转为bool为true，-1非零，赋值给bool变量为true。",
+      "source": "2023年3月 GESP C++一级试题解析.pdf 隐含考点"
+    },
+    {
+      "id": "20",
+      "type": "single",
+      "question": "C++表达式int(3.14) 的值为( )｡",
+      "options": ["A. 3", "B. 3.14", "C. 4", "D. 0"],
+      "correct": "A",
+      "explanation": "强制类型转换将double转为int，截断小数部分，3.14转为3。",
+      "source": "2023年9月 GESP C++一级试题解析.pdf 判断题 第3题"
+    },
+    {
+      "id": "21",
+      "type": "truefalse",
+      "question": "表达式(37 / 4) 的计算结果为9，且结果类型为int｡(对/错)",
+      "correct": "√",
+      "explanation": "整数除法37/4=9（向下取整），结果类型为int。",
+      "source": "2023年6月 GESP C++一级试题解析.pdf 判断题 第10题"
+    },
+    {
+      "id": "22",
+      "type": "single",
+      "question": "如果a 和b 为int 类型的变量，且值分别为7 和2，则下列哪个表达式的计算结果不是3.5?( )",
+      "options": ["A. 0.0+a / b", "B. (a+0.0) / b", "C. (0.0+a) / b", "D. a / (0.0 + b)"],
+      "correct": "A",
+      "explanation": "A中a/b为整数除法7/2=3，加0.0后为3.0；B、C、D中因分母或分子含浮点型，结果为3.5。",
+      "source": "2023年6月 GESP C++一级试题解析.pdf 单选题 第12题"
+    }
+  ]

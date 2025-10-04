@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]']],
+          processEscapes: true
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS3NP29DGX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HS3NP29DGX');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>GESP 等级考试在线做题平台————元探索柳老师</title>
+  <meta name="keywords" content="辽宁少儿编程,沈阳少儿编程,沈阳中考科技特长生,GESP真题,沈阳信息学奥赛">
+  <meta name="description" content="元探索柳老师专注辽宁沈阳地区少儿编程教育，提供GESP等级考试真题题库、信息学奥赛培训及中考科技特长生备考指导。专业师资团队，助力孩子提升编程能力，直通名校升学通道！">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body>
+  <div id="level-nav">
+    <button class="level-btn active" data-level="level1">一级http-server -p 8000</button>
+    <button class="level-btn" data-level="level2">二级</button>
+    <button class="level-btn" data-level="level3">三级</button>
+    <button class="level-btn" data-level="level4">四级</button>
+    <button class="level-btn" data-level="level5">五级</button>
+    <button class="level-btn" data-level="level6">六级</button>
+    <button class="level-btn" data-level="level7">七级</button>
+    <button class="level-btn" data-level="level8">八级</button>
+    <button class="level-btn" data-level="cspj">CSP-J</button>
+    <button class="level-btn" data-level="csps">CSP-S</button>
+  </div>
+
+  <div id="main-container">
+    <aside id="sidebar">
+      <h3>知识点列表1</h3>
+      <ul id="knowledge-list"></ul>
+    </aside>
+
+    <section id="right-panel">
+      <div class="placeholder">请选择左侧知识点以加载相应题目</div>
+    </section>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/question-loader.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

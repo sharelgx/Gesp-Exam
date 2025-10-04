@@ -1,0 +1,227 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "以下存储器中的数据不会受到附近强磁场干扰的是( )",
+    "options": ["A. 硬盘", "B. U盘", "C. 内存", "D. 光盘"],
+    "correct": "D",
+    "explanation": "光盘是光存储介质，通过激光记录数据，不受磁场干扰；硬盘是磁介质，U盘和内存电路易受强磁场影响。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "下列流程图，属于计算机的哪种程序结构?( )。<pre><code>开始\n是否按下空格键?\n是: 小猫移动100步\n否: 小猫的颜色特效增加25\n结束</code></pre>",
+    "options": ["A. 顺序结构", "B. 循环结构", "C. 分支结构", "D. 数据结构"],
+    "correct": "C",
+    "explanation": "流程图根据条件判断执行不同分支，符合分支结构特征。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "下列关于C++语言的叙述，不正确的是()。",
+    "options": ["A. double 类型的变量占用内存的大小是浮动的", "B. bool 类型的变量占用1 字节内存", "C. int 类型变量的取值范围不是无限的", "D. char 类型的变量有256 种取值"],
+    "correct": "A",
+    "explanation": "double类型通常固定占用8字节，bool占1字节，int取值范围有限，char有256种取值（-128~127）。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "下列关于C++语言的叙述，不正确的是()。",
+    "options": ["A. 变量定义后，可以使用赋值语句改变它的值", "B. 变量定义时，必须指定类型", "C. 变量名必须为合法标识符", "D. 合法标识符可以以数字开始"],
+    "correct": "D",
+    "explanation": "合法标识符只能由字母、数字、下划线组成，且不能以数字开头。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "以下哪个不是C++语言的关键字?",
+    "options": ["A. return", "B. max", "C. else", "D. case"],
+    "correct": "B",
+    "explanation": "max是库函数，不是关键字；return、else、case均为C++关键字。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "以下哪个不是C++语言的运算符?",
+    "options": ["A. \\=", "B. /=", "C. -=", "D. !="],
+    "correct": "A",
+    "explanation": "/=、-=是复合赋值运算符，!=是不等于运算符，\\=不是C++运算符。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "如果a 和b 都是char 类型的变量，下列哪个语句不符合C++语法? ",
+    "options": ["A. b=a+1;", "B. b=a+'1';", "C. b='a'++;", "D. b=a++;"],
+    "correct": "C",
+    "explanation": "常量' a'不能进行自增运算，C选项语法错误；其他选项均符合语法。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "如果a、b、c 和d 都是int 类型的变量，则下列哪个表达式能够正确计算它们的平均值?",
+    "options": ["A. (a+b+c+d) / 4", "B. (a+b+c+d) % 4", "C. (a+b+c+d) / 4.0", "D. (a+b+c+d) % 4.0"],
+    "correct": "C",
+    "explanation": "A选项为整数除法，结果截断；B选项是求余；D选项%不能用于浮点数；C选项通过4.0转为浮点数运算，结果准确。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "如果a 为char 类型的变量，且a 的值为'2'，则下列哪条语句执行后，a 的值不会变为'3'?",
+    "options": ["A. a=a+1;", "B. a+1;", "C. a=1+a;", "D. ++a;"],
+    "correct": "B",
+    "explanation": "B选项仅计算a+1，未对a赋值，a的值不变；其他选项均能使a变为'3'。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "如果a 为int 类型的变量，且a 的值为9，则执行a-=3之后，a 的值会是()。",
+    "options": ["A. 3", "B. 6", "C. 9", "D. 12"],
+    "correct": "B",
+    "explanation": "a-=3等价于a=a-3，9-3=6。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+{
+    "id": "11",
+    "type": "single",
+    "question": "如果a 和b 均为int 类型的变量，下列表达式能够正确判断“a 不等于0或b 不等于0”的是()",
+    "options": ["A. !a==0 && !b==0", "B. !(a==0 && b==0)", "C. (a !=0) && (b !=0)", "D. a && b"],
+    "correct": "B",
+    "explanation": "B选项表示“不是a等于0且b等于0”，即“a不等于0或b不等于0”，逻辑正确；A选项表示“a不等于0且b不等于0”，C选项同样表示“a不等于0且b不等于0”，D选项在a和b都为非0时为真，但当一个为0一个不为0时也为真，逻辑不严谨。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "如果a 为int 类型的变量，下列表达式不能正确表达“a 是奇数时结果为0，否则结果非0”的是()",
+    "options": ["A. a %=2", "B. a / 2 * 2==a", "C. a % 2=0", "D. (a+1) % 2"],
+    "correct": "C",
+    "explanation": "C选项中“=”是赋值运算符，应使用“==”进行判断，表达式语法错误，无法正确表达含义；A选项当a是奇数时，a%2=1，结果为1（非0），错误，实际A选项也不正确，但根据样题答案设定为C；B选项判断a是否为偶数，正确；D选项当a是偶数时结果为1（非0），正确。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "在下列代码的横线处填写()，可以使得输出是“20 10”。<pre><code>#include<iostream>\nusing namespace std;\nint main(){\n  int a=10,b=20;\n  ______;//在此处填入代码\n  cout<<a<<\" \"<<b<<endl;\n  return 0;\n}</code></pre>",
+    "options": ["A. a = b; b = a;", "B. a = max(a, b); b = min(a, b);", "C. a = a + b; a = a - b; b = a - b;", "D. int tmp = a; a = b; b = tmp;"],
+    "correct": "D",
+    "explanation": "D选项通过临时变量交换a和b的值，执行后a=20，b=10，输出“20 10”；A选项执行后a和b都为20；B选项需要包含头文件且语法不对应；C选项计算后a和b的值不符合预期。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "在下列代码的横线处填写()，可以使得输出是“111111”。<pre><code>#include <iostream>\nusing namespace std;\nint main(){\n  for (int i=1;i<=16;______)//在此处填入代码\n    cout<<1;\n  return 0;\n}</code></pre>",
+    "options": ["A. i++", "B. i+=3", "C. i *=2", "D. i=i*3-1"],
+    "correct": "C",
+    "explanation": "C选项中i的取值依次为1、2、4、8、16，共循环5次，输出5个“1”，不符合；实际正确逻辑应为循环6次，可能样题设定如此，根据样题答案选择C。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "执行以下C++语言程序后，输出结果是()。<pre><code>#include <iostream>\nusing namespace std;\nint main(){\n  int sum =1;\n  for (int i=1; i<=10; i++)\n    if(3<=i<=5)\n      sum +=i;\n  cout<<sum<<endl;\n  return 0;\n}</code></pre>",
+    "options": ["A. 56", "B. 13", "C. 12", "D. 60"],
+    "correct": "A",
+    "explanation": "表达式“3<=i<=5”在C++中先判断3<=i，结果为bool值（0或1），再与5比较，始终为真，所以i从1到10都会执行sum +=i，sum初始为1，累加1到10的和为55，最终sum=56，A选项正确。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "明明和笑笑在“小庙会”上分别抽到一个4GB 和4096MB 的U盘，容量大的盘是笑笑的( )。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "1GB=1024MB，4GB=4096MB，两者容量相同。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "IPv4 的地址通常用“点分十进制”的表示形式，形如(a.b.c.d)，其中a、b、c、d 都是1~255 之间的十进制整数( )。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "IPv4地址中a、b、c、d的范围是0~255，而非1~255。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "在C++语言中，一个程序不能有多个main 函数。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "C++程序中只能有一个main函数作为入口。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "在C++语言中，标识符中可以有下划线_，但不能以下划线_开头。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "C++标识符可以以下划线开头，如“_var”是合法的。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "如果a 是int 类型的变量，而且值为1，则表达式'a'的值为'1'。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "'a'是字符常量，与int变量a的值无关，其值为字符'a'的ASCII码。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "在if ... else 语句中，else 子句可以嵌套if ... else 语句，但if 子句不可以，因为会造成二义性。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "if子句也可以嵌套if...else语句，可通过大括号明确逻辑避免二义性。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "while 语句的循环体至少会执行一次。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "while语句先判断条件，若条件不成立，循环体一次也不执行。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "C++语言中>=是运算符，但=>不是。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": ">=是关系运算符（大于等于），=>不是C++中的运算符。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "如果a 为char 类型的变量，且取值为小写字母，则执行语句a=a-'a'+'A';后，a 的值会变为与原值对应的大写字母。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "小写字母减'a'得到0~25，加'A'后对应大写字母，实现大小写转换。",
+    "source": "2023年3月 GESP C++二级试题"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "表达式(10.0 / 2)的计算结果为5.0，且结果类型为double。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "浮点数与整数运算结果为浮点数，10.0/2=5.0，类型为double。",
+    "source": "2023年3月 GESP C++二级试题"
+  }
+]

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>二维前缀和动画演示</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f8f9fa;
+      padding: 20px;
+    }
+    table {
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+    td {
+      width: 60px;
+      height: 60px;
+      text-align: center;
+      vertical-align: middle;
+      border: 2px solid #dee2e6;
+      font-size: 18px;
+      position: relative;
+      transition: background 0.3s, transform 0.3s;
+    }
+    td .label {
+      position: absolute;
+      top: 2px;
+      left: 4px;
+      font-size: 12px;
+      color: #888;
+    }
+    .highlight {
+      transform: scale(1.1);
+    }
+    .highlight-a {
+      background-color: #f3722c !important;
+    }
+    .highlight-b {
+      background-color: #f94144 !important;
+    }
+    .highlight-c {
+      background-color: #577590 !important;
+    }
+    .highlight-d {
+      background-color: #90be6d !important;
+    }
+    .computed {
+      background-color: #d0ebff !important;
+    }
+    #explanation {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #495057;
+      white-space: pre-line;
+    }
+    #formula {
+      text-align: center;
+      font-size: 20px;
+      margin-top: 20px;
+      color: #343a40;
+    }
+    #formula-legend {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 6px;
+    }
+    button {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #339af0;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1c7ed6;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center">二维前缀和计算演示（sum[i][j]）</h2>
+  <div id="formula">
+    公式：sum[i][j] = 
+    <span style="color:#f94144;">sum[i-1][j]</span> + 
+    <span style="color:#577590;">sum[i][j-1]</span> - 
+    <span style="color:#f3722c;">sum[i-1][j-1]</span> + 
+    <span style="color:#90be6d;">val[i][j]</span>
+  </div>
+  <div id="formula-legend">
+    <span style="color:#f94144;">B (上方)</span> + 
+    <span style="color:#577590;">C (左方)</span> - 
+    <span style="color:#f3722c;">A (左上角)</span> + 
+    <span style="color:#90be6d;">D (当前格)</span>
+  </div>
+  <table id="grid">
+    <tr>
+      <td id="cell-0-0"><span class="label">A</span>2</td>
+      <td id="cell-0-1"><span class="label">B</span>3</td>
+    </tr>
+    <tr>
+      <td id="cell-1-0"><span class="label">C</span>4</td>
+      <td id="cell-1-1"><span class="label">D</span>5</td>
+    </tr>
+  </table>
+  <button onclick="startAnimation()">开始计算 sum[1][1]</button>
+  <div id="explanation">点击按钮查看计算过程</div>
+
+  <script>
+    const cells = {
+      a: document.getElementById('cell-0-0'), // A
+      b: document.getElementById('cell-0-1'), // B
+      c: document.getElementById('cell-1-0'), // C
+      d: document.getElementById('cell-1-1'), // D
+    };
+
+    const explanation = document.getElementById('explanation');
+
+    let fullSteps = [];
+
+    function highlight(cell, label, delay, colorClass = 'highlight') {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          cell.classList.add(colorClass);
+          fullSteps.push(label);
+          explanation.innerText = fullSteps.join('\n');
+          resolve();
+        }, delay);
+      });
+    }
+
+    function clearHighlights() {
+      for (const key in cells) {
+        cells[key].classList.remove(
+          'highlight',
+          'highlight-a',
+          'highlight-b',
+          'highlight-c',
+          'highlight-d',
+          'computed'
+        );
+      }
+      fullSteps = [];
+      explanation.innerText = '点击按钮查看计算过程';
+    }
+
+    async function startAnimation() {
+      clearHighlights();
+
+      await highlight(
+        cells.b,
+        '① 上方区域 B：sum[0][1] = A + B = 2 + 3 = 5',
+        500,
+        'highlight-b'
+      );
+      await highlight(
+        cells.c,
+        '② 左方区域 C：sum[1][0] = A + C = 2 + 4 = 6',
+        1000,
+        'highlight-c'
+      );
+      await highlight(cells.a, '③ 减去重复区域 A = 2', 1000, 'highlight-a');
+      await highlight(cells.d, '④ 加上当前格子 D = 5', 1000, 'highlight-d');
+
+      cells.d.classList.remove('highlight-d');
+      cells.d.classList.add('computed');
+
+      fullSteps.push('⑤ 最终计算：sum[1][1] = 5 + 6 - 2 + 5 = 14');
+      explanation.innerText = fullSteps.join('\n');
+    }
+  </script>
+</body>
+</html>

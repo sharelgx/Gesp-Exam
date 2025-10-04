@@ -1,0 +1,137 @@
+[
+    {
+      "id": "1",
+      "type": "single",
+      "question": "下列代码中，输出结果是( )<pre><code>1 #include<iostream> using namespace std;\n3 int func(int x,int y)\n4 { \n5 int a=x,b=y;\n6 int t;\n7 t=a; a=b;\n8 b=t; \n9 cout<<a<<\" \"<<b<<\"\\n\";\n10 }\n12 int main()\n13 {\n14 int c,d;\n15 c=12;\n16 d=24;\n17 func(12,24);\n18 cout<<c<<\" \"<<d<<endl;\n19 }</code></pre>",
+      "options": ["A. 12 24 24 12", "B. 24 12 12 24", "C. 12 12 24 24", "D. 24 24 12 12"],
+      "correct": "B",
+      "explanation": "func函数中通过值传递交换x和y的值，输出24 12。但主函数中的c和d未被修改，仍输出12 24。",
+      "source": "2024年6月GESP C++四级真题.pdf 单选题第1题"
+    },
+    {
+      "id": "2",
+      "type": "single",
+      "question": "假设变量a的地址是0x6ffe14，下面程序的输出是( )<pre><code>1 #include<iostream>\n2 using namespace std;\n3 int main()\n4 {\n5 int*p;\n6 int a=10;\n7 p=&a;\n8 p++;\n9 cout<<p<<endl;\n10 }</code></pre>",
+      "options": ["A. 10", "B. 0x6ffe14", "C. 0x6ffe15", "D. 0x6ffe18"],
+      "correct": "D",
+      "explanation": "int类型占4字节，p++后地址增加4，0x6ffe14 + 4 = 0x6ffe18。",
+      "source": "2024年6月GESP C++四级真题.pdf 单选题第4题"
+    },
+    {
+      "id": "3",
+      "type": "single",
+      "question": "如果下列程序输出的地址是0x6ffe00，则cout<<a+1<<endl;输出的是( )<pre><code>1 #include<iostream>\n2 using namespace std;\n3 int main()\n4 {\n5 int a[2][3]={0};\n6 cout<<a<<endl;\n7 }</code></pre>",
+      "options": ["A. 0x6ffe04", "B. 0x6ffe0c", "C. 0x6ffe08", "D. 0x6ffe00"],
+      "correct": "B",
+      "explanation": "a是二维数组，a+1表示跳过一行（3个int，12字节），0x6ffe00 + 12 = 0x6ffe0c。",
+      "source": "2024年6月GESP C++四级真题.pdf 单选题第5题"
+    },
+    {
+      "id": "4",
+      "type": "single",
+      "question": "下面程序中，如果语句cout<< p<<endl;输出的是0x6ffe00，则cout<<++p<<endl;输出的是( )<pre><code>1 int x[10][10][10]={{0}};\n2 int *p;\n3 p=&x[0][0][0];\n4 cout<<p<<endl;\n5 cout<<++p<<endl;</code></pre>",
+      "options": ["A. 0x6ffe0c", "B. 0x6ffe09", "C. 0x6ffe06", "D. 0x6ffe04"],
+      "correct": "D",
+      "explanation": "x是三维int数组，++p后地址增加4字节（int大小），0x6ffe00 + 4 = 0x6ffe04。",
+      "source": "2024年6月GESP C++四级真题.pdf 单选题第15题"
+    },
+    {
+      "id": "5",
+      "type": "single",
+      "question": "执行下述代码后，变量a的值为( )<pre><code>1 int a = 10;\n2 int* p = &a;\n3 *p = 20;</code></pre>",
+      "options": ["A. 10", "B. 20", "C. 随机值", "D. 编译错误"],
+      "correct": "B",
+      "explanation": "指针p指向a，*p=20直接修改a的值为20。",
+      "source": "2025年3月认证C++四级试题.pdf 单选题第3题"
+    },
+    {
+      "id": "6",
+      "type": "single",
+      "question": "以下哪种参数传递方式可以避免拷贝大型对象?( )",
+      "options": ["A. 只能用值传递", "B. 只能用引用传递", "C. 只能用指针传递", "D. 引用传递和指针传递均可"],
+      "correct": "D",
+      "explanation": "引用传递和指针传递都传递地址，不拷贝对象，避免内存开销。",
+      "source": "2025年3月认证C++四级试题.pdf 单选题第4题"
+    },
+    {
+      "id": "7",
+      "type": "single",
+      "question": "运行下面代码片段的结果是( )<pre><code>1 int y = 24;\n2 int x = 20;\n3 int* p = &x;\n4 int* q = &y;\n5 p = q;</code></pre>",
+      "options": ["A. 将x赋值为24", "B. 将y赋值为20", "C. p指向y的地址", "D. q指向x的地址"],
+      "correct": "C",
+      "explanation": "p = q将指针p指向q的地址，即y的地址，x的值不变。",
+      "source": "2024年9月认证C++四级试题.pdf 单选题第5题"
+    },
+    {
+      "id": "8",
+      "type": "single",
+      "question": "在C++中，( )正确定义一个指针变量声明。",
+      "options": ["A. int *p;", "B. int p*;", "C. *int p;", "D. int* p*;"],
+      "correct": "A",
+      "explanation": "正确的指针声明格式为类型* 指针名，如int *p;。",
+      "source": "GESP C++四级样题卷.pdf 单选题第8题"
+    },
+    {
+      "id": "9",
+      "type": "single",
+      "question": "下面C++代码执行后输出是( )<pre><code>1 int arr[3]={1,2,3};\n2 int *p=NULL;\n3 p=arr;\n4 p++;\n5 cout<<*p<<endl;</code></pre>",
+      "options": ["A. 1,2,3", "B. 1", "C. 2", "D. 3"],
+      "correct": "C",
+      "explanation": "p指向arr[0]，p++后指向arr[1]，*p=2。",
+      "source": "2023年12月认证C++四级真题无答案.pdf 单选题第5题"
+    },
+    {
+      "id": "10",
+      "type": "single",
+      "question": "如果变量x的地址是0x6ffe14，下面C++代码执行以后输出的是( )<pre><code>1 int *p=NULL;\n2 intx=2;\n3 p=&x;\n4 p++;\n5 cout<<p<<endl;</code></pre>",
+      "options": ["A. 0x6ffe11", "B. 0x6ffe14", "C. 0x6ffe18", "D. 0x6ffe15"],
+      "correct": "C",
+      "explanation": "int占4字节，p++后地址增加4，0x6ffe14 + 4 = 0x6ffe18。",
+      "source": "2023年12月认证C++四级真题无答案.pdf 单选题第6题"
+    },
+    {
+      "id": "11",
+      "type": "single",
+      "question": "在C++中，执行下面代码后，输出的是( )<pre><code>1 int point(int*p) { return *p**p; }\n2 int main()\n3 {\n4 int a=20;\n5 int*p=&a;\n6 *p=point(p);\n7 cout<<*p<<endl;\n8 }</code></pre>",
+      "options": ["A. 400", "B. 200", "C. 20", "D. 100"],
+      "correct": "A",
+      "explanation": "point(p)计算*p*p即20*20=400，*p=400，输出400。",
+      "source": "2023年12月认证C++四级真题无答案.pdf 单选题第7题"
+    },
+    {
+      "id": "12",
+      "type": "single",
+      "question": "下列关于C++语言中指针的叙述，不正确的是( )。",
+      "options": ["A. 可以定义指向int类型的指针", "B. 可以定义指向自定义结构体类型的指针", "C. 自定义结构体类型可以包含指针类型的元素", "D. 不能定义指向void类型的指针，那没有意义"],
+      "correct": "D",
+      "explanation": "可以定义void*指针，用于通用指针类型，虽然需要类型转换，但并非无意义。",
+      "source": "2023年9月GESPC++四级试卷解析.pdf 单选题第4题"
+    },
+    {
+      "id": "13",
+      "type": "single",
+      "question": "一个数组定义为int a[5]={1,2,3,4,5};，一个指针定义为int * p=&a[2];，则执行a[1] = *p;后，数组a中的值会变为( )。",
+      "options": ["A. {1,3,3,4,5}", "B. {2,2,3,4,5}", "C. {1,2,2,4,5}", "D. {1,2,3,4,5}"],
+      "correct": "A",
+      "explanation": "*p是a[2]=3，a[1]=3，数组变为{1,3,3,4,5}。",
+      "source": "2023年9月GESPC++四级试卷解析.pdf 单选题第11题"
+    },
+    {
+      "id": "14",
+      "type": "single",
+      "question": "在下列代码的横线处填写( )，可以使得输出是“20 10”。<pre><code>1 #include <iostream>\n2 using namespace std;\n3 void xchg(__________) { // 在此处填入代码\n4 int t=*x;\n5 *x=*y;\n6 *y =t;\n7 }\n8 int main(){\n9 inta=10,b=20;\n10 xchg(&a,&b);\n11 cout<<a<<\" \"<<b<<endl;\n12 return 0;\n13 }</code></pre>",
+      "options": ["A. int x, int y", "B. int * x, int * y", "C. int a, int b", "D. int & a, int & b"],
+      "correct": "B",
+      "explanation": "需要指针传递地址才能修改实参，参数应为int*类型。",
+      "source": "2023年6月GESP C++四级试题解析.pdf 单选题第13题"
+    },
+    {
+      "id": "15",
+      "type": "single",
+      "question": "下列关于C++语言中指针的叙述，不正确的是( )。",
+      "options": ["A. 指针变量中存储的是内存地址", "B. 定义指针变量时必须指定其指向的类型", "C. 指针变量只能指向基本类型变量，不能指向指针变量", "D. 指针变量指向的内存地址不一定能够合法访问"],
+      "correct": "C",
+      "explanation": "指针可以指向指针变量（多级指针），如int** p;。",
+      "source": "2023年6月GESP C++四级试题解析.pdf 单选题第3题"
+    }
+]

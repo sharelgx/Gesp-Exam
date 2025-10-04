@@ -1,0 +1,134 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是（ ）<pre><code>\nint sum = 0;\nfor (int i = 1; i <= 5; i++) {\n  if (i % 2 == 0)\n    continue;\n  sum += i;\n}\ncout << sum;\n</code></pre>",
+        "options": ["A. 5", "B. 9", "C. 6", "D. 8"],
+        "correct": "B",
+        "explanation": "循环遍历1到5，当i为偶数时跳过当前循环。累加奇数1+3+5=9，故B正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "在下列代码的横线处填写（ ），可以使得输出是“2468”<pre><code>\n#include <iostream>\nusing namespace std;\nint main(){\n  for (int i = 2; i <= 8; ) // 在此处填入代码\n    cout << i;\n  return 0;\n}\n</code></pre>",
+        "options": ["A. i++", "B. i += 2", "C. i *= 2", "D. i = i + 1"],
+        "correct": "B",
+        "explanation": "要输出偶数序列，需每次递增2。选项B满足条件，其他选项均无法生成期望序列，故B正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是（ ）<pre><code>\nint cnt = 0;\nfor (int i = 1; i <= 10; i++) {\n  if (i > 5)\n    break;\n  cnt += i;\n}\ncout << cnt;\n</code></pre>",
+        "options": ["A. 15", "B. 55", "C. 10", "D. 20"],
+        "correct": "A",
+        "explanation": "当i>5时跳出循环，实际累加1到5。总和为1+2+3+4+5=15，故A正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "下面C++代码用于计算1到N的和，横线处应填入（ ）<pre><code>\nint N, sum = 0;\ncin >> N;\nfor (int i = 1; i <= N; ) // 在此处填入代码\n  sum += i;\ncout << sum;\n</code></pre>",
+        "options": ["A. i++", "B. i--", "C. i += 2", "D. i = 2"],
+        "correct": "A",
+        "explanation": "计算1到N的和需遍历每个整数，每次递增1。选项A正确，其他选项均无法正确累加，故A正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "5",
+        "type": "truefalse",
+        "question": "在C++中，while循环的循环体至少会执行一次。（对/错）",
+        "correct": "×",
+        "explanation": "while循环先判断条件，条件不满足时循环体不执行。do-while循环才保证至少执行一次，故说法错误。",
+        "source": "模拟题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是（ ）<pre><code>\nint x = 0;\nwhile (x < 5) {\n  x += 2;\n  cout << x << \" \";\n}\n</code></pre>",
+        "options": ["A. 2 4", "B. 2 4 6", "C. 0 2 4", "D. 2 4 6 8"],
+        "correct": "B",
+        "explanation": "x初始为0，每次循环加2并输出。依次输出2、4、6（此时x=6，循环终止），故B正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "7",
+        "type": "single",
+        "question": "下列代码段的功能是计算斐波那契数列的第n项，横线处应填入（ ）<pre><code>\nint n, a = 1, b = 1, c;\ncin >> n;\nif (n <= 2)\n  cout << 1;\nelse {\n  for (int i = 3; i <= n; i++) {\n    c = a + b;\n    a = b;\n    b = ______;\n  }\n  cout << b;\n}\n</code></pre>",
+        "options": ["A. a", "B. b", "C. c", "D. a + b"],
+        "correct": "C",
+        "explanation": "斐波那契数列递推公式为f(n)=f(n-1)+f(n-2)。每次循环需更新a和b为下一项，故b应更新为c，C正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "下面C++代码执行后输出的结果是（ ）<pre><code>\nint i = 0;\ndo {\n  cout << i << \" \";\n  i++;\n} while (i < 3);\n</code></pre>",
+        "options": ["A. 0 1 2", "B. 0 1 2 3", "C. 1 2 3", "D. 1 2"],
+        "correct": "A",
+        "explanation": "do-while循环先执行后判断，i从0开始递增，输出0、1、2，故A正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "9",
+        "type": "truefalse",
+        "question": "在C++中，for循环的三个表达式都可以省略。（对/错）",
+        "correct": "√",
+        "explanation": "for(;;)是合法的无限循环结构，三个表达式均可省略，但分号必须保留，故说法正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "10",
+        "type": "single",
+        "question": "下面C++代码用于输出10到1的倒序数列，横线处应填入（ ）<pre><code>\nfor (int i = 10; i >= 1; ) // 在此处填入代码\n  cout << i << \" \";\n</code></pre>",
+        "options": ["A. i++", "B. i--", "C. i += 2", "D. i = i - 2"],
+        "correct": "B",
+        "explanation": "输出倒序需每次递减1。选项B满足条件，其他选项均无法生成期望序列，故B正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "11",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是（ ）<pre><code>\nint sum = 0;\nfor (int i = 1; i <= 10; i++) {\n  if (i % 3 == 0)\n    sum += i;\n}\ncout << sum;\n</code></pre>",
+        "options": ["A. 18", "B. 21", "C. 24", "D. 27"],
+        "correct": "B",
+        "explanation": "循环累加1到10中3的倍数：3+6+9=18，故B正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "12",
+        "type": "single",
+        "question": "下列代码段的功能是计算n的阶乘，横线处应填入（ ）<pre><code>\nint n, fact = 1;\ncin >> n;\nfor (int i = 1; i <= n; ) // 在此处填入代码\n  fact *= i;\ncout << fact;\n</code></pre>",
+        "options": ["A. i++", "B. i--", "C. i += 2", "D. i = 2"],
+        "correct": "A",
+        "explanation": "阶乘计算需遍历1到n的所有整数，每次递增1。选项A正确，其他选项均无法正确计算阶乘，故A正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "13",
+        "type": "truefalse",
+        "question": "在C++中，continue语句会终止整个循环。（对/错）",
+        "correct": "×",
+        "explanation": "continue语句仅跳过当前循环的剩余部分，直接开始下一次循环，不会终止整个循环，故说法错误。",
+        "source": "模拟题"
+    },
+    {
+        "id": "14",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是（ ）<pre><code>\nint x = 5;\nwhile (x > 0) {\n  cout << x << \" \";\n  x--;\n}\n</code></pre>",
+        "options": ["A. 5 4 3 2 1", "B. 5 4 3 2 1 0", "C. 4 3 2 1", "D. 1 2 3 4 5"],
+        "correct": "A",
+        "explanation": "x从5递减到1，每次循环输出当前值，故输出5 4 3 2 1，A正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "15",
+        "type": "single",
+        "question": "在下列代码的横线处填写（ ），可以使得输出是“1 3 5 7 9”<pre><code>\n#include <iostream>\nusing namespace std;\nint main(){\n  for (int i = 1; i < 10; ) // 在此处填入代码\n    cout << i << \" \";\n  return 0;\n}\n</code></pre>",
+        "options": ["A. i++", "B. i += 2", "C. i *= 2", "D. i = i + 1"],
+        "correct": "B",
+        "explanation": "要输出奇数序列，需每次递增2。选项B满足条件，其他选项均无法生成期望序列，故B正确。",
+        "source": "模拟题"
+    }
+]

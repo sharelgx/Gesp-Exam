@@ -1,0 +1,89 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "以下代码中，数组名 a 在赋值中等价于（ ）<pre><code>int a[5] = {1,2,3,4,5};\nint *p = a;</code></pre>",
+    "options": ["A. &a", "B. a[0]", "C. &a[0]", "D. *a"],
+    "correct": "C",
+    "explanation": "数组名 a 在表达式中会退化为指向首元素的指针，即等价于 &a[0]。",
+    "source": "指针与一维数组模拟题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "若 <pre><code>int a[3] = {10,20,30};\nint *p = a;</code></pre>则表达式 <code>*(p + 2)</code> 的值为（ ）",
+    "options": ["A. 10", "B. 20", "C. 30", "D. 40"],
+    "correct": "C",
+    "explanation": "p 是 a 的首地址，p + 2 指向 a[2]，其值为 30。",
+    "source": "指针与一维数组模拟题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "若 <pre><code>int a[3] = {1,2,3};</code></pre>下面哪一个不能访问 a[1] 的值？",
+    "options": ["A. *(a+1)", "B. a[1]", "C. *(&a[0]+1)", "D. *a[1]"],
+    "correct": "D",
+    "explanation": "*a[1] 表示先取 a[1] 的值再当作地址去解引用，错误写法。",
+    "source": "指针与一维数组模拟题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "若 <pre><code>int a[5];</code></pre>下列选项中是正确访问 a 的第三个元素的方法的是（ ）",
+    "options": ["A. a(2)", "B. *(a + 2)", "C. *a + 2", "D. &a + 2"],
+    "correct": "B",
+    "explanation": "*(a + 2) 表示访问 a[2]，是第三个元素，B 正确。",
+    "source": "指针与一维数组模拟题"
+  },
+  {
+    "id": "5",
+    "type": "truefalse",
+    "question": "数组名本身是一个可以改变的指针变量。（对/错）",
+    "correct": "×",
+    "explanation": "数组名是常量指针，不能被修改，不可赋值给其他地址。",
+    "source": "指针与一维数组模拟题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "函数声明 <pre><code>void modify(int *p)</code></pre> 中参数 p 传入的是（ ）",
+    "options": ["A. 整数值", "B. 地址值", "C. 数组长度", "D. 元素个数"],
+    "correct": "B",
+    "explanation": "数组传参时传的是首元素地址，即地址值，B 正确。",
+    "source": "指针与一维数组模拟题"
+  },
+  {
+    "id": "7",
+    "type": "truefalse",
+    "question": "数组可以通过指针进行下标访问，例如 p[i]。（对/错）",
+    "correct": "√",
+    "explanation": "p[i] 等价于 *(p + i)，可以用于访问数组元素。",
+    "source": "指针与一维数组模拟题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "以下关于指针访问数组的说法正确的是（ ）",
+    "options": ["A. *(a + i) 等价于 a[i]", "B. *(a + i) 等价于 &a[i]", "C. *a 等价于 a[1]", "D. a[i] 等价于 &a + i"],
+    "correct": "A",
+    "explanation": "* (a + i) 和 a[i] 都是访问数组中第 i 个元素的常见写法。",
+    "source": "指针与一维数组模拟题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "以下代码输出结果是（ ）<pre><code>int a[4] = {2,4,6,8};\nint *p = a;\ncout << p[3];</code></pre>",
+    "options": ["A. 2", "B. 4", "C. 6", "D. 8"],
+    "correct": "D",
+    "explanation": "p[3] 等价于 a[3]，其值为 8。",
+    "source": "指针与一维数组模拟题"
+  },
+  {
+    "id": "10",
+    "type": "truefalse",
+    "question": "指针访问数组元素时，数组越界会自动报错。（对/错）",
+    "correct": "×",
+    "explanation": "C++ 不检查数组越界，越界访问可能导致未定义行为，但不会报错。",
+    "source": "指针与一维数组模拟题"
+  }
+]

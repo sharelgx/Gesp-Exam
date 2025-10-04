@@ -1,0 +1,74 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "下面的代码片段用于将两个高精度整数进行相加｡请在横线处填入( ),使其能正确实现相应功能｡\n<pre><code>string add(string num1, string num2) {\n    string result;\n    int carry = 0;\n    int i = num1.size() - 1, j = num2.size() - 1;\n    while (i >= 0 || j >= 0 || carry) {\n        int x = (i >= 0) ? num1[i--] - '0' : 0;\n        int y = (j >= 0) ? num2[j--] - '0' : 0;\n        int sum = x + y + carry;\n        carry = sum / 10;\n        // 在此处填入代码\n        return result;\n    }\n}</code></pre>",
+        "options": ["A. result = to_string(sum % 10) + result", "B. result = to_string(carry % 10) + result", "C. result = to_string(sum / 10) + result", "D. result = to_string(sum % 10 + carry) + result"],
+        "correct": "A",
+        "explanation": "高精度加法的核心是逐位相加并处理进位。每次计算当前位的和sum = x + y + carry，当前位的结果为sum % 10，进位为sum / 10。需要将当前位结果添加到结果字符串的前面，因此使用to_string(sum % 10) + result。",
+        "source": "2024年3月认证C++五级真题.pdf 单选题第7题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "下面的C++代码使用数组模拟整数加法,可以处理超出大整数范围的加法运算｡横线处应填入代码是( )｡\n<pre><code>vector<int> operator +(vector<int> a, vector<int> b) {\n    vector<int> c;\n    int t = 0;\n    for (int i = 0; i < a.size() || i < b.size(); i++) {\n        if (i < a.size()) t += a[i];\n        if (i < b.size()) t += b[i];\n        // 在此处填入代码\n    }\n    if (t) c.push_back(t);\n    return c;\n}</code></pre>",
+        "options": ["A. c.push_back(t % 10), t = t % 10", "B. c.push_back(t / 10), t = t % 10", "C. c.push_back(t / 10), t = t / 10", "D. c.push_back(t % 10), t = t / 10"],
+        "correct": "D",
+        "explanation": "数组模拟高精度加法时，每次计算当前位的和t，将t % 10作为当前位的结果，t / 10作为进位。因此应该将t % 10添加到结果数组，然后t更新为t / 10。",
+        "source": "2023年12月认证C++五级真题.pdf 单选题第11题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "要实现一个高精度减法函数,则下面代码中加划线应该填写的代码为( )｡\n<pre><code>//假设a和b均为正数,且a表示的数比b大\nvector<int> minus(vector<int> a, vector<int> b) {\n    vector<int> c;\n    int len1 = a.size();\n    int len2 = b.size();\n    int i, t;\n    for (i = 0; i < len2; i++) {\n        if (a[i] < b[i]) {\n            // 在此处填入代码\n            a[i] += 10;\n        }\n        t = a[i] - b[i];\n        c.push_back(t);\n    }\n    for (; i < len1; i++)\n        c.push_back(a[i]);\n    len3 = c.size();\n    while (c[len3 - 1] == 0 && len3 > 1) \n        c.pop_back();\n    return c;\n}</code></pre>",
+        "options": ["A. a[i + 1]--", "B. a[i]--", "C. b[i + 1]--", "D. b[i]--"],
+        "correct": "A",
+        "explanation": "高精度减法中，当被减数的当前位小于减数的当前位时，需要向高位借位。借位操作是将被减数的高位减1，当前位加10。因此应该执行a[i + 1]--。",
+        "source": "2024年9月认证C++五级真题.pdf 单选题第12题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "小杨编写了一个如下的高精度除法函数,则横线上应填写的代码为( )｡\n<pre><code>const int MAXN = 1005; // 最大位数\nstruct BigInt {\n    int d[MAXN]; // 存储数字,d[0]是个位,d[1]是十位,...\n    int len; // 数字长度\n    BigInt() { memset(d, 0, sizeof(d)); len = 0; }\n};\n// 比较两个高精度数的大小\nint compare(BigInt a, BigInt b) {\n    if(a.len != b.len) return a.len > b.len ? 1 : -1;\n    for(int i = a.len - 1; i >= 0; i--) {\n        if(a.d[i] != b.d[i]) return a.d[i] > b.d[i] ? 1 : -1;\n    }\n    return 0;\n}\n// 高精度减法\nBigInt sub(BigInt a, BigInt b) {\n    BigInt c;\n    for(int i = 0; i < a.len; i++) {\n        c.d[i] += a.d[i] - b.d[i];\n        if(c.d[i] < 0) {\n            c.d[i] += 10;\n            c.d[i+1]--;\n        }\n    }\n    c.len = a.len;\n    while(c.len > 1 && c.d[c.len-1] == 0) c.len--;\n    return c;\n}\n// 高精度除法(a/b,返回商和余数)\npair<BigInt, BigInt> div(BigInt a, BigInt b) {\n    BigInt q, r; // q是商,r是余数\n    if(compare(a, b) < 0) {\n        // 如果a<b,商为0,余数为a\n        q.len = 1;\n        q.d[0] = 0;\n        r = a;\n        return make_pair(q, r);\n    }\n    // 初始化余数r为a的前b.len位\n    r.len = b.len;\n    for(int i = a.len - 1; i >= a.len - b.len; i--) {\n        r.d[i - (a.len - b.len)] = a.d[i];\n    }\n    // 逐位计算商\n    for(int i = a.len - b.len; i >= 0; i--) {\n        // 把下一位加入余数\n        if(r.len > 1 || r.d[0] != 0) {\n            for(int j = r.len; j > 0; j--) {\n                r.d[j] = r.d[j-1];\n            }\n            // 在此处填入代码\n            r.len = 1;\n        }\n        // 计算当前位的商\n        while(compare(r, b) >= 0) {\n            r = sub(r, b);\n            q.d[i]++;\n        }\n    }\n    // 确定商的长度\n    q.len = a.len - b.len + 1;\n    while(q.len > 1 && q.d[q.len-1] == 0) q.len--;\n    // 处理余数前导零\n    while(r.len > 1 && r.d[r.len-1] == 0) r.len--;\n    return make_pair(q, r);\n}\n</code></pre>",
+        "options": ["A. r.d[0] = a.d[i]", "B. r.d[i] = a.d[i]", "C. r.d[i] = a.d[i]", "D. r.d[0] = a.d[i]"],
+        "correct": "A",
+        "explanation": "高精度除法中，每次需要将被除数的下一位加入余数。余数数组r是低位在前存储的，因此应该将a的当前位加入r的最低位，即r.d[0] = a.d[i]。",
+        "source": "2025年6月认证C++五级真题.pdf 单选题第15题"
+    },
+    {
+        "id": "5",
+        "type": "single",
+        "question": "下面关于高精度运算的说法错误的是( )？",
+        "options": ["A. 高精度计算主要是用来处理大整数或需要保留多位小数的运算", "B. 大整数除以小整数的处理的步骤可以是，将被除数和除数对齐，从左到右逐位尝试将除数乘以某个数，通过减法得到新的被除数，并累加商", "C. 高精度乘法的运算时间只与参与运算的两个整数中长度较长者的位数有关", "D. 高精度加法运算的关键在于逐位相加并处理进位"],
+        "correct": "C",
+        "explanation": "高精度乘法的运算时间与两个操作数的位数都有关，时间复杂度通常为O(n×m)，其中n和m分别是两个操作数的位数，而不是只与较长者有关。",
+        "source": "2024年9月认证C++五级真题.pdf 单选题第14题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "小杨编写了一个高精度减法函数：\n<pre><code>vector<int> highPrecisionSubtract(vector<int> a, vector<int> b) {\n    vector<int> result;\n    int borrow = 0;\n    for (int i = 0; i < a.size(); ++i) {\n        int digitA = a[i];\n        int digitB = i < b.size() ? b[i] : 0;\n        int diff = digitA - digitB - borrow;\n        if (diff < 0) {\n            diff += 10;\n            borrow = 1;\n        } else {\n            borrow = 0;\n        }\n        result.push_back(diff);\n    }\n    while (result.size() > 1 && result.back() == 0) {\n        result.pop_back();\n    }\n    return result;\n}\n</code></pre>\n下面说法正确的是( )？",
+        "options": ["A. 如果数组a表示的整数小于数组b表示的整数，代码会正确返回二者的差为负数", "B. 代码假设输入数字是以倒序存储的，例如500存储为{0, 0, 5}", "C. 代码的时间复杂度为O(a.size()+b.size())", "D. 当减法结果为0时，结果数组仍然会存储很多个元素"],
+        "correct": "B",
+        "explanation": "代码中a[i]和b[i]直接访问第i位，假设数字是以倒序存储的（低位在前），例如500存储为{0, 0, 5}。A错误，因为代码假设a >= b；C错误，时间复杂度为O(max(a.size(), b.size()))；D错误，代码会移除前导零，结果为0时数组大小为1。",
+        "source": "2024年12月认证C++五级真题.pdf 单选题第15题"
+    },
+    {
+        "id": "7",
+        "type": "single",
+        "question": "小杨想实现两个大整数的高精度乘法，他编写了以下代码的框架，横线上应填写的代码为( )？\n<pre><code>vector<int> multiply(vector<int>& a, vector<int>& b) {\n    int m = a.size(), n = b.size();\n    vector<int> c(m + n, 0);\n    // 逐位相乘,逆序存储\n    for (int i = 0; i < m; i++) {\n        for (int j = 0; j < n; j++) {\n            c[i + j] += a[i] * b[j];\n        }\n    }\n    // 处理进位\n    int carry = 0;\n    for (int k = 0; k < c.size(); ++k) {\n        // 在此处填入代码\n        c[k] = temp % 10;\n        carry = temp / 10;\n    }\n    while (c.size() > 1 && c.back() == 0) c.pop_back();\n    return c;\n}\n</code></pre>",
+        "options": ["A. int temp = c[k]", "B. int temp = c[k] + carry", "C. int temp = c[k] - carry", "D. int temp = c[k] * carry"],
+        "correct": "B",
+        "explanation": "高精度乘法中，每一位的计算结果需要加上进位。temp = c[k] + carry，然后当前位为temp % 10，新的进位为temp / 10。",
+        "source": "2025年3月认证C++5级试题.pdf 单选题第15题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "在高精度运算中，以下关于数组存储方式的说法正确的是( )？",
+        "options": ["A. 必须将高位存储在数组的前面", "B. 必须将低位存储在数组的前面", "C. 高位在前或低位在前都可以，但需要保持一致性", "D. 存储方式不影响运算逻辑"],
+        "correct": "C",
+        "explanation": "高精度运算中，数组可以高位在前或低位在前存储，只要在所有运算中保持一致即可。低位在前更便于处理进位和借位。",
+        "source": "GESP C++五级样题.pdf 单选题第15题"
+    }
+]

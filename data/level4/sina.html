@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<title>3D 正弦函数演示</title>
+<style>
+    body{margin:0;overflow:hidden;font-family:sans-serif}
+    #info{
+        position:absolute;top:10px;left:10px;
+        background:rgba(0,0,0,.6);color:#fff;padding:8px 12px;border-radius:4px;
+        font-size:14px;
+    }
+</style>
+</head>
+<body>
+<div id="info">
+    角度 θ = <span id="theta">0.00</span> rad 
+    sin(θ) = <span id="sine">0.000</span>
+</div>
+
+<!-- Three.js 与控制器 -->
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script src="https://unpkg.com/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://unpkg.com/dat.gui@0.7.9/build/dat.gui.min.js"></script>
+
+<script>
+/* ---------- 初始化场景 ---------- */
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xf0f0f0);
+const camera = new THREE.PerspectiveCamera(60, innerWidth/innerHeight, 0.1, 1000);
+camera.position.set(7, 4, 7);
+const renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setSize(innerWidth, innerHeight);
+document.body.appendChild(renderer.domElement);
+new THREE.OrbitControls(camera, renderer.domElement);
+
+/* ---------- 坐标网格 ---------- */
+scene.add(new THREE.GridHelper(10, 10, 0x888888, 0xcccccc));
+scene.add(new THREE.AxesHelper(5));
+
+/* ---------- 正弦波曲线 ---------- */
+const waveLength = 2 * Math.PI * 2;      // 画两圈
+const points = 200;
+const waveGeom = new THREE.BufferGeometry();
+const positions = new Float32Array(points * 3);
+const amplitude = 1;
+for (let i = 0; i < points; i++) {
+    const t = (i / (points - 1)) * waveLength;
+    positions[i * 3] = t;               // x
+    positions[i * 3 + 1] = amplitude * Math.sin(t); // y
+    positions[i * 3 + 2] = 0;           // z
+}
+waveGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+const waveMat = new THREE.LineBasicMaterial({color:0x0066ff});
+const waveLine = new THREE.Line(waveGeom, waveMat);
+scene.add(waveLine);
+
+/* ---------- 单位圆 ---------- */
+const circleRadius = 1;
+const circleGeom = new THREE.BufferGeometry();
+const circlePts = [];
+for (let i = 0; i <= 64; i++) {
+    const a = (i / 64) * 2 * Math.PI;
+    circlePts.push(new THREE.Vector3(0, circleRadius * Math.sin(a), circleRadius * Math.cos(a)));
+}
+circleGeom.setFromPoints(circlePts);
+const circle = new THREE.Line(circleGeom, new THREE.LineBasicMaterial({color:0x009944}));
+scene.add(circle);
+
+/* ---------- 小球标记 ---------- */
+const sphereGeom = new THREE.SphereGeometry(0.08, 16, 16);
+const redMat = new THREE.MeshBasicMaterial({color:0xff4444});
+const ballOnCircle = new THREE.Mesh(sphereGeom, redMat);
+const ballOnWave   = new THREE.Mesh(sphereGeom, redMat);
+scene.add(ballOnCircle, ballOnWave);
+
+/* ---------- GUI 控制 ---------- */
+const gui = new dat.GUI();
+const params = { speed:0.02, amplitude:1, showGrid:true };
+gui.add(params, 'speed', 0.001, 0.1).name('动画速度');
+gui.add(params, 'amplitude', 0.2, 2).name('振幅').onChange(updateAmplitude);
+gui.add(params, 'showGrid').name('显示网格').onChange(v=>{
+    scene.getObjectByName('grid').visible = v;
+});
+scene.getObjectByName('grid') || scene.children.forEach(c=>{
+    if(c.type==='GridHelper') c.name='grid';
+});
+
+/* ---------- 动画循环 ---------- */
+let theta = 0;
+function animate() {
+    requestAnimationFrame(animate);
+
+    // 更新角度
+    theta += params.speed;
+    if (theta > 2 * Math.PI) theta -= 2 * Math.PI;
+
+    // 小球在单位圆上
+    ballOnCircle.position.set(0, circleRadius * Math.sin(theta), circleRadius * Math.cos(theta));
+
+    // 小球在正弦波上
+    ballOnWave.position.set(theta, params.amplitude * Math.sin(theta), 0);
+
+    // 信息面板
+    document.getElementById('theta').textContent = theta.toFixed(2);
+    document.getElementById('sine').textContent  = Math.sin(theta).toFixed(3);
+
+    renderer.render(scene, camera);
+}
+animate();
+
+/* ---------- 振幅实时更新 ---------- */
+function updateAmplitude() {
+    for (let i = 0; i < points; i++) {
+        const t = (i / (points - 1)) * waveLength;
+        waveGeom.attributes.position.setY(i, params.amplitude * Math.sin(t));
+    }
+    waveGeom.attributes.position.needsUpdate = true;
+}
+
+/* ---------- 窗口自适应 ---------- */
+addEventListener('resize', ()=>{
+    camera.aspect = innerWidth/innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(innerWidth, innerHeight);
+});
+</script>
+</body>
+</html>

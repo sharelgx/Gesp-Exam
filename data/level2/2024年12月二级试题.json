@@ -1,0 +1,333 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "2024年10月8日,诺贝尔物理学奖“意外地”颁给了两位计算机科学家约翰·霍普菲尔德(John J. Hopfield)和杰弗里·辛顿(Geoffrey E. Hinton)｡这两位科学家的主要研究方向是( )｡",
+    "options": [
+      "A. 天体物理",
+      "B. 流体力学",
+      "C. 人工智能",
+      "D. 量子理论"
+    ],
+    "correct": "C",
+    "explanation": "约翰·霍普菲尔德和杰弗里·辛顿是人工智能领域的著名科学家，特别是在神经网络研究方面做出了重大贡献。霍普菲尔德因发明霍普菲尔德网络而闻名，辛顿则被称为\"深度学习之父\"，是反向传播算法和深度学习的重要推动者。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "计算机系统中存储的基本单位用B来表示,它代表的是( ),比如某个照片大小为3MB｡",
+    "options": [
+      "A. Byte",
+      "B. Block",
+      "C. Bulk",
+      "D. Bit"
+    ],
+    "correct": "A",
+    "explanation": "在计算机系统中，B通常表示Byte（字节），是存储的基本单位。1Byte等于8Bit（比特）。当我们说一个文件大小为3MB时，指的是3兆字节（Megabyte）。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "C++语句cout << (3 + 3 % 3 * 2 - 1) 执行后输出的值是( )｡",
+    "options": [
+      "A. -1",
+      "B. 4",
+      "C. 56",
+      "D. 2"
+    ],
+    "correct": "D",
+    "explanation": "根据运算符优先级，先计算3 % 3 = 0，然后0 * 2 = 0，接着3 + 0 = 3，最后3 - 1 = 2。所以最终输出值为2。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "下面C++代码执行后其输出是( )｡<pre><code>for (int i=0; i<10; i++) {\n    printf(\"%d\",i);\n}</code></pre>",
+    "options": [
+      "A. 123456789",
+      "B. 0123456789",
+      "C. 12345678910",
+      "D. 012345678910"
+    ],
+    "correct": "B",
+    "explanation": "for循环从i=0开始，到i<10结束，每次递增1。所以会依次输出0,1,2,3,4,5,6,7,8,9，合起来就是0123456789。注意循环条件是i<10，所以不会输出10。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "下面C++代码的相关说法中,正确的是( )｡<pre><code>int tnt;\nfor (int i=0; i<10; i++)\n tnt += i;\ncout << tnt;</code></pre>",
+    "options": [
+      "A. 上述代码执行后其输出相当于求1-10的和(包含10)",
+      "B. 上述代码执行后其输出相当于求1-10的和(不包含10)",
+      "C. 上述代码执行后其输出相当于求0-10的和(不包含10)",
+      "D. 上述代码执行后将输出不确定的值"
+    ],
+    "correct": "D",
+    "explanation": "代码中变量tnt没有初始化，在C++中，局部变量如果不初始化，其值是不确定的。循环中执行tnt += i会在不确定的初始值上累加，因此最终输出的值也是不确定的。正确的做法应该是在循环前加上tnt = 0;进行初始化。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "下面C++代码执行后输出是( )｡<pre><code>int i;\nfor (i=1; i<10; i++) {\n    if (i % 2) continue;\n    else\n        break;\n}\ncout << i;</code></pre>",
+    "options": [
+      "A. 1",
+      "B. 2",
+      "C. 9",
+      "D. 10"
+    ],
+    "correct": "B",
+    "explanation": "循环从i=1开始，当i=1时，i%2=1（为奇数），执行continue，继续下一次循环。当i=2时，i%2=0（为偶数），执行else分支的break，跳出循环。此时i的值为2，所以输出2。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )｡<pre><code>for (i=0; i<10; i++) {\n    if (i % 3)\n        continue;\n    printf(\"0#\");\n}\nif(i>=10)\n    printf(\"1#\");</code></pre>",
+    "options": [
+      "A. 0#0#0#0#0#0#0#1#",
+      "B. 0#0#0#0#0#0#1#",
+      "C. 0#0#0#0#1#",
+      "D. 0#0#0#0#"
+    ],
+    "correct": "C",
+    "explanation": "循环中，只有当i能被3整除时（即i=0,3,6,9）才会输出\"0#\"，所以会输出4个\"0#\"。循环结束后i=10，满足i>=10的条件，会输出\"1#\"。因此最终输出为\"0#0#0#0#1#\"。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "下面C++代码用于输出0-100之前(包含100)能被7整除但不能被3整除的数,横线处不能填入的代码是( )｡<pre><code>for (i=0; i<100; i++){\n    if(_____________)\n        cout << i << endl;</code></pre>",
+    "options": [
+      "A. i % 7 == 0 && i % 3 != 0",
+      "B. !(i % 7) && i % 3 != 0",
+      "C. i % 7 && i % 3",
+      "D. i % 7 == 0 && !(i % 3 == 0)"
+    ],
+    "correct": "C",
+    "explanation": "选项C的条件是\"i不能被7整除且i不能被3整除\"，与题目要求的\"能被7整除但不能被3整除\"相反。其他选项都是正确的：A直接用==和!=表达；B用!()表示能被7整除；D用!(i%3==0)表示不能被3整除。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "下面C++代码用于求正整数各位数字之和,横线处不应填入代码是( )｡<pre><code>int tnt, N;\nprintf(\"请输入正整数:\");\ncin >> N;\nwhile (N != 0) {\n    tnt = 0;\n    ______;\n    N /= 10;\n}\ncout << tnt;</code></pre>",
+    "options": [
+      "A. tnt = tnt + N % 10",
+      "B. tnt += N % 10",
+      "C. tnt = N % 10 + tnt",
+      "D. tnt = N % 10"
+    ],
+    "correct": "D",
+    "explanation": "题目要求求正整数各位数字之和，但在代码中每次循环都将tnt重置为0（tnt = 0;），所以需要累加各位数字。选项D只是将tnt设为当前位的值，没有累加之前的结果，因此不正确。其他选项都实现了累加功能。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "下图的C++程序执行后的输出是( )｡<pre><code>for (i=0; i<5; i++) {\n    for (j=0; j<i; j++) {\n        cout << j;\n    }\n}</code></pre>",
+    "options": [
+      "A. 0010120123",
+      "B. 01012012301234",
+      "C. 001012012301234",
+      "D. 01012012301234012345"
+    ],
+    "correct": "A",
+    "explanation": "分析循环执行过程：\n当i=0时，内层循环不执行（j<i不满足）\n当i=1时，j=0，输出0\n当i=2时，j=0,1，输出01\n当i=3时，j=0,1,2，输出012\n当i=4时，j=0,1,2,3，输出0123\n所以最终输出为0010120123",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "下面C++代码用于实现图示的九九乘法表｡相关说法错误的是( )｡<pre><code>for (int Hang=1; Hang<10; Hang++) {\n    for (int Lie=1; Lie<Hang+1; Lie++) {\n        if (Lie * Hang > 9)\n            printf(\"%d*%d=%d \", Lie, Hang, Lie*Hang);\n        else\n            // L2 printf(\"%d*%d=%d \", Lie, Hang, Lie*Hang);\n    }\n    printf(\"\\n\"); // L1\n}</code></pre>",
+    "options": [
+      "A. 将L1注释的printf(\"\\n\") 移到L2注释所在行,效果相同",
+      "B. 将L1注释的printf(\"\\n\") 修改为print(\"%c\", '\\n') 效果相同",
+      "C. 将Lie * Hang > 9 修改为Lie * Hang >= 10 效果相同",
+      "D. 将Lie * Hang > 9 修改为Hang * Lie > 9 效果相同"
+    ],
+    "correct": "A",
+    "explanation": "选项A是错误的。如果将换行printf(\"\\n\")移到L2注释所在行，那么每计算一个乘法就会换行，而不是每行乘法表完成后才换行，这会改变九九乘法表的显示效果。其他选项都是正确的：B中printf和print效果相同；C中>9和>=10是等价的；D中乘法交换律使得Hang*Lie和Lie*Hang结果相同。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "在数学中N!表示N的阶乘,即1到N的乘积,如3!=1*2*3 ｡下面的C++用于求1-N的阶乘之和,如N为3,则是1!+2!+3! ｡下面代码段补充选项后用于实现上述功能,其中不能实现阶乘和的选项是( )｡<pre><code>int N;\ncin >> N;\nint tnt=0, nowNum = 1; //tnt保存求和之值,当前N的阶乘\nfor (int i=1; i < N + 1; i++) {\n    // 基于上一个计算出当前数的阶乘\n    // 从1到i每个数阶乘之和\n}\ncout << tnt;</code></pre>",
+    "options": [
+      "A. nowNum *= i; tnt += nowNum;",
+      "B. nowNum = nowNum * i; tnt = tnt + nowNum;",
+      "C. nowNum *= i; tnt = nowNum + tnt;",
+      "D. nowNum = nowNum + i; tnt *= nowNum;"
+    ],
+    "correct": "D",
+    "explanation": "选项D是错误的，因为它将nowNum设为累加值（nowNum + i）而不是乘积，无法计算阶乘；同时tnt *= nowNum会导致之前累加的结果被乘以nowNum，而不是简单地加上新的阶乘值。其他选项都正确地计算了阶乘（nowNum *= i）并将结果累加到总和中（tnt += nowNum）。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "下面C++代码用于输出N和M之间(可以包括N和M)的孪生素数｡孪生素数是指间隔为2的两个数均为素数,如11和13分别是素数,且间隔为2｡isPrime(N)用于判断N是否为素数的函数｡为完成上述功能,横线处应填上的代码是( )｡<pre><code>int N,M;\n//本题假设N小于M\ncin >> N >> M;\nfor (int i = N; i < __________; i++)\n    if (isPrime(i) && isPrime(i + 2))\n        printf(\"%d %d\\n\",i, i + 2);</code></pre>",
+    "options": [
+      "A. M - 2",
+      "B. M - 1",
+      "C. M",
+      "D. M + 1"
+    ],
+    "correct": "B",
+    "explanation": "对于孪生素数对(i, i+2)，需要确保i+2不超过M（因为题目要求在N和M之间，包括N和M）。所以i的上限应该是M-2+1=M-1，这样当i=M-1时，i+2=M+1-1=M，刚好在范围内。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "下面C++代码实现输出如下图形,横线应填入的代码是( )｡<pre><code>int height;\ncout << \"高度: \";\n//获取用户输入的高度\ncin >> height;\nfor (i=0; i<height; i++){\n    //打印每行前面的空格\n    for (j = 0; j < _______________; j++)\n        cout << \" \";\n    //打印每行的星号\n    for (k = 0; k < _______________; k++)\n        cout << \"*\";\n    //输出一行后，换行\n    cout << endl;\n}</code></pre>",
+    "image":"/data/images/0220241214.png",
+    "options": [
+      "A. height - i; 2 * i",
+      "B. height; 2 * i",
+      "C. height - i; 2 * i + 1",
+      "D. height - i - 1; 2 * i + 1"
+    ],
+    "correct": "D",
+    "explanation": "根据图形可以看出，每行的星号数量是奇数，并且从上到下依次增加2个，所以星号数量应该是2*i+1。空格数量从上到下依次减少，第一行有height-1个空格，所以空格数量应该是height-i-1。因此选项D是正确的。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是30,则横线处不能填入( )｡<pre><code>int a=10,b=20,c=30;\ncout <<____________<< endl;</code></pre>",
+    "options": [
+      "A. max(max(a, b), c)",
+      "B. min(a+b, c)",
+      "C. sqrt(a+b+c)",
+      "D. (a+b+c)/2"
+    ],
+    "correct": "C",
+    "explanation": "a=10, b=20, c=30\nA选项：max(max(a,b),c) = max(20,30) = 30，输出30\nB选项：min(a+b,c) = min(30,30) = 30，输出30\nC选项：sqrt(a+b+c) = sqrt(60) ≈ 7.746，不等于30\nD选项：(a+b+c)/2 = 60/2 = 30，输出30，输出30\n所以C选项不能得到输出30。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "在Windows的资源管理器中为已有文件A建立副本的操作是Ctrl+C,然后Ctrl+V｡( )",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "在Windows资源管理器中，复制文件的标准操作确实是先使用Ctrl+C（复制）然后使用Ctrl+V（粘贴）。这会在同一目录下创建一个名为\"文件A - 副本\"的文件副本。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "在C++代码中,假设N为正整数,则cout << (N - N / 10 * 10) 将获得N的个位数｡( )",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "对于正整数N，N/10是整除运算，会得到N去掉个位后的结果。然后N/10*10会得到N的十位及以上部分乘以10的结果。最后N-(N/10*10)就是N减去十位及以上部分的值，即个位数。例如，123-(123/10*10)=123-120=3，得到个位数3。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "在C++语句cout << (10 <= N <= 12) 中,假设N为12,则其输出为1｡( )",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "在C++中，表达式从左到右求值。首先计算10 <= N，即10 <= 12，结果为true（在C++中表示为1）。然后计算1 <= 12，结果仍为true（1）。所以最终输出为1。注意这种写法容易引起误解，正确的范围判断应该写成10 <= N && N <= 12。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "如果C++表达式int(sqrt(N))*int(sqrt(N)) == N 的值为True,则说明N为完全平方数,如4､9､25 等｡( )",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "这个表达式能准确判断完全平方数。对于非完全平方数，如果sqrt(N)的小数部分接近0，int(sqrt(N))的平方可能等于N。例如，对于N=8，sqrt(8)≈2.83，int(sqrt(8))=2，2*2=4≠8，判断正确。对于N=24，sqrt(24)≈4.9，int(sqrt(24))=4，4*4=16≠24，也判断正确。但对于N=25，sqrt(25)=5，int(sqrt(25))=5，5*5=25=N，判断为完全平方数，这是正确的。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "下面C++代码执行后将输出2*3=6｡ ( )<pre><code>int a = 2, b = 3;\nprintf(\"%%a*%%b=%d\",a*b);</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "在printf函数中，%%表示输出一个%符号，而不是变量替换。所以printf(\"%a*%b=%d\",a*b)会输出\"%a*%b=6\"，而不是\"2*3=6\"。如果要输出变量a和b的值，应该使用printf(\"%d*%d=%d\", a, b, a*b)。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "以下C++代码因为循环变量为将导致错误,即不能作为变量名称,不符合C++变量命名规范｡( )<pre><code>for (int i = 0; i < 10; i++)\ncontinue;</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "在C++中，下划线_是合法的变量名。虽然不推荐使用单个下划线作为变量名（特别是在全局作用域中），但在局部作用域中使用是合法的。所以这段代码不会因为变量名_而导致错误。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "下面C++代码执行后因为有break,将输出0｡( )<pre><code>int i;\nfor (i = 0; i < 10; i++){\ncontinue;\nbreak;}\ncout << i;</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "在循环中，continue语句会跳过当前循环的剩余部分，直接进入下一次循环。因此，break语句永远不会被执行到。循环会正常执行10次（i从0到9），然后i变为10并退出循环。所以最终输出的是10，而不是0。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "下面的C++代码执行后将输出18行“OK”｡( )<pre><code>int i,j;\nfor (i = 8; i > 2; i-=2)\nfor (j =0; j < i; j++) printf(\"OK\\n\");</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "外层循环i的值依次为8,6,4，内层循环j分别执行8,6,4次。所以总共输出8+6+4=18行\"OK\"。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "将下面C++代码中的i = 1 调整为i = 0 的输出结果相同｡( )<pre><code>int i; int cnt = 0; \nfor (i = 1; i < 5; i++) {\n    if(i%2) cnt += 1;\n}\ncout << cnt;</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "原代码中，i从1开始，依次为1,2,3,4。其中i%2为1的有1,3，所以cnt=2。\n如果i从0开始，依次为0,1,2,3,4。其中i%2为1的有1,3，所以cnt仍为2。\n两种情况输出结果相同，都是2。因此说法是正确的。",
+    "source": "2024年12月GESP C++二级真题"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "下面两段C++代码都是用于求1-10的和,其运行结果相同｡通常说来,for循环都可以用while循环实现｡( )<pre><code>// 第一段代码\nint tnt;\nint i;\ntnt = 0;\nfor (i = 1; i < 10 + 1; i++)\n    tnt += i;\ncout << tnt << endl;\n\n// 第二段代码\nint tnt; int i;\ntnt = 0;\ni = 1;\nwhile (i <= 10) {\n    tnt += i;\n    i += 1;\n}\ncout << tnt << endl;</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "两段代码都是计算1到10的和。第一段代码使用for循环，条件是i < 10+1，即i < 11，所以i的值为1到10。第二段代码使用while循环，条件是i <= 10，所以i的值也是1到10。两段代码的计算结果都是55，因此运行结果相同。而且for循环确实可以用while循环实现，这是一个通用的编程原则。",
+    "source": "2024年12月GESP C++二级真题"
+  }
+]

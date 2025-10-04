@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>二维前缀和分步骤动画演示</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    table {
+      border-collapse: collapse;
+    }
+    td {
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      border: 1px solid #aaa;
+      font-weight: bold;
+      font-size: 18px;
+      transition: background-color 0.5s;
+    }
+    .red { background-color: rgba(255,0,0,0.4); }
+    .blue { background-color: rgba(0,0,255,0.4); }
+    .green { background-color: rgba(0,255,0,0.4); }
+    .yellow { background-color: rgba(255,255,0,0.5); }
+    .info {
+      margin-top: 20px;
+      text-align: left;
+      max-width: 600px;
+      line-height: 1.6;
+      background: #f8f8f8;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    .highlight {
+      font-weight: bold;
+      color: darkred;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>二维前缀和公式分步骤动画演示</h2>
+  <p>目标区域：(1,2) 到 (4,5)</p>
+  <pre><code>total = sum[x2][y2] - sum[x1-1][y2] - sum[x2][y1-1] + sum[x1-1][y1-1]</code></pre>
+
+  <table id="grid"></table>
+  <button onclick="nextStep()">下一步</button>
+
+  <div class="info" id="stepText">
+    点击“下一步”开始分解公式。
+  </div>
+
+  <script>
+    const gridData = [
+      [-1, -1, -1, -1, -1],
+      [-1,  1,  1,  1,  1],
+      [-1, -1, -1,  1,  1],
+      [-1, -1, -1,  1,  1],
+    ];
+    const x1 = 1, y1 = 1;
+    const x2 = 3, y2 = 4;
+
+    let step = 0;
+    const table = document.getElementById('grid');
+    const stepText = document.getElementById('stepText');
+
+    function buildGrid() {
+      table.innerHTML = '';
+      for (let i = 0; i < 4; i++) {
+        const row = document.createElement('tr');
+        for (let j = 0; j < 5; j++) {
+          const cell = document.createElement('td');
+          cell.textContent = gridData[i][j];
+          cell.id = `cell-${i}-${j}`;
+          row.appendChild(cell);
+        }
+        table.appendChild(row);
+      }
+    }
+
+    function clearHighlights() {
+      for (let i = 0; i < 4; i++)
+        for (let j = 0; j < 5; j++) {
+          const cell = document.getElementById(`cell-${i}-${j}`);
+          cell.className = '';
+        }
+    }
+
+    function highlightRegion(condition, colorClass) {
+      for (let i = 0; i < 4; i++)
+        for (let j = 0; j < 5; j++) {
+          if (condition(i, j)) {
+            document.getElementById(`cell-${i}-${j}`).classList.add(colorClass);
+          }
+        }
+    }
+
+    function nextStep() {
+      clearHighlights();
+      step++;
+
+      if (step === 1) {
+        stepText.innerHTML = '<span class="highlight">第一步：</span>标出整个子矩形区域 A = sum[x2][y2] (红色)';
+        highlightRegion((i,j) => i <= x2 && j <= y2, 'red');
+      } else if (step === 2) {
+        stepText.innerHTML = '<span class="highlight">第二步：</span>标出上方被多算区域 B = sum[x1-1][y2] (蓝色)';
+        highlightRegion((i,j) => i < x1 && j <= y2, 'blue');
+      } else if (step === 3) {
+        stepText.innerHTML = '<span class="highlight">第三步：</span>标出左边被多算区域 C = sum[x2][y1-1] (绿色)';
+        highlightRegion((i,j) => i <= x2 && j < y1, 'green');
+      } else if (step === 4) {
+        stepText.innerHTML = '<span class="highlight">第四步：</span>加回被重复减去的区域 D = sum[x1-1][y1-1] (黄色)';
+        highlightRegion((i,j) => i < x1 && j < y1, 'yellow');
+      } else {
+        stepText.innerHTML = '演示结束。你可以重新点击按钮从头开始。';
+        step = 0;
+      }
+    }
+
+    buildGrid();
+  </script>
+</body>
+</html>

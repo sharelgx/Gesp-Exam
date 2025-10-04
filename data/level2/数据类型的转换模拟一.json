@@ -1,0 +1,153 @@
+[
+    {
+      "id": "1",
+      "type": "single",
+      "question": "下列关于C++数据类型转换的说法，错误的是（ ）",
+      "options": [
+        "A. int类型变量可以自动转换为double类型",
+        "B. char类型变量赋值给double类型时，会转换为对应的ASCII码值",
+        "C. double类型变量强制转换为int时会四舍五入",
+        "D. 整数除法（/）的两个操作数都是int类型时，结果会截断小数部分"
+      ],
+      "correct": "C",
+      "explanation": "C选项错误，double强制转换为int时直接截断小数部分，不进行四舍五入；A、B、D均正确。",
+      "source": "模拟题"
+    },
+    {
+      "id": "2",
+      "type": "single",
+      "question": "C++表达式int(17.89) / 3的值是（ ）",
+      "options": ["A. 5", "B. 5.96", "C. 6", "D. 6.0"],
+      "correct": "A",
+      "explanation": "17.89强制转换为int是17，17/3=5（整数除法截断小数），故A正确。",
+      "source": "模拟题"
+    },
+    {
+      "id": "3",
+      "type": "single",
+      "question": "如果a是int类型，b是double类型，下列表达式中结果为double类型的是（ ）",
+      "options": [
+        "A. a + b",
+        "B. (int)b",
+        "C. a * 2",
+        "D. b / (int)b"
+      ],
+      "correct": "A",
+      "explanation": "A选项中int自动转换为double，运算结果为double；B选项强制转换为int；C选项结果为int；D选项除数强制转换为int，但被除数是double，结果仍为double。但A选项更直接，故A正确。",
+      "source": "模拟题"
+    },
+    {
+      "id": "4",
+      "type": "truefalse",
+      "question": "在C++中，将int类型变量赋值给char类型变量时，若int值超出char范围，会导致溢出错误，程序崩溃。（对/错）",
+      "correct": "×",
+      "explanation": "溢出会导致结果错误，但程序不会崩溃，故说法错误。",
+      "source": "模拟题"
+    },
+    {
+      "id": "5",
+      "type": "single",
+      "question": "执行以下代码后，变量c的值是（ ）\nchar c = 'a';\nc = c + 25;\n",
+      "options": ["A. 'z'", "B. 'A'", "C. 'Z'", "D. 122"],
+      "correct": "A",
+      "explanation": "'a'的ASCII码是97，97+25=122，对应'z'，故A正确。",
+      "source": "模拟题"
+    },
+    {
+      "id": "6",
+      "type": "single",
+      "question": "下列哪个表达式的结果类型为int？",
+      "options": [
+        "A. 3.14 / 1.0",
+        "B. (int)3.14 + 5",
+        "C. 'a' + 1",
+        "D. 5 / 2.0"
+      ],
+      "correct": "B",
+      "explanation": "B选项中3.14强制转换为int是3，加5得8，类型为int；A和D结果为double；C结果为int（字符转整数），但B更符合题意，故B正确。",
+      "source": "模拟题"
+    },
+    {
+      "id": "7",
+      "type": "truefalse",
+      "question": "C++中，表达式10 / 3的结果与10.0 / 3.0的结果相同。（对/错）",
+      "correct": "×",
+      "explanation": "10/3是整数除法，结果为3；10.0/3.0是浮点数除法，结果为3.333...，故不同，说法错误。",
+      "source": "模拟题"
+    },
+    {
+      "id": "8",
+      "type": "single",
+      "question": "如果a是double类型，值为-12.6，执行int b = a;后，b的值是（ ）",
+      "options": ["A. -12", "B. -13", "C. 12", "D. 13"],
+      "correct": "A",
+      "explanation": "强制转换截断小数，-12.6转换为int是-12，故A正确。",
+      "source": "模拟题"
+    },
+    {
+      "id": "9",
+      "type": "single",
+      "question": "下列代码执行后的输出是（ ）\nint x = 5;\ndouble y = 2.5;\ncout << x + y * 2;\n",
+      "options": ["A. 10", "B. 10.0", "C. 9", "D. 9.0"],
+      "correct": "B",
+      "explanation": "y*2=5.0，x转换为double后5+5.0=10.0，输出double类型，故B正确。",
+      "source": "模拟题"
+    },
+    {
+      "id": "10",
+      "type": "single",
+      "question": "在C++中，表达式char(65 + 32)的值为（ ）",
+      "options": ["A. 'A'", "B. 'a'", "C. 97", "D. ' '"],
+      "correct": "B",
+      "explanation": "65是'A'的ASCII码，65+32=97，对应'a'，故B正确。",
+      "source": "模拟题"
+    },
+    {
+      "id": "11",
+      "type": "truefalse",
+      "question": "将char类型变量赋值给int类型变量时，int变量存储的是char的ASCII码值。（对/错）",
+      "correct": "√",
+      "explanation": "char转int时，自动转换为对应的ASCII码整数值，说法正确。",
+      "source": "模拟题"
+    },
+    {
+      "id": "12",
+      "type": "single",
+      "question": "下列哪条语句会导致运行结果不正确？",
+      "options": [
+        "A. int a = 'a';",
+        "B. double b = 5 / 2;",
+        "C. char c = 1000;",
+        "D. float d = 3.14f;"
+      ],
+      "correct": "C",
+      "explanation": "char类型通常范围是-128~127，1000超出范围，会导致溢出，但编译时可能不报错；但严格来说，C选项最可能因超出范围导致问题，故C正确。",
+      "source": "模拟题"
+    },
+    {
+      "id": "13",
+      "type": "single",
+      "question": "执行以下代码后，变量n的值是（ ）\nint n = 10;\ndouble m = 3.5;\nn = n + m;\n",
+      "options": ["A. 13", "B. 13.5", "C. 14", "D. 10"],
+      "correct": "A",
+      "explanation": "m转换为int是3，10+3=13，故A正确。",
+      "source": "模拟题"
+    },
+    {
+      "id": "14",
+      "type": "truefalse",
+      "question": "C++中，表达式double(5) / 2的结果与5.0 / 2的结果相同。（对/错）",
+      "correct": "√",
+      "explanation": "两者都表示浮点数除法，结果为2.5，说法正确。",
+      "source": "模拟题"
+    },
+    {
+      "id": "15",
+      "type": "single",
+      "question": "如果a是unsigned int类型，b是int类型，且b为-1，执行a = b;后，a的值是（ ）",
+      "options": ["A. -1", "B. 0", "C. 4294967295（假设unsigned int为32位）", "D. 无法确定"],
+      "correct": "C",
+      "explanation": "int类型-1在32位系统中存储为全1，转换为unsigned int时为4294967295，故C正确。",
+      "source": "模拟题"
+    }
+  ]

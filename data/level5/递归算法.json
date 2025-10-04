@@ -1,0 +1,137 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "下面C++代码用于求斐波那契数列,该数列第1､2项为1,以后各项均是前两项之和｡函数fibo()属于( )?\n<pre><code>int fibo(int n) {\n    if (n <= 0)\n        return 0;\n    if (n == 1 || n == 2)\n        return 1;\n    int a = 1, b = 1, next;\n    for (int i = 3; i <= n; i++) {\n        next = a + b;\n        a = b;\n        b = next;\n    }\n    return next;\n}</code></pre>",
+        "options": ["A. 枚举算法", "B. 贪心算法", "C. 迭代算法", "D. 递归算法"],
+        "correct": "C",
+        "explanation": "该函数使用循环迭代计算斐波那契数列，而非递归调用自身，属于迭代算法。递归算法会通过函数自身调用来求解，如fibo(n) = fibo(n-1) + fibo(n-2)。",
+        "source": "GESP2024年3月认证C++五级真题.pdf 单选题第1题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "下面的C++代码以递归方式实现合并排序,并假设merge(int T[], int R[], int s, int m, int t)函数将有序的T[s..m]和T[m+1..t]归并到R[s..t]中｡横线处应填上代码是( )?\n<pre><code>void mergeSort(int SList[],int TList[],int s,int t,int len) {\n    if(s==t) {\n        TList[s] = SList[s];\n        return;\n    }\n    int*T2 = new int[len];//保存中间结果\n    int m = (s + t) / 2;\n    // 在此处填入代码\n    merge(T2, SList, s, m, t);\n    delete T2;\n    return ;\n}</code></pre>",
+        "options": ["A. mergeSort(SList, T2, s, m, len), mergeSort(SList, T2, m, t, len)", "B. mergeSort(SList, T2, s, m-1, len), mergeSort(SList, T2, m+1, t, len)", "C. mergeSort(SList, T2, s, m, len), mergeSort(SList, T2, m+1, t, len)", "D. mergeSort(SList, T2, s, m-1, len), mergeSort(SList, T2, m-1, t, len)"],
+        "correct": "C",
+        "explanation": "归并排序的递归实现需要将数组分为左右两部分，分别递归排序。此处应递归调用mergeSort处理左半区[s, m]和右半区[m+1, t]，对应选项C。",
+        "source": "GESP2023年12月认证C++五级真题.pdf 单选题第2题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "阅读下面的C++代码,执行后其输出是( )?\n<pre><code>int stepCount = 0;\nint fracA(int N) {\n    stepCount += 1;\n    cout << stepCount << \"->\";\n    int rtn = 1;\n    for(int i = 1; i <= N; i++)\n        rtn *= i;\n    return rtn;\n}\nint fracB(int N) {\n    stepCount += 1;\n    cout << stepCount << \"->\";\n    if(N == 1)\n        return 1;\n    return N * fracB(N - 1);\n}\nint main() {\n    cout << fracA(5);\n    cout << \"<===>\";\n    cout << fracB(5);\n    return 0;\n}</code></pre>",
+        "options": ["A. 1->120<===>2->120", "B. 1->120<===>1->120", "C. 1->120<===>1->2->3->4->5->120", "D. 1->120<===>2->3->4->5->6->120"],
+        "correct": "D",
+        "explanation": "fracA是迭代计算阶乘，stepCount=1；fracB是递归计算阶乘，递归调用5次（N=5到N=1），stepCount从2到6，输出2->3->4->5->6->120。",
+        "source": "GESP2023年12月认证C++五级真题.pdf 单选题第3题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "下面C++代码用于求斐波那契数列,该数列第1､2项为1,以后各项均是前两项之和｡下面有关说法错误的是( )?\n<pre><code>int fiboA(int N) {\n    if(N == 1 || N == 2)\n        return 1;\n    return fiboA(N - 1) + fiboA(N - 2);\n}\nint fiboB(int N) {\n    if (N == 1 || N == 2)\n        return 1;\n    int last2 = 1, last1 = 1;\n    int nowVal = 0;\n    for(int i = 2; i < N; i++) {\n        nowVal = last1 + last2;\n        last2 = last1;\n        last1 = nowVal;\n    }\n    return nowVal;\n}</code></pre>",
+        "options": ["A. fiboA() 用递归方式,fiboB() 循环方式", "B. fiboA() 更加符合斐波那契数列的数学定义,直观易于理解,而fiboB() 需要将数学定义转换为计算机程序实现", "C. fiboA() 不仅仅更加符合数学定义,直观易于理解,且因代码量较少执行效率更高", "D. fiboB() 虽然代码量有所增加,但其执行效率更高"],
+        "correct": "C",
+        "explanation": "fiboA是递归实现，存在大量重复计算（如fiboA(3)会重复计算fiboA(1)和fiboA(2)），时间复杂度为O(2^N)；fiboB是迭代实现，时间复杂度为O(N)，迭代效率更高，故C错误。",
+        "source": "GESP2023年12月认证C++五级真题.pdf 单选题第1题"
+    },
+    {
+        "id": "5",
+        "type": "single",
+        "question": "有关下面C++代码说法正确的是( )?\n<pre><code>int rc;\nint foo(int x, int y) {\n    int r;\n    if(y == 0)\n        r = x;\n    else\n        r = foo(y, x % y);\n    rc++;\n    return r;\n}</code></pre>",
+        "options": ["A. 如果x 小于10, rc 值也不会超过20", "B.  foo 可能无限递归", "C.  foo 可以求出 x 和 y 的最大公共质因子", "D.  foo 能够求出 x 和 y 的最小公倍数"],
+        "correct": "A",
+        "explanation": "该函数是递归实现的欧几里得算法，求最大公约数。每次递归y减小，x<10时递归深度有限，rc不会超过20；算法有终止条件(y=0)，不会无限递归，故A正确。",
+        "source": "GESP2023年12月认证C++五级真题.pdf 单选题第6题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "下面C++代码中的isPrimeA()和isPrimeB()都用于判断参数N是否素数,有关其时间复杂度的正确说法是( )?\n<pre><code>bool isPrimeA(int N) {\n    if(N < 2)\n        return false;\n    for(int i = 2; i <= N / 2; i++)\n        if(N % i == 0)\n            return false;\n    return true;\n}\nbool isPrimeB(int N) {\n    if(N < 2)\n        return false;\n    for (int i = 2; i <= sqrt(N); i++)\n        if(N % i == 0)\n            return false;\n    return true;\n}</code></pre>",
+        "options": ["A. isPrimeA() 的最坏时间复杂度是O(n/2), isPrimeB() 的最坏时间复杂度是O(logN), isPrimeA()优于isPrimeB()", "B. isPrimeA() 的最坏时间复杂度是O(n), isPrimeB() 的最坏时间复杂度是O(√n), isPrimeB()绝大多数情况下优于isPrimeA()", "C. isPrimeA() 的最坏时间复杂度是O(√n), isPrimeB() 的最坏时间复杂度是O(n), isPrimeA()优于isPrimeB()", "D. isPrimeA() 的最坏时间复杂度是O(logN), isPrimeB() 的最坏时间复杂度是O(n), isPrimeA()优于isPrimeB()"],
+        "correct": "B",
+        "explanation": "isPrimeA是迭代遍历2到N/2，时间复杂度O(N)；isPrimeB是迭代遍历2到√N，时间复杂度O(√N)。递归实现的素数判断可能有更高复杂度，但此处均为迭代，B正确。",
+        "source": "GESP2023年12月认证C++五级真题.pdf 单选题第8题"
+    },
+    {
+        "id": "7",
+        "type": "single",
+        "question": "下面C++代码以递归方式实现字符串反序,横线处应填上代码是( )?\n<pre><code>//字符串反序\n#include <iostream>\n#include <string>\nusing namespace std;\nstring sReverse(string sIn) {\n    if(sIn.length() <= 1) {\n        return sIn;\n    } else {\n        return __ //此处填写代码\n    }\n}\nint main() {\n    string sIn;\n    cin >> sIn;\n    cout << sReverse(sIn) << endl;\n    return 0;\n}</code></pre>",
+        "options": ["A. sIn[sIn.length() - 1] + sReverse(sIn.substr(0, sIn.length() - 1))", "B. sIn[0] + sReverse(sIn.substr(1, sIn.length() - 1))", "C. sReverse(sIn.substr(0, sIn.length() - 1)) + sIn[sIn.length() - 1]", "D. sReverse(sIn.substr(1, sIn.length() - 1)) + sIn[sIn.length() - 1]"],
+        "correct": "A",
+        "explanation": "递归反序字符串需将最后一个字符与剩余部分的反序结果拼接，即sIn[sIn.length()-1] + sReverse(sIn.substr(0, sIn.length()-1))，A正确。",
+        "source": "GESP2023年9月认证C++五级真题.pdf 单选题第5题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "印度古老的汉诺塔传说:创世时有三根金刚柱,其中一柱从下往上按照大小顺序摞着64片黄金圆盘,当圆盘逐一从一柱借助另外一柱全部移动到另外一柱时,宇宙毁灭｡移动规则:在小圆盘上不能放大圆盘,在三根柱子之间一次只能移动一个圆盘｡下面的C++代码以递归方式实现汉诺塔,横线处应填入代码是( )?\n<pre><code>#include <iostream>\nusing namespace std;\n//递归实现汉诺塔,将N个圆盘从A通过B移动C\n//圆盘从底到顶,半径必须从大到小\nvoid Hanoi(string A, string B, string C, int N) {\n    if(N == 1) {\n        cout << A << \"->\" << C << endl;\n    } else {\n        Hanoi(A, C, B, N - 1);\n        cout << A << \"->\" << C << endl;\n        // 在此处填入代码\n    }\n}\nint main() {\n    Hanoi(\"甲\", \"乙\", \"丙\", 3);\n    return 0;\n}</code></pre>",
+        "options": ["A. Hanoi(B, C, A, N - 2)", "B. Hanoi(B, A, C, N - 1)", "C. Hanoi(A, B, C, N - 2)", "D. Hanoi(C, B, A, N - 1)"],
+        "correct": "B",
+        "explanation": "汉诺塔递归步骤：将N-1个圆盘从A经C移到B，移动第N个圆盘从A到C，再将N-1个圆盘从B经A移到C，对应递归调用Hanoi(B, A, C, N-1)，B正确。",
+        "source": "GESP2023年9月认证C++五级真题.pdf 单选题第6题"
+    },
+    {
+        "id": "9",
+        "type": "single",
+        "question": "下面代码中的isPrimeA()和isPrimeB()都用于判断参数N是否素数,有关其时间复杂度的正确说法是( )?\n<pre><code>#include <iostream>\n#include <cmath>\nusing namespace std;\nbool isPrimeA(int N) {\n    if(N < 2)\n        return false;\n    for(int i = 2; i < N; i++)\n        if(N % i == 0)\n            return false;\n    return true;\n}\nbool isPrimeB(int N) {\n    if(N < 2)\n        return false;\n    int endNum = int(sqrt(N));\n    for(int i = 2; i <= endNum; i++)\n        if(N % i == 0)\n            return false;\n    return true;\n}\nint main() {\n    cout << boolalpha;\n    cout << isPrimeA(13) << \" \" << isPrimeB(13) << endl;\n    return 0;\n}</code></pre>",
+        "options": ["A. isPrimeA() 的最坏时间复杂度是O(N), isPrimeB() 的最坏时间复杂度是O(log N), isPrimeB()优于isPrimeA()", "B. isPrimeA() 的最坏时间复杂度是O(N), isPrimeB() 的最坏时间复杂度是O(√N), isPrimeB()优于isPrimeA()", "C. isPrimeA() 的最坏时间复杂度是O(√N), isPrimeB() 的最坏时间复杂度是O(N), isPrimeA()优于isPrimeB()", "D. isPrimeA() 的最坏时间复杂度是O(log N), isPrimeB() 的最坏时间复杂度是O(N), isPrimeA()优于isPrimeB()"],
+        "correct": "B",
+        "explanation": "isPrimeA遍历2到N-1，时间复杂度O(N)；isPrimeB遍历2到√N，时间复杂度O(√N)。递归实现的素数判断若未优化，时间复杂度可能更高，但此处为迭代，B正确。",
+        "source": "GESP2023年9月认证C++五级真题.pdf 单选题第11题"
+    },
+    {
+        "id": "10",
+        "type": "single",
+        "question": "下面代码执行后的输出是( )?\n<pre><code>#include <iostream>\nusing namespace std;\nint jumpFloor(int N) {\n    cout << N << \"#\";\n    if(N == 1 || N == 2) {\n        return N;\n    } else {\n        return jumpFloor(N - 1) + jumpFloor(N - 2);\n    }\n}\nint main() {\n    cout << jumpFloor(4) << endl;\n    return 0;\n}\n</code></pre>",
+        "options": ["A. 4#3#2#2#4", "B. 4#3#2#2#1#5", "C. 4#3#2#1#2#4", "D. 4#3#2#1#2#5"],
+        "correct": "D",
+        "explanation": "递归调用jumpFloor(4)会分解为jumpFloor(3)+jumpFloor(2)，jumpFloor(3)=jumpFloor(2)+jumpFloor(1)，输出顺序为4#3#2#1#2#，最终返回5，输出4#3#2#1#2#5，D正确。",
+        "source": "GESP2023年9月认证C++五级真题.pdf 单选题第10题"
+    },
+    {
+        "id": "11",
+        "type": "single",
+        "question": "下面关于递归的说法,错误的是( )?\n",
+        "options": ["A. 递归函数必须有终止条件", "B. 递归函数每次调用自身时,参数应向终止条件靠拢", "C. 递归的空间复杂度一定比迭代高", "D. 所有递归函数都可以用迭代方式实现", "E. 快速排序算法不可以用迭代方式实现"],
+        "correct": "E",
+        "explanation": "快速排序可以通过栈模拟递归实现迭代版本，E错误；递归必须有终止条件，参数需向终止条件靠拢，递归空间复杂度通常更高（栈调用），且理论上所有递归均可转为迭代，故E错误。",
+        "source": "CCF GESP 2025年6月认证 C++ 5级试题.pdf 单选题第7题"
+    },
+    {
+        "id": "12",
+        "type": "single",
+        "question": "对下面两个函数,说法错误的是( )?\n<pre><code>int fibA(int n) {\n    if (n <= 1)\n        return n;\n    int f1 = 0, f2 = 1;\n    for (int i = 2; i <= n; ++i) {\n        int temp = f2;\n        f2 = f1 + f2;\n        f1 = temp;\n    }\n    return f2;\n}\nint fibB(int n) {\n    if (n <= 1)\n        return n;\n    return fibB(n - 1) + fibB(n - 2);\n}\n</code></pre>",
+        "options": ["A. 两个函数的实现的功能相同", "B. fibA采用递推方式", "C. fibB采用的是递归方式", "D. fibA时间复杂度为O(n)，fibB的时间复杂度为O(n²)"],
+        "correct": "D",
+        "explanation": "fibB的递归实现存在大量重复计算，时间复杂度为O(2^n)，而非O(n²)；fibA是迭代，时间复杂度O(n)，故D错误。",
+        "source": "CCF GESP 2025年3月认证 C++ 5级试题.pdf 单选题第4题"
+    },
+    {
+        "id": "13",
+        "type": "single",
+        "question": "给定如下函数:\n<pre><code>int fun(int n) {\n    if (n == 1)\n        return 1;\n    if (n == 2)\n        return 2;\n    return fun(n - 2) - fun(n - 1);\n}\n</code></pre>\n则当n=7时,函数返回值为( )?",
+        "options": ["A. 0", "B. 1", "C. 21", "D. -11"],
+        "correct": "D",
+        "explanation": "递归计算fun(7)=fun(5)-fun(6)，fun(5)=fun(3)-fun(4)，fun(3)=fun(1)-fun(2)=1-2=-1，fun(4)=fun(2)-fun(3)=2-(-1)=3，fun(5)=-1-3=-4，fun(6)=fun(4)-fun(5)=3-(-4)=7，fun(7)=-4-7=-11，D正确。",
+        "source": "2024年6月GESP C++五级真题.pdf 单选题第14题"
+    },
+    {
+        "id": "14",
+        "type": "single",
+        "question": "给定如下函数(函数功能同上题,增加输出打印):\n<pre><code>int fun(int n) {\n    cout << n << \" \";\n    if (n == 1)\n        return 1;\n    if (n == 2)\n        return 2;\n    return fun(n - 2) - fun(n - 1);\n}\n</code></pre>\n则当n=4时,屏幕上输出序列为( )?",
+        "options": ["A. 4 3 2 1", "B. 1 2 3 4", "C. 4 2 3 1 2", "D. 4 2 3 2 1"],
+        "correct": "C",
+        "explanation": "调用fun(4)时，输出4，然后调用fun(2)（输出2，返回2）和fun(3)（输出3，调用fun(1)输出1返回1，fun(2)输出2返回2，fun(3)=1-2=-1），最终输出4 2 3 1 2，C正确。",
+        "source": "2024年6月GESP C++五级真题.pdf 单选题第15题"
+    },
+    {
+        "id": "15",
+        "type": "single",
+        "question": "递归函数在调用自身时,必须满足( ),以避免无限递归?\n",
+        "options": ["A. 有终止条件", "B. 函数参数递减(或递增)", "C. 函数返回值固定", "D. 以上都对"],
+        "correct": "A",
+        "explanation": "递归函数必须有终止条件（如n==1时返回），否则会无限递归；参数递减/递增是为了接近终止条件，并非必须，故A正确。",
+        "source": "GESP2024年3月认证C++五级真题.pdf 单选题第14题"
+    }
+]

@@ -1,0 +1,232 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "在C++中，指针变量的大小(单位:字节)是()",
+    "options": ["A. 2", "B. 4", "C. 8", "D. 与编译器有关"],
+    "correct": "D",
+    "explanation": "指针变量的大小取决于编译器和系统架构，不同环境下可能不同。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "以下哪个选项能正确定义一个二维数组()",
+    "options": ["A. int a[][];", "B. char b[][4];", "C. double c[3][];", "D. bool d[3][4];"],
+    "correct": "D",
+    "explanation": "定义二维数组时，除第一维外，其他维度的大小必须明确指定，选项D符合要求。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "在C++中，以下哪种方式不能用于向函数传递参数()",
+    "options": ["A. 值传递", "B. 引用传递", "C. 指针传递", "D. 模板传递"],
+    "correct": "D",
+    "explanation": "函数参数传递方式包括值传递、引用传递和指针传递，模板传递不是参数传递方式。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "以下关于C++函数的形参和实参的叙述，正确的是()",
+    "options": ["A. 形参是实参的别名", "B. 实参是形参的别名", "C. 形参和实参是完全相同的", "D. 形参用于函数声明，实参用于函数调用"],
+    "correct": "D",
+    "explanation": "形参是函数定义或声明时的参数，实参是函数调用时传递的具体值，二者不同。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "排序算法的稳定性是指()",
+    "options": ["A. 相同元素在排序后的相对顺序保持不变", "B. 排序算法的性能稳定", "C. 排序算法对任意输入都有较好的效果", "D. 排序算法容易实现"],
+    "correct": "A",
+    "explanation": "稳定性是排序算法的重要特性，指相同元素排序前后相对位置不变。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "如果有如下二维数组定义，则a[0][3]的值为()<pre><code>int a[2][2] = {{0, 1}, {2, 3}};</code></pre>",
+    "options": ["A. 编译出错", "B. 1", "C. 3", "D. 0"],
+    "correct": "C",
+    "explanation": "在内存的连续布局下：a[0][3] 等价于 *(a[0] + 3)，其中 a[0] 指向 a[0][0] 的地址。偏移 3 个 int 位置后，实际访问的是 a[1][1] 的内存地址，其值为 3。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "以下哪个选项能正确访问二维数组array的元素()",
+    "options": ["A. array[1, 2]", "B. array(1)(2)", "C. array[1][2]", "D. array{1}{2}"],
+    "correct": "C",
+    "explanation": "二维数组元素访问的正确语法是使用两个方括号，如array[行][列]。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "以下哪个选项是C++中正确的指针变量声明()",
+    "options": ["A. int *p;", "B. int p*;", "C. *int p;", "D. int* p*;"],
+    "correct": "A",
+    "explanation": "指针声明的正确语法是类型加*加变量名，选项A符合规范。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "在C++中，以下哪个关键字或符号用于声明引用()",
+    "options": ["A. pointer", "B. &", "C. *", "D. reference"],
+    "correct": "B",
+    "explanation": "在C++中，引用通过&符号声明，如int &ref = var。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "以下哪个递推关系式表示斐波那契数列()",
+    "options": [
+      "A. F(n)=F(n-1)+F(n-2)+F(n-3)",
+      "B. F(n)=F(n-1)+F(n-2)",
+      "C. F(n)=F(n-1) * F(n-2)",
+      "D. F(n)=F(n-1) / F(n-2)"
+    ],
+    "correct": "B",
+    "explanation": "斐波那契数列的定义是从第三项起，每一项等于前两项之和，对应递推式F(n)=F(n-1)+F(n-2)。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "以下哪个函数声明在调用时可以传递二维数组的名字作为参数?",
+    "options": ["A. void BubbleSort(int a[3][4]);", "B. void BubbleSort(int a[][]);", "C. void BubbleSort(int * a[]);", "D. void BubbleSort(int ** a);"],
+    "correct": "A",
+    "explanation": "传递二维数组作为参数时，除第一维外其他维度大小需指定，选项A正确。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "在C++中，以下哪个关键字用来捕获异常()",
+    "options": ["A. throw", "B. catch", "C. try", "D. finally"],
+    "correct": "B",
+    "explanation": "try块用于可能抛出异常的代码，catch块用于捕获并处理异常，throw用于抛出异常。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "在下列代码的横线处填写()，可以使得输出是“20 10”。<pre><code>#include &lt;iostream&gt;\nusing namespace std;\nvoid xchg(________________) { // 在此处填入代码\nint t = x;\nx = y;\ny = t;\n}\nint main() {\nint a = 10, b = 20;\nxchg(a, b);\ncout << a << \" \" << b << endl;\nreturn 0;\n}</code></pre>",
+    "options": ["A. int x, int y", "B. int & x, int & y", "C. int a, int b", "D. int & a, int & b"],
+    "correct": "B",
+    "explanation": "要实现交换两个变量的值，需要使用引用传递，使形参成为实参的别名，选项B正确。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "在下列代码的横线处填写()，可以使得输出是“21”。<pre><code>#include &lt;iostream&gt;\nusing namespace std;\nint main() {\nint a[5];\na[0] = 1;\nfor (int i = 1; i < 5; i++)\na[i] = a[i – 1] * 2;\nint sum = 0;\nfor (int i = 0; i < 5; ________) // 在此处填入代码\nsum += a[i];\ncout << sum << endl;\nreturn 0;\n}</code></pre>",
+    "options": ["A. i++", "B. i+=2", "C. i+=3", "D. i |= 2"],
+    "correct": "B",
+    "explanation": "数组元素依次为1、2、4、8、16，当i以2为步长递增时，sum=1+4+16=21，选项B正确。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "在下列代码的横线处填写()，完成对有n个int类型元素的数组array由小到大排序。<pre><code>void BubbleSort(int array[], int n) {\nfor (int i = n; i > 1; i--)\n在此处填入代码\nfor(_\nif (array[j] > array[j + 1]) {\nint t = array[j];\narray[j] = array[j + 1];\narray[j + 1] = t;\n}\n}</code></pre>",
+    "options": ["A. int j = i – 2; j >= 0; j--", "B. int j = i - 1; j >= 0; j--", "C. int j = 0; j < i - 1; j++", "D. int j = 0; j < i; j++"],
+    "correct": "C",
+    "explanation": "冒泡排序中，内层循环用于比较相邻元素并交换，范围应是从0到i-2，选项C正确。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "C++语言中的指针变量可以指向任何类型的数据。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "C++中指针可以指向各种数据类型，包括基本类型、结构体、类等。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "在C++语言中，函数的参数默认以地址传递方式进行传递。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "C++函数参数默认以值传递方式传递，而非地址传递。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "C++语言中的全局变量在整个程序的生命周期内都是有效的。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "全局变量在程序启动时创建，程序结束时销毁，在整个生命周期内有效。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "递推算法通常有初始值。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "递推算法通过初始值和递推关系逐步求解问题，初始值是计算的基础。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "冒泡排序是一种稳定的排序算法。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "冒泡排序中，相等元素不会交换位置，因此是稳定的排序算法。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "C++语言中，如果异常发生，但没有处理异常的代码，则程序会由于一直等待处理而死机。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "未处理的异常会导致程序终止，而非一直等待。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "C++语言中的局部变量在函数调用结束后会被销毁。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "局部变量的作用域在函数内部，函数调用结束后会被自动销毁。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "&和&&都是C++语言的运算符，*和**也都是。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "&是取地址或按位与运算符，&&是逻辑与运算符；*是指针解引用或乘法运算符，但**不是C++中的运算符（除了用于声明二级指针）。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "如果希望设计一个函数xchg，实现交换两个int变量的值，则它的声明可以写为void xchg(int a, int b);。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "值传递无法实现交换变量值，需要使用引用传递或指针传递，该声明错误。",
+    "source": "GESP C++四级样题卷.pdf"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "已知数组a定义为int a[100];，则赋值语句a['0'] = 3;会导致编译错误。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "'0'的ASCII值为48，a['0']即a[48]，在数组下标范围内，不会编译错误。",
+    "source": "GESP C++四级样题卷.pdf"
+  }
+]

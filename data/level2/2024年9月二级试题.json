@@ -1,0 +1,227 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "据有关资料，山东大学于1972年研制成功DJL-1计算机，并于1973年投入运行，其综合性能居当时全国第三位。DJL-1计算机运算控制部分所使用的磁心存储元件由磁心颗粒组成，设计存贮周期为2μs（微秒）。那么该磁心存储元件相当于现代计算机的( )。",
+    "options": ["A. 内存", "B. 磁盘", "C. CPU", "D. 显示器"],
+    "correct": "A",
+    "explanation": "磁心存储元件用于临时存储数据和程序，相当于现代计算机的内存。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "IPv4版本的因特网总共有( )个A类地址网络。",
+    "options": ["A. 65000", "B. 200万", "C. 126", "D. 128"],
+    "correct": "C",
+    "explanation": "IPv4中A类地址网络号范围为1-126，共126个。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "在C++中，下列不可做变量的是( )。",
+    "options": ["A. ccf-gesp", "B. ccf_gesp", "C. ccfGesp", "D. _ccfGesp"],
+    "correct": "A",
+    "explanation": "C++变量名不能包含减号，ccf-gesp不符合命名规则。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "在C++中，与for (int i = 1; i < 10; i++) 效果相同的是( )。",
+    "options": ["A. for (int i = 0; i < 10; i++)", "B. for (int i = 0; i < 11; i++)", "C. for (int i = 1; i < 10; ++i)", "D. for (int i = 0; i < 11; ++i)"],
+    "correct": "C",
+    "explanation": "i++与++i在for循环中效果相同，C选项的循环变量初值、条件和步长与原循环一致。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "在C++中，cout << (5 / 2 + 5 % 3) 的输出是( )。",
+    "options": ["A. 1", "B. 2", "C. 4", "D. 5"],
+    "correct": "C",
+    "explanation": "5/2=2，5%3=2，两者之和为4，输出4。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "假定变量a和b可能是整型、字符型或浮点型，则下面C++代码执行时先后输入-2 和3.14 后，其输出不可能是( )。[已知字符'+'、'-'、'=' 的ASCII码值分别是43、45和61]<pre><code>cin >> a;\ncin >> b;\ncout << (a + b);</code></pre>",
+    "options": ["A. 1", "B. 1.14", "C. 47", "D. 将触发异常"],
+    "correct": "D",
+    "explanation": "输入-2和3.14时，无论a和b为哪种类型，运算都不会触发异常，D选项不可能。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "在C++代码中假设N为正整数，则下面代码能获得个位数的是( )。",
+    "options": ["A. N % 10", "B. N / 10", "C. N && 10", "D. 以上选项均不正确"],
+    "correct": "A",
+    "explanation": "N%10可得到正整数N的个位数，A选项正确。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )。<pre><code>int i;\nfor (i = 0; i < 10; i++){\n  if (i % 2)\n    cout << \"0#\"; \n  break;\n}\nif(i==10) cout << \"1#\";</code></pre>",
+    "options": ["A. 0#", "B. 1#", "C. 0#0#1", "D. 没有输出"],
+    "correct": "D",
+    "explanation": "循环中i=0时，i%2=0，不执行cout，直接break，i=1，不满足i==10，无输出。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "执行下面C++代码并输入1和0，有关说法正确的是( )。<pre><code>int a,b;\ncin >> a >> b;\nif(a&&b)\n  cout << (\"1\");\nelse if(!(a||b))\n  cout << (\"2\");\nelse if(a || b)\n  cout << (\"3\");\nelse\n  cout << (\"4\");</code></pre>",
+    "options": ["A. 1", "B. 2", "C. 3", "D. 4"],
+    "correct": "C",
+    "explanation": "a=1，b=0时，a&&b为假，!(a||b)为假，a||b为真，输出3。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )。<pre><code>int loopCount = 0;\nfor (int i = 1; i < 5; i += 2)\n  loopCount += 1;\ncout << (loopCount);</code></pre>",
+    "options": ["A. 1", "B. 2", "C. 3", "D. 5"],
+    "correct": "B",
+    "explanation": "i的取值为1、3，循环2次，loopCount=2，输出2。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "下图是C++程序执行后的输出。为实现其功能，横线处应填入代码是( )。<pre><code>1\n2 3\n3 4 5\n4 5 6 7\n5 6 7 8 9\n6 7 8 9 10 11\n7 8 9 10 11 12 13\n\nint lineNum;\ncin >> lineNum;\nfor (int i= 1; i < lineNum+1; i++){\n  for(int ______)\n    cout << j << \" \";\n  cout << endl;\n}</code></pre>",
+    "options": ["A. j = i; j < i; j++", "B. j = 1; j < i; j++", "C. j = i; j < i*2; j++", "D. j = i+1; j < i+i; j++"],
+    "correct": "C",
+    "explanation": "第i行从i开始，输出i个数字，j的范围为[i, i*2)，C选项正确。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "下面C++代码执行后输出逆序数，如输入123 则输出321 。如输入120 则输出21 。横线处先后应填入的代码是( )<pre><code>int N;\ncin >> N;\nint rst = 0;\nwhile (N){\n  ______;\n  ______;\n}\ncout << (rst);</code></pre>",
+    "options": ["A. rst = rst * 10 + N % 10; N = N / 10;", "B. rst += N % 10; N = N / 10;", "C. rst = rst * 10 + N / 10; N = N % 10;", "D. rst += N / 10; N = N % 10;"],
+    "correct": "A",
+    "explanation": "N%10取个位数字，rst=rst*10+个位数字实现逆序拼接，N=N/10移除个位，A选项正确。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "下面的C++代码用于输入学生成绩，并根据人数计算出平均成绩，有关说法错误的是( )<pre><code>float Sum = 0; // 保存总成绩\nint cnt = 0; // 保存学生人数\nwhile (1){\n  int score;\n  cin >> score;\n  if (score < 0)\n    break;\n  cnt += 1;\n  Sum += score;\n}\ncout << \"总学生数:\" << cnt << \"平均分:\" << Sum/cnt;</code></pre>",
+    "options": ["A. 代码while (1) 写法错误", "B. 如果输入负数，将结束输入，并正确输出", "C. 如果输入的学生成绩含有小数，程序将无法正常执行", "D. 变量int score 初始值不确定，但不影响程序执行"],
+    "correct": "A",
+    "explanation": "while(1)是合法的无限循环写法，可通过break退出，A选项说法错误。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "以下C++代码判断输入的正整数是否为质数，如果该数字是质数，则输出YES ，否则输出NO 。质数是指仅能被1和它本身整除的正整数。请在横线上填写代码。( )<pre><code>int num, i;\ncin >> num;\nfor(i = 2; i < num; i++)\n  if (__________){\n    cout << (\"NO\");\n    break;\n  }\nif(i == num)\n  cout << (\"YES\");</code></pre>",
+    "options": ["A. num % i", "B. num % i == 0", "C. num / i", "D. num / i == 0"],
+    "correct": "B",
+    "explanation": "若num能被i整除（num%i==0），则num不是质数，输出NO，B选项正确。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "一个数如果能被某个数（比如7）整除，或者含有该数，则说该数是某个数的相关数。下面C++代码用于判定输入的数与7是否有关。下列说法错误的是( )。<pre><code>int N, M;\nbool Flag = false;\ncin >> N;\nM = N;\nif (M % 7 == 0)\n  Flag = true;\nwhile (!Flag && M){\n  if (M % 10 == 7){\n    Flag = true;\n    break;\n  }\n  M /= 10;\n}\nif (Flag)\n  cout << N << \"与7有关\";\nelse\n  cout << N << \"与7无关\";</code></pre>",
+    "options": ["A. 删除break语句不会导致死循环，但有时会导致结果错误", "B. 删除M /= 10 将可能导致死循环", "C. 删除M = N 并将其后代码中的M变量改为N，并调整输出同样能完成相关功能", "D. 删除break 语句不会导致死循环，但有时会影响效率"],
+    "correct": "A",
+    "explanation": "删除break语句不会导致结果错误，仅可能多循环几次，A选项说法错误。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "小杨最近开始学习C++编程，老师说C++是一门面向对象的编程语言，也是一门高级语言。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "C++支持面向对象编程，且属于高级程序设计语言。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "在C++中，cout << (3, 4, 5) 可以输出3 4 5 ，且每个输出项之间用空格分开。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "逗号表达式取最后一个值，输出5，不是3 4 5。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "C++表达式12 % 10 % 10 的值为2。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "12%10=2，2%10=2，结果为2。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "C++语句cout << rand() << ' ' << rand(); 的第二个输出值较大。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "rand()生成的随机数大小不确定，第二个输出值不一定较大。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "定义C++的int 类型的变量ch ，而且值为'1' ，则语句cout << int(ch); 的输出为1 。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "'1'的ASCII码为49，int(ch)输出49，不是1。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "下面C++代码执行后将输出10。( )<pre><code>int i;\nfor (i = 0; i < 10; i++)\n  continue;\nif(i == 10)\n  cout << i;</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "循环结束后i=10，输出10。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "下面C++代码能求整数N和M之间所有整数之和，包含N和M。( )<pre><code>int N, M, Sum;\ncin >> N >> M;\nif (N > M){\n  int tmp = N;\n  N = M, M = tmp;\n}\nfor (int i = N; i < M+1; i++)\n  Sum += i;\ncout << Sum;</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "Sum未初始化，初始值不确定，计算结果错误。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "将下面C++代码中的L3 标记的代码行调整为for (int i = 0; i < 5; i++) 后输出结果相同。( )<pre><code>int loopCount = 0;\nfor (int i = 1; i < 5; i++) // L3\n  for (int j = 0; j < i; j++)\n    loopCount += 1;\ncout << loopCount;</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "原循环i=1-4，调整后i=0-4，循环次数不同，输出结果不同。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "某一系列数据的规律是从第3个数值开始是前两个数之和。下面的代码求第N个数的值，N限定为大于2。( )<pre><code>int start1; // 第1个数\nint start2; // 第2个数\nint N; //求第N个数的值\nint tmp;\ncin >> start1 >> start2 >> N;\nfor (int i = 2; i < N; i++){\n  tmp = start1 + start2;\n  start1 = start2;\n  start2 = tmp;\n}\ncout << start2;</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "代码通过循环计算第N个数，逻辑正确。",
+    "source": "2024年9月GESP C++二级真题"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "下面C++代码执行时如果输入2024 ，则输出是4202 。( )<pre><code>int N, flag=0;\ncin >> N;\nwhile (N){\n  N /= 10;\n  if(!flag)\n    cout << N % 10;\n  flag = (flag + 1)%2;\n}</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "输入2024时，循环过程输出的是0，不是4202。",
+    "source": "2024年9月GESP C++二级真题"
+  }
+]

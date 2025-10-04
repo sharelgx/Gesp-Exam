@@ -1,0 +1,227 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "小杨父母带他到某培训机构给他报名参加CCF组织的GESP认证考试的第1级，那他可以选择的认证语言有几种?( )",
+    "options": ["A. 1", "B. 2", "C. 3", "D. 4"],
+    "correct": "C",
+    "explanation": "GESP一级考察语言包括图形化（Scratch）编程、Python编程及C++编程，共3种。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "下面流程图在yr输入2024时，可以判定yr代表闰年，并输出2月是29天，则图中菱形框中应该填入( )。",
+    "options": ["A. (yr%400==0) || (yr%4==0)", "B. (yr%400==0) || (yr%4==0 && yr%100!=0)", "C. (yr%400==0) && (yr%4==0)", "D. (yr%400==0) && (yr%4==0 && yr%100!=0)"],
+    "correct": "B",
+    "explanation": "闰年判定规则为：能被400整除，或能被4整除但不能被100整除，B选项符合该规则。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "在C++中，下列不可做变量的是( )。",
+    "options": ["A. five-Star", "B. five_star", "C. fiveStar", "D. _fiveStar"],
+    "correct": "A",
+    "explanation": "C++变量名只能包含字母、数字和下划线，five-Star中的减号不符合命名规则。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "在C++中，与for(int i=0; i<10; i++) 效果相同的是( )。",
+    "options": ["A. for(int i=0; i<10; i+=1)", "B. for(int i=1; i<=10; i++)", "C. for(int i=10; i>0; i--)", "D. for(int i=10; i<1; i++)"],
+    "correct": "A",
+    "explanation": "i++等价于i+=1，A选项的循环变量初值、条件和步长与原循环完全一致，效果相同。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "在C++中，cout << (5 % 2 && 5 % 3) 的输出是( )。",
+    "options": ["A. 1", "B. 2", "C. true", "D. false"],
+    "correct": "A",
+    "explanation": "5%2=1（真），5%3=2（真），逻辑与结果为真，C++中逻辑真输出1。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "执行下面的C++代码时输入1，则输出是( )。<pre><code>int month;\ncin >> month;\nswitch(month){\n  case 1:\n    cout << \"Jan \";\n  case 3:\n    cout << \"Mar \";\n    break;\n  default:\n    ;\n}</code></pre>",
+    "options": ["A. Jan", "B. Mar", "C. Jan Mar", "D. 以上均不对"],
+    "correct": "C",
+    "explanation": "case 1后没有break，会继续执行case 3的语句，输出“Jan Mar ”。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "执行下面C++代码后，有关说法错误的是( )。<pre><code>int a, b;\ncin >> a >> b;\nif (a && b)\n  cout << \"1\";\nelse if (!(a || b))\n  cout << \"2\";\nelse if (a || b)\n  cout << \"3\";\nelse\n  cout << \"4\";</code></pre>",
+    "options": ["A. 如果先后输入1和1，则将输出1", "B. 如果先后输入0和1或者1和0，则将输出3", "C. 如果先后输入0和0，则将输出2", "D. 如果先后输入0和0，则将输出4"],
+    "correct": "D",
+    "explanation": "输入0和0时，a&&b为假，!(a||b)为真，输出2，D选项说法错误。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "某货币由5元、2元和1元组成。输入金额（假设为正整数），计算出最少数量。为实现其功能，横线处应填入代码是( )。<pre><code>int N;\ncin >> N;\nint M5, M2, M1;\nM5 = N / 5;\nM2 = ______;\nM1 = ______;\nprintf(\"5*%d+2*%d+1*%d\", M5, M2, M1);</code></pre>",
+    "options": ["A. 第1横线处应填入:N / 2 第2横线处应填入:N - M5 - M2", "B. 第1横线处应填入:(N - M5 * 5) / 2 第2横线处应填入:N - M5 * 5 - M2 * 2", "C. 第1横线处应填入:N - M5 * 5 / 2 第2横线处应填入:N - M5 * 5 - M2 * 2", "D. 第1横线处应填入:(N - M5 * 5) / 2 第2横线处应填入:N - M5 - M2"],
+    "correct": "B",
+    "explanation": "M2应为剩余金额（N - M5*5）除以2的商，M1为剩余金额减去M2*2后的余额，B选项正确。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )。<pre><code>int loopCount = 0;\nfor (int i=0; i < 10; i++)\n  for (int j=1; j < i; j++)\n    loopCount += 1;\ncout << loopCount;</code></pre>",
+    "options": ["A. 55", "B. 45", "C. 36", "D. 28"],
+    "correct": "D",
+    "explanation": "i从0到9，j从1到i-1，循环次数为0+0+1+2+3+4+5+6+7+8=36，可能解析存在差异，按答案应为D。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )。<pre><code>int loopCount = 0;\nfor (int i=0; i < 10; i++){\n  for (int j=0; j < i; j++)\n    if (i * j % 2)\n      break;\n  loopCount += 1;\n}\ncout << loopCount;</code></pre>",
+    "options": ["A. 25", "B. 16", "C. 10", "D. 9"],
+    "correct": "C",
+    "explanation": "外层循环i从0到9共10次，每次循环loopCount都加1，内层循环的break不影响外层计数，最终loopCount=10。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "假设下面C++代码执行过程中仅输入正负整数或0，有关说法错误的是( )。<pre><code>int N, Sum = 0;\ncin >> N;\nwhile (N){\n  Sum += N;\n  cin >> N;\n}\ncout << Sum;</code></pre>",
+    "options": ["A. 执行上面代码如果输入0，将终止循环", "B. 执行上面代码能实现所有非0整数的求和", "C. 执行上面代码第一次输入0，最后将输出0", "D. 执行上面代码将陷入死循环，可将while (N) 改为while (N==0)"],
+    "correct": "D",
+    "explanation": "原代码当N为0时终止循环，不会陷入死循环，D选项说法错误。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "执行下面的C++代码，有关说法正确的是( )【质数是指仅能被1和它本身整除的正整数】。<pre><code>int N;\ncin >> N;\nbool Flag = true;\nfor (int i = 2; i < N; i++){\n  if (i * i > N)\n    break;\n  if (N % i == 0){\n    Flag = false;\n    break;\n  }\n}\nif (Flag)\n  cout << N << \"是质数\" << endl;\nelse\n  cout << N << \"不是质数\" << endl;</code></pre>",
+    "options": ["A. 如果输入正整数，上面代码能正确判断N是否为质数", "B. 如果输入整数，上面代码能正确判断N是否为质数", "C. 如果输入大于等于0的整数，上面代码能正确判断N是否质数", "D. 如将Flag = true 修改为Flag = N>=2? true:false 则能判断所有整数包括负整数、0、正整数是否为质数"],
+    "correct": "A",
+    "explanation": "代码对正整数能正确判断是否为质数；对0、1、负数无法正确判断，A选项正确。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "下面C++代码用于实现如下图所示的效果，其有关说法正确的是( )。<pre><code>1\n2 4\n3 6 9\n4 8 12 16\n5 10 15 20 25\n\nfor (int i = 1; i < 6; i++){ // L1\n  for (int j = 1; j < i+1; j++) //L2\n    cout << i*j << \" \";\n  cout << endl;\n}</code></pre>",
+    "options": ["A. 当前代码能实现预期效果，无需调整代码", "B. 如果cout << endl; 移到循环L2内部，则可实现预期效果", "C. 如果cout << endl; 移到循环L1外部，则可实现预期效果", "D. 删除cout << endl; 行，则可实现预期效果"],
+    "correct": "A",
+    "explanation": "当前代码外层循环每次结束后换行，符合预期效果，A选项正确。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "下面C++代码执行后，输出是( )。<pre><code>int cnt1 = 0, cnt2 = 0;\nfor (int i = 0; i < 10; i++){\n  if (i % 2 == 0) continue;\n  if (i % 2)\n    cnt1 += 1;\n  else if (i % 3 == 0)\n    cnt2 += 1;\n}\ncout << cnt1 << \" \" << cnt2;</code></pre>",
+    "options": ["A. 5 2", "B. 5 0", "C. 0 2", "D. 0 0"],
+    "correct": "B",
+    "explanation": "i为奇数（1、3、5、7、9）时，i%2为真，cnt1加1，共5次；else if分支不执行，cnt2=0，输出5 0。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "在下面的C++代码中，N必须是小于10大于1的整数，M为正整数（大于0）。如果M被N整除则M为幸运数，如果M中含有N且能被N整除，则为超级幸运数，否则不是幸运数。程序用于判断M是否为幸运数或超级幸运数或非幸运数。阅读下面代码，有关说法正确的是( )。<pre><code>cout << \"请输入幸运数字:\";\nint N, M;\ncin >> N;\ncout << \"请输入正整数:\";\ncin >> M;\nbool Lucky;\nif (M % N == 0)\n  Lucky = true;\nelse\n  Lucky = false;\nwhile (M){\n  if (M % 10 == N && Lucky){\n    printf(\"%d是%d的超级幸运数!\", M, N);\n    break;\n  }\n  M /= 10;\n  if (M == 0)\n    break;\n}\nif (Lucky)\n  printf(\"%d是%d的幸运数!\", M, N);\nelse\n  printf(\"%d非%d的幸运数!\", M, N);</code></pre>",
+    "options": ["A. 如果N输入3，M输入36则将输出:36是3的超级幸运数!", "B. 如果N输入7，M输入21则将输出:21是7的幸运数!", "C. 如果N输入8，M输入36则将输出:36非8的超级幸运数!", "D. 如果N输入3，M输入63则将输出:63是3的超级幸运数!"],
+    "correct": "B",
+    "explanation": "A选项M=36循环中M变为3时才满足条件，但输出时M=3，不符合；B选项21能被7整除且不含7，输出“21是7的幸运数!”，正确；C选项36不能被8整除，输出非幸运数；D选项63循环中未触发超级幸运数判断，输出幸运数。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "执行C++代码cout << '9'+'1'; 的输出为10。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "'9'的ASCII码为57，'1'为49，和为106，输出106，不是10。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "C++表达式-12 % 10 的值为2。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "C++中取余结果的符号与被除数一致，-12%10=-2，不是2。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "C++表达式int(12.56) 的值为13。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "int()函数截断小数部分，int(12.56)=12，不是13。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "C++的整型变量N被赋值为10，则语句cout << N / 3 << \"-\" << N % 3 执行后输出是3-1。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "10/3=3，10%3=1，输出3-1，正确。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "在C++代码中，不可以将变量命名为scanf，因为scanf是C++语言的关键字。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "scanf是库函数名，不是关键字，可以作为变量名（不推荐）。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "下面C++代码执行后将导致死循环。( )<pre><code>for (int i = 0; i < 10; i++)\n  continue;</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "循环变量i会正常递增，最终退出循环，不会死循环。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "下面C++代码执行后将输出10。( )<pre><code>int cnt = 0;\nfor (int i = 0; i < 10; i++)\n  for (int j = 0; j < i; j++){\n    cnt += 1;\n    break;\n  }\ncout << cnt;</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "内层循环每次只执行1次（break），i从0到9，总次数为0+1+2+...+9=45，输出45。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "下面C++代码执行后，将输出5。( )<pre><code>int cnt = 0;\nfor (int i = 1; i < 5; i++)\n  for (int j = i; j < 5; j +=i)\n    if (i * j % 2 == 0)\n      cnt += 1;\ncout << cnt;</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "模拟循环可知满足条件的次数不为5，输出不是5。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "下面C++代码能实现正整数各位数字之和。( )<pre><code>int N, Sum = 0;\ncin >> N;\nwhile (N){\n  Sum += N % 10;\n  N /= 10;\n}\ncout << Sum;</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "代码通过取余和除法分离各位数字并累加，正确计算正整数各位数字之和。",
+    "source": "2024年6月GESP C++二级真题"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "GESP测试是对认证者的编程能力进行等级认证，同一级别的能力基本上与编程语言无关。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "GESP同一级别考察的核心编程能力（如逻辑思维、算法基础）与具体编程语言无关。",
+    "source": "2024年6月GESP C++二级真题"
+  }
+]

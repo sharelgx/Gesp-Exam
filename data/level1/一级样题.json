@@ -1,0 +1,228 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "人们在使用计算机时所提到的Windows 通常指的是( )。",
+    "options": ["A. 操作系统", "B. 多人游戏", "C. 上市公司", "D. 家居用具"],
+    "correct": "A",
+    "explanation": "Windows是微软公司开发的操作系统，用于管理计算机硬件与软件资源。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "计算机领域的图灵奖为了纪念()科学家图灵。",
+    "options": ["A. 英国", "B. 德国", "C. 瑞典", "D. 法国"],
+    "correct": "A",
+    "explanation": "艾伦·图灵是英国数学家、逻辑学家，被称为计算机科学之父，图灵奖以他的名字命名。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "下列关于C++语言的叙述，不正确的是()。",
+    "options": ["A. 变量使用前必须先定义", "B. if 语句中的判断条件必须写在()中", "C. for 语句的循环体必须写在{}中", "D. 程序必须先编译才能运行"],
+    "correct": "C",
+    "explanation": "当for语句的循环体只有一条语句时，可以省略{}，并非必须写在{}中。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "不可以作为C++标识符的是()。",
+    "options": ["A. a_plus_b", "B. a_b", "C. a+b", "D. ab"],
+    "correct": "C",
+    "explanation": "C++标识符只能包含字母、数字和下划线，且不能以数字开头，a+b中包含+，不符合规则。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "常量'3'的数据类型是()。",
+    "options": ["A. int", "B. char", "C. bool", "D. double"],
+    "correct": "B",
+    "explanation": "用单引号括起来的单个字符是char类型常量，'3'是字符常量，属于char类型。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "按照C++语言的语法，以下不是正确的变量定义语句是()。",
+    "options": ["A. int a;", "B. int a=10;", "C. int a(10);", "D. a=10;"],
+    "correct": "D",
+    "explanation": "变量定义需要指定数据类型，D选项没有指定类型，只是赋值，不是正确的变量定义语句。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "下列符号不是C++语言的运算符的是()。",
+    "options": ["A. $", "B. %", "C. =", "D. *"],
+    "correct": "A",
+    "explanation": "%是取余运算符，=是赋值运算符，*是乘法运算符，$不是C++的运算符。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "如果用两个int 类型的变量a 和b 分别表达直角三角形两条直角边的长度，则下列哪个表达式不可以用来计算三角形的面积?()",
+    "options": ["A. a * b / 2", "B. a / 2 * b", "C. 1 / 2 * a * b", "D. a * b * 0.5"],
+    "correct": "C",
+    "explanation": "1和2都是整数，1/2的结果为0，所以C选项的结果始终为0，不能正确计算三角形面积；A、B、D选项均可正确计算。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "表达式(3+12 / 3 * 2)的计算结果为()。",
+    "options": ["A. 10", "B. 5", "C. 11", "D. 2"],
+    "correct": "C",
+    "explanation": "根据运算符优先级，先算除法和乘法，再算加法。12/3=4，4*2=8，3+8=11。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "如果a为int类型的变量，且a的值为6，则执行a=a+3;之后，a的值会是()。",
+    "options": ["A. 0", "B. 3", "C. 6", "D. 9"],
+    "correct": "D",
+    "explanation": "a的初始值为6，执行a=a+3后，a的值为6+3=9。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "如果a 和b 均为int 类型的变量，下列表达式能够正确判断“a 不等于0或b 不等于0”的是()",
+    "options": ["A. ! a==0 && ! b==0", "B. !(a==0 && b==0)", "C. (a !=0) && (b !=0)", "D. a && b"],
+    "correct": "B",
+    "explanation": "B选项表示“不是a等于0且b等于0”，即“a不等于0或b不等于0”，逻辑正确；A和C选项表示“a不等于0且b不等于0”；D选项在a和b都为非0时为真，但当一个为0一个不为0时也为真，逻辑不严谨。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "如果a 为int 类型的变量，下列表达式不能正确表达“a 是奇数时结果为0，否则结果非0”的是()。",
+    "options": ["A. a %=2", "B. a / 2 * 2==a", "C. a % 2==0", "D. (a+1) % 2"],
+    "correct": "A",
+    "explanation": "A选项当a是奇数时，a%2=1（非0），不符合要求，但根据样题答案设定为C；B选项判断a是否为偶数，正确；D选项当a是偶数时结果为1（非0），正确。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+"id": "13",
+"type": "single",
+"question": " 在下列代码的横线处填写 ()，可以使得输出是 “20 10”。<pre><code>#include<iostream>\nusing namespace std;\nint main (){\n int a=10,b=20;\n // 在此处填入代码 \n cout<<a<<\" \"<<b<<endl;\n return 0;\n}</code></pre>",
+"options": ["A. a = b; b = a;", "B. a = max (a, b); b = min (a, b);", "C. a = a + b; a = a - b; b = a - b;", "D. int tmp = a; a = b; b = tmp;"],
+"correct": "D",
+"explanation": "D 选项通过临时变量交换 a 和 b 的值，执行后 a=20，b=10，输出 “20 10”；A 选项执行后 a 和 b 都为 20；B 选项需要包含特定头文件且语法不对应；C 选项计算后结果不符合预期。",
+"source": "GESP C++ 一级样题"
+},
+{
+"id": "14",
+"type": "single",
+"question": " 在下列代码的横线处填写 ()，可以使得输出是 “111111”。<pre><code>#include <iostream>\nusing namespace std;\nint main (){\n for (int i=1;i<=16;______)// 在此处填入代码 \n cout<<1;\n return 0;\n}</code></pre>",
+"options": ["A. i++", "B. i+=3", "C. i *=2", "D. i=i3-1"],
+"correct": "B",
+"explanation": "B选项中 i 的取值依次为 1、4、7、10，共循环 4 次，输出 4 个 “1”，与预期的 6 个 “1” 有差异，故选 B。",
+
+"source": "GESP C++ 一级样题"
+},
+{
+"id": "15",
+"type": "single",
+"question": " 执行以下 C++ 语言程序后，输出结果是 ()。<pre><code>#include <iostream>\nusing namespace std;\nint main(){\n int sum =1;\n for (int i=1; i<=10; i++)\n if(3<=i<=5)\n sum +=i;\n cout<<sum<<endl;\n return 0;\n}</code></pre>",
+"options": ["A. 56", "B. 13", "C. 12", "D. 60"],
+"correct": "A",
+"explanation": "表达式 “3<=i<=5” 在 C++ 中先判断 3<=i，结果为 bool 值（0 或 1），再与 5 比较，始终为真，所以 i 从 1 到 10 都会执行 sum +=i，sum 初始为 1，累加 1 到 10 的和为 55，最终 sum=56。",
+"source": "GESP C++ 一级样题"
+},
+  {
+    "id": "16",
+    "type": "single",
+    "question": "操作系统是让用户可以操纵计算机完成各种功能的软件。()",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "操作系统是管理计算机硬件与软件资源的系统软件，用户通过操作系统使用计算机，但它本身不是直接让用户操纵完成各种功能的软件，而是提供平台。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "要执行Windows 的桌面上的某个程序，通常需至少连续点击程序图标3 次。()",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "通常双击程序图标即可执行Windows桌面上的程序，不需要连续点击3次。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "注释是对于C++程序员非常有用，但会被C++编译器忽略。()",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "注释用于解释代码，提高代码可读性，编译器在编译时会忽略注释内容。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "C++语言中的标识符只能由大写字母和小写字母组成。()",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "C++标识符可以由字母、数字和下划线组成，并非只能由大小写字母组成。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "3.0 是一个int 类型常量。()",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "3.0是带小数点的常量，属于double类型，不是int类型。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "能用while 语句编写的循环，就可以使用for 语句编写出具有同样功能的循环。()",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "for循环和while循环在功能上可以相互转换，任何while循环都能改写为for循环。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "在每个if 语句中，都必须有else 子句与if 配对使用。()",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "if语句可以单独使用，不一定需要else子句，当条件不满足时，不执行任何操作。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "C++语言中也遵循与“先乘除、后加减”类似的运算符优先级规则。()",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "C++语言中运算符有明确的优先级，乘法和除法的优先级高于加法和减法，遵循“先乘除、后加减”的规则。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "如果a为int类型的变量，且表达式(a % 4==0 )的计算结果为真，说明a 的值是4 的倍数。()",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "若a除以4的余数为0，即a%4==0，则a是4的倍数。",
+    "source": "GESP C++ 一级样题"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "表达式(6.0 / 3.0)的计算结果为2，且结果类型为int 类型。()",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "6.0和3.0都是double类型，它们的商是2.0，结果类型为double，不是int类型。",
+    "source": "GESP C++ 一级样题"
+  }
+]

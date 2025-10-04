@@ -1,0 +1,24 @@
+[
+  {
+    "id": "1-B-1",
+    "type": "single",
+    "question": "下面关于 C++ 的注释方式，哪一个是不合法的？",
+    "options": [
+      "A. // 注释内容",
+      "B. /* 注释内容 */",
+      "C. <!-- 注释 -->",
+      "D. / * 注释 * /"
+    ],
+    "correct": "C",
+    "explanation": "C++ 不使用 XML 风格的 <!-- --> 注释，选项 C 不合法。",
+    "source": "GESP C++ 一级 历年真题 2020年 第1题"
+  },
+  {
+    "id": "1-B-2",
+    "type": "truefalse",
+    "question": "C++ 中，使用双斜杠 // 可以注释整行内容。 (对/错)",
+    "correct": "true",
+    "explanation": "双斜杠注释会从 // 后一直注释到行尾。",
+    "source": "GESP C++ 一级 模拟题"
+  }
+]

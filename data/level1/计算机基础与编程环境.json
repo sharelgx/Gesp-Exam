@@ -1,0 +1,308 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "以下不属于计算机输出设备的有( )｡",
+    "options": ["A. 麦克风", "B. 音箱", "C. 打印机", "D. 显示器"],
+    "correct": "A",
+    "explanation": "输出设备用于展示计算机内部信息，麦克风用于接收外部声音输入，属于输入设备。",
+    "source": "2023年6月 GESP C++一级试题解析.pdf 单选题 第1题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "ChatGPT 是OpenAI 研发的聊天机器人程序，它不能完成的任务是( )｡",
+    "options": ["A. 改邮件", "B. 编剧本", "C. 擦地板", "D. 写代码"],
+    "correct": "C",
+    "explanation": "ChatGPT 是软件程序，仅能处理计算机相关任务（如A、B、D），无法执行物理操作（如擦地板）。",
+    "source": "2023年6月 GESP C++一级试题解析.pdf 单选题 第2题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "以下哪个不是C++语言的关键字?( )",
+    "options": ["A. double", "B. else", "C. while", "D. endl"],
+    "correct": "D",
+    "explanation": "endl 是C++标准库中的输出流操纵符，属于对象而非关键字。C++关键字列表中不包含endl。",
+    "source": "2023年6月 GESP C++一级试题解析.pdf 单选题 第6题"
+  },
+  {
+    "id": "4",
+    "type": "truefalse",
+    "question": "计算机硬件主要包括运算器､控制器､存储器､输入设备和输出设备｡(对/错)",
+    "correct": "√",
+    "explanation": "计算机硬件五大组成部分为运算器、控制器、存储器、输入设备和输出设备，说法正确。",
+    "source": "2023年6月 GESP C++一级试题解析.pdf 判断题 第1题"
+  },
+  {
+    "id": "5",
+    "type": "truefalse",
+    "question": "在C++语言中，计算结果必须存储在变量中才能输出｡(对/错)",
+    "correct": "×",
+    "explanation": "C++允许直接输出表达式结果，如`cout << 3+5;`，无需先存储到变量。",
+    "source": "2023年6月 GESP C++一级试题解析.pdf 判断题 第3题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "我们通常说的“内存”属于计算机中的( )｡",
+    "options": ["A. 输出设备", "B. 输入设备", "C. 存储设备", "D. 打印设备"],
+    "correct": "C",
+    "explanation": "内存（RAM）用于临时存储数据，属于存储设备，而非输入/输出设备。",
+    "source": "2023年9月 GESP C++一级试题解析.pdf 单选题 第1题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "以下C++不可以作为变量名称的是( )｡",
+    "options": ["A. redStar", "B. RedStar", "C. red_star", "D. red star"],
+    "correct": "D",
+    "explanation": "C++变量名只能包含字母、数字和下划线，不能包含空格或特殊符号（如选项D中的空格）。",
+    "source": "2023年9月 GESP C++一级试题解析.pdf 单选题 第2题"
+  },
+  {
+    "id": "8",
+    "type": "truefalse",
+    "question": "早期计算机内存不够大，可以将字库固化在一个包含只读存储器的扩展卡中插入计算机主板帮助处理汉字｡(对/错)",
+    "correct": "√",
+    "explanation": "早期计算机通过ROM扩展卡固化字库以节省内存，这是常见技术手段，说法正确。",
+    "source": "2023年9月 GESP C++一级试题解析.pdf 判断题 第1题"
+  },
+  {
+    "id": "9",
+    "type": "truefalse",
+    "question": "神威·太湖之光超级计算机是中国自主研制的超级计算机，在全球超级计算机TOP500排行榜中多次荣膺榜首｡(对/错)",
+    "correct": "√",
+    "explanation": "神威·太湖之光是中国自主研发的超级计算机，曾多次登顶TOP500，说法正确。",
+    "source": "2023年9月 GESP C++一级试题解析.pdf 判断题 第2题"
+  },
+  {
+    "id": "10",
+    "type": "truefalse",
+    "question": "C++语句cout<<(2,3,\"23\") 的输出为2,3,23｡(对/错)",
+    "correct": "×",
+    "explanation": "逗号表达式的结果为最后一个值（\"23\"），因此输出为23，而非2,3,23。",
+    "source": "2023年9月 GESP C++一级试题解析.pdf 判断题 第4题"
+  },
+  {
+    "id": "11",
+    "type": "truefalse",
+    "question": "C++的循环语句for (int i = 0; i < 10; i += 2) 表示i从0开始到10结束但不包含10，间隔为2｡(对/错)",
+    "correct": "√",
+    "explanation": "循环条件为i<10，i取值为0、2、4、6、8，符合“不包含10”的描述，说法正确。",
+    "source": "2023年9月 GESP C++一级试题解析.pdf 判断题 第5题"
+  },
+  {
+    "id": "12",
+    "type": "truefalse",
+    "question": "在C++代码中，不可以将变量命名为cout，因为cout是C++的关键字｡(对/错)",
+    "correct": "×",
+    "explanation": "cout是std命名空间中的对象（流类成员），并非关键字，变量名可以使用cout（但不推荐）。",
+    "source": "2023年9月 GESP C++一级试题解析.pdf 判断题 第9题"
+  },
+  {
+    "id": "13",
+    "type": "truefalse",
+    "question": "C++是一种高级程序设计语言｡(对/错)",
+    "correct": "√",
+    "explanation": "C++属于高级语言，需编译为机器码执行，区别于机器语言和汇编语言，说法正确。",
+    "source": "2023年9月 GESP C++一级试题解析.pdf 判断题 第10题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "以下不属于计算机输入设备的有( )｡",
+    "options": ["A. 键盘", "B. 音箱", "C. 鼠标", "D. 传感器"],
+    "correct": "B",
+    "explanation": "音箱用于输出声音，属于输出设备；键盘、鼠标、传感器均为输入设备。",
+    "source": "2023年3月 GESP C++一级试题解析.pdf 单选题 第1题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "计算机系统中存储的基本单位用B来表示，它代表的是( )｡",
+    "options": ["A. Byte", "B. Block", "C. Bulk", "D. Bit"],
+    "correct": "A",
+    "explanation": "存储基本单位是字节（Byte，缩写为B），Bit（位）是最小存储单位，需8位组成1字节。",
+    "source": "2023年3月 GESP C++一级试题解析.pdf 单选题 第2题"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "以下哪个不是C++语言的关键字?( )",
+    "options": ["A. int", "B. for", "C. do", "D. cout"],
+    "correct": "D",
+    "explanation": "cout是输入输出流对象，不属于关键字；int、for、do均为C++标准关键字。",
+    "source": "2023年3月 GESP C++一级试题解析.pdf 单选题 第6题"
+  },
+  {
+    "id": "17",
+    "type": "truefalse",
+    "question": "程序员用C、C++、Python、Scratch等编写的程序能在CPU上直接执行｡(对/错)",
+    "correct": "×",
+    "explanation": "高级语言程序需编译或解释为机器码后才能在CPU执行，不能直接运行，说法错误。",
+    "source": "2023年3月 GESP C++一级试题解析.pdf 判断题 第2题"
+  },
+  {
+    "id": "18",
+    "type": "truefalse",
+    "question": "在C++语言中，注释不宜写得过多，否则会使得程序运行速度变慢｡(对/错)",
+    "correct": "×",
+    "explanation": "注释会在编译时被完全忽略，不影响可执行程序的运行速度，说法错误。",
+    "source": "2023年3月 GESP C++一级试题解析.pdf 判断题 第3题"
+  },
+  {
+    "id": "19",
+    "type": "truefalse",
+    "question": "在C++语言中，标识符的命名不能完全由数字组成，至少有一个字母就可以｡(对/错)",
+    "correct": "×",
+    "explanation": "标识符不能以数字开头，但可以包含数字（如“_123”合法），且不一定需要字母（如下划线开头）。",
+    "source": "2023年3月 GESP C++一级试题解析.pdf 判断题 第4题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "小杨父母带他到某培训机构报名参加CCF组织的GESP认证考试的第1级，他可以选择的认证语言有几种?( )",
+    "options": ["A. 1", "B. 2", "C. 3", "D. 4"],
+    "correct": "C",
+    "explanation": "GESP一级认证语言包括Scratch、Python、C++三种，因此选C。",
+    "source": "2024年6月GESP C++一级真题.pdf 单选题 第14题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "ENIAC于1946年投入运行，是世界上第一台真正意义上的计算机，它的主要部件都是( )组成的｡",
+    "options": ["A. 感应线圈", "B. 电子管", "C. 晶体管", "D. 集成电路"],
+    "correct": "B",
+    "explanation": "ENIAC使用电子管作为主要元件，后续计算机依次经历晶体管、集成电路阶段。",
+    "source": "2024年6月GESP C++一级真题.pdf 单选题 第15题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "山东大学研制的DJL-1计算机运算控制部分使用的磁心存储元件，相当于现代计算机的( )｡",
+    "options": ["A. 内存", "B. 磁盘", "C. CPU", "D. 显示器"],
+    "correct": "A",
+    "explanation": "磁心存储元件用于快速存储数据，功能类似现代计算机的内存（RAM）。",
+    "source": "2024年9月GESP C++一级真题.pdf 单选题 第1题"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "C++程序执行出现错误，不太常见的调试手段是( )｡",
+    "options": ["A. 阅读源代码", "B. 单步调试", "C. 输出执行中间结果", "D. 跟踪汇编码"],
+    "correct": "D",
+    "explanation": "跟踪汇编码属于底层调试手段，对初级程序员不常见；A、B、C均为常规调试方法。",
+    "source": "2024年9月GESP C++一级真题.pdf 单选题 第2题"
+  },
+  {
+    "id": "25",
+    "type": "truefalse",
+    "question": "小杨最近学习C++，老师说C++是一门面向对象的编程语言，也是一门高级语言｡(对/错)",
+    "correct": "√",
+    "explanation": "C++是面向对象的高级语言，说法正确。",
+    "source": "2024年9月GESP C++一级真题.pdf 判断题 第1题"
+  },
+  {
+    "id": "26",
+    "type": "truefalse",
+    "question": "在C++代码中，不可以将变量命名为five-star，因为变量名中不可以出现-（减号）符号｡(对/错)",
+    "correct": "√",
+    "explanation": "变量名只能包含字母、数字、下划线，减号（-）属于非法字符，说法正确。",
+    "source": "2024年9月GESP C++一级真题.pdf 判断题 第8题"
+  },
+  {
+    "id": "27",
+    "type": "single",
+    "question": "下列软件中是操作系统的是( )｡",
+    "options": ["A. 高德地图", "B. 腾讯会议", "C. 纯血鸿蒙", "D. 金山永中"],
+    "correct": "C",
+    "explanation": "鸿蒙（HarmonyOS）是操作系统，其他选项均为应用软件。",
+    "source": "2024年12月GESP C++一级真题.pdf 单选题 第2题"
+  },
+  {
+    "id": "28",
+    "type": "single",
+    "question": "现代计算机所基于的体系结构是( )｡",
+    "options": ["A. 艾伦·图灵", "B. 冯·诺依曼", "C. 阿塔纳索夫", "D. 埃克特-莫克利"],
+    "correct": "B",
+    "explanation": "现代计算机基于冯·诺依曼体系结构（存储程序原理），由运算器、控制器、存储器、输入/输出设备组成。",
+    "source": "2024年12月GESP C++一级真题.pdf 单选题 第15题"
+  },
+  {
+    "id": "29",
+    "type": "truefalse",
+    "question": "在Windows的资源管理器中为文件A建立副本的操作是Ctrl+C后Ctrl+V｡(对/错)",
+    "correct": "√",
+    "explanation": "Ctrl+C（复制）和Ctrl+V（粘贴）是创建文件副本的标准操作，说法正确。",
+    "source": "2024年12月GESP C++一级真题.pdf 判断题 第1题"
+  },
+  {
+    "id": "30",
+    "type": "truefalse",
+    "question": "在C++代码中，studentName、student_name、sStudentName都是合法的变量名称｡(对/错)",
+    "correct": "√",
+    "explanation": "变量名由字母、数字、下划线组成，且不以数字开头，三者均合法。",
+    "source": "2024年12月GESP C++一级真题.pdf 判断题 第8题"
+  },
+  {
+    "id": "31",
+    "type": "single",
+    "question": "人们在使用计算机时所提到的Windows通常指的是( )｡",
+    "options": ["A. 操作系统", "B. 多人游戏", "C. 上市公司", "D. 家居用具"],
+    "correct": "A",
+    "explanation": "Windows是微软开发的操作系统，而非游戏、公司或家具。",
+    "source": "GESP C++ 一级样题.pdf 单选题 第1题"
+  },
+  {
+    "id": "32",
+    "type": "single",
+    "question": "计算机领域的图灵奖为了纪念( )科学家图灵｡",
+    "options": ["A. 英国", "B. 德国", "C. 瑞典", "D. 法国"],
+    "correct": "A",
+    "explanation": "艾伦·图灵是英国数学家，被誉为“计算机科学之父”，图灵奖以其命名。",
+    "source": "GESP C++ 一级样题.pdf 单选题 第2题"
+  },
+  {
+    "id": "33",
+    "type": "single",
+    "question": "下列关于C++语言的叙述，不正确的是( )｡",
+    "options": ["A. 变量使用前必须先定义", "B. if语句中的判断条件必须写在()中", "C. for语句的循环体必须写在{}中", "D. 程序必须先编译才能运行"],
+    "correct": "C",
+    "explanation": "for语句的循环体若为单条语句，可省略{}（如`for(int i=0; i<10; i++) cout<<i;`），说法不正确。",
+    "source": "GESP C++ 一级样题.pdf 单选题 第3题"
+  },
+  {
+    "id": "34",
+    "type": "single",
+    "question": "下列符号不是C++语言运算符的是( )｡",
+    "options": ["A. $", "B. %", "C. =", "D. *"],
+    "correct": "A",
+    "explanation": "$不是C++运算符，%（取余）、=（赋值）、*（乘）均为合法运算符。",
+    "source": "GESP C++ 一级样题.pdf 单选题 第7题"
+  },
+  {
+    "id": "35",
+    "type": "truefalse",
+    "question": "操作系统是让用户可以操纵计算机完成各种功能的软件｡(对/错)",
+    "correct": "√",
+    "explanation": "操作系统是管理计算机硬件与软件资源的系统软件，用户通过它操作计算机，说法正确。",
+    "source": "GESP C++ 一级样题.pdf 判断题 第1题"
+  },
+  {
+    "id": "36",
+    "type": "truefalse",
+    "question": "注释是对于C++程序员非常有用，但会被C++编译器忽略｡(对/错)",
+    "correct": "√",
+    "explanation": "编译器会忽略注释内容，仅处理可执行代码，注释用于提高代码可读性，说法正确。",
+    "source": "GESP C++ 一级样题.pdf 判断题 第3题"
+  },
+  {
+    "id": "37",
+    "type": "truefalse",
+    "question": "C++语言中的标识符只能由大写字母和小写字母组成｡(对/错)",
+    "correct": "×",
+    "explanation": "标识符可包含字母、数字、下划线，并非仅限字母（如“a1”“_var”均合法）。",
+    "source": "GESP C++ 一级样题.pdf 判断题 第4题"
+  }
+]

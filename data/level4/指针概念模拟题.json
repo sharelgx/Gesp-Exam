@@ -1,0 +1,89 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "指针变量的主要作用是（ ）",
+    "options": ["A. 存储整数", "B. 存储浮点数", "C. 存储地址", "D. 存储字符串"],
+    "correct": "C",
+    "explanation": "指针变量用于存储另一个变量的地址。",
+    "source": "指针概念模拟题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "下面哪个语句正确地定义了一个指向 int 类型的指针？<pre><code>int a = 10;\n_____;</code></pre>",
+    "options": ["A. int p;", "B. int *p;", "C. int p*;", "D. int& p;"],
+    "correct": "B",
+    "explanation": "int *p 表示 p 是一个指向 int 类型变量的指针。",
+    "source": "指针概念模拟题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "若 则 `&a` 表示的含义是（ ）<pre><code>int a = 10;</code></pre>",
+    "options": ["A. a 的值", "B. a 的地址", "C. a 的类型", "D. a 的拷贝"],
+    "correct": "B",
+    "explanation": "&a 表示取变量 a 的地址。",
+    "source": "指针概念模拟题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "若有如下定义，哪句输出 a 的值？<pre><code>int a = 5;\nint *p = &a;\n_____;</code></pre>",
+    "options": ["A. cout << p;", "B. cout << &p;", "C. cout << *p;", "D. cout << &a;"],
+    "correct": "C",
+    "explanation": "*p 表示解引用操作，即访问指针 p 所指向地址里的值，即 a 的值。",
+    "source": "指针概念模拟题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "若有如下代码，以下哪条语句可以将 a 改为 200？<pre><code>int a = 100;\nint *p = &a;\n_____;</code></pre>",
+    "options": ["A. a = 200;", "B. *p = 200;", "C. p = 200;", "D. &a = 200;"],
+    "correct": "B",
+    "explanation": "*p 访问的是指针指向的值，通过 *p = 200 可以修改 a 的值。",
+    "source": "指针概念模拟题"
+  },
+  {
+    "id": "6",
+    "type": "truefalse",
+    "question": "指针变量的类型必须与它所指向的变量类型一致。（对/错）",
+    "correct": "√",
+    "explanation": "指针类型决定了解引用时如何解释该地址处的数据，必须类型一致才能正确使用。",
+    "source": "指针概念模拟题"
+  },
+  {
+    "id": "7",
+    "type": "truefalse",
+    "question": "若 int* p; 没有赋初值也可以直接使用 *p。（对/错）",
+    "correct": "×",
+    "explanation": "未初始化的指针指向未知地址，解引用会导致未定义行为甚至程序崩溃。",
+    "source": "指针概念模拟题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "哪个选项是创建空指针（空地址）的正确写法？",
+    "options": ["A. int *p = 0;", "B. int *p = NULL;", "C. int *p = nullptr;", "D. 以上都可以"],
+    "correct": "D",
+    "explanation": "C++ 中 0、NULL、nullptr 都可以表示空指针，但推荐使用 C++11 的 nullptr。",
+    "source": "指针概念模拟题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "下面哪种情况最可能导致程序崩溃（段错误）？",
+    "options": ["A. 指针初始化为 nullptr", "B. 指针没有初始化就被解引用", "C. 指针被比较", "D. 指针传入函数"],
+    "correct": "B",
+    "explanation": "未初始化的指针指向随机内存地址，解引用会导致非法访问，程序崩溃。",
+    "source": "指针概念模拟题"
+  },
+  {
+    "id": "10",
+    "type": "truefalse",
+    "question": "`int* p, q;` 中，p 和 q 都是指针变量。（对/错）",
+    "correct": "×",
+    "explanation": "只有 p 是指针，q 是普通 int 变量。指针声明应写作 int *p, *q;",
+    "source": "指针概念模拟题"
+  }
+]

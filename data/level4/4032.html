@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏇 田忌赛马 动画演示与代码高亮</title>
+  <!-- 引入Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- 引入highlight.js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/cpp.min.js"></script>
+  
+  <!-- 配置Tailwind自定义颜色和字体 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: {
+              200: '#99f6e4',
+            },
+            blue: {
+              200: '#bfdbfe',
+            },
+            purple: {
+              600: '#9333ea',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['Consolas', 'Monaco', 'monospace'],
+          },
+        },
+      }
+    }
+  </script>
+</head>
+<body class="p-4 bg-gray-100 min-h-screen font-sans">
+  <h1 class="text-2xl font-bold mb-4">🏇 田忌赛马 动画演示与代码高亮</h1>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <!-- 左侧：田忌赛马动画演示 -->
+    <div class="bg-white p-4 rounded-lg shadow-lg">
+      <h2 class="text-xl font-semibold mb-3">田忌赛马 动画演示</h2>
+      
+      <div class="mb-4">
+        <label class="block mb-1">我方马匹速度（空格分隔）</label>
+        <input id="youInput" class="border p-2 rounded w-full mb-2" value="1 3 5" />
+        <label class="block mb-1">田忌马匹速度（空格分隔）</label>
+        <input id="tianjiInput" class="border p-2 rounded w-full mb-2" value="2 4 6" />
+        <button id="startBtn" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">
+          开始比赛
+        </button>
+        <button id="autoBtn" class="bg-green-500 text-white px-4 py-2 rounded">
+          自动播放
+        </button>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="font-semibold">我方马匹</h3>
+        <div id="horsesYou" class="flex gap-2 flex-wrap mb-2">
+          <!-- 马匹将通过JS动态生成 -->
+        </div>
+        <h3 class="font-semibold">田忌马匹</h3>
+        <div id="horsesTianji" class="flex gap-2 flex-wrap">
+          <!-- 马匹将通过JS动态生成 -->
+        </div>
+      </div>
+
+      <button id="nextBtn" class="bg-purple-600 text-white px-4 py-2 rounded disabled:bg-gray-400" disabled>
+        下一步
+      </button>
+
+      <div class="bg-yellow-100 p-4 rounded my-4">
+        🎯 当前赢的场数：<span id="winCount">0</span><br />
+        🔢 当前步骤：<span id="stepCount">0</span>
+      </div>
+
+      <div id="progressBar" class="flex gap-1 mb-4">
+        <!-- 进度条将通过JS动态生成 -->
+      </div>
+
+      <div class="bg-white p-4 rounded shadow max-h-64 overflow-y-auto text-sm" id="logContainer">
+        <!-- 日志将通过JS动态生成 -->
+      </div>
+    </div>
+    
+    <!-- 右侧：代码高亮 -->
+    <div class="bg-white p-4 rounded-lg shadow-lg">
+      <h2 class="text-xl font-semibold mb-3">C++ 代码高亮</h2>
+      <div class="relative">
+        <div class="absolute top-2 right-2">
+          <button id="copyBtn" class="text-gray-600 hover:text-gray-900 transition-colors">
+            <i class="fa fa-copy mr-1"></i>复制代码
+          </button>
+        </div>
+        <pre><code class="language-cpp" id="codeBlock">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+void output_digit(int d){
+    if(d&gt;=10) cout&lt;&lt;(char)(d-10+'A');
+    else cout&lt;&lt;(char)('0'+d);
+}
+void output_code(int s){
+    output_digit(s&gt;&gt;4);
+    output_digit(s &amp; 0x0f);
+}
+int main(){
+    long long n=0;
+    cin&gt;&gt;n;
+    long long split[10];
+    int l=0;
+    while(n&gt;0){
+        split[l]=(int)(n &amp; 0x7f);
+        n&gt;&gt;=7;
+        l++;
+    }
+    for(int i=0;i&lt;l-1;i++){
+         split[i] |= 0x80;   
+    }
+    output_code(split[0]);
+    for(int i=1;i&lt;l;i++){
+            cout&lt;&lt;" ";
+            output_code(split[i]);
+    }
+    cout&lt;&lt;endl;
+    return 0;
+}</code></pre>
+      </div>
+      
+      <div class="mt-4 bg-blue-50 p-3 rounded">
+        <h3 class="font-semibold text-blue-700 mb-2">代码说明</h3>
+        <p class="text-gray-700">这段C++代码实现了一个数字的变长编码功能：</p>
+        <ul class="list-disc pl-5 mt-2 space-y-1 text-sm">
+          <li>将输入的整数按7位一组进行分割</li>
+          <li>除最后一组外，每组最高位设为1表示后续还有数据</li>
+          <li>每个字节以两位十六进制形式输出</li>
+          <li>例如输入123456会被编码为87 85 E0</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 初始化代码高亮
+    document.addEventListener('DOMContentLoaded', (event) => {
+        hljs.highlightAll();
+        startGame(); // 启动田忌赛马游戏
+        
+        // 复制代码按钮功能
+        const copyBtn = document.getElementById('copyBtn');
+        const codeBlock = document.getElementById('codeBlock');
+        
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(codeBlock.textContent)
+                .then(() => {
+                    const originalText = copyBtn.innerHTML;
+                    copyBtn.innerHTML = '<i class="fa fa-check mr-1"></i>已复制';
+                    setTimeout(() => {
+                        copyBtn.innerHTML = originalText;
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('复制失败: ', err);
+                    copyBtn.innerHTML = '<i class="fa fa-times mr-1"></i>复制失败';
+                    setTimeout(() => {
+                        copyBtn.innerHTML = '<i class="fa fa-copy mr-1"></i>复制代码';
+                    }, 2000);
+                });
+        });
+    });
+
+    // 游戏状态变量
+    let youInput = "1 3 5";
+    let tianjiInput = "2 4 6";
+    let horsesYou = [];
+    let horsesTianji = [];
+    let i = 0; // 田忌已出场马匹数
+    let j = 0; // 我方已出场马匹数
+    let win = 0; // 胜利场数
+    let step = 0; // 当前步数
+    let log = []; // 日志记录
+    let intervalRef = null; // 自动播放定时器引用
+
+    // DOM元素
+    const youInputEl = document.getElementById('youInput');
+    const tianjiInputEl = document.getElementById('tianjiInput');
+    const startBtn = document.getElementById('startBtn');
+    const autoBtn = document.getElementById('autoBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const horsesYouEl = document.getElementById('horsesYou');
+    const horsesTianjiEl = document.getElementById('horsesTianji');
+    const winCountEl = document.getElementById('winCount');
+    const stepCountEl = document.getElementById('stepCount');
+    const progressBarEl = document.getElementById('progressBar');
+    const logContainerEl = document.getElementById('logContainer');
+
+    // 事件监听器
+    youInputEl.addEventListener('input', (e) => { youInput = e.target.value; });
+    tianjiInputEl.addEventListener('input', (e) => { tianjiInput = e.target.value; });
+    startBtn.addEventListener('click', startGame);
+    autoBtn.addEventListener('click', autoPlay);
+    nextBtn.addEventListener('click', nextStep);
+
+    // 初始化游戏
+    function startGame() {
+      // 解析输入并排序
+      horsesYou = youInput.trim().split(/\s+/).map(Number).sort((a, b) => a - b);
+      horsesTianji = tianjiInput.trim().split(/\s+/).map(Number).sort((a, b) => a - b);
+      
+      // 重置游戏状态
+      i = 0;
+      j = 0;
+      win = 0;
+      step = 0;
+      log = [];
+      
+      // 清除定时器
+      clearInterval(intervalRef);
+      
+      // 更新UI
+      updateUI();
+    }
+
+    // 执行下一步
+    function nextStep() {
+      // 检查游戏是否结束
+      if (i >= horsesTianji.length || j >= horsesYou.length) return;
+      
+      // 更新步数
+      step++;
+      
+      let newI = i;
+      let newJ = j;
+      let newWin = win;
+      
+      // 判断当前回合结果
+      if (horsesYou[j] > horsesTianji[i]) {
+        log.push(`👉 第${step}步：我方出 ${horsesYou[j]} > 田忌出 ${horsesTianji[i]}，获胜 ✅`);
+        newI++;
+        newJ++;
+        newWin++;
+      } else {
+        log.push(`👉 第${step}步：我方出 ${horsesYou[j]} <= 田忌出 ${horsesTianji[i]}，失败 ❌`);
+        newJ++;
+      }
+      
+      // 更新状态
+      i = newI;
+      j = newJ;
+      win = newWin;
+      
+      // 更新UI
+      updateUI();
+      
+      // 检查游戏是否结束
+      if (i >= horsesTianji.length || j >= horsesYou.length) {
+        clearInterval(intervalRef);
+      }
+    }
+
+    // 自动播放
+    function autoPlay() {
+      clearInterval(intervalRef);
+      intervalRef = setInterval(() => {
+        nextStep();
+      }, 800);
+    }
+
+    // 更新UI
+    function updateUI() {
+      // 更新马匹显示
+      renderHorses(horsesYouEl, horsesYou, j, 'bg-teal-200');
+      renderHorses(horsesTianjiEl, horsesTianji, i, 'bg-blue-200');
+      
+      // 更新计数
+      winCountEl.textContent = win;
+      stepCountEl.textContent = step;
+      
+      // 更新进度条
+      renderProgressBar();
+      
+      // 更新日志
+      renderLog();
+      
+      // 更新按钮状态
+      nextBtn.disabled = i >= horsesTianji.length || j >= horsesYou.length;
+    }
+
+    // 渲染马匹
+    function renderHorses(container, horses, activeIndex, baseClass) {
+      container.innerHTML = '';
+      horses.forEach((val, idx) => {
+        const horseEl = document.createElement('div');
+        horseEl.className = `px-3 py-1 rounded shadow ${idx < activeIndex ? 'bg-gray-400' : baseClass}`;
+        horseEl.textContent = `🐎 ${val}`;
+        container.appendChild(horseEl);
+      });
+    }
+
+    // 渲染进度条
+    function renderProgressBar() {
+      progressBarEl.innerHTML = '';
+      for (let idx = 0; idx < step; idx++) {
+        const barEl = document.createElement('div');
+        barEl.className = 'h-4 w-2 rounded';
+        barEl.style.backgroundColor = idx < win ? '#4caf50' : '#f44336';
+        progressBarEl.appendChild(barEl);
+      }
+    }
+
+    // 渲染日志
+    function renderLog() {
+      logContainerEl.innerHTML = '';
+      log.forEach((line, idx) => {
+        const lineEl = document.createElement('div');
+        lineEl.textContent = line;
+        logContainerEl.appendChild(lineEl);
+      });
+      
+      // 滚动到底部
+      logContainerEl.scrollTop = logContainerEl.scrollHeight;
+    }
+  </script>
+</body>
+</html>

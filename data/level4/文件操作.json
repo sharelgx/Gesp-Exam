@@ -1,0 +1,83 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "C++中，关于文件路径说法错误的是()",
+        "options": ["A. \"GESP.txt\":指定与当前工作目录中的程序文件相同目录中的GESP.txt文件", "B. \".data/GESP.txt\":指定与当前工作目录中的程序文件上一级目录下的data目录中的GESP.txt文件", "C. \"./data/GESP\":指定与当前工作目录中的程序文件同级目录下的data目录中的GESP.txt文件", "D. \"GESP.txt\"是绝对路径"],
+        "correct": "D",
+        "explanation": "在C++中，“GESP.txt”是相对路径，它表示与当前工作目录中的程序文件相同目录中的GESP.txt文件，并非绝对路径。A选项，“GESPtxt”确实指定与当前工作目录中的程序文件相同目录中的文件；B选项，“..”表示上一级目录，所以“..data/GESP.txt”指定与当前工作目录中的程序文件上一级目录下的data目录中的GESP.txt文件；C选项，“./”表示当前目录，“./data/GESP”指定与当前工作目录中的程序文件同级目录下的data目录中的GESP.txt文件 。",
+        "source": "2024年6月GESP C++四级真题.pdf 单选题第6题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "下面哪种方式不能实现将字符串\"Happy Spring!\"输出重定向到文件log.txt ( )",
+        "options": ["A. freopen(\"log.txt\", \"w\", stdout); cout << \"Happy Spring!\" << endl; fclose(stdout);", "B. std::ofstream outFile(\"log.txt\"); outFile << \"Happy Spring!\" << endl; outFile.close();", "C. std::ofstream outFile(\"log.txt\"); cout << \"Happy Spring!\" << endl; outFile.close();", "D. ofstream log_file(\"log.txt\"); streambuf* org_cout = cout.rdbuf(); cout.rdbuf(log_file.rdbuf()); cout << \"Happy Spring!\" << endl; cout.rdbuf(org_cout);"],
+        "correct": "C",
+        "explanation": "A选项使用`freopen`函数将标准输出重定向到`log.txt`文件，然后输出字符串，最后关闭标准输出，可实现重定向；B选项通过`ofstream`创建文件流对象`outFile`，向文件写入字符串后关闭文件，能实现重定向；D选项先保存原标准输出缓冲区，再将标准输出缓冲区设置为文件流的缓冲区，输出字符串后恢复原缓冲区，可实现重定向。而C选项中`ofstream outFile(\"log.txt\");`只是创建了文件流对象，但没有将`cout`的输出重定向到`outFile`，`cout`的输出仍会指向标准输出，无法实现将字符串输出重定向到文件log.txt 。",
+        "source": "2025年3月认证C++四级试题.pdf 单选题第15题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "下面哪种方式不能实现将字符串\"Welcome to GESP!\"输出重定向到文件log.txt ( )",
+        "options": ["A. freopen(\"log.txt\", \"w\", stdout); cout << \"Welcome to GESP!\" << endl; fclose(stdout);", "B. std::ofstream outFile(\"log.txt\"); outFile << \"Welcome to GESP!\" << endl; outFile.close();", "C. std::ofstream outFile(\"log.txt\"); cout << \"Welcome to GESP!\" << endl; outFile.close();", "D. ofstream log_file(\"log.txt\"); streambuf* org_cout = cout.rdbuf(); cout.rdbuf(log_file.rdbuf()); cout << \"This output will go to the log file.\" << endl; cout.rdbuf(org_cout);"],
+        "correct": "C",
+        "explanation": "A选项利用`freopen`重定向标准输出，实现将内容输出到文件；B选项通过`ofstream`对象直接向文件写入内容；D选项借助`streambuf`更改标准输出缓冲区，实现重定向。C选项创建了`ofstream`对象`outFile`，但没有将`cout`与`outFile`关联，`cout`输出的内容不会写入`log.txt` 。",
+        "source": "2024年12月认证C++四级真题.pdf 单选题第14题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "小杨用文件重定向实现在log.txt文件中输出日志，则下面横线上应填写( )<pre><code>1 #include <iostream>\n2 #include <fstream>\n3 #include <string>\n4 using namespace std;\n5 int main()\n6 {\n7 ofstream log_file(\"log.txt\");\n8 streambuf* original_cout = cout.rdbuf();\n9 cout.rdbuf(log_file.rdbuf());\n10 // 在此处填入代码\n11 cout.rdbuf(original_cout); // 恢复原始的标准输出缓冲区\n12 return 0;\n13 }</code></pre>",
+        "options": ["A. cout << \"This output will go to the log file.\" << endl;", "B. log_file << \"This output will go to the log file.\" << endl;", "C. cout >> \"This output will go to the log file.\" >> endl;", "D. log_file >> \"This output will go to the log file.\" >> endl;"],
+        "correct": "A",
+        "explanation": "代码将`cout`的缓冲区重定向到`log_file`，此时`cout`的输出会写入`log.txt`文件。A选项使用`cout`输出字符串，会将内容写入文件；B选项`log_file << \"This output will go to the log file.\" << endl;`虽然也能向文件写入内容，但没有利用重定向后的`cout`；C和D选项中`>>`是输入操作符，用于从输入流读取数据，不符合向文件输出的要求 。",
+        "source": "2024年9月认证C++四级试题.pdf 单选题第14题"
+    },
+    {
+        "id": "5",
+        "type": "single",
+        "question": "下面C++代码执行后生成的文件其字节数为( )<pre><code>ofstream fout;\nfout.open(\"1.txt\");\nfor(int i = 1; i <= 10; i++)\n    if(i % 5 == 0)\n    {\n        int x = 6;\n        fout << x;\n    }\n    else\n    {\n        char ch = 'A';\n        fout << ch;\n    }\n</code></pre>",
+        "options": ["A. 10", "B. 16", "C. 40", "D. 24"],
+        "correct": "A",
+        "explanation": "循环10次，`i % 5 == 0`时写入一个整数6（在文本文件中占1个字节），共2次；否则写入字符'A'（占1个字节），共8次。所以文件总字节数为`2 * 1 + 8 * 1 = 10`字节 。",
+        "source": "2023年12月认证C++四级真题无答案.pdf 单选题第10题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "如果文件1.txt中的内容如下，则执行下面C++代码时，注释了####那行代码所输出的x的值为( )<pre><code>50 2024 3.16 I love GESP!\nint main()\n{\n    ifstream fin;\n    string line;\n    int x;\n    fin.open(\"1.txt\",ios::in);\n    for (int i = 0; i < 2; i++)\n    {\n        fin >> line;\n        cout << line << endl;}\n  fin>>x;\n    cout << x << endl; //####\n        cout << endl;\n    return 0;\n}\n</code></pre>",
+        "options": ["A. 5", "B. 2024", "C. 3", "D. 0"],
+        "correct": "C",
+        "explanation": "`fin >> line`会按空格分隔读取文件内容。第一次读取`50`存入`line`，第二次读取`2024`存入`line`。接着`fin >> x`读取文件中的下一个部分，文件中`line`已经读取了`50`和`2024`，接下来的内容是`3.16`，由于`fin >>`期望读取一个整数，所以它会读取`3`，忽略掉小数部分，因此`x`的值是`3` 。",
+        "source": "2024年3月认证C++四级真题.pdf 单选题第11题"
+    },
+    {
+        "id": "7",
+        "type": "single",
+        "question": "执行下列C++代码时输出中的第2行是( )<pre><code>int main()\n{\n    char *s[]={(char*)\"2024\",(char*)\"3.16\",(char*)\"GESP\"};\n    for (int i = 0; i < 2; i++)\n    {\n        cout << *s+i << endl;\n    }\n    cout << endl;\n    return 0;\n}\n</code></pre>",
+        "options": ["A. 2024", "B. 3.16", "C. 024", "D. 3"],
+        "correct": "C",
+        "explanation": "`s`是字符指针数组，`s[0]`指向字符串`\"2024\"`，`s[1]`指向字符串`\"3.16\"`。当`i = 0`时，`*s+i`即`*s`（指向`\"2024\"`），输出`2024`；当`i = 1`时，`*s+i`表示从`*s`（指向`\"2024\"`）偏移1个字符的位置，所以输出`024` 。",
+        "source": "2024年3月认证C++四级真题.pdf 单选题第12题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "在C++语言中，通过使用文件重定向操作，可以将程序中输出到cout的内容输出到文件中，这是常用的记录程序运行日志的方法之一。( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "A",
+        "explanation": "在C++中，使用`freopen`函数或操纵`cout`的缓冲区等方式，可以将原本输出到标准输出（`cout`）的内容重定向到文件中，方便记录程序运行过程中的各种信息，是记录程序运行日志的常用方法。",
+        "source": "2023年9月GESPC++四级试卷解析.pdf 判断题第10题"
+    },
+    {
+        "id": "9",
+        "type": "single",
+        "question": "由于文件重定向操作，程序员在使用C++语言编写程序时无法确定通过cout输出的内容是否会被输出到屏幕上。( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "A",
+        "explanation": "当程序中使用了文件重定向操作时，`cout`的输出目的地可能被改变为文件，而不是默认的屏幕。所以程序员无法确定`cout`输出的内容一定会输出到屏幕上，其输出结果取决于是否进行了文件重定向以及重定向的设置 。",
+        "source": "2023年6月GESP C++四级试题解析.pdf 判断题第10题"
+    }
+]

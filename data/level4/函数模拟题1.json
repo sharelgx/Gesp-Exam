@@ -1,0 +1,181 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "以下函数声明正确的是()",
+        "options": ["A. void func(int a, int b);", "B. func(int a, int b);", "C. void func(a, b);", "D. int func(int a, b);"],
+        "correct": "A",
+        "explanation": "函数声明必须包含返回值类型和参数类型。B缺少返回值类型，C参数缺少类型，D第二个参数缺少类型。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "下面程序的输出结果是()<pre><code>1 #include &lt;iostream&gt;\n2 using namespace std;\n3 int add(int x, int y) {\n4     return x + y;\n5 }\n6 int main() {\n7     int a = 3, b = 5;\n8     cout << add(a, b) << endl;\n9     return 0;\n10 }</code></pre>",
+        "options": ["A. 3", "B. 5", "C. 8", "D. 15"],
+        "correct": "C",
+        "explanation": "函数add实现两个整数相加，a=3，b=5，调用add(a,b)返回8。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "以下关于函数参数传递的说法正确的是()",
+        "options": ["A. 值传递会改变实参的值", "B. 引用传递不会改变实参的值", "C. 值传递传递的是实参的副本", "D. 引用传递传递的是实参的地址"],
+        "correct": "C",
+        "explanation": "值传递传递实参的副本，函数内修改不影响实参；引用传递直接操作实参，会改变实参的值。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "下面代码中全局变量x的值是()<pre><code>1 #include &lt;iostream&gt;\n2 using namespace std;\n3 int x = 10;\n4 void func() {\n5     int x = 20;\n6     cout << x << endl;\n7 }\n8 int main() {\n9     func();\n10     cout << x << endl;\n11     return 0;\n12 }</code></pre>",
+        "options": ["A. 10", "B. 20", "C. 30", "D. 编译错误"],
+        "correct": "A",
+        "explanation": "func函数中的x是局部变量，全局变量x的值仍为10。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "5",
+        "type": "single",
+        "question": "函数声明与函数定义的关系是()",
+        "options": ["A. 函数声明必须与函数定义完全一致", "B. 函数声明可以省略参数名", "C. 函数声明必须放在函数定义之前", "D. 函数声明不需要返回值类型"],
+        "correct": "B",
+        "explanation": "函数声明可以省略参数名，但参数类型必须与定义一致。声明可以放在调用前，不一定在定义前。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "以下函数调用正确的是()<pre><code>1 void printInfo(string name, int age) {\n2     cout << name << \", \" << age << endl;\n3 }</code></pre>",
+        "options": ["A. printInfo(\"Tom\", 18);", "B. printInfo(18, \"Tom\");", "C. printInfo(\"Tom\");", "D. printInfo();"],
+        "correct": "A",
+        "explanation": "函数需要两个参数，且类型和顺序必须匹配。A选项参数类型和顺序都正确。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "7",
+        "type": "single",
+        "question": "下面关于引用传递的说法正确的是()",
+        "options": ["A. 引用传递必须使用&符号", "B. 引用可以指向NULL", "C. 引用在定义后可以改变指向", "D. 引用传递比指针传递效率低"],
+        "correct": "A",
+        "explanation": "引用传递必须在参数类型后加&符号；引用不能为空且定义后不能改变指向；引用传递效率通常比指针高。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "以下代码的输出结果是()<pre><code>1 #include &lt;iostream&gt;\n2 using namespace std;\n3 int func(int &x) {\n4     x++;\n5     return x;\n6 }\n7 int main() {\n8     int a = 5;\n9     cout << func(a) << endl;\n10     cout << a << endl;\n11     return 0;\n12 }</code></pre>",
+        "options": ["A. 5 5", "B. 6 5", "C. 6 6", "D. 5 6"],
+        "correct": "C",
+        "explanation": "引用传递会修改实参的值，x++后a变为6，函数返回6，所以输出6和6。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "9",
+        "type": "single",
+        "question": "以下哪个是函数的形参()",
+        "options": ["A. 函数调用时传递的实际参数", "B. 函数定义时的参数列表", "C. 全局变量", "D. 局部变量"],
+        "correct": "B",
+        "explanation": "形参是函数定义时参数列表中的变量，实参是函数调用时传递的实际值。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "10",        "type": "single",
+        "question": "下面代码的输出结果是()<pre><code>1 #include &lt;iostream&gt;\n2 using namespace std;\n3 int global = 100;\n4 void printGlobal() {\n5     cout << global << endl;\n6 }\n7 int main() {\n8     global = 200;\n9     printGlobal();\n10     return 0;\n11 }</code></pre>",
+        "options": ["A. 100", "B. 200", "C. 0", "D. 编译错误"],
+        "correct": "B",
+        "explanation": "全局变量在main函数中被修改为200，printGlobal函数输出全局变量的值为200。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "11",
+        "type": "single",
+        "question": "函数的返回值类型与return语句返回的值类型必须()",
+        "options": ["A. 完全相同", "B. 兼容", "C. 可以不同", "D. 返回值类型必须是int"],
+        "correct": "B",
+        "explanation": "函数返回值类型与return语句返回的值类型必须兼容，可以进行隐式类型转换。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "12",
+        "type": "single",
+        "question": "以下代码的输出结果是()<pre><code>1 #include &lt;iostream&gt;\n2 using namespace std;\n3 void swap(int &x, int &y) {\n4     int temp = x;\n5     x = y;\n6     y = temp;\n7 }\n8 int main() {\n9     int a = 3, b = 5;\n10     swap(a, b);\n11     cout << a << \", \" << b << endl;\n12     return 0;\n13 }</code></pre>",
+        "options": ["A. 3, 5", "B. 5, 3", "C. 3, 3", "D. 5, 5"],
+        "correct": "B",
+        "explanation": "swap函数使用引用传递，交换了x和y的值，所以输出5, 3。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "13",
+        "type": "single",
+        "question": "以下关于函数重载的说法正确的是()",
+        "options": ["A. 函数名相同，参数列表不同", "B. 函数名不同，参数列表相同", "C. 函数名和参数列表都必须不同", "D. 函数重载与返回值类型有关"],
+        "correct": "A",
+        "explanation": "函数重载要求函数名相同，参数列表（参数类型、个数或顺序）不同，与返回值类型无关。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "14",
+        "type": "single",
+        "question": "下面代码的输出结果是()<pre><code>1 #include &lt;iostream&gt;\n2 using namespace std;\n3 int sum(int n) {\n4     if (n == 1) return 1;\n5     return n + sum(n-1);\n6 }\n7 int main() {\n8     cout << sum(5) << endl;\n9     return 0;\n10 }</code></pre>",
+        "options": ["A. 5", "B. 10", "C. 15", "D. 20"],
+        "correct": "C",
+        "explanation": "sum函数是递归函数，计算1+2+3+4+5=15。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "15",
+        "type": "single",
+        "question": "以下哪个函数声明是错误的()",
+        "options": ["A. int max(int a, int b);", "B. double area(double r);", "C. void print();", "D. int func(int a; int b);"],
+        "correct": "D",
+        "explanation": "函数参数之间应该用逗号分隔，而不是分号。D选项参数列表使用分号分隔，语法错误。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "16",
+        "type": "single",
+        "question": "下面关于局部变量的说法正确的是()",
+        "options": ["A. 局部变量在函数外部也可以访问", "B. 局部变量的作用域是整个程序", "C. 局部变量在函数调用结束后被销毁", "D. 局部变量不能和全局变量同名"],
+        "correct": "C",
+        "explanation": "局部变量只在定义它的函数或代码块内有效，函数调用结束后被销毁。局部变量可以和全局变量同名，此时局部变量会屏蔽全局变量。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "17",
+        "type": "single",
+        "question": "以下代码的输出结果是()<pre><code>1 #include &lt;iostream&gt;\n2 using namespace std;\n3 void func(int x) {\n4     x = 10;\n5 }\n6 int main() {\n7     int a = 5;\n8     func(a);\n9     cout << a << endl;\n10     return 0;\n11 }</code></pre>",
+        "options": ["A. 5", "B. 10", "C. 15", "D. 0"],
+        "correct": "A",
+        "explanation": "func函数使用值传递，修改的是形参x的副本，实参a的值不变，所以输出5。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "18",
+        "type": "single",
+        "question": "函数的默认参数应该在哪个位置指定()",
+        "options": ["A. 函数声明中", "B. 函数定义中", "C. 函数调用中", "D. 可以在声明或定义中，但不能同时指定"],
+        "correct": "D",
+        "explanation": "函数默认参数可以在声明或定义中指定，但不能同时在两个地方指定，通常在声明中指定。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "19",
+        "type": "single",
+        "question": "以下代码的输出结果是()<pre><code>1 #include &lt;iostream&gt;\n2 using namespace std;\n3 int add(int a, int b = 5) {\n4     return a + b;\n5 }\n6 int main() {\n7     cout << add(3) << endl;\n8     cout << add(3, 7) << endl;\n9     return 0;\n10 }</code></pre>",
+        "options": ["A. 8 10", "B. 3 10", "C. 8 7", "D. 3 7"],
+        "correct": "A",
+        "explanation": "第一次调用add(3)使用默认参数b=5，返回3+5=8；第二次调用add(3,7)使用实参b=7，返回3+7=10。",
+        "source": "模拟试题"
+    },
+    {
+        "id": "20",
+        "type": "single",
+        "question": "以下关于函数递归的说法正确的是()",
+        "options": ["A. 递归函数必须有终止条件", "B. 递归函数执行效率比非递归高", "C. 递归函数不能有返回值", "D. 递归函数调用不会导致栈溢出"],
+        "correct": "A",
+        "explanation": "递归函数必须有终止条件，否则会导致无限递归和栈溢出；递归函数执行效率通常比非递归低；递归函数可以有返回值。",
+        "source": "模拟试题"
+    }
+]

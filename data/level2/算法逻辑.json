@@ -1,0 +1,39 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "以下C++代码判断一个正整数N的各个数位是否都是偶数。如果都是，则输出\"是\"，否则输出\"否\"。例如N=2024时输出\"是\"。则横线处应填入？<pre><code>\nint N,Flag;\ncin >> N;\nFlag = true;\nwhile (N != 0){\n    if (N %2 != 0){\n        Flag = false;\n        _____________\n    }\n    else\n        N /= 10;\n}\nif(Flag == true)\n    cout << \"是\";\nelse\n    cout << \"否\";\n</code></pre>",
+        "options": ["A. break", "B. continue", "C. N = N / 10", "D. N = N % 10"],
+        "correct": "A",
+        "explanation": "当发现某一位是奇数时，已经可以确定结果为\"否\"，应该用break跳出循环，避免继续检查其他位数。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 单选题第10题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "一个数的所有数字倒序排列后这个数的大小保持不变，这个数就是回文数，比如 101 与 6886 都是回文数，而 100 不是回文数。以下程序代码用于判断一个数是否为回文数，横线处应填写？<pre><code>\nint n,a,k;\ncin >> n;\na = 0;\nk = n;\nwhile (n > 0){\n    a = __________;\n    n /= 10;\n}\nif (a == k)\n    cout << \"是回文数\";\nelse\n    cout << \"不是回文数\";\n</code></pre>",
+        "options": ["A. 10 * a + n % 10", "B. a + n % 10", "C. 10 * a + n / 10", "D. a + n / 10"],
+        "correct": "A",
+        "explanation": "这是数字反转的标准算法。每次取n的个位数字(n%10)，将其加到a的末尾，即a=a*10+n%10。这样可以将数字逐位反转。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 单选题第12题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "有句俗话叫\"三天打渔，两天晒网\"。如果小杨前三天打渔，后两天晒网，一直重复这个过程，以下程序代码用于判断，第n天小杨是在打鱼还是晒网，横线处应填写？<pre><code>\nint n,i;\ncin >> n;\ni = n % 5;\nif (__________________) // 在此处填写代码\n    cout << \"晒网\";\nelse\n    cout << \"打鱼\";\n</code></pre>",
+        "options": ["A. i == 0", "B. i == 4", "C. i == 0 && i == 4", "D. i == 0 || i == 4"],
+        "correct": "D",
+        "explanation": "5天为一个周期：第1,2,3天打鱼，第4,5天晒网。n%5的结果：1,2,3对应打鱼；4,0对应晒网（第5天时n%5=0）。所以晒网的条件是i==4或i==0。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 单选题第11题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "以下C++代码实现从小到大的顺序输出能整除N的数（N的因子），例如N=18时输出1 2 3 6 9 18，横线处应填入？",
+        "options": ["A. int i = 0; i < N; i++", "B. int i = 1; i < N; i++", "C. int i = 0; i < N+1; i++", "D. int i = 1; i < N+1; i++"],
+        "correct": "D",
+        "explanation": "查找因子需要从1开始检查到N（包括N本身），所以循环应该是i从1到N，即i=1; i<=N或i=1; i<N+1。",
+        "source": "GESP2023年12月认证C++二级真题.pdf 单选题第3题"
+    }
+]
+

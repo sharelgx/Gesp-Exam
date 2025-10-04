@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "以下选项中不符合 C++变量命名规则的是？",
+        "options": ["A. student", "B. 2_from", "C. _to", "D. Text"],
+        "correct": "B",
+        "explanation": "变量名不能以数字开头，2_from违反了这一规则。正确的变量名应该以字母或下划线开头，可以包含字母、数字和下划线。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 单选题第2题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "在C++中，下列不可做变量的是？",
+        "options": ["A. five-Star", "B. five_star", "C. fiveStar", "D. _fiveStar"],
+        "correct": "A",
+        "explanation": "变量名不能包含减号等特殊字符，five-Star包含减号，不符合变量命名规则。",
+        "source": "2024年6月GESPC++二级真题.pdf 单选题第3题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "以下不可以做为C++变量的是？",
+        "options": ["A. FiveStar", "B. fiveStar", "C. 5Star", "D. Star5"],
+        "correct": "C",
+        "explanation": "变量名不能以数字开头，5Star违反了这一规则。变量名必须以字母或下划线开头。",
+        "source": "GESP2023年12月认证C++二级真题.pdf 单选题第1题"
+    },
+    {
+        "id": "4",
+        "type": "truefalse",
+        "question": "Xyz ， xYz ， xyZ 是三个不同的变量。",
+        "correct": "√",
+        "explanation": "C++是大小写敏感的语言，因此Xyz、xYz、xyZ被视为三个不同的变量名。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 判断题第2题"
+    }
+]
+

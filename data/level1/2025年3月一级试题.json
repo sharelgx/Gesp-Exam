@@ -1,0 +1,332 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "2025年春节有两件轰动全球的事件，一个是DeepSeek横空出世，另一个是贺岁片《哪吒2》票房惊人，入了全球票房榜。下面关于DeepSeek与《哪吒2》的描述成立的是（ ）。",
+    "options": [
+      "A. 《哪吒2》是一款新型操作系统",
+      "B. DeepSeek是深海钻探软件",
+      "C. 《哪吒2》可以生成新的软件",
+      "D. DeepSeek可以根据《哪吒2》的场景生成剧情脚本"
+    ],
+    "correct": "D",
+    "explanation": "A选项错误，《哪吒2》是贺岁电影，并非操作系统；B选项错误，DeepSeek是人工智能模型，并非深海钻探软件；C选项错误，《哪吒2》是影视作品，无法生成软件；D选项正确，DeepSeek作为AI模型，具备根据场景生成剧情脚本的能力。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "在某集成开发环境中编辑一个源代码文件时不可以执行下面（ ）操作。",
+    "options": [
+      "A. 修改变量定义",
+      "B. 保存代码修改",
+      "C. 撤销代码修改",
+      "D. 插入执行截图"
+    ],
+    "correct": "D",
+    "explanation": "集成开发环境（IDE）的核心功能是编辑、保存、修改源代码（如A修改变量定义、B保存修改、C撤销修改），而“插入执行截图”不属于代码编辑范畴，无法在源代码文件中执行，故D选项正确。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "在C++中，下列可以做变量的是（ ）。",
+    "options": [
+      "A. Var-1",
+      "B. $1",
+      "C. %%1",
+      "D. _Var_1"
+    ],
+    "correct": "D",
+    "explanation": "C++变量名规则：只能包含字母、数字、下划线，且不能以数字开头。A选项含“-”非法；B选项含“$”非法；C选项含“%%”非法；D选项仅含字母、下划线，符合规则，故D正确。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "以下哪个是C++语言的关键字？（ ）",
+    "options": [
+      "A. abs",
+      "B. cin",
+      "C. do",
+      "D. endl"
+    ],
+    "correct": "C",
+    "explanation": "A选项“abs”是C++标准库中的绝对值函数，非关键字；B选项“cin”是输入流对象，非关键字；C选项“do”是循环结构关键字（与while搭配），属于关键字；D选项“endl”是输出流操纵符，非关键字，故C正确。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "下面的框架在L1和L2标记的两行处分别填写选项中的代码，哪组不能通过编译（ ）。<pre><code>int main() {\n     int i = 0;\n___________ // L1\n    break;\n __________ // L2\n    return 0;}</code></pre>",
+    "options": [
+      "A. do {\n } while (i != 0);",
+      "B. for (; i < 10; i++) {\n }",
+      "C. if (i == 0) {\n }",
+      "D. switch (i) {\n }"
+    ],
+    "correct": "C",
+    "explanation": "C++中“break”语句仅能用于循环（for/while/do-while）或switch结构中，用于跳出当前结构。A选项是do-while循环、B选项是for循环、D选项是switch结构，均允许使用break；C选项是if条件语句，break在if中无意义，会导致编译错误，故C正确。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "下面C++语句（ ）执行后的输出是__0322$$。",
+    "options": [
+      "A. printf(\"__ %2d%02d$$\", 3, 22)",
+      "B. printf(\"__ %02d%2d$$\", 3, 22)",
+      "C. printf(\"__ %02d%02d$$$$\", 3, 22)",
+      "D. printf(\"____ %02d%02d$$$$\", 3, 22)"
+    ],
+    "correct": "B",
+    "explanation": "printf格式符规则：%02d表示不足2位补0，%2d表示不足2位补空格，$$原样输出。A选项%2d(3)输出“ 3”，%02d(22)输出“22”，结果为“__ 322$$”；B选项%02d(3)输出“03”，%2d(22)输出“22”，结果为“__0322$$”；C选项末尾是$$$$，结果多2个$；D选项开头是____，结果多2个_，故B正确。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "有关下列C++代码的说法，错误的是（ ）。<pre><code>printf(\"我爱码代码!\");</code></pre>",
+    "options": [
+      "A. 配对双引号内的汉字改为英文Hello，C++代码能正确执行",
+      "B. 配对双引号内的汉字改为Hello代码!，C++代码能正确执行",
+      "C. 代码中的每个双引号，都可以改为两个单引号",
+      "D. 代码中的每个双引号，都可以改为三个双引号"
+    ],
+    "correct": "C",
+    "explanation": "A选项：双引号内改为“Hello”是合法字符串，代码可执行；B选项：“Hello代码!”是合法字符串，代码可执行；C选项：单引号（'）仅用于包裹单个字符，改为两个单引号后，printf('我爱码代码!')会因“字符串用单引号包裹”报错；D选项：三个双引号在部分编译器中可兼容字符串定义（非标准但部分支持），而C选项完全违反语法，故C错误。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "C++表达式16 / 4 % 2 的值是（ ）。",
+    "options": [
+      "A. 8",
+      "B. 4",
+      "C. 2",
+      "D. 0"
+    ],
+    "correct": "D",
+    "explanation": "C++中除法（/）和取余（%）优先级相同，按从左到右计算。先算16/4=4（整数除法），再算4%2=0，故结果为0，D正确。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "N是C++的正整数，值为12，则cout << (N % 3 + N / 5) 的输出是（ ）。",
+    "options": [
+      "A. 6.4",
+      "B. 2.4",
+      "C. 6",
+      "D. 2"
+    ],
+    "correct": "D",
+    "explanation": "C++中整数运算结果为整数。N%3=12%3=0，N/5=12/5=2（舍弃小数部分），两者相加0+2=2，故输出2，D正确。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是（ ）。<pre><code>int N = 10;\nprintf(\"{N}*{N}={%d*%d}\", N, N, N * N);</code></pre>",
+    "options": [
+      "A. 10*10={10*10}",
+      "B. 100=10",
+      "C. N*N=100",
+      "D. {N}*{N}={10*10}"
+    ],
+    "correct": "D",
+    "explanation": "printf中双引号内的普通字符原样输出，格式符对应参数。{N}*{N}原样输出，%d*%d对应前两个N（值为10），输出“10*10”，第三个参数N*N未被格式符使用，故最终输出“{N}*{N}={10*10}”，D正确。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "执行下面的C++代码，在键盘上先后输入100和200，输出是（ ）。<pre><code>int first, second;\ncin >> first;\ncout << \"请输入第2个正整数:\";\ncout << \"请输入第1个正整数:\";\ncin >> second;\ncout << (first / second * second) << endl;</code></pre>",
+    "options": [
+      "A. 200",
+      "B. 100",
+      "C. 1",
+      "D. 0"
+    ],
+    "correct": "D",
+    "explanation": "输入顺序分析：先输入100，first被赋值为100；再输入200，second被赋值为200。整数除法中100/200=0，再乘以200得0，故输出0，D正确。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "下面C++代码执行后，将输出能被2整除且除以7余数为2的数。下列选项不能实现的是（ ）。<pre><code>for (int i = 0; i < 100; i++)\n    if (_______________________)\n        cout << i << \" \";}</code></pre>",
+    "options": [
+      "A. ((i % 2 == 0) && (i % 7 == 2))",
+      "B. ((!(i % 2)) && (i % 7 == 2))",
+      "C. ((!(i % 2)) && (!(i % 7)))",
+      "D. ((i % 2 != 1) && (i % 7 == 2))"
+    ],
+    "correct": "C",
+    "explanation": "题干要求“能被2整除（i%2==0）且除以7余2（i%7==2）”。A选项直接满足条件；B选项!(i%2)等价于i%2==0，满足条件；C选项!(i%7)等价于i%7==0，即“能被2和7整除”，不满足“除以7余2”；D选项i%2!=1等价于i%2==0，满足条件，故C不能实现。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "下面C++代码执行后输出是（ ）。<pre><code>int tnt = 0;\nfor (int i = -1000; i < 1000; i++)\n    tnt += i;\ncout << tnt << endl;</code></pre>",
+    "options": [
+      "A. -1000",
+      "B. 0",
+      "C. 999",
+      "D. 1000"
+    ],
+    "correct": "A",
+    "explanation": "循环变量i的取值范围是-1000到999（共1999个值），成对分析：-1000+999=-1，-999+998=-1，…，-1+0=-1，共1000对，总和为1000*(-1) = -1000，故tnt=-1000，A正确。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "下面C++代码执行后输出的是（ ）。<pre><code>int i;\nfor (i = 1; i < 100; i += 5)\n    continue;\ncout << i << endl;</code></pre>",
+    "options": [
+      "A. 101",
+      "B. 100",
+      "C. 99",
+      "D. 96"
+    ],
+    "correct": "A",
+    "explanation": "continue语句仅跳过循环体剩余部分，不影响循环变量递增。循环条件i<100：i初始为1，每次加5，最后一次满足i<100时i=96（96+5=101≥100），循环结束后i=101，故输出101，A正确。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "下面C++代码执行后输出的是（ ）。<pre><code>int tnt = 0;\nfor (int i = 5; i < 100; i += 5){\n    if (i % 2 == 0)\n        continue;\n    tnt += 1;\n    if (i % 3 == 0 && i % 7 == 0)\n        break;\n}\ncout << tnt << endl;</code></pre>",
+    "options": [
+      "A. 500",
+      "B. 450",
+      "C. 10",
+      "D. 1"
+    ],
+    "correct": "C",
+    "explanation": "循环分析：i是5的倍数（5,10,15,...,95），满足i<100。1. if(i%2==0)continue：跳过偶数（10,20,...90），剩余i为5,15,25,35,45,55,65,75,85,95；2. tnt加1，共10次；3. 条件i%3==0&&i%7==0即i是21的倍数，5的倍数中21的倍数是105（超过100），break从未执行。故tnt=10，C正确。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "C++、Python都是高级编程语言，它们的每条语句最终都要通过机器指令来完成。（ ）",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "高级编程语言（如C++、Python）无法直接被CPU执行，需通过编译（C++）或解释（Python）转化为机器指令，最终由CPU执行机器指令完成操作，故该说法正确。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "在C++中表达式N * 2 % N 中如果N的值为正整数，则其值为2。（ ）",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "根据整数运算规则，N*2%N = (N%N)*2%N = 0*2%N = 0（正整数N≥1）。例如N=3时，3*2%3=6%3=0≠2，故该说法错误。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "执行如下C++代码如果在键盘上输入10，执行后将输出20。（ ）<pre><code>char N;\nprintf(\"请输入正整数:\");\ncin >> N;\nprintf(\"%d\n\", N * 2);</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "char类型存储字符的ASCII码，输入10时，cin仅读取第一个字符'1'赋值给N，'1'的ASCII码为49，49*2=98，输出98而非20，故该说法错误。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "删除下面C++代码中的continue不影响程序的执行效果。（ ）<pre><code>for (int i = 0; i < 100; i++){\n    if (i % 2 == 0){\n        printf(\"偶数\");\n        continue;\n    } else {\n        printf(\"奇数\");\n    }\n}</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "删除continue后，“偶数输出‘偶数’、奇数输出‘奇数’” 的执行效果与原代码完全一致，因此 “删除continue不影响程序执行效果” 的说法是正确的，答案为 A。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "下面C++代码执行时将报错，因为所在位置应该是变量名，而_不可以做变量名。（ ）<pre><code>for (int _ = 0; _ < 100; _++)\n    cout << \"*\" << endl;</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "C++变量名规则允许以下划线（_）开头，_是合法的变量名，该代码无语法错误，可正常执行并输出100个“*”，故该说法错误。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "下面C++代码被执行后，将先后输出3和5。（ ）<pre><code>for (int i = 3; i < 5; i += 2)\n    printf(\"%d \", i);</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "循环条件i<5：i初始为3，输出3后i+=2变为5，5<5不成立，循环结束，仅输出3，未输出5，故该说法错误。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "下面的C++代码执行后将先后输出7个true。（ ）<pre><code>for (int i = 0; i < 10; i++)\n    cout << (i * 2 < i * i) << \" \";}</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "原程序会输出 3 个 0 和 7 个 1（数字）。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "在C++代码中，user_Name、_userName、user-Name、userName_都是合法的变量名。（ ）",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "C++变量名不允许包含减号（-），user-Name含“-”，是非法变量名，其余三个（user_Name、_userName、userName_）均符合规则，故该说法错误。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "C++语言中continue语句可以来提前结束循环。（ ）",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "continue语句的作用是“跳过当前循环的剩余部分，直接进入下一次循环”，而非“提前结束循环”；提前结束循环需使用break语句，故该说法错误。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "C++中定义整型变量N，执行语句scanf(\"%d\", &N); cout << N / 3 * 5; 时输入3.6，则输出是6。（ ）",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "scanf(\"%d\")仅读取整数部分，输入3.6时，N被赋值为3。N/3*5=3/3*5=1*5=5≠6，故输出5而非6，该说法错误。",
+    "source": "CCF GESP 2025年3月认证 C++ 1级试题"
+  }
+]

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C++ 欧几里得算法 动画演示</title>
+  <style>
+    body {
+      font-family: "Microsoft YaHei", sans-serif;
+      background: #f4f4f4;
+      padding: 2em;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #fff;
+      border-radius: 1em;
+      padding: 2em;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .flex {
+      display: flex;
+      gap: 2em;
+      align-items: flex-start;
+    }
+    .code-section, .animation-section {
+      flex: 1;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 1em;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-top: 0;
+    }
+    .highlight {
+      background: #44475a;
+    }
+    .step {
+      padding: 1em;
+      border-left: 5px solid #3498db;
+      margin-bottom: 1em;
+      background: #ecf0f1;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    button {
+      margin-top: 1em;
+      padding: 0.6em 1.2em;
+      background-color: #3498db;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>欧几里得算法演示（C++）</h1>
+    <div class="flex">
+      <div class="code-section">
+        <pre id="code">
+int gcd(int a, int b) {
+    while (b > 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+        </pre>
+      </div>
+      <div class="animation-section">
+        <div id="animation">
+          <!-- 步骤动画 -->
+        </div>
+        <button onclick="nextStep()">下一步</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const steps = [
+      {
+        explanation: "输入两个数 a = 48, b = 18",
+        highlight: 0
+      },
+      {
+        explanation: "b > 0，进入循环：temp = b = 18",
+        highlight: 2
+      },
+      {
+        explanation: "b = a % b = 48 % 18 = 12",
+        highlight: 3
+      },
+      {
+        explanation: "a = temp = 18",
+        highlight: 4
+      },
+      {
+        explanation: "下一轮：b = 12 > 0，temp = b = 12",
+        highlight: 2
+      },
+      {
+        explanation: "b = a % b = 18 % 12 = 6",
+        highlight: 3
+      },
+      {
+        explanation: "a = temp = 12",
+        highlight: 4
+      },
+      {
+        explanation: "继续：b = 6 > 0，temp = b = 6",
+        highlight: 2
+      },
+      {
+        explanation: "b = a % b = 12 % 6 = 0",
+        highlight: 3
+      },
+      {
+        explanation: "a = temp = 6",
+        highlight: 4
+      },
+      {
+        explanation: "b = 0，不满足 b > 0，跳出循环，返回 a = 6",
+        highlight: 5
+      }
+    ];
+
+    let currentStep = 0;
+
+    function nextStep() {
+      const animDiv = document.getElementById("animation");
+      const codeBlock = document.getElementById("code");
+      const lines = codeBlock.innerText.trim().split("\n");
+
+      if (currentStep >= steps.length) return;
+
+      const step = steps[currentStep];
+
+      // 高亮代码
+      const highlighted = lines.map((line, index) => {
+        if (index === step.highlight) {
+          return `<span class='highlight'>${line}</span>`;
+        } else {
+          return line;
+        }
+      }).join("\n");
+
+      codeBlock.innerHTML = `<code>${highlighted}</code>`;
+
+      const div = document.createElement("div");
+      div.className = "step";
+      div.innerText = step.explanation;
+      animDiv.appendChild(div);
+
+      currentStep++;
+    }
+  </script>
+</body>
+</html>

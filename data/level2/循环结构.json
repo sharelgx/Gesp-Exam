@@ -1,0 +1,64 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是？<pre><code>\nint n,a,m,i;\nn=3, a = 5;\nm = (a - 1) * 2;\nfor (i=0; i<n-1; i++)\n    m = (m - 1) * 2;\ncout << m;\n</code></pre>",
+        "options": ["A. 8", "B. 14", "C. 26", "D. 50"],
+        "correct": "C",
+        "explanation": "初始：n=3, a=5, m=(5-1)*2=8。循环执行2次：第1次：m=(8-1)*2=14；第2次：m=(14-1)*2=26。输出26。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 单选题第6题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是？<pre><code>\nint n,i,result;\nn = 81;\ni = 1, result = 1;\nwhile (i * i <= n){\n    if (n % (i * i) == 0)\n        result = i * i;\n    i += 1;\n}\ncout << result;\n</code></pre>",
+        "options": ["A. 16", "B. 36", "C. 49", "D. 81"],
+        "correct": "D",
+        "explanation": "循环查找81的完全平方因子：i=1时，1*1=1≤81，81%1=0，result=1；i=2时，2*2=4≤81，81%4≠0；...；i=9时，9*9=81≤81，81%81=0，result=81；i=10时，10*10=100>81，退出循环。输出81。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 单选题第7题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是？<pre><code>\nint s,t,ans;\ns = 2, t = 10;\nans = 0;\nwhile (s != t){\n    if (t % 2 == 0 && t / 2 >= s)\n        t /= 2;\n    else\n        t -= 1;\n    ans += 1;\n}\ncout << ans;\n</code></pre>",
+        "options": ["A. 2", "B. 3", "C. 4", "D. 5"],
+        "correct": "B",
+        "explanation": "模拟算法步骤：初始s=2,t=10,ans=0。第1步：t=10是偶数且10/2=5≥2，t=5，ans=1；第2步：t=5是奇数，t=4，ans=2；第3步：t=4是偶数且4/2=2≥2，t=2，ans=3。此时s=t=2，退出循环，输出3。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 单选题第8题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "在C++中，与 for(int i=0; i<10; i++) 效果相同的是？",
+        "options": ["A. for(int i=0; i<10; i+=1)", "B. for(int i=1; i<=10; i++)", "C. for(int i=10; i>0; i--)", "D. for(int i=10; i<1; i++)"],
+        "correct": "A",
+        "explanation": "原循环i从0到9执行10次。选项A：i+=1等价于i++，执行次数相同；选项B：i从1到10，也是10次但起始值不同；选项C：i从10到1，是倒序；选项D：初始条件就不满足。",
+        "source": "2024年6月GESPC++二级真题.pdf 单选题第4题"
+    },
+    {
+        "id": "5",
+        "type": "single",
+        "question": "在C++中，与 for(int i = 10; i < 20; i +=2) cout << i; 输出结果相同的是？",
+        "options": ["A. for(int i = 10; i < 19; i +=2) cout << i;", "B. for(int i = 11; i < 19; i +=2) cout << i;", "C. for(int i = 10; i < 21; i +=2) cout << i;", "D. 以上均不对"],
+        "correct": "A",
+        "explanation": "原循环输出10,12,14,16,18。选项A：i<19时，最后一次i=18<19成立，输出相同；选项C：i<21时，还会输出20，结果不同。",
+        "source": "GESP2023年12月认证C++二级真题.pdf 单选题第2题"
+    },
+    {
+        "id": "6",
+        "type": "truefalse",
+        "question": "for (i = 0; i < 100; i+=2) ; 语句中变量i的取值范围是0到99。",
+        "correct": "×",
+        "explanation": "该循环中i每次递增2，所以i的取值是0,2,4,6,...,98，最大值是98而不是99。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 判断题第4题"
+    },
+    {
+        "id": "7",
+        "type": "truefalse",
+        "question": "任何一个 for 循环都可以转化为等价的 while 循环。",
+        "correct": "√",
+        "explanation": "for循环的三个部分（初始化、条件、更新）都可以用while循环来实现，因此任何for循环都可以转换为等价的while循环。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 判断题第10题"
+    }
+]
+

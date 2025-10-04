@@ -1,0 +1,90 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "已知大写字符'B'的ASCII编码十六进制为0x42，则字符'M'的ASCII编码十六进制是（ ）",
+        "options": ["A. 4B", "B. 4C", "C. 4D", "D. 4E"],
+        "correct": "C",
+        "explanation": "'B'的ASCII值为66（0x42），'M'比'B'大11（M-B=11），66+11=77。77÷16=4余13（D），所以十六进制表示为4D。",
+        "source": "模拟题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "若a是int类型变量，下列表达式不恒为真的是（ ）",
+        "options": ["A. (a ^ a) == 0", "B. (a << 2) / 4 == a", "C. (a | 0) == a", "D. (a & -1) == a"],
+        "correct": "B",
+        "explanation": "A：任何数自身异或结果为0；B：当a导致左移溢出时不成立；C：a|0结果仍是a；D：-1的补码是全1，a&-1=a恒成立。",
+        "source": "模拟题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "若a,b是int类型，不能正确判断“a不等于b”的表达式是（ ）",
+        "options": ["A. !((a >> 2) == (b >> 2))", "B. (a - b) != 0", "C. (a ^ b) != 0", "D. !(a == b)"],
+        "correct": "A",
+        "explanation": "A：右移可能丢失差异位（如a=4,b=5右移后均为1）；B/C/D均可正确判断不等关系。",
+        "source": "模拟题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "判断char类型变量c是小写字母的正确表达式是（ ）",
+        "options": ["A. c - 'a' <= 25", "B. 'a' <= c <= 'z'", "C. (c >= 97) && (c <= 122)", "D. (c | 0x20) == c"],
+        "correct": "C",
+        "explanation": "C直接使用ASCII码范围（a=97,z=122）；A可能包含非字母字符；B语法错误；D会将大写转为小写后比较。",
+        "source": "模拟题"
+    },
+    {
+        "id": "5",
+        "type": "single",
+        "question": "执行代码：\nint a = 24;\nint r = a >> 3;\ncout << r; \n输出结果是（ ）",
+        "options": ["A. 24", "B. 12", "C. 6", "D. 3"],
+        "correct": "D",
+        "explanation": "24的二进制11000，右移3位得00011（高位补0），结果为3。",
+        "source": "模拟题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "执行代码后：\nint x = 7, y = 4;\nx = x ^ y;\ny = x ^ y;\nx = x ^ y;\ncout << x << y; \n输出是（ ）",
+        "options": ["A. 74", "B. 44", "C. 47", "D. 77"],
+        "correct": "C",
+        "explanation": "三次异或交换变量值：初始x=7(0111),y=4(0100)；第一次x=0111^0100=0011；第二次y=0011^0100=0111(7)；第三次x=0011^0111=0100(4)。",
+        "source": "模拟题"
+    },
+    {
+        "id": "7",
+        "type": "single",
+        "question": "设int a=5,b=12，则a & b的值与a + b的关系是（ ）",
+        "options": ["A. 大于", "B. 等于", "C. 小于", "D. 不确定"],
+        "correct": "C",
+        "explanation": "5(0101) & 12(1100)=0100(4)，5+12=17，4<17。位与运算结果通常小于算术和。",
+        "source": "模拟题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "补码10110110算术右移2位的结果是（ ）",
+        "options": ["A. 00101101", "B. 11101101", "C. -18", "D. -19"],
+        "correct": "D",
+        "explanation": "10110110是-74的补码，算术右移2位：高位补符号位1→11101101，转为十进制：符号位1表示负数，取反+1得10010011→-19。",
+        "source": "模拟题"
+    },
+    {
+        "id": "9",
+        "type": "truefalse",
+        "question": "对于int类型变量a，(a << 32)的结果一定是0，因为移出了所有有效位。（对/错）",
+        "correct": "×",
+        "explanation": "C++标准规定：移位位数大于等于类型宽度时行为未定义(undefined behavior)，不同编译器可能产生不同结果。",
+        "source": "模拟题"
+    },
+    {
+        "id": "10",
+        "type": "truefalse",
+        "question": "若a为int变量且((a & 7) == 7)，则a的最后三位二进制都是1。（对/错）",
+        "correct": "√",
+        "explanation": "7的二进制为111，按位与操作会保留a的最后三位，当结果为7(111)时，说明a的最后三位确实都是1。",
+        "source": "模拟题"
+    }
+]

@@ -1,0 +1,242 @@
+[
+    {
+        "id": "1",
+        "question": "以下哪个不是C++中的基本数据类型? ( )",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. int",
+            "B. float",
+            "C. struct",
+            "D. char"
+        ],
+        "correct": "C",
+        "explanation": "struct是用户自定义的数据类型，用于定义结构体，不是C++的基本数据类型。基本数据类型包括int、float、char等。",
+        "source": "2024CSP-J普及组真题"
+    },
+    {
+        "id": "2",
+        "question": "以下哪个不是C++中的循环语句? ( )",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. for",
+            "B. while",
+            "C. do-while",
+            "D. repeat-untill"
+        ],
+        "correct": "D",
+        "explanation": "repeat-untill是Pascal、lua等语言中的直到循环语句，C++并不支持。C++中的循环语句包括for、while和do-while。",
+        "source": "2024CSP-J普及组真题"
+    },
+    {
+        "id": "3",
+        "question": "在C/C++中，(char)('a'+13)与下面的哪一个值相等( )",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. 'm'",
+            "B. 'n'",
+            "C. 'z'",
+            "D. '3'"
+        ],
+        "correct": "B",
+        "explanation": " 'a'的ASCII码为97，'a'+13为110，ASCII码110对应的字符是'n'。",
+        "source": "2024CSP-J普及组真题"
+    },
+    {
+        "id": "4",
+        "question": "以下哪种功能没有涉及C++语言的面向对象特性支持: ( )。",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. C++中调用printf函数",
+            "B. C++中调用用户定义的类成员函数",
+            "C. C++中构造一个class或struct",
+            "D. C++中构造来源于同一基类的多个派生类"
+        ],
+        "correct": "A",
+        "explanation": "printf函数是C语言的标准输入输出函数，属于过程式编程范畴，不涉及C++的面向对象特性。B、C、D分别涉及类、继承等面向对象特性。",
+        "source": "2022年CSP-J1真题"
+    },
+    {
+        "id": "5",
+        "question": "链表和数组的区别包括( )。",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. 数组不能排序，链表可以",
+            "B. 链表比数组能存储更多的信息",
+            "C. 数组大小固定，链表大小可动态调整",
+            "D. 以上均正确"
+        ],
+        "correct": "C",
+        "explanation": "数组的大小在定义时固定，而链表的大小可通过动态添加或删除节点调整；数组和链表均可排序，存储信息量取决于元素类型。",
+        "source": "2022年CSP-J1真题"
+    },
+    {
+        "id": "6",
+        "question": "以下对数据结构的表述不恰当的一项为: ( )。",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. 图的深度优先遍历算法常使用的数据结构为栈。",
+            "B. 栈的访问原则为后进先出，队列的访问原则是先进先出。",
+            "C. 队列常常被用于广度优先搜索算法。",
+            "D. 栈与队列存在本质不同，无法用栈实现队列。"
+        ],
+        "correct": "D",
+        "explanation": "栈和队列本质不同，但可以通过两个栈模拟实现队列功能，因此D表述不恰当。",
+        "source": "2022年CSP-J1真题"
+    },
+    {
+        "id": "7",
+        "question": "以下排序算法的常见实现中，哪个选项的说法是错误的: ( )。",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. 冒泡排序算法是稳定的",
+            "B. 简单选择排序是稳定的",
+            "C. 简单插入排序是稳定的",
+            "D. 归并排序算法是稳定的"
+        ],
+        "correct": "B",
+        "explanation": "简单选择排序在选择最小元素与当前元素交换时，可能改变相同元素的相对顺序，是不稳定的排序算法；其他选项均为稳定排序算法。",
+        "source": "2022年CSP-J1真题"
+    },
+    {
+        "id": "8",
+        "question": "以下不属于面向对象程序设计语言的是( )。",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. C++",
+            "B. Python",
+            "C. Java",
+            "D. C"
+        ],
+        "correct": "D",
+        "explanation": "C语言是面向过程的程序设计语言，C++、Python、Java均为面向对象程序设计语言。",
+        "source": "2021普及组junior-C++真题"
+    },
+    {
+        "id": "9",
+        "question": "目前主流的计算机储存数据最终都是转换成( )数据进行储存。",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. 二进制",
+            "B. 十进制",
+            "C. 八进制",
+            "D. 十六进制"
+        ],
+        "correct": "A",
+        "explanation": "计算机内部采用二进制存储数据，因其物理实现简单、可靠性高。",
+        "source": "2021普及组junior-C++真题"
+    },
+    {
+        "id": "10",
+        "question": "在内存储器中每个存储单元都被赋予一个唯一的序号，称为( )。",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. 下标",
+            "B. 地址",
+            "C. 序号",
+            "D. 编号"
+        ],
+        "correct": "B",
+        "explanation": "内存中每个存储单元的唯一标识称为地址，用于定位和访问数据。",
+        "source": "2020CSP-J1真题"
+    },
+    {
+        "id": "11",
+        "question": "编译器的主要功能是( )。",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. 将源程序翻译成机器指令代码",
+            "B. 将一种高级语言翻译成另一种高级语言",
+            "C. 将源程序重新组合",
+            "D. 将低级语言翻译成高级语言"
+        ],
+        "correct": "A",
+        "explanation": "编译器的核心功能是将高级语言编写的源程序转换为计算机可执行的机器指令代码。",
+        "source": "2020CSP-J1真题"
+    },
+    {
+        "id": "12",
+        "question": "链表不具有的特点是( )。",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. 插入删除不需要移动元素",
+            "B. 可随机访问任一元素",
+            "C. 不必事先估计存储空间",
+            "D. 所需空间与线性表长度成正比"
+        ],
+        "correct": "B",
+        "explanation": "链表只能顺序访问元素，不可随机访问；而数组可以通过下标随机访问元素。A、C、D均为链表的特点。",
+        "source": "2020CSP-J1真题"
+    },
+    {
+        "id": "13",
+        "question": "一个32位整型变量占用( )个字节。",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. 32",
+            "B. 128",
+            "C. 4",
+            "D. 8"
+        ],
+        "correct": "C",
+        "explanation": "1字节等于8位，32位整型变量占用的字节数为32/8=4字节。",
+        "source": "2019-CCF-CSP-J1真题"
+    },
+    {
+        "id": "14",
+        "question": "若有如下程序段，其中s、a、b、c均已定义为整型变量，且a、均已赋值(c大于0) <pre><code>s=a; for(b=1;b&lt;=c;b++)s=s-1;</code></pre>则与上述程序段功能等价的赋值语句是( )",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. s=a-c;",
+            "B. s=a-b;",
+            "C. s=s-c;",
+            "D. s=b-c;"
+        ],
+        "correct": "A",
+        "explanation": "程序段的功能是将s初始化为a，然后循环c次每次减1，等价于s = a - c。",
+        "source": "2019-CCF-CSP-J1真题"
+    },
+    {
+        "id": "15",
+        "question": "设有100个已排好序的数据元素，采用折半查找时，最大比较次数为( )",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. 7",
+            "B. 10",
+            "C. 6",
+            "D. 8"
+        ],
+        "correct": "A",
+        "explanation": "折半查找的最大比较次数为$\\lceil log_2(n+1) \\rceil$，n=100时，$2^6=64 < 101 < 128=2^7$，故最大比较次数为7次。",
+        "source": "2019-CCF-CSP-J1真题"
+    },
+    {
+        "id": "16",
+        "question": "链表不具有的特点是( )",
+        "image": "",
+        "type": "single",
+        "options": [
+            "A. 插入删除不需要移动元素",
+            "B. 不必事先估计存储空间",
+            "C. 所需空间与线性表长度成正比",
+            "D. 可随机访问任一元素"
+        ],
+        "correct": "D",
+        "explanation": "链表只能顺序访问元素，不能像数组一样随机访问；A、B、C均为链表的特点。",
+        "source": "2019-CCF-CSP-J1真题"
+    }
+]

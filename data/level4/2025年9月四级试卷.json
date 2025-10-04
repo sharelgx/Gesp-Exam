@@ -1,0 +1,307 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "运行下面程序后变量a的值是( )｡<pre><code>int a = 42;\nint* p = &a;\n*p = *p + 1;</code></pre>",
+    "options": [
+      "A. 42",
+      "B. 43",
+      "C. 编译错误",
+      "D. 不确定"
+    ],
+    "correct": "B",
+    "explanation": "程序中指针p指向变量a的地址，*p表示访问指针p所指向的变量（即a）。执行*p = *p + 1时，等价于a = a + 1，因此a的值从42变为43。程序无编译错误，结果确定，故B正确。"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "以下关于数组的描述中,( )是错误的｡",
+    "options": [
+      "A. 数组名是一个指针常量",
+      "B. 随机访问数组的元素方便快捷",
+      "C. 数组可以像指针一样进行自增操作",
+      "D. sizeof(arr) 返回的是整个数组arr占用的字节数"
+    ],
+    "correct": "C",
+    "explanation": "选项A正确，数组名本质是指向数组首元素的指针常量，不能被重新赋值；选项B正确，数组通过下标访问元素的时间复杂度为O(1)，支持随机快速访问；选项C错误，数组名是指针常量，常量不能进行自增（++）操作，而指针变量可以自增；选项D正确，sizeof(arr)计算的是整个数组所有元素占用的总字节数，故C错误。"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "给定如下定义的数组arr,则*(*(arr + 1) + 2)的值是( )｡<pre><code>int arr[2][3] = {{1, 2, 3}, {4, 5, 6}};</code></pre>",
+    "options": [
+      "A. 2",
+      "B. 5",
+      "C. 4",
+      "D. 6"
+    ],
+    "correct": "D",
+    "explanation": "二维数组arr的指针运算需结合数组存储结构分析：\n1. arr是数组首地址，指向第一行（{1,2,3}）；arr + 1指向第二行（{4,5,6}）；\n2. *(arr + 1)表示取第二行的首地址（即&arr[1][0]）；\n3. *(arr + 1) + 2表示第二行首地址向后偏移2个int元素，指向arr[1][2]；\n4. *(*(arr + 1) + 2)即取arr[1][2]的值，为6，故D正确。"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "下面这段代码会输出( )｡<pre><code>int add(int a, int b = 1); // 函数声明\n\nint main() {\n    cout << add(2) << \" \" << add(2, 3);\n    return 0;\n}\n\nint add(int a, int b) { // 函数定义\n    return a + b;\n}</code></pre>",
+    "options": [
+      "A. 3 5",
+      "B. 编译失败:定义处少了默认参数",
+      "C. 运行错误",
+      "D. 链接失败:未定义引用"
+    ],
+    "correct": "A",
+    "explanation": "C++中函数默认参数的规则为“声明指定，定义可省略”：\n1. 函数声明add(int a, int b = 1)已指定b的默认值为1，定义时无需重复指定；\n2. 调用add(2)时，未传第二个参数，使用默认值1，结果为2 + 1 = 3；\n3. 调用add(2, 3)时，传第二个参数3，结果为2 + 3 = 5；\n程序编译、运行均无错误，输出“3 5”，故A正确。"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "下面这段代码会输出( )｡<pre><code>int x = 5;\n\nvoid foo() {\n    int x = 10;\n    cout << x << \" \";\n}\n\nvoid bar() {\n    cout << x << \" \";\n}\n\nint main() {\n    foo();\n    bar();\n    return 0;\n}</code></pre>",
+    "options": [
+      "A. 5 5",
+      "B. 10 10",
+      "C. 5 10",
+      "D. 10 5"
+    ],
+    "correct": "D",
+    "explanation": "变量作用域遵循“局部优先”原则：\n1. foo()函数中声明了局部变量x（值为10），优先使用局部变量，故输出10；\n2. bar()函数中未声明局部变量，使用全局变量x（值为5），故输出5；\n程序最终输出“10 5”，故D正确。"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "下面程序运行的结果是( )｡<pre><code>void increaseA(int x) {\n    x++;\n}\n\nvoid increaseB(int* p) {\n    (*p)++;\n}\n\nint main() {\n    int a = 5;\n    increaseA(a);\n    cout << a << \" \";\n    increaseB(&a);\n    cout << a;\n    return 0;\n}</code></pre>",
+    "options": [
+      "A. 6 7",
+      "B. 6 6",
+      "C. 5 6",
+      "D. 5 5"
+    ],
+    "correct": "C",
+    "explanation": "函数参数传递方式决定是否修改实参：\n1. increaseA采用**值传递**，形参x是实参a的副本，x++仅修改副本，实参a仍为5，故第一个输出5；\n2. increaseB采用**指针传递**，形参p指向实参a的地址，(*p)++直接修改p所指向的实参a，a从5变为6，故第二个输出6；\n程序最终输出“5 6”，故C正确。"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "关于结构体初始化,以下哪个选项中正确的是( )｡<pre><code>struct Point {int x, y;};</code></pre>",
+    "options": [
+      "A. Point p = (1,2);",
+      "B. Point p = {1,2};",
+      "C. Point p = new {1,2};",
+      "D. Point p = <1,2>;"
+    ],
+    "correct": "B",
+    "explanation": "C++结构体初始化需遵循特定语法：\n1. 选项A使用圆括号“(1,2)”，不符合结构体初始化语法（圆括号用于函数调用或表达式，此处会被解析为逗号表达式，仅取2赋值给p，错误）；\n2. 选项B使用大括号“{1,2}”，是结构体聚合初始化的标准语法，依次将1赋值给x、2赋值给y，正确；\n3. 选项C使用new关键字，new用于动态分配内存（返回指针），而p是结构体对象（非指针），类型不匹配，错误；\n4. 选项D使用尖括号“<1,2>”，尖括号常用于模板参数，不用于结构体初始化，错误；\n故B正确。"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "运行如下代码会输出( )｡<pre><code>struct Cat {\n    string name;\n    int age;\n};\n\nvoid birthday(Cat& c) {\n    c.age++;\n}\n\nint main() {\n    Cat kitty{\"Mimi\", 2};\n    birthday(kitty);\n    cout << kitty.name << \" \" << kitty.age;\n    return 0;\n}</code></pre>",
+    "options": [
+      "A. Mimi 2",
+      "B. Mimi 3",
+      "C. kitty 3",
+      "D. kitty 2"
+    ],
+    "correct": "B",
+    "explanation": "函数参数采用**引用传递**时，会直接操作原对象：\n1. 结构体对象kitty初始化时，name为“Mimi”，age为2；\n2. birthday函数的参数c是kitty的引用（别名），c.age++等价于kitty.age++，kitty的age从2变为3；\n3. 输出时，kitty.name仍为“Mimi”，age为3，故输出“Mimi 3”，B正确。"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "关于排序算法的稳定性,以下说法错误的是( )｡",
+    "options": [
+      "A. 稳定的排序算法不改变相等元素的相对位置",
+      "B. 冒泡排序是稳定的排序算法",
+      "C. 选择排序是稳定的排序算法",
+      "D. 插入排序是稳定的排序算法"
+    ],
+    "correct": "C",
+    "explanation": "排序稳定性的核心是“相等元素的相对位置是否保持”：\n1. 选项A是稳定排序的定义，正确；\n2. 冒泡排序通过相邻元素比较交换，仅当后元素小于前元素时交换，相等元素不交换，相对位置不变，稳定，B正确；\n3. 选择排序存在“跨位置交换”，会破坏相等元素的相对位置，例如数组{2,2,1}：第一次选最小元素1，与第一个2交换，得到{1,2,2}，原两个2的相对位置改变，故选择排序不稳定，C错误；\n4. 插入排序将元素插入前面有序部分，相等元素插入到后面，相对位置不变，稳定，D正确；\n故C错误。"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "下面代码试图实现选择排序,使其能对数组nums排序为升序,则横线上应分别填写( )｡<pre><code>void selectionSort(vector<int>& nums) {\n    int n = nums.size();\n    for (int i = 0; i < n - 1; ++i) {\n        int minIndex = i;\n        for (int j = i + 1; j < n; ++j) {\n            if ( __________ ) { // 在此处填入代码\n                minIndex = j;\n            }\n        }\n        ____________________; // 在此处填入代码\n    }\n}</code></pre>",
+    "options": [
+      "A. nums[j] < nums[minIndex]    swap(nums[i], nums[minIndex])",
+      "B. nums[j] > nums[minIndex]    swap(nums[i], nums[minIndex])",
+      "C. nums[j] <= nums[minIndex]   swap(nums[j], nums[minIndex])",
+      "D. nums[j] <= nums[minIndex]   swap(nums[i], nums[j])"
+    ],
+    "correct": "A",
+    "explanation": "选择排序（升序）的核心逻辑是“找最小，放当前”：\n1. 外层循环i表示当前要确定的“最小元素位置”，minIndex初始化为i（假设当前位置是最小）；\n2. 内层循环j从i+1遍历，需比较nums[j]与nums[minIndex]：若nums[j]更小（nums[j] < nums[minIndex]），则更新minIndex为j，确保minIndex始终指向[i, n-1]中的最小元素；\n3. 内层循环结束后，需将最小元素（nums[minIndex]）与当前位置元素（nums[i]）交换，即swap(nums[i], nums[minIndex])；\n选项A符合上述逻辑，故A正确。"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "下面程序实现插入排序(升序排序),则横线上应分别填写( )｡<pre><code>void insertionSort(int arr[], int n) {\n    for (int i = 1; i < n; i++) {\n        int key = arr[i];\n        int j = i - 1;\n        while ( j >= 0 && __________ ) { // 在此处填入代码\n            arr[j + 1] = arr[j];\n            j--;\n        }\n        __________; // 在此处填入代码\n    }\n}</code></pre>",
+    "options": [
+      "A. arr[j] > key    arr[j + 1] = key",
+      "B. arr[j] < key    arr[j + 1] = key",
+      "C. arr[j] > key    arr[j] = key",
+      "D. arr[j] < key    arr[j] = key"
+    ],
+    "correct": "A",
+    "explanation": "插入排序（升序）的核心逻辑是“取key，移元素，插位置”：\n1. i从1开始（假设arr[0]已有序），key存储当前要插入的元素arr[i]；\n2. j从i-1开始向前遍历，需满足两个条件：j >= 0（不越界）和“前面元素比key大”（arr[j] > key）—— 只有前面元素更大时，才需将其向后移（arr[j+1] = arr[j]），为key腾出位置；\n3. 循环结束后，j+1即为key的正确插入位置，需将key赋值给arr[j+1]；\n选项A符合上述逻辑，故A正确。"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "关于插入排序的时间复杂度,下列说法正确的是( )｡",
+    "options": [
+      "A. 最好情况和最坏情况的时间复杂度都是 \\(O(n^2)\\)",
+      "B. 最好情况是 \\(O(n)\\)，最坏情况是 \\(O(n^2)\\)",
+      "C. 最好情况是 \\(O(n)\\)，最坏情况是 \\(O(2^n)\\)",
+      "D. 最好情况是 \\(O(n^2)\\)，最坏情况是 \\(O(2^n)\\)"
+    ],
+    "correct": "B",
+    "explanation": "插入排序的时间复杂度取决于数组初始有序程度：\n1. **最好情况**：数组已完全升序。此时每个i只需比较1次（arr[j] <= key，无需移动元素），总比较次数为n-1，时间复杂度为\\(O(n)\\)；\n2. **最坏情况**：数组完全逆序。此时i=1需比较1次、移动1次，i=2需比较2次、移动2次……i=n-1需比较n-1次、移动n-1次，总操作次数为\\(1+2+...+(n-1) = n(n-1)/2\\)，时间复杂度为\\(O(n^2)\\)；\n选项B符合上述分析，故B正确。"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "小杨正在爬楼梯,需要n阶才能到达楼顶,每次可以爬1阶或2阶,求小杨有多少种不同的方法可以爬到楼顶,横线上应填写( )｡<pre><code>int climbStairs(int n) {\n    if (n <= 2) return n;\n    int prev2 = 1; // 对应n=1的方法数\n    int prev1 = 2; // 对应n=2的方法数\n    int current = 0;\n    for (int i = 3; i <= n; ++i) {\n        ________________ // 在此处填入代码\n    }\n    return current;\n}</code></pre>",
+    "options": [
+      "A. prev2 = current; prev1 = current; current = prev1 + prev2;",
+      "B. current = prev1 + prev2; prev2 = prev1; prev1 = current;",
+      "C. current = prev1 + prev2; prev1 = current; prev2 = prev1;",
+      "D. prev2 = prev1; prev1 = current; current = prev1 + prev2;"
+    ],
+    "correct": "B",
+    "explanation": "爬楼梯问题本质是斐波那契数列，递推公式为：\n- 当n >=3时，爬n阶的方法数 = 爬n-1阶的方法数 + 爬n-2阶的方法数（最后一步爬1阶或2阶）；\n变量更新需保证“先算当前，再更前后”：\n1. 第一步：计算当前n阶的方法数current = prev1（n-1阶） + prev2（n-2阶）；\n2. 第二步：更新prev2为原prev1（下一轮的n-2阶）；\n3. 第三步：更新prev1为当前current（下一轮的n-1阶）；\n选项C的顺序符合上述逻辑，例如n=3时：current=2+1=3，prev2=2，prev1=3；n=4时：current=3+2=5，符合斐波那契数列规律，故B正确。"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "假设有一个班级的成绩单,存储在一个长度为n的数组scores中,每个元素是一个学生的分数｡老师想要找出所有满足scores[i] + scores[j] + scores[k] == 300的三元组,其中i < j < k｡下面代码实现该功能,请问其时间复杂度是( )｡<pre><code>int cnt = 0;\nfor (int i = 0; i < n; i++) {\n    for (int j = i + 1; j < n; j++) {\n        for (int k = j + 1; k < n; k++) {\n            if (scores[i] + scores[j] + scores[k] == 300) {\n                cnt++;\n            }\n        }\n    }\n}</code></pre>",
+    "options": [
+      "A. \\(O(n)\\)",
+      "B. \\(O(n^2)\\)",
+      "C. \\(O(n^3)\\)",
+      "D. \\(O(2^n)\\)"
+    ],
+    "correct": "C",
+    "explanation": "时间复杂度需分析循环嵌套的量级：\n1. 外层循环i：遍历n个元素，量级为O(n)；\n2. 中层循环j：每个i对应遍历n-i-1个元素，平均量级为O(n)；\n3. 内层循环k：每个j对应遍历n-j-1个元素，平均量级为O(n)；\n总操作次数约为n * n * n = n³，时间复杂度为\\(O(n^3)\\)，故C正确。"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "关于异常处理,以下说法错误的是( )｡",
+    "options": [
+      "A. try块中的代码可能会抛出异常",
+      "B. catch块可以有多个,处理不同类型的异常",
+      "C. throw语句用于抛出异常",
+      "D. 所有异常都必须被捕获,否则程序会崩溃"
+    ],
+    "correct": "D",
+    "explanation": "C++异常处理的核心规则：\n1. 选项A正确，try块用于包裹“可能抛出异常的代码”，是异常检测的范围；\n2. 选项B正确，多个catch块可按“子类到父类”顺序排列，分别处理不同类型的异常（如int、string、自定义异常）；\n3. 选项C正确，throw语句用于主动抛出异常（如throw 42; throw \"error\";）；\n4. 选项D错误，未捕获的异常不会直接“崩溃”，而是会调用标准库函数terminate()终止程序（默认行为是调用abort()，但可通过set_terminate()自定义终止逻辑），并非所有未捕获异常都会导致程序崩溃（如自定义终止逻辑可优雅退出）；\n故D错误。"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "以下代码能正确初始化指针｡<pre><code>int a = 5;\nint *p = a;</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "指针变量p的类型是“int*”，需赋值“int类型变量的地址”（即&a），而非int类型的值a。代码中int *p = a;存在类型不匹配，编译会报错，无法正确初始化指针，故说法错误。"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "执行下面C++代码将输出11｡<pre><code>int x = 10;\n\nvoid f() {\n    int x = x + 1;\n    cout << x << endl;\n}\n\nint main() {\n    f();\n    return 0;\n}</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "f()函数中，局部变量x声明时，初始化表达式“x + 1”中的x是“局部x”（而非全局x），此时局部x尚未初始化，值为不确定的随机值。执行x = x + 1后，x的值仍不确定，无法保证输出11，故说法错误。"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "以下C++代码合法｡<pre><code>struct Student {\n    string name;\n    int age;\n    float score;\n};\n\nStudent* students = new Student[20];</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "代码符合C++语法规则：\n1. 先定义结构体Student，包含string、int、float类型的成员；\n2. 使用new Student[20]动态分配20个Student对象的数组，返回数组首地址，赋值给指针变量students（类型为Student*），类型匹配。\n代码无语法错误，合法，故说法正确。"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "执行下面C++代码将输出10｡<pre><code>void func(int* p) {\n    *p = 10;\n}\n\nint main() {\n    int a = 5;\n    func(&a);\n    cout << a << endl;\n    return 0;\n}</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "func函数采用指针传递，形参p指向实参a的地址。执行*p = 10时，直接修改p所指向的实参a的值，a从5变为10。main函数中输出a，结果为10，故说法正确。"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "下面代码将二维数组arr传递给函数f,函数内部用arr[i][j]访问元素,函数参数声明为int arr[][4]是错误的｡<pre><code>void f(int arr[][4], int rows) {\n    // 访问 arr[i][j]\n}\n\nint main() {\n    int arr[3][4] = { /* 初始化 */ };\n    f(arr, 3);\n    return 0;\n}</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "C++二维数组传参的规则是“第一维可省略，第二维必须指定”：\n- 函数参数int arr[][4]中，省略第一维（表示接受任意行数），指定第二维为4（与实参arr[3][4]的第二维一致）；\n- 函数内部可通过arr[i][j]正常访问元素（编译器通过第二维计算元素地址）。\n因此参数声明int arr[][4]是正确的，题目说法错误。"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "递推是在给定初始条件下,已知前一项(或前几项)求后一项的过程｡",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "递推的核心定义是“从已知项推导未知项”：给定初始条件（如斐波那契数列的f(1)=1、f(2)=1），通过递推公式（f(n)=f(n-1)+f(n-2)）从前往后计算，已知前一项或前几项即可求出后一项，符合题干描述，故说法正确。"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "虽然插入排序的时间复杂度为 \\(O(n^2)\\,但由于单元操作相对较少,因此在小数据量的排序任务中非常受欢迎｡",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "插入排序的特点是“单元操作少”：\n- 虽时间复杂度为\\(O(n^2)\\)，但仅包含“比较”和“赋值”操作，无复杂的函数调用或跨位置交换；\n- 小数据量下，\\(O(n^2)\\)的总操作次数少，且单元操作高效，实际性能优于部分时间复杂度更低的算法（如快速排序，需处理递归、分区等开销）。\n因此插入排序在小数据量场景中受欢迎，说法正确。"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "对整数数组{4, 1, 3, 1, 5, 2}进行冒泡排序(将最大元素放到最后),执行一轮之后是{4, 1, 3, 1, 2, 5}｡",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "冒泡排序（升序，一轮将最大元素沉底）的执行过程：\n原数组：{4,1,3,1,5,2}\n1. 4与1比较，4>1→交换→{1,4,3,1,5,2}\n2. 4与3比较，4>3→交换→{1,3,4,1,5,2}\n3. 4与1比较，4>1→交换→{1,3,1,4,5,2}\n4. 4与5比较，4<5→不交换→{1,3,1,4,5,2}\n5. 5与2比较，5>2→交换→{1,3,1,4,2,5}\n一轮后结果为{1,3,1,4,2,5}，而非{4,1,3,1,2,5}，故说法错误。"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "以下代码只能捕获int类型异常｡<pre><code>int main() {\n    try {\n        throw 42;\n    } catch (...) {\n        cout << \"Caught\" << endl;\n    }\n    return 0;\n}</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "catch(...)是“万能捕获器”，可捕获**所有类型**的异常（包括int、string、自定义异常类等），并非仅能捕获int类型。代码中throw 42（int类型）被捕获，但即使抛出其他类型（如throw \"error\";），仍会被catch(...)捕获，故说法错误。"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "以下代码将Hello写入文件data.txt｡<pre><code>ofstream file(\"data.txt\");\ncout << \"Hello\" << endl;\nfile.close();</code></pre>",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "代码中：\n- ofstream file(\"data.txt\")创建了文件输出流对象file，关联文件data.txt；\n- 但输出操作cout << \"Hello\" << endl;是将内容输出到**控制台**（标准输出流），而非文件流file；\n- 若要写入文件，需使用file << \"Hello\" << endl;。\n代码未将Hello写入文件data.txt，故说法错误。"
+  }
+]

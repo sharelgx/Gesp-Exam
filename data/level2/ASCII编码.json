@@ -1,0 +1,63 @@
+[
+    {
+      "id": "1",
+      "type": "single",
+      "question": "已知'A'的ASCII码为65，'1'的ASCII码为49，'r'的ASCII码为114，则表达式'A' + 1的计算结果为( )｡",
+      "options": ["A. 66", "B. 'B'", "C. 114", "D. 'r'"],
+      "correct": "A",
+      "explanation": "字符'A'的ASCII码值为65，加1后为66，计算结果为整型数值，非字符，故A正确。",
+      "source": "2023年6月 GESP C++二级试题解析.pdf 单选题 第10题"
+    },
+    {
+      "id": "2",
+      "type": "single",
+      "question": "如果a为char类型变量，且值为'C'（ASCII码为67），则执行cout << (a + 2);的输出是( )｡",
+      "options": ["A. E", "B. C+2", "C. C2", "D. 69"],
+      "correct": "D",
+      "explanation": "字符'C'加2后为69（ASCII码对应'E'），但输出时未强制转换为char，直接输出整型数值69，故D正确。",
+      "source": "2023年6月 GESP C++二级试题解析.pdf 单选题 第10题（改编）"
+    },
+    {
+      "id": "3",
+      "type": "single",
+      "question": "如果a为char类型变量，下列哪个表达式可以正确判断“a是数字字符”?( )",
+      "options": ["A. '0' <= a && a <= '9'", "B. '1' <= a && a <= '0'", "C. '0' <= a <= '9'", "D. a >= 'a' && a <= 'z'"],
+      "correct": "A",
+      "explanation": "数字字符ASCII码范围为'0'（48）到'9'（57），A选项通过逻辑与判断范围，正确；B顺序错误，C语法错误，D判断小写字母，故A正确。",
+      "source": "2023年3月 GESP C++二级试题解析.pdf 单选题 第12题"
+    },
+    {
+      "id": "4",
+      "type": "truefalse",
+      "question": "执行C++代码cout << '9' + '1';的输出为10｡",
+      "correct": "×",
+      "explanation": "'9'的ASCII码为57，'1'的ASCII码为49，相加为106，输出为整型数值106，所以本题答案为错误。",
+      "source": "2024年6月 GESP C++二级真题.pdf 判断题 第1题"
+    },
+    {
+      "id": "5",
+      "type": "truefalse",
+      "question": "汉字没有对应的ASCII码｡(对/错)",
+      "correct": "√",
+      "explanation": "ASCII码仅包含英文字母、数字和符号，汉字使用GB2312、UTF-8等编码，无对应的ASCII码，说法正确。",
+      "source": "GESP C++ 二级样题.pdf 判断题 第6题"
+    },
+    {
+      "id": "6",
+      "type": "single",
+      "question": "如果a为char类型变量，且取值为小写字母，执行a = a - 'a' + 'A';后，a的值会变为( )｡",
+      "options": ["A. 对应的大写字母", "B. 对应的小写字母", "C. 原字母ASCII码减32", "D. 无法确定"],
+      "correct": "A",
+      "explanation": "小写字母与大写字母ASCII码相差32，通过计算可将小写字母转换为大写字母，如'a'-'a'=0+‘A’='A'，故A正确。",
+      "source": "2023年3月 GESP C++二级试题解析.pdf 判断题 第9题"
+    },
+    {
+      "id": "7",
+      "type": "single",
+      "question": "在C++中，表达式int('C') + abs(-5.8)的值为( )｡",
+      "options": ["A. 72.8", "B. 72", "C. 67", "D. 73"],
+      "correct": "A",
+      "explanation": "int('C')=67，abs(-5.8)=5.8，67+5.8=72.8，故A正确（注：abs(-5.8)在C++中返回double类型5.8）。",
+      "source": "2024年6月 GESP C++二级真题.pdf 判断题 第6题（改编）"
+    }
+  ]

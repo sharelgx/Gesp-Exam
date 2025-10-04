@@ -1,0 +1,159 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "在C++中，用于向标准输出流写入数据的对象是( )｡",
+        "options": ["A. cin", "B. cout", "C. cerr", "D. clog"],
+        "correct": "B",
+        "explanation": "cout是C++标准输出流对象，用于向控制台输出数据；cin是输入流，cerr/clog用于错误输出。",
+        "source": "模拟题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "能正确输出整数变量x值的语句是( )｡",
+        "options": ["A. cin >> x;", "B. cout << x;", "C. printf(x);", "D. scanf(%d, x);"],
+        "correct": "B",
+        "explanation": "cout<<x直接输出整数变量x的值；cin用于输入，printf需格式字符串，scanf是输入函数。",
+        "source": "模拟题"
+    },
+    {
+        "id": "3",
+        "type": "truefalse",
+        "question": "C++语句cout << 1 << 2 << 3; 会输出1 2 3｡(对/错)",
+        "correct": "×",
+        "explanation": "cout输出多个数据时不会自动添加空格，直接拼接输出123，说法错误。",
+        "source": "模拟题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "执行语句cin >> a; 时，输入123abc，变量a的值为( )｡",
+        "options": ["A. 123abc", "B. 123", "C. abc", "D. 0"],
+        "correct": "B",
+        "explanation": "cin读取整数时遇到非数字字符停止，输入123abc仅读取123赋值给a。",
+        "source": "模拟题"
+    },
+    {
+        "id": "5",
+        "type": "single",
+        "question": "下面C++代码段执行后的输出是( )｡<pre><code>1 int x=5, y=10;\n2 cout << x << \",\" << y << endl;\n3 x += y;\n4 cout << x;</code></pre>",
+        "options": ["A. 5,10\n15", "B. 5,1015", "C. 15\n5,10", "D. 510,15"],
+        "correct": "A",
+        "explanation": "第一条cout输出5,10并换行，x+=y后x=15，第二条cout输出15，结果为5,10\\n15。",
+        "source": "模拟题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "在C++中，输出浮点数时保留2位小数的正确语句是( )｡",
+        "options": ["A. cout << setprecision(2) << x;", "B. cout << x << fixed << setprecision(2);", "C. cout << fixed << setprecision(2) << x;", "D. cout << x << setprecision(2);"],
+        "correct": "C",
+        "explanation": "需先使用fixed操纵符固定小数位，再用setprecision(2)设置保留2位小数，C正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "7",
+        "type": "truefalse",
+        "question": "cin >> a >> b; 可以读取两个用逗号分隔的整数｡(对/错)",
+        "correct": "×",
+        "explanation": "cin默认用空格、制表符或换行符分隔输入数据，逗号需手动处理，说法错误。",
+        "source": "模拟题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是( )｡<pre><code>1 cout << A << \\'B\\' << \"C\";\n</code></pre>",
+        "options": ["A. ABC", "B. A'B'C", "C. A\"B\"C", "D. 语法错误"],
+        "correct": "A",
+        "explanation": "输出字符'A'、字符'B'（单引号转义为字符本身）、字符串\"C\"，拼接为ABC。",
+        "source": "模拟题"
+    },
+    {
+        "id": "9",
+        "type": "single",
+        "question": "若要输出变量x和y的值，且中间用横线分隔，正确的语句是( )｡",
+        "options": ["A. cout << x - y;", "B. cout << x \" - \" y;", "C. cout << x << - << y;", "D. cout << x << \"-\" << y;"],
+        "correct": "D",
+        "explanation": "用<<运算符拼接变量和字符串，正确写法为cout << x << \"-\" << y;，D正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "10",
+        "type": "single",
+        "question": "在C++中，关于输入输出流的头文件，正确的是( )｡",
+        "options": ["A. #include /<stdio.h/>", "B. #include /<iostream.h/>", "C. #include /<iostream/>", "D. 无需包含头文件"],
+        "correct": "C",
+        "explanation": "cin/cout定义在<iostream>头文件中，C++标准写法为#include <iostream>，无需.h后缀。",
+        "source": "模拟题"
+    },
+    {
+        "id": "11",
+        "type": "single",
+        "question": "下面C++代码执行时输入abc123，变量i的值为( )｡<pre><code>1 int i;\n2 cin >> i;\n</code></pre>",
+        "options": ["A. 0", "B. 123", "C. abc", "D. 输入失败，i值不确定"],
+        "correct": "D",
+        "explanation": "输入abc123时，cin无法将字符串转换为整数，输入失败，i值保持未初始化状态（不确定）。",
+        "source": "模拟题"
+    },
+    {
+        "id": "12",
+        "type": "truefalse",
+        "question": "cout << endl; 与cout << \\n; 的作用完全相同｡(对/错)",
+        "correct": "×",
+        "explanation": "endl会换行并刷新缓冲区，而\\n仅换行，两者在大多数场景下效果相同，但endl更安全，说法错误。",
+        "source": "模拟题"
+    },
+    {
+        "id": "13",
+        "type": "single",
+        "question": "在C++中，输出布尔值true时，默认显示为( )｡",
+        "options": ["A. true", "B. 1", "C. True", "D. 非零值"],
+        "correct": "B",
+        "explanation": "cout输出bool类型时，true显示为1，false显示为0，而非字符串true/false。",
+        "source": "模拟题"
+    },
+    {
+        "id": "14",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是( )｡<pre><code>1 cout << \"X=\" << 3+2*4 << endl;</code></pre>",
+        "options": ["A. X=3+2*4", "B. X=11", "C. X=9", "D. X=20"],
+        "correct": "B",
+        "explanation": "先计算表达式3+2*4=11，再输出X=11，B正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "15",
+        "type": "truefalse",
+        "question": "cin >> 5; 是合法的输入语句｡(对/错)",
+        "correct": "×",
+        "explanation": "cin >> 变量名; 需后跟变量，不能是字面量5，语法错误，说法错误。",
+        "source": "模拟题"
+    },
+    {
+        "id": "16",
+        "type": "single",
+        "question": "在C++中，若要输入字符型变量ch，正确的语句是( )｡",
+        "options": ["A. cin = ch;", "B. cin >> ch;", "C. cin << ch;", "D. scanf(ch);"],
+        "correct": "B",
+        "explanation": "cin通过>>运算符输入字符到变量ch，B正确；cin不能用=赋值，scanf需格式字符串。",
+        "source": "模拟题"
+    },
+    {
+        "id": "17",
+        "type": "truefalse",
+        "question": "cout << \"Hello\" << endl; 与cout << \"Hello\\n\"; 的输出结果相同｡(对/错)",
+        "correct": "√",
+        "explanation": "两者都会输出Hello并换行，endl和\\n都能实现换行效果，说法正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "18",
+        "type": "single",
+        "question": "下面关于cin的叙述，错误的是( )｡",
+        "options": ["A. cin可以读取字符串（含空格）", "B. cin默认用空格分隔输入数据", "C. cin >> a >> b; 需按顺序输入a和b的值", "D. cin读取失败时变量值不确定"],
+        "correct": "A",
+        "explanation": "cin >> 遇到空格、换行符会停止读取，无法读取含空格的字符串，需用getline(cin, str);，选项A错误。",
+        "source": "模拟题"
+    }
+]

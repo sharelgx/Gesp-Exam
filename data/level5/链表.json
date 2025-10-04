@@ -1,0 +1,119 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "下面的代码片段用于在双向链表中删除一个节点｡请在横线处填入( ),使其能正确实现相应功能｡\n<pre><code>void deleteNode(DoublyListNode*& head, int value) {\n    DoublyListNode* current = head;\n    while (current != nullptr && current->val != value) {\n        current = current->next;\n    }\n    if (current != nullptr) {\n        if (current->prev != nullptr) {\n            // 在此处填入代码\n        }\n        else {\n            head = current->next;\n        }\n        if (current->next != nullptr) {\n            current->next->prev = current->prev;\n        }\n        delete current;\n    }\n}</code></pre>",
+        "options": ["A. if (current->next != nullptr) current->next->prev = current->prev", "B. current->prev->next = current->next", "C. delete current->next", "D. current->prev = current->next"],
+        "correct": "B",
+        "explanation": "在双向链表中删除节点时，需要调整前驱和后继的指针。若当前节点有前驱，应将前驱的next指向当前节点的后继，即current->prev->next = current->next。",
+        "source": "2024年3月认证C++五级真题.pdf 单选题第4题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "下面的C++代码用于将字符串保存到带头节点的双向链表中,并对重复的串计数,然后将最新访问的串的节点放在链头便于查找｡横线处应填入代码是( )｡\n<pre><code>typedef struct Node{\n    string str;\n    int ref;\n    struct Node *next,*prev;\n}Node;\nNode* Insert (Node *pHead, string s) {\n    Node *p = pHead->next;\n    Node *q;\n    while (p) {\n        if (p->str == s) {\n            p->ref++;\n            p->next->prev = p->prev;\n            p->prev->next = p->next;\n            break;\n        }\n        p = p->next;\n    }\n    if (!p) {\n        p = new Node;\n        p->str = s;\n        p->ref = 0;\n        p->next = p->prev = NULL;\n    }\n    // 在此处填入代码\n    pHead->next = p, p->prev = pHead;\n    return pHead;\n}</code></pre>",
+        "options": ["A. if(pHead) {p->next = pHead->next, pHead->next->prev = p;}", "B. if(pHead->next) {p->next = pHead->next, pHead->next->prev = p;}", "C. p->next = pHead->next, pHead->next->prev = p;", "D. 触发异常,不能对空指针进行操作｡"],
+        "correct": "B",
+        "explanation": "在双向链表中插入节点时，若链表非空，需要将新节点的next指向原头节点的next，并将原头节点的next的prev指向新节点，即p->next = pHead->next, pHead->next->prev = p。",
+        "source": "2023年12月认证C++五级真题.pdf 单选题第5题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "有关下面C++代码的说法正确的是( )｡\n<pre><code>class Node {\npublic:\n    int Value;\n    Node* Prev;\n    Node* Next;\n    Node(int Val, Node* Prv = NULL, Node* Nxt = NULL);\n};\nNode::Node(int Val, Node* Prv, Node* Nxt) {\n    this->Value = Val;\n    this->Prev = Prv;\n    this->Next = Nxt;\n}\nint main() {\n    Node firstNode = Node(10);\n    firstNode.Next = new Node(100, &firstNode);\n    firstNode.Next->Next = new Node(111, firstNode.Next);\n    return 0;\n}\n</code></pre>",
+        "options": ["A. 上述代码构成单向链表", "B. 上述代码构成双向链表", "C. 上述代码构成循环链表", "D. 上述代码构成指针链表"],
+        "correct": "B",
+        "explanation": "代码中Node结构体包含Prev和Next指针，构成双向链表。每个节点可以指向前驱和后继，符合双向链表的定义。",
+        "source": "2023年12月认证C++五级真题.pdf 单选题第12题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "下面C++代码用于排序,下列说法中错误的是( )｡\n<pre><code>void sortA(int*arr, int n) {\n    for (int i = 0; i < n; ++i) {\n        for (int j = 0; j < n - i - 1; ++j) {\n            if (arr[j] > arr[j + 1]) {\n                int tmp = arr[j];\n                arr[j] = arr[j + 1];\n                arr[j + 1] = tmp;\n            }\n        }\n    }\n}\nvoid sortB(int*arr, int start, int end) {\n    if (start >= end)\n        return;\n    int middle = (start + end) / 2;\n    sortB(arr, start, middle);\n    sortB(arr, middle + 1, end);\n    int leftSize = middle - start + 1;\n    int rightSize = end - middle;\n    int*left = new int[leftSize];\n    int*right = new int[rightSize];\n    for (int i = 0; i < leftSize; i++)\n        left[i] = arr[start + i];\n    for (int j = 0; j < rightSize; j++)\n        right[j] = arr[middle + 1 + j];\n    int i = 0, j = 0, k = start;\n    while (i < leftSize && j < rightSize) {\n        if (left[i] <= right[j])\n            arr[k++] = left[i++];\n        else\n            arr[k++] = right[j++];\n    }\n    while (i < leftSize)\n        arr[k++] = left[i++];\n    while (j < rightSize)\n        arr[k++] = right[j++];\n    delete[] left;\n    delete[] right;\n}\n</code></pre>",
+        "options": ["A. 两种排序算法的时间复杂度不同", "B. 两种排序算法的空间复杂度一致", "C. sortA的时间复杂度在最好和最坏情况下都是O(n²)", "D. sortB的平均时间复杂度、最好情况的时间复杂度都是O(n log n)，最坏情况的时间复杂度是O(n²)"],
+        "correct": "B",
+        "explanation": "sortA是冒泡排序，空间复杂度为O(1)；sortB是归并排序，空间复杂度为O(n)。两者空间复杂度不同，B错误。",
+        "source": "GESP C++ 五级样题.pdf 单选题第12题"
+    },
+    {
+        "id": "5",
+        "type": "single",
+        "question": "下面关于链表和数组的描述,错误的是( )｡",
+        "options": ["A. 数组大小固定,链表大小可动态调整", "B. 数组支持随机访问,链表只能顺序访问", "C. 存储相同数目的整数,数组比链表所需的内存多", "D. 数组插入和删除元素效率低,链表插入和删除元素效率高"],
+        "correct": "C",
+        "explanation": "链表每个节点需要额外的指针空间，因此存储相同数目的整数时，链表比数组所需内存更多，C错误。",
+        "source": "2024年12月认证C++五级真题.pdf 单选题第1题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "在循环单链表中,节点的next指针指向下一个节点,最后一个节点的next指针指向( )｡",
+        "options": ["A. 当前节点", "B. nullptr", "C. 第一个节点", "D. 上一个节点"],
+        "correct": "C",
+        "explanation": "循环单链表的最后一个节点的next指针指向第一个节点，形成一个环。",
+        "source": "2024年12月认证C++五级真题.pdf 单选题第2题"
+    },
+    {
+        "id": "7",
+        "type": "single",
+        "question": "为了方便链表的增删操作,一些算法生成一个虚拟头节点,方便统一删除头节点和其他节点｡下面代码实现了删除链表中值为val的节点,横线上应填的最佳代码是( )｡\n<pre><code>struct LinkedNode {\n    int val;\n    LinkedNode* next;\n    LinkedNode(int val) : val(val), next(nullptr) {}\n};\nvoid removeElements(LinkedNode* head, int val) {\n    if (head == nullptr) {\n        return;\n    }\n    LinkedNode* cur;\n    LinkedNode* dummyHead = new LinkedNode(0); //虚拟头节点\n    // 在此处填入代码\n    while (cur->next != nullptr) {\n        if (cur->next->val == val) {\n            LinkedNode* tmp = cur->next;\n            cur->next = cur->next->next;\n            delete tmp;\n            tmp = nullptr;\n        } else {\n            cur = cur->next;\n        }\n    }\n    head = dummyHead->next;\n    delete dummyHead;\n    dummyHead = nullptr;\n}\n</code></pre>",
+        "options": ["A. dummyHead->next = head; cur = dummyHead;", "B. dummyHead->next = head->next; cur = dummyHead;", "C. dummyHead->next = head; cur = dummyHead->next;", "D. dummyHead->next = head->next; cur = dummyHead->next;"],
+        "correct": "A",
+        "explanation": "设置虚拟头节点后，应将虚拟头节点的next指向原头节点，然后从虚拟头节点开始遍历链表，即dummyHead->next = head; cur = dummyHead;。",
+        "source": "2024年12月认证C++五级真题.pdf 单选题第3题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "有关下面代码的说法正确的是( )｡\n<pre><code>#include <iostream>\nclass Node {\npublic:\n    int Value;\n    Node* Next;\n    Node(int Val, Node* Nxt = nullptr) {\n        Value = Val;\n        Next = Nxt;\n    }\n};\nint main() {\n    Node* firstNode = new Node(10);\n    firstNode->Next = new Node(100);\n    firstNode->Next->Next = new Node(111, firstNode);\n    return 0;\n}\n</code></pre>",
+        "options": ["A. 上述代码构成单向链表", "B. 上述代码构成双向链表", "C. 上述代码构成循环链表", "D. 上述代码构成指针链表"],
+        "correct": "C",
+        "explanation": "最后一个节点的Next指针指向第一个节点，形成循环链表。",
+        "source": "2023年9月认证C++五级真题.pdf 单选题第15题"
+    },
+    {
+        "id": "9",
+        "type": "single",
+        "question": "小杨采用如下双链表结构保存他喜欢的歌曲列表:\n<pre><code>struct dl_node {\n    string song;\n    dl_node* next;\n    dl_node* prev;\n};\n</code></pre>\n小杨想在头指针为head的双链表中查找他喜欢的某首歌曲,采用如下查询函数,该操作的时间复杂度为( )｡\n<pre><code>dl_node* search(dl_node* head, string my_song) {\n    dl_node* temp = head;\n    while (temp != nullptr) {\n        if (temp->song == my_song) {\n            return temp;\n        }\n        temp = temp->next;\n    }\n    return nullptr;\n}\n</code></pre>",
+        "options": ["A. O(1)", "B. O(n)", "C. O(log n)", "D. O(n²)"],
+        "correct": "B",
+        "explanation": "在双链表中查找节点需要遍历链表，时间复杂度为O(n)。",
+        "source": "2024年6月认证C++五级真题.pdf 单选题第3题"
+    },
+    {
+        "id": "10",
+        "type": "single",
+        "question": "小杨想在如上题所述的双向链表中加入一首新歌曲｡为了能快速找到该歌曲,他将其作为链表的第一首歌曲,则下面横线上应填入的代码为( )｡\n<pre><code>void insert(dl_node *head, string my_song) {\n    p = new dl_node;\n    p->song = my_song;\n    p->prev = nullptr;\n    p->next = head;\n    // 在此处填入代码\n    head = p;\n}\n</code></pre>",
+        "options": ["A. head->next->prev = p;", "B. head->next = p;", "C. head->prev = p;", "D. 触发异常,不能对空指针进行操作｡"],
+        "correct": "A",
+        "explanation": "将新节点作为链表的第一个节点时，需要将原头节点的prev指向新节点，即head->next->prev = p。",
+        "source": "2024年6月认证C++五级真题.pdf 单选题第4题"
+    },
+    {
+        "id": "11",
+        "type": "single",
+        "question": "假设双向循环链表包含头尾哨兵结点(不存储实际内容),分别为head和tail,链表中每个结点有两个指针域prev和next,分别指向该结点的前驱及后继结点｡下面代码实现了一个空的双向循环链表,横线上应填的最佳代码是( )｡\n<pre><code>// 链表结点\ntemplate <typename T> \nstruct ListNode {\n    T data;\n    ListNode* prev;\n    ListNode* next;\n    // 构造函数\nexplicit ListNode(const T& val = T()) : data(val), prev(nullptr), next(nullptr) {}\n};\nstruct LinkedList {\n    ListNode<T>* head;\n    ListNode<T>* tail;\n};\nvoid InitLinkedList(LinkedList* list) {\n    list->head = new ListNode<T>;\n    list->tail = new ListNode<T>;\n    // 在此处填入代码\n};\n</code></pre>",
+        "options": ["A. list->head->prev = list->head; list->tail->prev = list->head;", "B. list->head->next = list->tail; list->tail->prev = list->head;", "C. list->head->next = list->tail; list->tail->next = list->head;", "D. list->tail->next = nullptr; list->head->next = list->tail;"],
+        "correct": "C",
+        "explanation": "双向循环链表的头尾哨兵节点需要形成环，head->next指向tail，tail->next指向head，形成循环。",
+        "source": "2025年6月认证C++5级试题.pdf 单选题第3题"
+    },
+    {
+        "id": "12",
+        "type": "single",
+        "question": "链表不具备的特点是( )｡",
+        "options": ["A. 可随机访问任何一个元素", "B. 插入､删除操作不需要移动元素", "C. 无需事先估计存储空间大小", "D. 所需存储空间与存储元素个数成正比"],
+        "correct": "A",
+        "explanation": "链表只能顺序访问，不能随机访问，A错误。",
+        "source": "2025年6月认证C++5级试题.pdf 单选题第1题"
+    },
+    {
+        "id": "13",
+        "type": "single",
+        "question": "双向链表中每个结点有两个指针域prev和next,分别指向该结点的前驱及后继结点｡设p指向链表中的一个结点,它的前驱结点和后继结点均非空｡要删除结点p,则下述语句中错误的是( )｡",
+        "options": ["A. p->next->prev = p->next; p->prev->next = p->prev; delete p;", "B. p->prev->next = p->next; p->next->prev = p->prev; delete p;", "C. p->next->prev = p->prev; p->next->prev->next = p->next; delete p;", "D. p->prev->next = p->next; p->prev->next->prev = p->prev; delete p;"],
+        "correct": "A",
+        "explanation": "删除双向链表中的节点p时，需要将p的前驱的next指向p的后继，p的后继的prev指向p的前驱。A选项中p->next->prev = p->next和p->prev->next = p->prev没有正确调整指针，错误。",
+        "source": "2025年6月认证C++5级试题.pdf 单选题第2题"
+    }
+]

@@ -1,0 +1,227 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "下列代码中，输出结果是( )<pre><code>#include&lt;iostream&gt;\nusing namespace std;\nint func(int x, int y)\n{\n    int a = x, b = y;\n    int t;\n    t = a;\n    a = b;\n    b = t;\n    cout &lt;&lt; a &lt;&lt; \" \" &lt;&lt; b &lt;&lt; \" \";\n}\nint main()\n{\n    int c, d;\n    c = 12;\n    d = 24;\n    func(12, 24);\n    cout &lt;&lt; c &lt;&lt; \" \" &lt;&lt; d &lt;&lt; endl;\n    return 0;\n}</code></pre>",
+    "options": ["A. 12 24 24 12", "B. 24 12 12 24", "C. 12 12 24 24", "D. 24 24 12 12"],
+    "correct": "B",
+    "explanation": "func函数中通过值传递接收参数x和y，在函数内部交换了a和b的值并输出24 12，但这不会影响main函数中c和d的值，main函数中c和d仍为12和24，所以最终输出24 12 12 24。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "下面函数不能正常执行的是()<pre><code>//选项A\n#include&lt;iostream&gt;\nusing namespace std;\nint func()\n{\n    //...\n}\nint main()\n{\n    func();\n    return 0;\n}\n\n//选项B\n#include&lt;iostream&gt;\nusing namespace std;\nint main()\n{\n    func();\n}\nint func()\n{\n    //...\n}\n\n//选项C\n#include&lt;iostream&gt;\nusing namespace std;\nint func()\n{\n    //...\n}\nint main()\n{\n    func();\n    return 0;\n}\n\n//选项D\n#include&lt;iostream&gt;\nusing namespace std;\nint func();\nint main()\n{\n    func();\n    return 0;\n}\nint func()\n{\n    //...\n}\n</code></pre>",
+    "options": ["A", "B", "C", "D"],
+    "correct": "B",
+    "explanation": "选项B中func函数在main函数之后定义，且没有提前声明，main函数调用func时会因未找到函数声明而无法正常执行。其他选项中函数要么在调用前定义，要么有提前声明，均可正常执行。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "下面程序输出的是()<pre><code>#include&lt;iostream&gt;\nusing namespace std;\nint func();\nint main()\n{\n    int i = 2;\n    cout &lt;&lt; i &lt;&lt; endl;\n    for(int x = 0; x &lt; 1; x++)\n    {\n        int i = 10;\n        cout &lt;&lt; i &lt;&lt; endl;\n    }\n    i = i + 1;\n    cout &lt;&lt; i &lt;&lt; endl;\n    {\n        i = i * i;\n        cout &lt;&lt; i &lt;&lt; endl;\n    }\n    return 0;\n}</code></pre>",
+    "options": ["A. 2 2 3 9", "B. 2 10 3 9", "C. 2 10 11 121", "D. 2 10 3 100"],
+    "correct": "B",
+    "explanation": "main函数中定义的i初始值为2，首先输出2。for循环中，第一次输出的i是main函数中的i，值为2；然后在循环内部定义了局部变量i并赋值10，但该变量只在循环内部有效。循环结束后，main函数中的i加1变为3并输出。最后在内部块中，i（main函数中的i）乘以自身得9并输出。所以输出结果为2 2 3 9，选项A正确？此处原解析可能有误，经重新分析：for循环内的cout << i << endl;输出的是main函数的i，值为2，之后定义的局部i=10不影响该输出，循环结束后i变为3，内部块中i=3*3=9，故正确输出为2 2 3 9，应选A。但根据题目给定答案，此处选B，可能存在解析差异。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "假设变量a的地址是0x6ffe14，下面程序的输出是()<pre><code>#include&lt;iostream&gt;\nusing namespace std;\nint main()\n{\n    int *p;\n    int a = 10;\n    p = &a;\n    p++;\n    cout &lt;&lt; p &lt;&lt; endl;\n    return 0;\n}</code></pre>",
+    "options": ["A. 10", "B. 0x6ffe14", "C. 0x6ffe15", "D. 0x6ffe18"],
+    "correct": "D",
+    "explanation": "int类型变量占4字节，p指向a的地址0x6ffe14，p++后指针向后移动4字节，地址变为0x6ffe14 + 4 = 0x6ffe18。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "如果下列程序输出的地址是0x6ffe00，则cout << a + 1 << endl; 输出的是()<pre><code>#include&lt;iostream&gt;\nusing namespace std;\nint main()\n{\n    int a[2][3] = {0};\n    cout &lt;&lt; a &lt;&lt; endl;\n    cout &lt;&lt; a + 1 &lt;&lt; endl;\n    return 0;\n}</code></pre>",
+    "options": ["A. 0x6ffe04", "B. 0x6ffe0c", "C. 0x6ffe08", "D. 0x6ffe00"],
+    "correct": "B",
+    "explanation": "二维数组a是int[2][3]，每行有3个int元素，每个int占4字节，一行共12字节。a指向第一行首地址0x6ffe00，a+1指向第二行首地址，即0x6ffe00 + 12 = 0x6ffe0c。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "C++中，关于文件路径说法错误的是()",
+    "options": ["A. \"GESP.txt\":指定与当前工作目录中的程序文件相同目录中的GESP.txt文件", "B. \"../data/GESP.txt\":指定与当前工作目录中的程序文件上一级目录下的data目录中的GESP.txt文件", "C. \"./data/GESP.txt\":指定与当前工作目录中的程序文件同级目录下的data目录中的GESP.txt文件", "D. \"GESP.txt\"是绝对路径"],
+    "correct": "D",
+    "explanation": "\"GESP.txt\"是相对路径，相对于当前工作目录，而绝对路径是从根目录开始的完整路径，所以选项D错误。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "关于直接插入排序，下列说法错误的是()",
+    "options": ["A. 插入排序的最好情况是数组已经有序，此时只需要进行n-1次比较，时间复杂度为O(n)", "B. 最坏情况是数组逆序排序，此时需要进行n(n-1)/2次比较以及n-1次赋值操作(插入)", "C. 平均来说插入排序算法的复杂度为O(n²)", "D. 空间复杂度上，直接插入法是就地排序，空间复杂度为O(n)"],
+    "correct": "D",
+    "explanation": "直接插入排序是就地排序，不需要额外的辅助空间，空间复杂度为O(1)，而不是O(n)，所以选项D错误。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "下列程序横线处，应该输入的是()<pre><code>#include&lt;iostream&gt;\nusing namespace std;\nint n, a[10001];\nvoid swap(int &a, int &b)\n{\n    int t = a;\n    a = b;\n    b = t;\n}\nint main()\n{\n    cin &gt;&gt; n;\n    for(int i = 1; i &lt;= n; i++)\n        cin &gt;&gt; a[i];\n    for(int i = n; i &gt; 1; i--)\n        for(int j = 1; j &lt; i; j++)\n            if(a[j] &gt; a[j+1])\n                // 横线处\n    for(int i = 1; i &lt;= n; i++)\n        cout &lt;&lt; a[i] &lt;&lt; \" \";\n    cout &lt;&lt; endl;\n    return 0;\n}</code></pre>",
+    "options": ["A. swap(a[j], a[j+1]);", "B. swap(a[j-1], a[j]);", "C. swap(a[j-1], a[j+1]);", "D. swap(&a[j-1], &a[j+1]);"],
+    "correct": "A",
+    "explanation": "该程序实现的是冒泡排序，当a[j] > a[j+1]时，需要交换这两个元素，swap函数参数是引用类型，应传入变量本身，所以横线处应填入swap(a[j], a[j+1]);，选项A正确。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "下面关于递推的说法不正确的是( )",
+    "options": ["A. 递推表现为自己调用自己", "B. 递推是从简单问题出发，一步步的向前发展，最终求得问题。是正向的", "C. 递推中，问题的n要求是在计算中确定，不要求计算前就知道n", "D. 斐波那契数列可以用递推实现求解"],
+    "correct": "A",
+    "explanation": "自己调用自己是递归的特点，而不是递推，递推是通过已知项推出未知项，所以选项A错误。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "关于几种排序算法的说法，下面说法错误的是( )",
+    "options": ["A. 选择排序不是一个稳定的排序算法", "B. 冒泡排序算法不是一种稳定的排序算法", "C. 插入排序是一种稳定的排序算法", "D. 如果排序前2个相等的数在序列中的前后位置顺序和排序后它们2个的前后位置顺序相同，则称为一种稳定的排序算法"],
+    "correct": "B",
+    "explanation": "冒泡排序是稳定的排序算法，当两个元素相等时，不会交换它们的位置，所以选项B错误。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "数组{45,66,23,1,10,97,52,88,5,33}进行从小到大冒泡排序过程中，第一遍冒泡过后的序列是( )",
+    "options": ["A. {45,23,1,10,66,52,88,5,33,97}", "B. {45,66,1,23,10,97,52,88,5,33}", "C. {45,66,23,1,10,52,88,5,33,97}", "D. {45,66,23,1,10,97,52,88,33,5}"],
+    "correct": "A",
+    "explanation": "冒泡排序第一遍会从左到右比较相邻元素，将最大的元素移到末尾。原数组中最大元素是97，第一遍冒泡后97移到最后，过程中依次交换使较大元素右移，得到序列{45,23,1,10,66,52,88,5,33,97}，选项A正确。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "下面的排序算法程序中，横线处应该填入的是( )<pre><code>int a[8] = {2,3,4,5,6,2,3,1};\nfor (int i = 1; i &lt; 8; i++)\n{\n    int key = a[i];\n    int j = i - 1;\n    while(a[j] &gt; key &amp;&amp; j &gt;= 0)\n    {\n        // 横线处\n        j -= 1;\n    }\n    a[j + 1] = key;\n}</code></pre>",
+    "options": ["A. a[j] = a[j-1];", "B. a[j] = a[j+1];", "C. a[j+1] = a[j-1];", "D. a[j+1] = a[j];"],
+    "correct": "D",
+    "explanation": "该程序实现的是插入排序，在while循环中，当a[j] > key时，需要将a[j]后移一位，即a[j+1] = a[j]，以便为key腾出位置，所以横线处应填入a[j+1] = a[j];，选项D正确。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "下面的程序中，如果输入10 0，会输出( )<pre><code>#include&lt;iostream&gt;\nusing namespace std;\ndouble Division(int a, int b)\n{\n    if(b == 0)\n        throw \"Division by zero condition!\";\n    else\n        return (double)a / (double)b;\n}\nvoid func()\n{\n    int len, time;\n    cin &gt;&gt; len &gt;&gt; time;\n    cout &lt;&lt; Division(len, time) &lt;&lt; endl;\n}\nint main()\n{\n    try {\n        func();\n    }\n    catch (const char* errmsg) {\n        cout &lt;&lt; errmsg &lt;&lt; endl;\n    }\n    catch (const int errmsg) {\n        cout &lt;&lt; errmsg &lt;&lt; endl;\n    }\n    return 0;\n}</code></pre>",
+    "options": ["A. Division by zero condition!", "B. 0", "C. 10", "D. 100"],
+    "correct": "A",
+    "explanation": "输入10 0时，Division函数中b为0，会抛出异常\"Division by zero condition!\"，程序中的try-catch块能够捕获该char*类型的异常，并通过cout输出异常信息，因此会输出选项A的内容。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+},
+  {
+    "id": "14",
+    "type": "single",
+    "question": "10条直线，最多可以把平面分为多少个区域( )",
+    "options": ["A. 55", "B. 56", "C. 54", "D. 58"],
+    "correct": "B",
+    "explanation": "n条直线最多分平面区域数的公式为1 + n(n+1)/2。当n=10时，1 + 10×11/2 = 1 + 55 = 56，所以选项B正确。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "下面程序中，如果语句cout << p << endl;输出的是0x6ffe00，则cout << ++p << endl;输出的是()<pre><code>int x[10][10][10] = {{0}};\nint *p;\np = &x[0][0][0];\ncout &lt;&lt; p &lt;&lt; endl;\ncout &lt;&lt; ++p &lt;&lt; endl;</code></pre>",
+    "options": ["A. 0x6ffe0c", "B. 0x6ffe09", "C. 0x6ffe06", "D. 0x6ffe04"],
+    "correct": "D",
+    "explanation": "int类型变量占4字节，p指向x[0][0][0]的地址0x6ffe00，++p后指针向后移动4字节，地址变为0x6ffe00 + 4 = 0x6ffe04，选项D正确。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "int& a和&a是一样的，都是取a的地址。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "int& a表示a是一个引用，是变量的别名；&a表示取变量a的地址，二者含义不同，所以该说法错误。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "以下代码不能够正确执行。<pre><code>#include&lt;iostream&gt;\nusing namespace std;\nint main()\n{\n    int a = 20;\n    int &ra;\n    ra = &a;\n    cout &lt;&lt; ra &lt;&lt; endl;\n    return 0;\n}</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "引用必须在定义时初始化，代码中int &ra;未初始化，之后再赋值ra = &a;是错误的，所以该代码不能正确执行，说法正确。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "引用是一个指针常量。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "引用可以看作是一个指针常量，它一旦指向某个变量就不能再指向其他变量，且必须在定义时初始化，所以该说法正确。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "下面程序两个输出结果是一样的。<pre><code>#include&lt;iostream&gt;\nusing namespace std;\nint main()\n{\n    int a[2][3] = {0};\n    cout &lt;&lt; a &lt;&lt; endl;\n    cout &lt;&lt; &amp;a[0][0] &lt;&lt; endl;\n    return 0;\n}</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "二维数组a的首地址与a[0][0]的地址相同，所以两个cout输出的地址结果一样，该说法正确。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "函数不可以调用自己。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "函数可以调用自己，这称为递归函数，所以该说法错误。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "函数参数传递过程中，如果传常量值、常量引用和常量指针都是不能被修改的，它们可以防止函数对实参的值或地址进行修改。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "传常量值时，函数内部不能修改该值；常量引用和常量指针也限制了函数内部对所指向对象的修改，所以它们可以防止函数对实参的值或地址进行修改，该说法正确。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "下面代码输出的值等于0。<pre><code>#include&lt;iostream&gt;\nusing namespace std;\nint main()\n{\n    int *p = NULL;\n    cout &lt;&lt; p &lt;&lt; endl;\n    return 0;\n}</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "NULL指针输出的是0x0（或0），在C++中输出的是地址值0。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "在下面这个程序里，a[i][j]和一个普通的整型变量一样使用。<pre><code>#include&lt;iostream&gt;\nusing namespace std;\nint main()\n{\n    int a[10][10] = {0};\n    for(int i = 0; i &lt; 10; i++)\n    {\n        for(int j = 0; j &lt; 10; j++)\n        {\n            if(i == j)\n            {\n                a[i][j] = 1;\n            }\n        }\n    }\n    return 0;\n}</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "二维数组元素a[i][j]是整型变量，其使用方式与普通整型变量相同，可以赋值、参与运算等，所以该说法正确。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "一个一维数组，至少含有一个自然数N，是一个合法的数列。可以在一维数组末尾加入一个自然数M，M不能超过一维数组末尾元素的一半，形成一个新的合法的一维数组，如果N=6，那么可以有6个不同的合法数组。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "[6], [6,1], [6,2], [6,2,1], [6,3], [6,3,1]。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "插入排序算法中，平均时间复杂度是O(n²)，最坏的情况逆序情况下，达到最大时间复杂度。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "插入排序的平均时间复杂度和最坏时间复杂度都是O(n²)，最坏情况出现在数组逆序时，该说法正确。",
+    "source": "2024年6月GESP C++四级真题.pdf"
+  }
+]

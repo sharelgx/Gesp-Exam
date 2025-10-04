@@ -1,0 +1,258 @@
+
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "下列代码中,输出结果是( )<pre><code>\n#include<iostream>\nusing namespace std;\nint main(){\n    double a=0.9;\n    double b=1.0;\n    if(((b-a)==0.1)) {\n        cout<<\"Equal\"<<endl;\n    }\n    else{\n        cout<<\"Not equal\"<<endl;\n    }\n}\n</code></pre>",
+        "options": ["A. Equal", "B. Not equal", "C. 程序不能正确执行", "D. 没有输出"],
+        "correct": "B",
+        "explanation": "浮点数在计算机中表示存在精度问题，0.9和1.0相减的结果并不精确等于0.1，因此条件不成立，输出Not equal。",
+        "source": "GESP 2024年9月认证 C++ 三级真题.pdf 单选题第1题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "关于计算机中的编码,下列说法中正确的是()<pre><code>\nA. 机器数的形式值和真值是一致的\nB. 原码就是符号位加上真值\nC. 机器数是带符号的\nD. [-1]=[1000 0001]原=[1111 1111]反\n</code></pre>",
+        "options": ["A. A", "B. B", "C. C", "D. D"],
+        "correct": "B",
+        "explanation": "原码表示法中的数值由符号位和真值部分组成，对于正数，符号位是0，后面跟着数值的二进制表示；对于负数，符号位是1，后面是该数的绝对值的二进制表示，故B正确。",
+        "source": "GESP 2024年9月认证 C++ 三级真题.pdf 单选题第2题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "下列代码实现的是( )<pre><code>\nvoid Swap(int &a, int &b) {\n    if (a != b) {\n        a ^= b;\n        b ^= a;\n        a ^= b;\n    }\n}\n</code></pre>",
+        "options": ["A. a和b的异或", "B. a和b的同或", "C. a和b的值交换", "D. a和b的高低位互换"],
+        "correct": "C",
+        "explanation": "通过异或运算实现了两个整数a和b的值交换，故C正确。",
+        "source": "GESP 2024年9月认证 C++ 三级真题.pdf 单选题第7题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "a&~1运算实现的是( )<pre><code>\nA. 使a的最低位为1\nB. 使a的最高位为1\nC. 使a的最低位为0\nD. 使a的最高位为0\n</code></pre>",
+        "options": ["A. A", "B. B", "C. C", "D. D"],
+        "correct": "C",
+        "explanation": "~1是将最低位设为0，其余位设为1，a与~1按位与运算后，最低位为0，其他位不变，故C正确。",
+        "source": "GESP 2024年9月认证 C++ 三级真题.pdf 单选题第8题"
+    },
+    {
+        "id": "5",
+        "type": "single",
+        "question": "下列程序中,result和result2输出分别是( )<pre><code>\nlong a = 123;\nint b = 1;\nlong result = a & b;\ncout<<result<<endl;\nlong a2 = -123;\nunsigned int b2 = -1;\nlong result2 = a2 & b2;\ncout<<result2<<endl;\n</code></pre>",
+        "options": ["A. 123 -1", "B. 123 -123", "C. 1 -1", "D. 1 -123"],
+        "correct": "C",
+        "explanation": "123与1按位与结果为1；-123的补码与-1（全1）按位与结果为-1，故C正确。",
+        "source": "GESP 2024年9月认证 C++ 三级真题.pdf 单选题第10题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "下面的程序中,会输出( )<pre><code>\nint a[10]={1,2,3,4,5,6,7,8,9,10};\ncout<<a[10]<<endl;\n</code></pre>",
+        "options": ["A. 1", "B. 0", "C. 10", "D. 不确定的值"],
+        "correct": "D",
+        "explanation": "数组下标越界访问，结果不确定，故D正确。",
+        "source": "GESP 2024年9月认证 C++ 三级真题.pdf 单选题第13题"
+    },
+    {
+        "id": "7",
+        "type": "single",
+        "question": "下列程序输出的是()<pre><code>\nstring str = \"Hello,CHAD\";\ncout << str.find(\"A\") << '\\n';\n</code></pre>",
+        "options": ["A. 9", "B. 8", "C. 7", "D. 6"],
+        "correct": "B",
+        "explanation": "字符串中'A'的位置是第7个字符（下标从0开始），故输出8，B正确。",
+        "source": "GESP 2024年9月认证 C++ 三级真题.pdf 单选题第15题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是( )<pre><code>\nint temp=0;\nfor(int i=1;i<7;i++)\n    for(int j=1;j<5;j++)\n        if(i/j==2)\n            temp++;\ncout<<temp<<endl;\n</code></pre>",
+        "options": ["A. 10", "B. 8", "C. 4", "D. 3"],
+        "correct": "C",
+        "explanation": "当i/j==2时，i的取值为2、3、4、5（i=2时j=1；i=3时j=1；i=4时j=1、2；i=5时j=1、2），共4次，所以temp=4，故C正确。",
+        "source": "GESP2023年12月认证C++三级真题.pdf 单选题第4题"
+    },
+    {
+        "id": "9",
+        "type": "single",
+        "question": "执行下面C++代码后输出的是( )<pre><code>\nstring str(\"chen\");\nint x=str.length();\ncout<<x<<endl;\n</code></pre>",
+        "options": ["A. 4", "B. 3", "C. 2", "D. 5"],
+        "correct": "A",
+        "explanation": "字符串\"chen\"的长度为4，所以x=4，输出4，故A正确。",
+        "source": "GESP2023年12月认证C++三级真题.pdf 单选题第6题"
+    },
+    {
+        "id": "10",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是( )<pre><code>\nchar ch[10]={'1'};\ncout<<ch[2]<<endl;\n</code></pre>",
+        "options": ["A. 0", "B. 1", "C. 输出空格", "D. 什么也不输出"],
+        "correct": "A",
+        "explanation": "数组ch未初始化的元素默认初始化为0，ch[2]的值为0，输出0，故A正确。",
+        "source": "GESP2023年12月认证C++三级真题.pdf 单选题第8题"
+    },
+    {
+        "id": "11",
+        "type": "single",
+        "question": "下面C++代码用于统计每种字符出现的次数,当输出为3时,横线上不能填入的代码是( )<pre><code>\nstring str=\"GESP is a good programming test\";\nint x=0;\nfor(int i=0;i<str.length();i++)\n    if(______)\n        x++;\ncout<<x<<endl;\n</code></pre>",
+        "options": ["A. str[i]=='o'", "B. str[i]=='a'+14", "C. str[i]==115", "D. str[i]==111"],
+        "correct": "C",
+        "explanation": "字符's'的ASCII码是115，统计's'的出现次数为4，不是3，故C不能填入，C正确。",
+        "source": "GESP2023年12月认证C++三级真题.pdf 单选题第9题"
+    },
+    {
+        "id": "12",
+        "type": "single",
+        "question": "执行下面C++代码后输出的是( )<pre><code>\nstring str=\"chen\";\nint x=str.length();\nfor(int i=0;i<=x;i++)\n    temp++;\ncout<<temp<<endl;\n</code></pre>",
+        "options": ["A. 4", "B. 2", "C. 5", "D. 3"],
+        "correct": "C",
+        "explanation": "x=4，循环i从0到4，共5次，temp=5，输出5，故C正确。",
+        "source": "GESP2023年12月认证C++三级真题.pdf 单选题第5题"
+    },
+    {
+        "id": "14",
+        "type": "single",
+        "question": "如果数组定义为long long array[] = {3, 5, 7, 2}; ,则数组array 占用的字节数为( )",
+        "options": ["A. 32", "B. 16", "C. 8", "D. 4"],
+        "correct": "A",
+        "explanation": "long long类型每个元素占8字节，4个元素共32字节，故A正确。",
+        "source": "GESP2023年9月认证C++三级真题.pdf 单选题第5题"
+    },
+    {
+        "id": "15",
+        "type": "single",
+        "question": "一个数组定义为double array[3]; ,则可合理访问这个数组的元素的下标最大为( )",
+        "options": ["A. 2", "B. 3", "C. 23", "D. 24"],
+        "correct": "A",
+        "explanation": "数组下标从0开始，3个元素下标为0、1、2，最大为2，故A正确。",
+        "source": "GESP2023年9月认证C++三级真题.pdf 单选题第6题"
+    },
+    {
+        "id": "16",
+        "type": "single",
+        "question": "下列关于C++语言中数组的叙述,不正确的是( )<pre><code>\nA. 可以定义0 个元素的数组\nB. 不能定义-1 个元素的数组\nC. 数组下标越界访问会产生编译错误\nD. 程序运行时发生数组下标的越界访问,程序依然可能正常结束\n</code></pre>",
+        "options": ["A. A", "B. B", "C. C", "D. D"],
+        "correct": "C",
+        "explanation": "数组下标越界访问可能导致运行时错误，不一定产生编译错误，故C不正确，C正确。",
+        "source": "GESP2023年9月认证C++三级真题.pdf 单选题第9题"
+    },
+    {
+        "id": "17",
+        "type": "single",
+        "question": "在下列代码的横线处填写( ),可以使得输出是“20 10”<pre><code>\n#include <iostream>\nusing namespace std;\nint main(){\n    int a=10,b=20;\n    a=(a<<8)|b;\n    ____//在此处填入代码\n    cout<<a<<\" \"<<b<<endl;\n    return0;\n}\n</code></pre>",
+        "options": ["A. a = a >> 8; b = a & 0xff", "B. b = a >> 8; a = a & 0xff;", "C. a = b; b = a & 0xff;", "D. b = a; a = b;"],
+        "correct": "B",
+        "explanation": "a<<8后高8位是10，低8位是b=20，a>>8得到高8位的值10赋给b，a&0xff得到低8位的值20，故输出20 10，B正确。",
+        "source": "GESP2023年9月认证C++三级真题.pdf 单选题第13题"
+    },
+    {
+        "id": "18",
+        "type": "single",
+        "question": "执行下面C++代码后输出的第一个数是( )<pre><code>\nint main(){\n    int a[20],i;\n    for(i = 0; i < 20; i++)\n        a[i] = i+1;\n    for( ; i > 0; i--)\n        cout << a[i-1] << \" \";\n}\n</code></pre>",
+        "options": ["A. 20", "B. 19", "C. 1", "D. 不确定"],
+        "correct": "A",
+        "explanation": "第一个循环给数组a赋值为1到20，第二个循环从i=20开始递减，输出a[i-1]，第一个输出的是a[19]=20，故A正确。",
+        "source": "GESP2024年3月认证C++三级真题.pdf 单选题第7题"
+    },
+    {
+        "id": "19",
+        "type": "single",
+        "question": "已知字符'0' 的ASCII编码的十进制表示为48,则执行下面C++代码后,输出是( )<pre><code>\nint main() {\n    string s=\"316\";\n    int n=s.length();\n    int x=0;\n    for(int i = 0; i < n; i++)\n        x += s[i];\n    cout << x << endl;\n}\n</code></pre>",
+        "options": ["A. 10", "B. 58", "C. 154", "D. 316"],
+        "correct": "C",
+        "explanation": "字符'3'、'1'、'6'的ASCII码分别为51、49、54，总和为51+49+54=154，故C正确。",
+        "source": "GESP2024年3月认证C++三级真题.pdf 单选题第5题"
+    },
+    {
+        "id": "20",
+        "type": "single",
+        "question": "下面C++代码执行后数组中大于0的数的特征是( )<pre><code>\nint main() {\n    int a[20],i;\n    for(i = 0; i < 20; i++)\n        a[i] = i+1;\n    for(int i = 0; i < 20; i++)\n        if((a[i]%2)&&(a[i]%3))\n            a[i] = 0;\n    for(i = 0; i < 20; i++)\n        if(a[i]) cout << a[i] << \" \";\n}\n</code></pre>",
+        "options": ["A. 2的倍数", "B. 3的倍数", "C. 能被2或3整除的数", "D. 能被2和3同时整除的数"],
+        "correct": "C",
+        "explanation": "当a[i]不能被2和3整除时（即(a[i]%2)&&(a[i]%3)为真），将其置0，所以剩下的数是能被2或3整除的数，故C正确。",
+        "source": "GESP2024年3月认证C++三级真题.pdf 单选题第6题"
+    },
+    {
+        "id": "21",
+        "type": "single",
+        "question": "在下列代码的横线处填写( ),可以使得输出是“7”<pre><code>\n#include <iostream>\nusing namespace std;\nint main() {\n    int array[5] = {3,7,5,2,4};\n    int max = 0;\n    for(int i=0; i<5; i++)\n        if(_____)\n            max = array[i];\n    cout << max << endl;\n}\n</code></pre>",
+        "options": ["A. max > array[i]", "B. max < array[i]", "C. max = array[i]", "D. 以上均不对"],
+        "correct": "B",
+        "explanation": "当max小于array[i]时，更新max为array[i]，最终max为7，故B正确。",
+        "source": "GESP2024年3月认证C++三级真题.pdf 单选题第10题"
+    },
+    {
+        "id": "22",
+        "type": "single",
+        "question": "下列程序输出的是( )<pre><code>\nstring ch=\"hello\";\nif(ch[5]==NULL)\n{\n    cout<<\"right\"<<endl;\n}\nelse if (ch[5]=='\\0')\n{\n    cout<<\"wrong\"<<endl;\n}\nelse\n{\n    cout<<\"hello\"<<endl;\n}\n</code></pre>",
+        "options": ["A. right", "B. wrong", "C. hello", "D. 不能正确执行"],
+        "correct": "B",
+        "explanation": "字符串\"hello\"的长度为5，ch[5]是字符串结束符'\\0'，所以条件ch[5]=='\\0'成立，输出wrong，故B正确。",
+        "source": "GESP 2024年12月认证 C++ 3级真题.pdf 单选题第9题"
+    },
+    {
+        "id": "23",
+        "type": "single",
+        "question": "下列程序最后输出的是()<pre><code>\nint a=65;\ncout<<tolower(a)<<endl;\n</code></pre>",
+        "options": ["A. 65", "B. A", "C. a", "D. 97"],
+        "correct": "C",
+        "explanation": "tolower函数将大写字母转换为小写字母，'A'的ASCII码65转换为'a'，输出'a'，故C正确。",
+        "source": "GESP 2024年12月认证 C++ 3级真题.pdf 单选题第11题"
+    },
+    {
+        "id": "24",
+        "type": "single",
+        "question": "在下列代码的横线处填写( ),可以使得输出不是“31”<pre><code>\n#include <iostream>\nusing namespace std;\nint main(){\n    int array[5] = {1,2,4,8,16};\n    int res=0;\n    for(int i=0;i<5;i++)\n        ______;\n    cout<<res<<endl;\n}\n</code></pre>",
+        "options": ["A. res = res + array[i]", "B. res = res & array[i]", "C. res = res | array[i]", "D. res = res ^ array[i]"],
+        "correct": "B",
+        "explanation": "选项B中res初始为0，0与任何数按位与结果为0，所以输出0，不是31，故B正确。",
+        "source": "2023年GESP 6月认证C++三级真题.pdf 单选题第15题"
+    },
+    {
+        "id": "25",
+        "type": "truefalse",
+        "question": "在C++中,位运算符也有类似“先乘除､后加减”的优先级规则,因此,使用时应注意合理使用括号。（对/错）",
+        "correct": "√",
+        "explanation": "位运算符有特定的优先级顺序，使用时需注意优先级，必要时用括号明确运算顺序，故说法正确。",
+        "source": "GESP2023年9月认证C++三级真题.pdf 判断题第2题"
+    },
+    {
+        "id": "26",
+        "type": "truefalse",
+        "question": "字符常量'3'的值和int类型常量3的值是相同的,只是占用的字节数不同。（对/错）",
+        "correct": "×",
+        "explanation": "字符'3'的ASCII码是51，与int常量3的值不同，故说法错误。",
+        "source": "GESP2023年9月认证C++三级真题.pdf 判断题第3题"
+    },
+    {
+        "id": "27",
+        "type": "truefalse",
+        "question": "在C++语言中,长度为n的数组,访问下标为n的元素会引起编译错误。（对/错）",
+        "correct": "×",
+        "explanation": "数组下标越界访问在编译时不一定会报错，可能在运行时出错，故说法错误。",
+        "source": "GESP2023年9月认证C++三级真题.pdf 判断题第4题"
+    },
+    {
+        "id": "28",
+        "type": "truefalse",
+        "question": "在C++语言中,所有int类型的值,经过若干次左移操作(<<)后,它们的值总会变为0。（对/错）",
+        "correct": "√",
+        "explanation": "左移操作会使数值增大，但若超过int类型的表示范围，会导致溢出，最终可能变为0，故说法正确。",
+        "source": "GESP2023年9月认证C++三级真题.pdf 判断题第5题"
+    },
+    {
+        "id": "29",
+        "type": "truefalse",
+        "question": "在C++语言中,字符串是以'\\0'结尾的字符数组。（对/错）",
+        "correct": "√",
+        "explanation": "C++中字符串以空字符'\\0'作为结束标志，故说法正确。",
+        "source": "2023年6月 GESP C++三级试题解析.pdf 判断题第3题"
+    },
+    {
+        "id": "30",
+        "type": "truefalse",
+        "question": "在C++语言中,可以使用字符(如'0')作为数组下标。（对/错）",
+        "correct": "√",
+        "explanation": "字符会被转换为对应的ASCII码值作为数组下标，故说法正确。",
+        "source": "2023年6月 GESP C++三级试题解析.pdf 判断题第6题"
+    }
+]

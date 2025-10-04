@@ -1,0 +1,234 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "下列关于C++语言变量的叙述，正确的是( )｡",
+    "options": [
+      "A. 变量可以没有定义",
+      "B. 对一个没有定义的变量赋值，相当于定义了一个新变量",
+      "C. 执行赋值语句后，变量的类型可能会变化",
+      "D. 执行赋值语句后，变量的值可能不会变化"
+    ],
+    "correct": "D",
+    "explanation": "变量需先定义后使用（排除A、B），赋值不改变类型（排除C）。若赋值前后值相同，值不变（如a=5; a=5;），故D正确。",
+    "source": "2023年6月 GESP C++一级试题解析.pdf 单选题 第4题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "以下可以作为C++标识符的是( )｡",
+    "options": [
+      "A. number_of_Chinese_people_in_millions",
+      "B. 360AntiVirus",
+      "C. Man&Woman",
+      "D. break"
+    ],
+    "correct": "A",
+    "explanation": "标识符只能含字母、数字、下划线，且不能以数字开头或为关键字。B（数字开头）、C（&非法）、D（关键字）均错误，A合法。",
+    "source": "2023年6月 GESP C++一级试题解析.pdf 单选题 第5题"
+  },
+  {
+    "id": "3",
+    "type": "truefalse",
+    "question": "在C++语言中，标识符的命名不能完全由数字组成，至少有一个字母就可以｡(对/错)",
+    "correct": "×",
+    "explanation": "标识符不能以数字开头，但可包含数字（如“_123”合法），且不强制要求字母（如下划线开头），故说法错误。",
+    "source": "2023年6月 GESP C++一级试题解析.pdf 判断题 第4题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "以下C++不可以作为变量名称的是( )｡",
+    "options": [
+      "A. redStar",
+      "B. RedStar",
+      "C. red_star",
+      "D. red star"
+    ],
+    "correct": "D",
+    "explanation": "变量名不能包含空格，D含空格，违反命名规则。A、B、C均符合字母+数字+下划线规则。",
+    "source": "2023年9月 GESP C++一级试题解析.pdf 单选题 第2题"
+  },
+  {
+    "id": "5",
+    "type": "truefalse",
+    "question": "在C++代码中，不可以将变量命名为cout，因为cout是C++的关键字｡(对/错)",
+    "correct": "×",
+    "explanation": "cout是标准库对象，非关键字。变量名可使用cout（不推荐），但关键字如if、for不可用，故说法错误。",
+    "source": "2023年9月 GESP C++一级试题解析.pdf 判断题 第9题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "下列关于C++语言的叙述，不正确的是( )｡",
+    "options": [
+      "A. 变量使用前必须先定义",
+      "B. if语句中的判断条件必须写在()中",
+      "C. for语句的循环体必须写在{}中",
+      "D. 程序必须先编译才能运行"
+    ],
+    "correct": "C",
+    "explanation": "for循环体若为单条语句可省略{}（如for(int i=0; i<10; i++) cout<<i;），故C错误。A、B、D均为正确叙述。",
+    "source": "2023年3月 GESP C++一级试题解析.pdf 单选题 第4题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "以下不可以作为C++标识符的是( )｡",
+    "options": [
+      "A. x321",
+      "B. 0x321",
+      "C. x321_",
+      "D. _x321"
+    ],
+    "correct": "B",
+    "explanation": "B 是十六进制常量写法（0x开头），不是标识符格式，不能作为变量名。A、C、D 均合法。",
+    "source": "2023年3月 GESP C++一级试题解析.pdf 单选题 第5题"
+  },
+  {
+    "id": "8",
+    "type": "truefalse",
+    "question": "在C++语言中，变量被赋值之后的类型不变｡(对/错)",
+    "correct": "√",
+    "explanation": "C++中变量类型由定义时确定，赋值不改变类型（如int a=5; a=3.14; 实际存储为3，但类型仍为int），故说法正确。",
+    "source": "2023年3月 GESP C++一级试题解析.pdf 判断题 第2题（改编）"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "在C++中，下列不可做变量的是( )｡",
+    "options": [
+      "A. five-Star",
+      "B. five_star",
+      "C. fiveStar",
+      "D. _fiveStar"
+    ],
+    "correct": "A",
+    "explanation": "变量名不能包含减号（-），A含非法字符，B、C、D均合法（下划线/字母开头，含字母、数字、下划线）。",
+    "source": "2024年6月 GESP C++一级真题.pdf 单选题 第1题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "下面C++代码段执行后的输出是( )｡ int a=3,b=4; cout<<\"a+b=\"<<a+b;",
+    "options": [
+      "A. 3+4=7",
+      "B. 3+4=7",
+      "C. a+b=7",
+      "D. a+b=a+b"
+    ],
+    "correct": "C",
+    "explanation": "双引号内内容直接输出，a+b计算为7，故输出“a+b=7”，C正确。",
+    "source": "2024年6月 GESP C++一级真题.pdf 单选题 第4题"
+  },
+  {
+    "id": "11",
+    "type": "truefalse",
+    "question": "在C++代码中，studentName、student_name、sStudentName都是合法的变量名称｡(对/错)",
+    "correct": "√",
+    "explanation": "三者均以字母开头，含字母、下划线，无非法字符，符合C++标识符规则，故说法正确。",
+    "source": "2024年12月 GESP C++一级真题.pdf 判断题 第8题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "以下C++不可以作为变量名称的是( )｡",
+    "options": [
+      "A. CCF_GESP",
+      "B. ccfGESP",
+      "C. CCFgesp",
+      "D. CCF GESP"
+    ],
+    "correct": "D",
+    "explanation": "变量名不能包含空格，D含空格，非法。A、B、C均合法（下划线/字母开头，无特殊符号）。",
+    "source": "GESP2023年9月认证C++一级真题.pdf 单选题 第2题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "按照C++语言的语法，以下不是正确的变量定义语句是( )｡",
+    "options": [
+      "A. int a;",
+      "B. int a=10;",
+      "C. int a(10);",
+      "D. a=10;"
+    ],
+    "correct": "D",
+    "explanation": "D未定义变量a直接赋值，非法。A（声明）、B（初始化）、C（构造初始化）均正确。",
+    "source": "GESP C++ 一级样题.pdf 单选题 第6题"
+  },
+  {
+    "id": "14",
+    "type": "truefalse",
+    "question": "C++语言中的标识符只能由大写字母和小写字母组成｡(对/错)",
+    "correct": "×",
+    "explanation": "标识符可包含字母、数字、下划线（如“a1”“_var”），故说法错误。",
+    "source": "GESP C++ 一级样题.pdf 判断题 第4题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "下列符号可以作为C++变量名的是( )｡",
+    "options": [
+      "A. $abc",
+      "B. 3abc",
+      "C. abc_3",
+      "D. int"
+    ],
+    "correct": "C",
+    "explanation": "A（$非法）、B（数字开头）、D（关键字）均错误，C（字母开头+下划线+数字）合法。",
+    "source": "GESP C++ 一级样题.pdf 单选题 第5题"
+  },
+  {
+    "id": "16",
+    "type": "truefalse",
+    "question": "在C++中，变量定义时必须进行初始化｡(对/错)",
+    "correct": "×",
+    "explanation": "变量定义时可暂不初始化（如int a;），但未初始化的局部变量值不确定，故说法错误。",
+    "source": "2024年3月认证C++一级真题.pdf 判断题 第5题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "执行以下C++语言程序后，输出结果是( )｡ int sum; for (int i=1;i<=20;i++) if(i%3==0||i%5==0) sum+=i; cout<<sum<<endl;",
+    "options": [
+      "A. 63",
+      "B. 98",
+      "C. 113",
+      "D. 无法确定"
+    ],
+    "correct": "D",
+    "explanation": "变量sum未初始化，其初始值不确定，累加结果无法确定，故D正确。",
+    "source": "2023年6月 GESP C++一级试题解析.pdf 单选题 第15题"
+  },
+  {
+    "id": "18",
+    "type": "truefalse",
+    "question": "在C++代码中，定义变量int cnt=0; 后，执行for(int i=1;i<=5;i++) cnt++; 最终cnt的值为5｡(对/错)",
+    "correct": "√",
+    "explanation": "循环执行5次，每次cnt自增1，初始为0，最终为5，故说法正确。",
+    "source": "2023年9月 GESP C++一级试题解析.pdf 单选题 第10题（改编）"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )｡ int N=0; for (int i=1; i<10; i+=2) { if (i % 2 == 1) continue; N += 1; } cout<<N;",
+    "options": [
+      "A. 5",
+      "B. 4",
+      "C. 2",
+      "D. 0"
+    ],
+    "correct": "D",
+    "explanation": "i取值1、3、5、7、9，均为奇数，每次触发continue跳过N+=1，故N始终为0，输出0。",
+    "source": "2024年9月 GESP C++一级真题.pdf 单选题 第10题"
+  },
+  {
+    "id": "20",
+    "type": "truefalse",
+    "question": "C++中定义变量int a=5,b=4,c=3; 后，表达式(a<b<c) 的值为逻辑假｡(对/错)",
+    "correct": "×",
+    "explanation": "表达式按左结合性计算，先a<b（5<4为假，值0），再0<c（0<3为真），最终结果为真，故说法错误。",
+    "source": "2024年9月 GESP C++一级真题.pdf 判断题 第10题"
+  }
+]

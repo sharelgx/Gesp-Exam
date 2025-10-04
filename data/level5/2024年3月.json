@@ -1,0 +1,332 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "唯一分解定理描述的内容是( )?",
+    "options": [
+      "A. 任意整数都可以分解为素数的乘积",
+      "B. 每个合数都可以唯一分解为一系列素数的乘积",
+      "C. 两个不同的整数可以分解为相同的素数乘积",
+      "D. 以上都不对"
+    ],
+    "correct": "B",
+    "explanation": "唯一分解定理（算术基本定理）指出：每个大于1的合数都可以唯一地分解为有限个质数的乘积，这里的“唯一”是指不计次序的唯一。A选项错误，因为1不能分解为素数的乘积；C选项与定理内容相悖；因此B选项正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "贪心算法的核心思想是( )?",
+    "options": [
+      "A. 在每一步选择中都做当前状态下的最优选择",
+      "B. 在每一步选择中都选择局部最优解",
+      "C. 在每一步选择中都选择全局最优解",
+      "D. 以上都对"
+    ],
+    "correct": "A",
+    "explanation": "贪心算法的核心是在每一步决策中选择当前状态下的最优选择（即局部最优），但局部最优不一定能导致全局最优。B选项表述不严谨，“局部最优解”需限定为“当前状态下”；C选项错误，贪心算法不直接选择全局最优；因此A选项正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "下面的C++代码片段用于计算阶乘。请在横线处填入( )，实现正确的阶乘计算。<pre><code>int factorial(int n) {\n  if (n == 0 || n == 1) {\n    return 1;\n  } else {\n    // 在此处填入代码\n  }\n}</code></pre>",
+    "options": [
+      "A. return n * factorial(n - 1);",
+      "B. return factorial(n - 1) / n;",
+      "C. return n * factorial(n);",
+      "D. return factorial(n / 2) * factorial(n / 2);"
+    ],
+    "correct": "A",
+    "explanation": "阶乘的递归定义为：n! = n × (n-1)!，边界条件为0! = 1、1! = 1。A选项符合递归逻辑；B选项运算错误；C选项会导致无限递归；D选项是错误的分治逻辑，因此A选项正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "下面的代码片段用于在双向链表中删除一个节点。请在横线处填入( )，使其能正确实现相应功能。<pre><code>void deleteNode(DoublyListNode*& head, int value) {\n  DoublyListNode* current = head;\n  while (current != nullptr && current->val != value) {\n    current = current->next;\n  }\n  if (current != nullptr) {\n    if (current->prev != nullptr) {\n      // 在此处填入代码\n    } else {\n      head = current->next;\n      if (current->next != nullptr) {\n        current->next->prev = current->prev;\n      }\n    }\n    delete current;\n  }\n}</code></pre>",
+    "options": [
+      "A. if (current->next != nullptr) current->next->prev = current->prev;",
+      "B. current->prev->next = current->next;",
+      "C. delete current->next;",
+      "D. current->prev = current->next;"
+    ],
+    "correct": "B",
+    "explanation": "在双向链表中删除节点current（非头节点）时，需修改其前驱节点的next指针，使其指向current的后继节点，以维护链表的连续性。B选项“current->prev->next = current->next;”正确完成了这一操作；A选项是修改后继节点的prev指针，需在后续处理；C、D选项逻辑错误，因此B选项正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "辗转相除法也被称为( )",
+    "options": [
+      "A. 高斯消元法",
+      "B. 费马定理",
+      "C. 欧几里德算法",
+      "D. 牛顿迭代法"
+    ],
+    "correct": "C",
+    "explanation": "辗转相除法是求两个整数最大公约数的算法，由古希腊数学家欧几里得提出，因此也称为欧几里德算法。A选项用于解线性方程组，B选项是数论定理，D选项用于求方程近似解，因此C选项正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "下面的代码片段用于计算斐波那契数列。该代码的时间复杂度是( )?<pre><code>int fibonacci(int n) {\n  if (n <= 1) {\n    return n;\n  } else {\n    return fibonacci(n - 1) + fibonacci(n - 2);\n  }\n}</code></pre>",
+    "options": [
+      "A. O(n)",
+      "B. O(n log n)",
+      "C. O(2ⁿ)",
+      "D. O(n²)"
+    ],
+    "correct": "C",
+    "explanation": "该递归实现的斐波那契数列计算中，每个函数调用会产生两个子调用，递归树的深度为n，节点总数约为2ⁿ，因此时间复杂度为O(2ⁿ)，C选项正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "下面的代码片段用于将两个高精度整数进行相加。请在横线处填入( )，使其能正确实现相应功能。<pre><code>string add(string num1, string num2) {\n  string result;\n  int carry = 0;\n  int i = num1.size() - 1, j = num2.size() - 1;\n  while (i >= 0 || j >= 0 || carry) {\n    int x = (i >= 0) ? num1[i--] - '0' : 0;\n    int y = (j >= 0) ? num2[j--] - '0' : 0;\n    int sum = x + y + carry;\n    carry = sum / 10;\n    // 在此处填入代码\n  }\n  return result;\n}</code></pre>",
+    "options": [
+      "A. result = to_string(sum % 10) + result;",
+      "B. result = to_string(carry % 10) + result;",
+      "C. result = to_string(sum / 10) + result;",
+      "D. result = to_string(sum % 10 + carry) + result;"
+    ],
+    "correct": "A",
+    "explanation": "高精度加法中，每一步的当前位结果为sum % 10，需将其添加到结果的前端（因计算顺序是从低位到高位）。A选项正确将当前位数字拼接到结果前；B、C选项使用了错误的数值（carry或sum/10是进位）；D选项重复计算了carry，因此A选项正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "给定序列:1,3,6,9,17,31,39,52,61,79,81,90,96。使用以下代码进行二分查找查找元素82时，需要循环多少次，即最后输出的times值为( )。<pre><code>int binarySearch(const std::vector<int>& arr, int target) {\n  int left = 0;\n  int times = 0;\n  int right = arr.size() - 1;\n  while (left <= right) {\n    times++;\n    int mid = left + (right - left) / 2;\n    if (arr[mid] == target) {\n      cout << times << endl;\n      return mid;\n    } else if (arr[mid] < target) {\n      left = mid + 1;\n    } else {\n      right = mid - 1;\n    }\n  }\n  cout << times << endl;\n  return -1;\n}</code></pre>",
+    "options": [
+      "A. 2",
+      "B. 5",
+      "C. 3",
+      "D. 4"
+    ],
+    "correct": "D",
+    "explanation": "二分查找82的过程如下：\n1. 初始left=0，right=12，mid=6，arr[mid]=39 < 82 → left=7；times=1\n2. left=7，right=12，mid=9，arr[mid]=79 < 82 → left=10；times=2\n3. left=10，right=12，mid=11，arr[mid]=90 > 82 → right=10；times=3\n4. left=10，right=10，mid=10，arr[mid]=81 < 82 → left=11；times=4\n此时left>right，循环结束，共4次，D选项正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "下面的代码片段用于判断一个正整数是否为素数。请对以下代码进行修改，使其能正确实现相应功能。<pre><code>bool isPrime(int num) {\n  if (num < 2) {\n    return false;\n  }\n  for (int i = 2; i * i < num; ++i) {\n    if (num % i == 0) {\n      return false;\n    }\n  }\n  return false;\n}</code></pre>",
+    "options": [
+      "A. num < 2 应该改为 num <= 2",
+      "B. 循环条件 i * i < num 应该改为 i * i <= num",
+      "C. 循环条件应该是 i <= num",
+      "D. 循环体中应该是 if (num % i != 0)"
+    ],
+    "correct": "B",
+    "explanation": "判断素数时，循环需检查到√num（即i*i <= num），否则会遗漏i=√num的情况（如num=25，i=5时i*i=25 == num，需纳入检查）。原代码循环条件i*i < num会导致错误。B选项修正了这一问题；A选项错误，num=2是素数；C选项效率过低；D选项逻辑颠倒，因此B选项正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "在埃拉托斯特尼筛法中，要筛选出不大于n的所有素数，最外层循环应该遍历什么范围( )?<pre><code>vector<int> sieveOfEratosthenes(int n) {\n  std::vector<bool> isPrime(n + 1, true);\n  std::vector<int> primes;\n  for (int i = sqrt(n) + 1; i <= n; ++i) {\n    if (isPrime[i]) {\n      primes.push_back(i);\n      for (int j = i * i; j <= n; j += i) {\n        isPrime[j] = false;\n      }\n    }\n  }\n  for (int i = sqrt(n) + 1; i <= n; ++i) {\n    if (isPrime[i]) {\n      primes.push_back(i);\n    }\n  }\n  return primes;\n}</code></pre>",
+    "options": [
+      "A. for (int i = 2; i <= n; ++i)",
+      "B. for (int i = 1; i < n; ++i)",
+      "C. for (int i = 2; i <= sqrt(n); ++i)",
+      "D. for (int i = 1; i <= sqrt(n); ++i)"
+    ],
+    "correct": "C",
+    "explanation": "埃拉托斯特尼筛法的核心是：对于每个素数i，标记其倍数为非素数。最外层循环只需遍历到√n，因为大于√n的非素数必定会被小于等于√n的素数标记。C选项“for (int i = 2; i <= sqrt(n); ++i)”符合这一逻辑；A选项范围过大，B、D选项包含1（非素数），因此C选项正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "素数的线性筛法时间复杂度为( )。",
+    "options": [
+      "A. O(n)",
+      "B. O(n log n)",
+      "C. O(n log log n)",
+      "D. O(n²)"
+    ],
+    "correct": "A",
+    "explanation": "线性筛法（欧拉筛）通过保证每个合数只被其最小质因数筛除一次，实现了线性时间复杂度O(n)，效率高于埃氏筛法的O(n log log n)。因此A选项正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "归并排序的基本思想是( )。",
+    "options": [
+      "A. 动态规划",
+      "B. 分治",
+      "C. 贪心算法",
+      "D. 回溯算法"
+    ],
+    "correct": "B",
+    "explanation": "归并排序的核心思想是分治：将序列分为两个子序列，分别排序后合并为有序序列。A选项用于求解重叠子问题，C选项用于局部最优选择，D选项用于探索所有可能解，因此B选项正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "在快速排序中，选择的主元素(pivot)会影响算法的( )。",
+    "options": [
+      "A. 不影响",
+      "B. 时间复杂度",
+      "C. 空间复杂度",
+      "D. 时间复杂度和空间复杂度"
+    ],
+    "correct": "B",
+    "explanation": "快速排序中，主元素（pivot）的选择影响划分的平衡性：若每次划分均匀，时间复杂度为O(n log n)；若划分极端不平衡（如已排序数组选第一个元素为pivot），时间复杂度退化至O(n²)。空间复杂度主要由递归栈决定，受pivot影响较小（最坏均为O(n)）。因此B选项正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "递归函数在调用自身时，必须满足( )，以避免无限递归?",
+    "options": [
+      "A. 有终止条件",
+      "B. 函数参数递减(或递增)",
+      "C. 函数返回值固定",
+      "D. 以上都对"
+    ],
+    "correct": "A",
+    "explanation": "递归函数必须有明确的终止条件（如基例），否则会无限递归。B选项参数递变是常见手段，但不是必须（如某些分形递归）；C选项返回值固定与递归无关。因此A选项正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "假设给定链表为:1->2->3->4->5，若调用searchValue(head, 5)，函数返回值为( )。<pre><code>int searchValue(ListNode* head, int target) {\n  while (head != nullptr) {\n    if (head->val == target) {\n      return 1;\n    }\n    head = head->next;\n  }\n  return 0;\n}</code></pre>",
+    "options": [
+      "A. 返回 1",
+      "B. 返回 0",
+      "C. 死循环，无法返回",
+      "D. 返回 -1"
+    ],
+    "correct": "A",
+    "explanation": "函数searchValue遍历链表，若找到值为target的节点则返回1，否则返回0。给定链表包含值为5的节点，因此调用searchValue(head, 5)会返回1，A选项正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "辗转相除法用于求两个整数的最大公约数。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "辗转相除法（欧几里德算法）的核心是通过反复用较大数除以较小数取余数，直至余数为0，此时的除数即为最大公约数，该说法正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "插入排序的时间复杂度是O(N log N)。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "插入排序的时间复杂度为O(N²)，无论最好、最坏还是平均情况均如此，O(N log N)是归并排序、快速排序等算法的时间复杂度，因此该说法错误。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "二分查找要求被搜索的序列是有序的，否则无法保证正确性。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "二分查找的核心是通过比较中间元素与目标值，缩小搜索范围，这依赖于序列的有序性。无序序列无法保证每次缩小范围的正确性，因此该说法正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "使用贪心算法解决问题时，每一步的局部最优解一定会导致全局最优解。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "贪心算法选择局部最优解，但局部最优的累积不一定是全局最优（如部分找零问题、活动选择问题的特殊情况），因此该说法错误。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "分治算法的核心思想是将一个大问题分解成多个相同或相似的子问题进行解决，最后合并得到原问题的解。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "分治算法的核心是“分而治之”：将大问题分解为规模较小的子问题，递归求解子问题后合并结果，该说法正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "分治算法的典型应用之一是归并排序，其时间复杂度为O(N log N)。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "归并排序是分治算法的典型应用，其时间复杂度为O(N log N)，无论最好、最坏情况均如此，该说法正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "素数表的埃氏筛法和线性筛法的时间复杂度都是O(N log log N)。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "埃氏筛法的时间复杂度为O(N log log N)，而线性筛法（欧拉筛）通过优化使每个合数仅被筛除一次，时间复杂度为O(N)，因此该说法错误。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "贪心算法是一种可以应用于所有问题的通用解决方案。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "贪心算法仅适用于满足“贪心选择性质”和“最优子结构”的问题，并非所有问题都适用（如0-1背包问题），因此该说法错误。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "单链表和双链表都可以在常数时间内实现在链表头部插入或删除节点的操作。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "在链表头部插入或删除节点时，单链表只需修改头指针，双链表只需修改头指针和新节点的前驱/后继指针，均为O(1)常数时间操作，该说法正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "在C语言中，递归的实现方式通常会占用更多的栈空间，可能导致栈溢出。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "递归调用会在栈上创建函数栈帧，存储局部变量、返回地址等信息，递归深度过大时会消耗大量栈空间，可能导致栈溢出，该说法正确。",
+    "source": "2024年3月 GESP C++五级真题"
+  }
+]

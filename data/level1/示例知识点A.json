@@ -1,0 +1,24 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "下列哪个选项是合法的 C++ 标识符？",
+    "options": [
+      "A. 1_var",
+      "B. _myVar",
+      "C. my-Var",
+      "D. void"
+    ],
+    "correct": "B",
+    "explanation": "C++ 标识符不能以数字开头，选项 B 以下划线开头且不与关键字冲突，因此合法。",
+    "source": "GESP C++ 一级 历年真题 2019年 第3题"
+  },
+  {
+    "id": "2",
+    "type": "truefalse",
+    "question": "在 C++ 中，关键字不能用作标识符。 (对/错)",
+    "correct": "true",
+    "explanation": "关键字（如 int、char、return 等）是保留字，不能用于自定义标识符。",
+    "source": "GESP C++ 一级 模拟题"
+  }
+]

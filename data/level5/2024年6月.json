@@ -1,0 +1,227 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "下面C++代码用于求斐波那契数列，该数列第1、2项为1，以后各项均是前两项之和。函数fibo()属于( )<pre><code>int fibo(int n) {\n  if (n <= 0)\n    return 0;\n  if (n == 1 || n == 2)\n    return 1;\n  int a = 1, b = 1, next;\n  for (int i = 3; i <= n; i++) {\n    next = a + b;\n    a = b;\n    b = next;\n  }\n  return next;\n}</code></pre>",
+    "options": ["A. 枚举算法", "B. 贪心算法", "C. 迭代算法", "D. 递归算法"],
+    "correct": "C",
+    "explanation": "函数fibo通过循环（for循环）逐步计算斐波那契数列的每一项，利用变量a和b迭代更新当前项的值，属于迭代算法。递归算法会直接或间接调用自身，而此函数未使用递归，因此D错误。枚举算法和贪心算法与此无关，A、B错误。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "下面C++代码用于将输入金额换成最少币种组合方案，其实现算法是( )<pre><code>#include <iostream>\nusing namespace std;\n#define N_COINS 7\nint coins[N_COINS] = {100, 50, 20, 10, 5, 2, 1}; // 货币面值，单位相同\nint coins_used[N_COINS];\nvoid find_coins(int money) {\n  for (int i = 0; i < N_COINS; i++) {\n    coins_used[i] = money / coins[i];\n    money = money % coins[i];\n  }\n}\nint main() {\n  int money;\n  cin >> money;\n  find_coins(money);\n  for (int i = 0; i < N_COINS; i++)\n    cout << coins_used[i] << endl;\n  return 0;\n}</code></pre>",
+    "options": ["A. 枚举算法", "B. 贪心算法", "C. 迭代算法", "D. 递归算法"],
+    "correct": "B",
+    "explanation": "代码中从最大面值的货币开始，优先使用最大面值的硬币，逐步减小金额，直至金额为0。这种每次选择当前最优（最大面值）的策略符合贪心算法的特征，因此B正确。枚举算法会尝试所有可能组合，迭代算法强调循环更新，递归算法涉及函数自调用，均不符合此代码逻辑。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "小杨采用如下双链表结构保存他喜欢的歌曲列表：<pre><code>struct dl_node {\n  string song;\n  dl_node* next;\n  dl_node* prev;\n};</code></pre>小杨想在头指针为head的双链表中查找他喜欢的某首歌曲，采用如下查询函数，该操作的时间复杂度为( )<pre><code>dl_node* search(dl_node* head, string my_song) {\n  dl_node* temp = head;\n  while (temp != nullptr) {\n    if (temp->song == my_song)\n      return temp;\n    temp = temp->next;\n  }\n  return nullptr;\n}</code></pre>",
+    "options": ["A. O(1)", "B. O(n)", "C. O(n²)", "D. O(log n)"],
+    "correct": "B",
+    "explanation": "查询函数通过while循环遍历链表，最坏情况下需要检查链表中的所有n个节点（当目标歌曲在末尾或不存在时），因此时间复杂度为O(n)，B正确。O(1)表示常数时间（如数组随机访问），O(n²)表示嵌套循环，O(log n)表示二分查找等对数级复杂度，均不符合此遍历逻辑。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "小杨想在如上题所述的双向链表中加入一首新歌曲。为了能快速找到该歌曲，他将其作为链表的第一首歌曲，则下面横线上应填入的代码为( )<pre><code>void insert(dl_node* head, string my_song) {\n  dl_node* p = new dl_node;\n  p->song = my_song;\n  p->prev = nullptr;\n  p->next = head;\n  if (head != nullptr) {\n    // 在此处填入代码\n  }\n  head = p;\n}</code></pre>",
+    "options": ["A. head->next->prev = p;", "B. head->next = p;", "C. head->prev = p;", "D. 触发异常，不能对空指针进行操作。"],
+    "correct": "C",
+    "explanation": "在双向链表头部插入新节点p时，需将原头节点head的prev指针指向p，以维护双向链接关系。代码中p->next已指向head，若head不为空，需执行head->prev = p，因此C正确。A选项操作head->next会访问空指针（原头节点无next），B选项会破坏原有链接，D选项错误因为head不为空时可安全操作。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "下面是根据欧几里得算法编写的函数，它计算的是a与b的( )<pre><code>int gcd(int a, int b) {\n  while (b != 0) {\n    int temp = b;\n    b = a % b;\n    a = temp;\n  }\n  return a;\n}</code></pre>",
+    "options": ["A. 最小公倍数", "B. 最大公共质因子", "C. 最大公约数", "D. 最小公共质因子"],
+    "correct": "C",
+    "explanation": "该函数实现了辗转相除法（欧几里得算法），用于求解两个整数的最大公约数（GCD）。算法通过反复计算余数，直至余数为0，此时非零的除数即为最大公约数，因此C正确。最小公倍数需通过公式（a*b)/gcd(a,b)计算，A错误；最大公共质因子是最大的质数因子，B、D错误。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "欧几里得算法还可以写成如下形式：<pre><code>int gcd(int a, int b) {\n  return b == 0 ? a : gcd(b, a % b);\n}</code></pre>下面有关说法，错误的是( )",
+    "options": ["A. 本题的gcd()实现为递归方式。", "B. 本题的gcd()代码量少，更容易理解其辗转相除的思想。", "C. 当a、b较大时，本题的gcd()实现会多次调用自身，需要较多额外的辅助空间。", "D. 当a、b较大时，相比上题中的gcd()的实现，本题的gcd()执行效率更高。"],
+    "correct": "D",
+    "explanation": "递归实现的gcd函数每次调用会消耗栈空间，且函数调用本身有开销。对于较大的a、b，递归深度增加，效率通常低于迭代实现（上题的循环方式），因此D错误。A、B、C均正确：该函数是递归形式，代码简洁，递归调用需额外栈空间。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "下述代码实现素数表的线性筛法，筛选出所有小于等于n的素数，则横线上应填的代码是( )<pre><code>vector<int> linear_sieve(int n) {\n  vector<bool> is_prime(n + 1, true);\n  vector<int> primes;\n  is_prime[0] = is_prime[1] = 0; // 0和1两个数特殊处理\n  for (int i = 2; i <= n; ++i) {\n    if (is_prime[i]) {\n      primes.push_back(i);\n    }\n    // 在此处填入代码\n    for (int j = 0; j < primes.size() && i * primes[j] <= n; j++) {\n      is_prime[i * primes[j]] = 0;\n      if (i % primes[j] == 0)\n        break;\n    }\n  }\n  return primes;\n}</code></pre>",
+    "options": ["A. for (int j = 0; j < primes.size() && i * primes[j] <= n; j++)", "B. for (int j = 0; j <= sqrt(n) && i * primes[j] <= n; j++)", "C. for (int j = 0; j <= n; j++)", "D. for (int j = 1; j <= sqrt(n); j++)"],
+    "correct": "A",
+    "explanation": "线性筛法的核心是通过质数数组primes标记合数，确保每个合数被其最小质因子筛除。循环需遍历已找到的质数（primes），且保证i*primes[j]不超过n，因此A正确。B选项的sqrt(n)限制错误，C、D的循环范围或条件不符合线性筛逻辑。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "上题代码的时间复杂度是( )",
+    "options": ["A. O(n)", "B. O(n log n)", "C. O(n log log n)", "D. O(n²)"],
+    "correct": "A",
+    "explanation": "线性筛法通过每个合数仅被其最小质因子筛除一次，避免了重复标记，因此时间复杂度为O(n)，A正确。埃氏筛法的时间复杂度为O(n log log n)，B、D分别对应其他算法的复杂度，均不符合线性筛的特性。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "为了正确实现快速排序，下面横线上的代码应为( )<pre><code>void qsort(vector<int>& arr, int left, int right) {\n  int i, j, pivot;\n  i = left; j = right;\n  pivot = arr[(left + right) / 2]; // 选择中间元素作为基准值\n  do {\n    while (arr[i] < pivot) i++;\n    while (arr[j] > pivot) j--;\n    if (i <= j) {\n      swap(arr[i], arr[j]); // 交换两个元素\n      i++;\n      j--;\n    }\n  } // 在此处填入代码\n  while (i <= j);\n  if (left < j)\n    qsort(arr, left, j); // 对左子数组进行快速排序\n  if (i < right)\n    qsort(arr, i, right); // 对右子数组进行快速排序\n}</code></pre>",
+    "options": ["A. while (i <= mid)", "B. while (i < mid)", "C. while (i < j)", "D. while (i <= j)"],
+    "correct": "D",
+    "explanation": "快速排序中，分区循环需持续到i超过j为止，即当i <= j时继续执行。当i > j时，左右子数组已划分完成，循环终止。因此正确的循环条件是while (i <= j)，D正确。其他选项的条件会导致分区不彻底或错误。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "关于分治算法，以下哪个说法正确?",
+    "options": ["A. 分治算法将问题分成子问题，然后分别解决子问题，最后合并结果。", "B. 归并排序不是分治算法的应用。", "C. 分治算法通常用于解决小规模问题。", "D. 分治算法的时间复杂度总是优于O(n log n)。"],
+    "correct": "A",
+    "explanation": "分治算法的核心思想是“分而治之”：将大问题分解为小问题，解决子问题后合并结果，A正确。归并排序是分治算法的典型应用（B错误）；分治算法适用于大规模问题（C错误）；其时间复杂度不一定优于O(n log n)，如快速排序最坏情况为O(n²)（D错误）。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "根据下述二分查找法，在排好序的数组1,3,6,9,17,31,39,52,61,79,81,90,96中查找数值82，和82比较的数组元素分别是( )<pre><code>int binary_search(vector<int>& nums, int target) {\n  int left = 0;\n  int right = nums.size() - 1;\n  while (left <= right) {\n    int mid = (left + right) / 2;\n    if (nums[mid] == target) {\n      return mid;\n    } else if (nums[mid] < target) {\n      left = mid + 1;\n    } else {\n      right = mid - 1;\n    }\n  }\n  return -1;\n}</code></pre>",
+    "options": ["A. 52, 61, 81, 90", "B. 52, 79, 90, 81", "C. 39, 79, 90, 81", "D. 39, 79, 90"],
+    "correct": "B",
+    "explanation": "二分查找过程如下：\n1. 初始范围[0,12]，mid=6（值39），39<82→left=7；\n2. 范围[7,12]，mid=9（值79），79<82→left=10；\n3. 范围[10,12]，mid=11（值90），90>82→right=10；\n4. 范围[10,10]，mid=10（值81），81<82→left=11，循环结束。\n比较的元素为39、79、90、81，B正确。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "要实现一个高精度减法函数，则下面代码中加划线应该填写的代码为( )<pre><code>// 假设a和b均为正数，且a表示的数比b大\nvector<int> minus(vector<int> a, vector<int> b) {\n  vector<int> c;\n  int len1 = a.size();\n  int len2 = b.size();\n  int i, t;\n  for (i = 0; i < len2; i++) {\n    if (a[i] < b[i]) {\n      // 在此处填入代码\n      a[i] += 10;\n    }\n    t = a[i] - b[i];\n    c.push_back(t);\n  }\n  for (; i < len1; i++) {\n    c.push_back(a[i]);\n  }\n  int len3 = c.size();\n  while (c[len3 - 1] == 0) {\n    c.pop_back();\n    len3--;\n  }\n  return c;\n}</code></pre>",
+    "options": ["A. a[i + 1]--;", "B. a[i]--;", "C. b[i + 1]--;", "D. b[i]--;"],
+    "correct": "A",
+    "explanation": "高精度减法中，当a[i] < b[i]时需向前一位借位，即a[i+1]减1（因为a[i]加10相当于借1），A正确。B选项操作当前位错误，C、D修改b的值不符合减法逻辑。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "设A和B是两个长度为n的有序数组，现将A和B合并成一个有序数组，归并排序算法在最坏情况下至少要做( )次比较。",
+    "options": ["A. n-1", "B. n", "C. 2n-1", "D. 2n"],
+    "correct": "C",
+    "explanation": "归并两个长度为n的有序数组时，最坏情况需比较2n-1次。例如，当A和B中的元素交替小于对方（如A=1,3,5，B=2,4,6），需比较每一个元素才能完成合并，总次数为2n-1，C正确。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "给定如下函数：<pre><code>int fun(int n) {\n  if (n == 1)\n    return 1;\n  if (n == 2)\n    return 2;\n  return fun(n - 2) - fun(n - 1);\n}</code></pre>则当n=7时，函数返回值为()",
+    "options": ["A. 0", "B. 1", "C. 21", "D. -11"],
+    "correct": "D",
+    "explanation": "递归计算过程：\nfun(7) = fun(5) - fun(6)\nfun(5) = fun(3) - fun(4)\nfun(3) = fun(1) - fun(2) = 1 - 2 = -1\nfun(4) = fun(2) - fun(3) = 2 - (-1) = 3 → fun(5) = -1 - 3 = -4\nfun(6) = fun(4) - fun(5) = 3 - (-4) = 7 → fun(7) = -4 - 7 = -11\n因此返回值为-11，D正确。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "给定如下函数（函数功能同上题，增加输出打印）：<pre><code>int fun(int n) {\n  cout << n << \" \";\n  if (n == 1)\n    return 1;\n  if (n == 2)\n    return 2;\n  return fun(n - 2) - fun(n - 1);\n}</code></pre>则当n=4时，屏幕上输出序列为()",
+    "options": ["A. 4 3 2 1", "B. 1 2 3 4", "C. 4 2 3 1 2", "D. 4 2 3 2 1"],
+    "correct": "C",
+    "explanation": "函数调用顺序：\nfun(4) → 输出4，调用fun(2)和fun(3)\nfun(2) → 输出2，返回2\nfun(3) → 输出3，调用fun(1)和fun(2)\nfun(1) → 输出1，返回1\nfun(2) → 输出2，返回2\n因此输出序列为“4 2 3 1 2”，C正确。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "如果将双向链表的最后一个结点的下一项指针指向第一个结点，第一个结点的前一项指针指向最后一个结点，则该双向链表构成循环链表。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "循环链表的定义是最后一个节点的next指针指向头节点，且头节点的prev指针指向最后一个节点（双向循环链表），题干描述符合这一特征，因此正确。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "数组和链表都是线性表，链表的优点是插入删除不需要移动元素，并且能随机查找。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "链表的插入和删除只需修改指针，无需移动元素，但链表无法随机查找（需从头遍历），随机查找是数组的优点。因此题干错误。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "链表的存储空间物理上可以连续，也可以不连续。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "链表通过指针链接节点，节点的物理存储位置可以不连续，这是链表与数组的核心区别之一。因此题干正确。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "找出自然数n以内的所有质数，常用算法有埃拉托斯特尼（埃氏）筛法和线性筛法，其中埃氏筛法效率更高。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "线性筛法通过每个合数仅被其最小质因子筛除一次，避免了埃氏筛法的重复标记，因此效率更高。题干说法错误。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "唯一分解定理表明任何一个大于1的整数都可以唯一地表示为一系列质数的乘积，即质因数分解是唯一的。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "唯一分解定理（算术基本定理）指出：任何大于1的整数都能唯一地分解为质数的乘积（不计顺序），因此题干正确。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "贪心算法通过每一步选择局部最优解来获得全局最优解，但并不一定能找到最优解。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "贪心算法的局部最优选择不一定导致全局最优，例如在某些找零问题中可能无法得到最少硬币数。题干说法正确。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "归并排序和快速排序都采用递归实现，也都是不稳定排序。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "归并排序是稳定排序（相等元素相对顺序不变），快速排序是不稳定排序。题干中“都是不稳定排序”错误。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "插入排序有时比快速排序时间复杂度更低。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "插入排序在数据接近有序时时间复杂度接近O(n)，而快速排序在最坏情况下为O(n²)，因此插入排序有时更优。题干正确。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "在进行全国人口普查时，将其分解为对每个省市县乡来进行普查和统计。这是典型的分治策略。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "分治策略的核心是将大问题分解为小问题，分别解决后合并结果。人口普查按行政区域分解任务，符合分治思想，题干正确。",
+    "source": "2024年6月 GESP C++五级真题"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "在下面C++代码中，由于删除了变量ptr，因此ptr所对应的数据也随之删除，故执行下述代码时，将报错。<pre><code>int* ptr = new int(10);\ncout << *ptr << endl;\ndelete ptr;\ncout << ptr << endl;</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "delete ptr释放ptr指向的内存，但ptr本身仍是一个指针（野指针），输出ptr的地址不会报错（但访问*ptr会报错）。因此题干说法错误。",
+    "source": "2024年6月 GESP C++五级真题"
+  }
+]

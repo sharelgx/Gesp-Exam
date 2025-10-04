@@ -1,0 +1,245 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "关于直接插入排序，下列说法错误的是()",
+        "options": ["A. 插入排序的最好情况是数组已经有序，此时只需要进行n - 1次比较，时间复杂度为O(n)", "B. 最坏情况是数组逆序排序，此时需要进行n(n - 1)/2次比较以及n - 1次赋值操作(插入)", "C. 平均来说插入排序算法的复杂度为O(n²)", "D. 空间复杂度上，直接插入法是就地排序，空间复杂度为O(n)"],
+        "correct": "D",
+        "explanation": "直接插入排序是就地排序，仅需几个临时变量，空间复杂度为O(1)，并非O(n)。A、B、C选项关于插入排序在最好、最坏、平均情况的描述均正确。",
+        "source": "2024年6月GESP C++四级真题.pdf 单选题第7题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "下列程序横线处，应该输入的是()<pre><code>1 #include<iostream>\n2 using namespace std;\n3 int n,a[10001];\n4 void swap(int &a,int &b)\n5 {\n6     int t=a;\n7     a=b;\n8     b=t;\n9 }\n10 int main()\n11 {\n12     cin>>n;\n13     for(int i=1;i<=n;i++)\n14         cin>>a[i];\n15     for(int i=n;i>1;i--)\n16         for(int j=1;j<i;j++)\n17             if(a[j]>a[j + 1])\n18                 \n19     for(int i=1;i<=n;i++)\n20         cout<<a[i]<<\" \";\n21     cout<<endl;\n22     return 0;\n23 }</code></pre>",
+        "options": ["A. swap(a[j],a[j + 1]);", "B. swap(a[j - 1],a[j]);", "C. swap(a[j - 1],a[j + 1]);", "D. swap(&a[j - 1],&a[j + 1]);"],
+        "correct": "A",
+        "explanation": "该程序实现冒泡排序，当a[j]>a[j + 1]时，需交换a[j]与a[j + 1]的值，调用swap(a[j],a[j + 1])。B交换的是a[j - 1]与a[j]；C交换的是a[j - 1]与a[j + 1]；D参数传递错误，swap函数参数为引用，无需取地址。",
+        "source": "2024年6月GESP C++四级真题.pdf 单选题第8题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "关于几种排序算法的说法，下面说法错误的是( )",
+        "options": ["A. 选择排序不是一个稳定的排序算法", "B. 冒泡排序算法不是一种稳定的排序算法", "C. 插入排序是一种稳定的排序算法", "D. 如果排序前2个相等的数在序列中的前后位置顺序和排序后它们2个的前后位置顺序相同，则称为一种稳定的排序算法"],
+        "correct": "B",
+        "explanation": "冒泡排序是稳定的排序算法，在比较相邻元素时，相等元素不会交换位置。A选项选择排序不稳定；C选项插入排序稳定；D选项是稳定排序算法的定义。",
+        "source": "2024年6月GESP C++四级真题.pdf 单选题第10题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "数组{45,66,23,1,10,97,52,88,5,33}进行从小到大冒泡排序过程中，第一遍冒泡过后的序列是( )",
+        "options": ["A. {45,23,1,10,66,52,88,5,33,97}", "B. {45,66,1,23,10,97,52,88,5,33}", "C. {45,66,23,1,10,52,88,5,33,97}", "D. {45,66,23,1,10,97,52,88,33,5}"],
+        "correct": "A",
+        "explanation": "冒泡排序第一遍会将最大元素移到末尾。比较相邻元素，若顺序错误则交换。原数组中97最大，经过多次交换后移到末尾，得到A选项序列。",
+        "source": "2024年6月GESP C++四级真题.pdf 单选题第11题"
+    },
+    {
+        "id": "5",
+        "type": "single",
+        "question": "下面的排序算法程序中，横线处应该填入的是( )<pre><code>int a[8]={ 2,3, 4, 5, 6,2,3,1};\nfor (int i=1;i<8;i++)\n{\n    int key = a[i];\n    int j=i-1;\n    while(a[j]>key && j>=0)\n    {\n        \n        j -= 1;\n    }\n    a[j + 1]= key;\n}</code></pre>",
+        "options": ["A. a[j]=a[j - 1];", "B. a[j]=a[j + 1];", "C. a[j + 1]=a[j - 1];", "D. a[j + 1]=a[j];"],
+        "correct": "D",
+        "explanation": "该程序是插入排序，当a[j]>key时，需将a[j]后移一位，即a[j + 1]=a[j]，为插入key腾出位置。A、B、C选项不符合插入排序逻辑。",
+        "source": "2024年6月GESP C++四级真题.pdf 单选题第12题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "对数组arr[]={5, 3, 8, 1}进行升序排序，执行第一轮冒泡排序后数组arr中的内容为( )",
+        "options": ["A. 3, 5, 1, 8", "B. 3, 1, 5, 8", "C. 3, 5, 8, 1", "D. 5, 3, 8, 1"],
+        "correct": "A",
+        "explanation": "冒泡排序第一轮从左到右比较相邻元素，若顺序错误则交换，将最大元素移到末尾。第一轮比较后，8与1交换，5与3交换，得到3, 5, 1, 8。",
+        "source": "2025年3月认证C++四级试题.pdf 单选题第13题"
+    },
+    {
+        "id": "7",
+        "type": "single",
+        "question": "下面关于排序稳定性的描述，正确的是( )",
+        "options": ["A. 稳定性指算法的时间复杂度恒定", "B. 稳定排序保证相同元素的相对顺序不变", "C. 选择排序是稳定排序", "D. 插入排序不是稳定排序"],
+        "correct": "B",
+        "explanation": "稳定排序定义是排序后相同元素相对顺序不变。A稳定性与时间复杂度无关；C选择排序不稳定；D插入排序稳定。",
+        "source": "2025年3月认证C++四级试题.pdf 单选题第12题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "在排序算法中，稳定性指的是( )",
+        "options": ["A. 排序后数据不会丢失", "B. 排序后相同元素的相对顺序保持不变", "C. 排序后数据不会被修改", "D. 排序后数据的时间复杂度不变"],
+        "correct": "B",
+        "explanation": "稳定性是指排序算法对相等元素排序后，其相对顺序保持不变。A、C、D对稳定性的解释错误。",
+        "source": "2024年9月认证C++四级试题.pdf 单选题第10题"
+    },
+    {
+        "id": "9",
+        "type": "single",
+        "question": "下面代码实现了冒泡排序函数，则横线上应填写( )<pre><code>1 //交换数组arr的第i个元素和第j个元素\n2 void swap(vector<int> &arr, int i, int j)\n3 {\n4     arr[i] = arr[j];\n5     int tmp = arr[i];\n6     arr[j] = tmp;\n7 }\n8 int bubble_sort(vector<int> &arr)\n9 {\n10     for (int i = arr.size() - 1; i > 0; i--)\n11     {\n12         bool flag = false; // 标志位\n13         \n14         {\n15             if (arr[j] > arr[j + 1])\n16             {\n17                 swap(arr, i, j);\n18                 flag = true;\n19             }\n20         }\n21         if (!flag) break; // 此轮“冒泡”未交换任何元素\n22     }\n23 }</code></pre>",
+        "options": ["A. for (int j = 0; j < arr.size() - 1; j++)", "B. for (int j = arr.size() - 1; j > 0; j--)", "C. for (int j = 0; j < i; j++)", "D. for (int j = i - 1; j <= 0; j--)"],
+        "correct": "C",
+        "explanation": "冒泡排序每一轮将未排序部分最大元素移到末尾，内循环控制比较范围，从0到i - 1，比较相邻元素并交换。A比较范围过大；B方向错误；D范围和方向都错误。",
+        "source": "2024年9月认证C++四级试题.pdf 单选题第11题"
+    },
+    {
+        "id": "10",
+        "type": "single",
+        "question": "上一题算法的时间复杂度为( )",
+        "options": ["A. O(n)", "B. O(n²)", "C. O(n log n)", "D. O(1)"],
+        "correct": "B",
+        "explanation": "冒泡排序在最坏和平均情况下，需要比较和交换的次数为n(n - 1)/2，时间复杂度为O(n²)；最好情况下时间复杂度为O(n)，但此处未明确最好情况，按常规为O(n²)。",
+        "source": "2024年9月认证C++四级试题.pdf 单选题第12题"
+    },
+    {
+        "id": "11",
+        "type": "single",
+        "question": "下面代码实现了插入排序函数(升序)，则横线上应填写( )<pre><code>1 void insertion_sort(vector<int> &nums)\n2 {\n3     for (int i = 1; i < nums.size(); i++)\n4     {\n5         int base = nums[i], j = i - 1;\n6         \n7         {\n8             nums[j + 1] = nums[j];\n9             j--;\n10         }\n11         nums[j + 1] = base;\n12     }\n13 }</code></pre>",
+        "options": ["A. while (j >= 0 && nums[j] > base)", "B. while (j > 0 && nums[j] > base)", "C. while (j >= 0 && nums[j] < base)", "D. while (j > 0 && nums[j] < base)"],
+        "correct": "A",
+        "explanation": "插入排序将元素插入已排序部分，当j >= 0且nums[j] > base时，将nums[j]后移，为插入base腾出位置。B条件中j > 0会遗漏j = 0的情况；C、D比较条件错误。",
+        "source": "2024年12月认证C++四级真题.pdf 单选题第13题"
+    },
+    {
+        "id": "12",
+        "type": "single",
+        "question": "冒泡排序在任何情况下的时间复杂度都为O(n²)。( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "B",
+        "explanation": "冒泡排序在最好情况下（数组已有序），只需进行n - 1次比较，无需交换，时间复杂度为O(n)；平均和最坏情况下时间复杂度为O(n²)。",
+        "source": "2024年12月认证C++四级真题.pdf 判断题第7题"
+    },
+    {
+        "id": "13",
+        "type": "single",
+        "question": "冒泡排序和插入排序都是稳定的排序算法。( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "A",
+        "explanation": "冒泡排序中相等元素不会交换位置；插入排序插入元素时，相等元素相对顺序也不会改变，二者均为稳定排序算法。",
+        "source": "2024年12月认证C++四级真题.pdf 判断题第8题"
+    },
+    {
+        "id": "14",
+        "type": "single",
+        "question": "选择排序是稳定的排序算法。( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "B",
+        "explanation": "选择排序在选择最小（大）元素并交换时，可能改变相等元素的相对顺序，是不稳定的排序算法。",
+        "source": "2024年12月认证C++四级真题.pdf 判断题第9题"
+    },
+    {
+        "id": "15",
+        "type": "single",
+        "question": "对数组arr[]={4,3,1,5,2}进行升序排序，执行第一轮选择排序后数组arr中的内容是{1, 4, 3, 5, 2}。( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "B",
+        "explanation": "选择排序第一轮在未排序部分找到最小元素1，与第一个元素4交换，得到{1, 3, 4, 5, 2}。",
+        "source": "2025年3月认证C++四级试题.pdf 判断题第9题"
+    },
+    {
+        "id": "16",
+        "type": "single",
+        "question": "插入排序在最好情况下的时间复杂度是O(n²)。( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "B",
+        "explanation": "插入排序最好情况是数组已有序，只需比较n - 1次，时间复杂度为O(n)；平均和最坏情况下时间复杂度为O(n²)。",
+        "source": "2025年3月认证C++四级试题.pdf 判断题第8题"
+    },
+    {
+        "id": "17",
+        "type": "single",
+        "question": "考虑最坏情况下冒泡排序算法的时间复杂度，T(n)为待排序数字的数目为n的复杂度，则其递推关系式为T(n)=T(n - 1)+n，T(0)=1。( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "B",
+        "explanation": "最坏情况下冒泡排序时间复杂度递推关系式为T(n)=T(n - 1)+(n - 1)，T(1)=0。因为每轮比较次数比上一轮少1次，且初始时T(1)无需比较。",
+        "source": "2025年3月认证C++四级试题.pdf 判断题第7题"
+    },
+    {
+        "id": "18",
+        "type": "single",
+        "question": "对包含n个元素的数组进行冒泡排序，平均时间复杂度一般为( )。",
+        "options": ["A. O(n)", "B. O(n log n)", "C. O(n²)", "D. 以上都不正确"],
+        "correct": "C",
+        "explanation": "冒泡排序在平均情况下，需要比较和交换的次数与n²成正比，时间复杂度为O(n²)。A选项O(n)是最好情况；B选项O(n log n)通常是更高效排序算法的复杂度；D选项错误。",
+        "source": "2023年9月GESPC++四级试卷解析.pdf 单选题第3题"
+    },
+    {
+        "id": "19",
+        "type": "single",
+        "question": "冒泡排序的平均时间复杂度为O(n²)，但最优情况下为O(n)。( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "A",
+        "explanation": "冒泡排序在最优情况下（数组已有序）只需n-1次比较，无需交换，时间复杂度为O(n)；平均和最坏情况下为O(n²)。",
+        "source": "2024年12月认证C++四级真题.pdf 判断题第7题"
+    },
+    {
+        "id": "20",
+        "type": "single",
+        "question": "插入排序在最好情况(已有序)下的时间复杂度是O(n²)。( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "B",
+        "explanation": "插入排序在数组已有序时，只需n-1次比较，无需移动元素，时间复杂度为O(n)，而非O(n²)。",
+        "source": "2025年3月认证C++四级试题.pdf 判断题第8题"
+    },
+    {
+        "id": "23",
+        "type": "single",
+        "question": "如果待排序数据不能都装进内存，需要使用外排序算法。( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "A",
+        "explanation": "外排序用于处理超出内存容量的数据，通过分割数据块排序后合并，是处理大规模数据的必要手段。",
+        "source": "2024年3月认证C++四级真题.pdf 判断题第2题"
+    },
+    {
+        "id": "24",
+        "type": "single",
+        "question": "对int a[]={2,0,2,4,3,1,6}，执行第一趟选择排序处理后a中数据变为{0,2,2,4,3,1,6}。( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "A",
+        "explanation": "选择排序第一趟在数组中找到最小值0，与第一个元素2交换，得到{0,2,2,4,3,1,6}。",
+        "source": "2024年3月认证C++四级真题.pdf 判断题第1题"
+    },
+    {
+        "id": "25",
+        "type": "single",
+        "question": "下列排序算法中，不是稳定排序的是( )。",
+        "options": ["A. 冒泡排序", "B. 插入排序", "C. 选择排序", "D. 以上都是稳定排序"],
+        "correct": "C",
+        "explanation": "选择排序在交换元素时可能改变相同元素的相对顺序，是不稳定排序；冒泡和插入排序是稳定排序。",
+        "source": "2023年6月GESP C++四级试题解析.pdf 单选题第2题"
+    },
+    {
+        "id": "27",
+        "type": "single",
+        "question": "在下列代码的横线处填写( )，完成对有n个int类型元素的数组array由小到大排序。<pre><code>void BubbleSort(int array[],int n){\n    for(int i=n;i>=2;i--)\n        for(__)//在此处填入代码\n            if(array[j]>array[j+1]){\n                int t=array[j];\n                array[j]=array[j+1];\n                array[j+1]=t;\n            }\n}</code></pre>",
+        "options": ["A. int j=1; j&lt;n; j++", "B. int j=0; j&lt;n; j++", "C. int j=0; j&lt;i-1; j++", "D. int j=0; j&lt;i; j++"],
+        "correct": "C",
+        "explanation": "冒泡排序每轮将未排序部分的最大元素移至末尾，内循环范围应为0到i-2（j<i-1），确保每轮比较i-1次。",
+        "source": "2023年6月GESP C++四级试题解析.pdf 单选题第15题"
+    },
+    {
+        "id": "28",
+        "type": "single",
+        "question": "以下哪个排序算法在最坏情况下的时间复杂度最低？( )",
+        "options": ["A. 冒泡排序", "B. 插入排序", "C. 选择排序", "D. 三者相同"],
+        "correct": "D",
+        "explanation": "冒泡、插入、选择排序在最坏情况下的时间复杂度均为O(n²)，没有优劣之分。",
+        "source": "GESP C++四级样题卷.pdf 单选题第15题"
+    },
+    {
+        "id": "29",
+        "type": "single",
+        "question": "排序算法的稳定性是指( )。",
+        "options": ["A. 相同元素在排序后的相对顺序保持不变", "B. 排序算法的性能稳定，不随数据规模变化", "C. 排序算法对任何输入都能正确工作", "D. 排序算法的时间复杂度为常数"],
+        "correct": "A",
+        "explanation": "稳定排序的定义是排序后相同元素的相对顺序与排序前一致，例如冒泡排序和插入排序。",
+        "source": "GESP C++四级样题卷.pdf 单选题第5题"
+    },
+    {
+        "id": "30",
+        "type": "single",
+        "question": "对数组arr[]={5,3,8,1}进行升序冒泡排序，第一轮排序后的结果是( )。",
+        "options": ["A. 3,5,1,8", "B. 3,1,5,8", "C. 5,3,1,8", "D. 3,5,8,1"],
+        "correct": "A",
+        "explanation": "第一轮冒泡排序比较相邻元素，交换逆序对，最终将最大元素8移至末尾，得到3,5,1,8。",
+        "source": "2025年3月认证C++四级试题.pdf 单选题第13题"
+    }
+]

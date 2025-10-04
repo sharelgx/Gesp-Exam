@@ -1,0 +1,119 @@
+[
+    {
+      "id": "1",
+      "type": "single",
+      "question": "下列关于C++数据类型的叙述，正确的是( )｡",
+      "options": [
+        "A. char类型只能存储英文字母",
+        "B. int类型变量的取值范围是固定不变的",
+        "C. double类型精度高于float类型",
+        "D. bool类型变量只能赋值为true或1"
+      ],
+      "correct": "C",
+      "explanation": "double为64位浮点型，float为32位，前者精度更高（C正确）。char可存储ASCII字符（含数字、符号，排除A）；int范围因编译器而异（如16位/32位，排除B）；bool值只能是true/false（1会隐式转换为true，但赋值1不规范，排除D）。",
+      "source": "模拟题"
+    },
+    {
+      "id": "2",
+      "type": "single",
+      "question": "以下符合C++语法的变量定义是( )｡",
+      "options": [
+        "A. int 2a=5;",
+        "B. float my-var=3.14;",
+        "C. double _value=1e3;",
+        "D. char@name='A';"
+      ],
+      "correct": "C",
+      "explanation": "标识符需以字母/下划线开头，含字母、数字、下划线。A（数字开头）、B（含-）、D（含@）均非法，C合法。",
+      "source": "模拟题"
+    },
+    {
+      "id": "3",
+      "type": "truefalse",
+      "question": "在C++中，字符串\"Hello\"和字符'H'占用的内存空间相同｡(对/错)",
+      "correct": "×",
+      "explanation": "\"Hello\"是字符串常量（含'\\0'，占6字节），'H'是字符常量（占1字节），内存空间不同，故说法错误。",
+      "source": "模拟题"
+    },
+    {
+      "id": "4",
+      "type": "single",
+      "question": "执行以下C++代码后，输出结果是( )｡ int x=10, y=20; x=y; y=x; cout<<x<<\",\"<<y<<endl;",
+      "options": [
+        "A. 10,20",
+        "B. 20,20",
+        "C. 20,10",
+        "D. 10,10"
+      ],
+      "correct": "B",
+      "explanation": "x=y后x=20，y=x时y=20，最终x和y均为20，输出“20,20”。",
+      "source": "模拟题"
+    },
+    {
+      "id": "5",
+      "type": "truefalse",
+      "question": "C++中定义const int a=5; 后，变量a的值不能被修改｡(对/错)",
+      "correct": "√",
+      "explanation": "const修饰的变量为常量，定义后值不可修改，故说法正确。",
+      "source": "模拟题"
+    },
+    {
+      "id": "6",
+      "type": "single",
+      "question": "以下关于C++运算符优先级的叙述，正确的是( )｡",
+      "options": [
+        "A. 算术运算符优先级高于关系运算符",
+        "B. 赋值运算符优先级高于逻辑运算符",
+        "C. 括号不能改变运算符优先级",
+        "D. 自增运算符优先级低于乘法运算符"
+      ],
+      "correct": "A",
+      "explanation": "算术运算符（如+、*）优先级高于关系运算符（如>、==），A正确。赋值运算符（=）优先级低于逻辑运算符（如&&），排除B；括号可改变运算顺序，排除C；自增运算符（++）优先级高于乘法（*），排除D。",
+      "source": "模拟题"
+    },
+    {
+      "id": "7",
+      "type": "single",
+      "question": "下列C++表达式结果为true的是( )｡",
+      "options": [
+        "A. 3>5 || 2<4",
+        "B. 5!=3 && 1==2",
+        "C. !(4>=4)",
+        "D. 6/2>3"
+      ],
+      "correct": "A",
+      "explanation": "A中3>5为false，但2<4为true，逻辑或结果为true。B中5!=3为true，但1==2为false，逻辑与结果为false；C中4>=4为true，取反后为false；D中6/2=3，3>3为false。",
+      "source": "模拟题"
+    },
+    {
+      "id": "8",
+      "type": "truefalse",
+      "question": "在C++中，sizeof(int)和sizeof(double)的结果一定分别为4和8｡(对/错)",
+      "correct": "×",
+      "explanation": "sizeof结果与编译器和系统位数相关（如32位系统int为4字节，64位系统可能为4或8字节），故说法错误。",
+      "source": "模拟题"
+    },
+    {
+      "id": "9",
+      "type": "single",
+      "question": "执行以下循环后，变量i的值是( )｡ for(int i=0; i<5; i++) { if(i==3) break; }",
+      "options": [
+        "A. 3",
+        "B. 4",
+        "C. 5",
+        "D. 0"
+      ],
+      "correct": "A",
+      "explanation": "当i=3时触发break，跳出循环，此时i的值为3。",
+      "source": "模拟题"
+    },
+    {
+      "id": "10",
+      "type": "truefalse",
+      "question": "C++中，数组下标可以从1开始｡(对/错)",
+      "correct": "×",
+      "explanation": "C++数组下标始终从0开始，不存在下标1开头的情况，故说法错误。",
+      "source": "模拟题"
+    }
+  ]
+  

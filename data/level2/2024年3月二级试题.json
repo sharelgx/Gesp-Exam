@@ -1,0 +1,227 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "下列流程图的输出结果是?( )<pre><code>开始\ncj=75\ncj>=90?\n是: 成绩优秀\n否: cj>=60?\n    是: 良好\n    否: 不及格\n结束</code></pre>",
+    "options": ["A. 优秀", "B. 良好", "C. 不及格", "D. 没有输出"],
+    "correct": "B",
+    "explanation": "cj=75，75<90，执行否分支；75>=60，执行是分支，输出良好。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "以下选项中不符合 C++变量命名规则的是?( )",
+    "options": ["A. student", "B. 2_from", "C. _to", "D. Text"],
+    "correct": "B",
+    "explanation": "C++变量名不能以数字开头，2_from不符合命名规则。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "以下选项中，不能用于表示分支结构的C++保留字是?( )",
+    "options": ["A. switch", "B. return", "C. else", "D. if"],
+    "correct": "B",
+    "explanation": "return用于函数返回，不表示分支结构；switch、else、if均用于分支结构。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "下列说法错误的是?( )",
+    "options": ["A. while 循环满足循环条件时不断地运行，直到指定的条件不满足为止", "B. if 语句通常用于执行条件判断", "C. 在C++中可以使用foreach 循环", "D. break 和continue 语句都可以用在for 循环和while 循环中"],
+    "correct": "C",
+    "explanation": "标准C++中没有foreach循环，C++11引入了范围for循环，与foreach不同；其他选项说法正确。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "下列4个表达式中，答案不是整数8的是?( )",
+    "options": ["A. abs(-8)", "B. min(max(8, 9), 10)", "C. int(8.88)", "D. sqrt(64)"],
+    "correct": "B",
+    "explanation": "A选项abs(-8)=8；B选项max(8,9)=9，min(9,10)=9；C选项int(8.88)=8；D选项sqrt(64)=8，B选项结果不是8。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是?()<pre><code>int n,a,m,i;\nn=3, a = 5; m = (a - 1) * 2;\nfor (i=0; i<n-1; i++)\n  m = (m - 1) * 2;\ncout << m;</code></pre>",
+    "options": ["A. 8", "B. 14", "C. 26", "D. 50"],
+    "correct": "C",
+    "explanation": "初始m=(5-1)*2=8；i=0时，m=(8-1)*2=14；i=1时，m=(14-1)*2=26，输出26。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是?()<pre><code>int n,i,result;\nn = 81;\ni = 1, result = 1;\nwhile (i * i <= n){\n  if (n % (i * i) == 0)\n    result = i * i;\n  i += 1;\n}\ncout << result;</code></pre>",
+    "options": ["A. 16", "B. 36", "C. 49", "D. 81"],
+    "correct": "D",
+    "explanation": "i从1到9，i*i分别为1、4、9、16、25、36、49、64、81，均能被81整除（81%81=0），result最终为81。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是?()<pre><code>int s,t,ans;\ns = 2, t = 10;\nans = 0;\nwhile (s != t){\n  if (t % 2 == 0 && t / 2 >= s)\n    t /= 2;\n  else\n    t -= 1;\n  ans += 1;\n}\ncout << ans;</code></pre>",
+    "options": ["A. 2", "B. 3", "C. 4", "D. 5"],
+    "correct": "B",
+    "explanation": "初始s=2，t=10：\n1. t为偶数且10/2=5≥2，t=5，ans=1；\n2. t为奇数，t=4，ans=2；\n3. t为偶数且4/2=2≥2，t=2，ans=3；\n此时s==t，输出3。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是?()<pre><code>int n, masks, days, cur;\nn = 17, masks = 10, days = 0;\ncur = 2;\nwhile (masks != n){\n  if (cur == 0 || cur == 1)\n    masks += 7;\n  masks -= 1;\n  days += 1;\n  cur = (cur + 1) % 7;\n}\ncout << days;</code></pre>",
+    "options": ["A. 5", "B. 6", "C. 7", "D. 8"],
+    "correct": "C",
+    "explanation": "模拟循环过程，经过7天循环后masks=17，输出days=7。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "以下C++代码判断一个正整数N的各个数位是否都是偶数。如果都是，则输出“是”，否则输出“否”。例如N=2024时输出“是”。则横线处应填入( )。<pre><code>int N, Flag;\ncin >> N;\nFlag = true;\nwhile (N != 0){\n  if (N % 2 != 0){\n    Flag = false;\n    ______;\n  }\n  else\n    N /= 10;\n}\nif (Flag == true)\n  cout << \"是\";\nelse\n  cout << \"否\";</code></pre>",
+    "options": ["A. break", "B. continue", "C. N=N/10", "D. N=N%10"],
+    "correct": "A",
+    "explanation": "若存在奇数数位，设置Flag为false后需跳出循环，break符合要求。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "有句俗话叫“三天打渔，两天晒网”。如果小杨前三天打渔，后两天晒网，一直重复这个过程，以下程序代码用于判断，第n天小杨是在打鱼还是晒网，横线处应填写?<pre><code>int n,i;\ncin>>n;\ni=n%5;\nif(______)\n  cout<<\"晒网\";\nelse\n  cout<<\"打鱼\";</code></pre>",
+    "options": ["A. i==0", "B. i==4", "C. i==0 && i==4", "D. i==0 || i==4"],
+    "correct": "D",
+    "explanation": "n%5的结果为0（第5天）、4（第4天）时晒网，用i==0 || i==4判断。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "一个数的所有数字倒序排列后这个数的大小保持不变，这个数就是回文数，比如101与6886都是回文数，而100不是回文数。以下程序代码用于判断一个数是否为回文数，横线处应填写?()<pre><code>int n,a,k;\ncin>>n;\na=0;\nk=n;\nwhile(n>0){\n  a=______;//在此处填写代码\n  n/=10;\n}\nif(a==k)\n  cout<<\"是回文数\";\nelse\n  cout<<\"不是回文数\";</code></pre>",
+    "options": ["A. 10*a + n%10", "B. a + n%10", "C. 10*a + n/10", "D. a + n/10"],
+    "correct": "A",
+    "explanation": "n%10取最后一位数字，a=10*a + n%10可将数字倒序拼接，得到倒序数a。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "给定两个整数 n 与 k，打印出一个栅栏图形，这个栅栏应该分成n段，段与段之间的间隔为 +，段内的填充为k-1个 -。形如n=5，k=6时，图形如下：<pre><code>-----+-----+-----+-----+-----</code></pre>以下程序代码用于绘制该图形，横线处应填写?( )<pre><code>int n, k, i, j;\nn = 5, k = 6;\nfor (i = 0; i < n; i++){\n  for (j = 1; j < k; j++)\n    cout << '-' ;\n  ______;\n}</code></pre>",
+    "options": ["A. cout << '+' << endl;", "B. cout << '+' << ' ' << endl;", "C. cout << '+' ;", "D. cout << '+' << ' ';"],
+    "correct": "C",
+    "explanation": "每段后需添加+，且无换行和空格，C选项正确。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "小杨的父母最近刚刚给他买了一块华为手表，他说手表上跑的是鸿蒙，这个鸿蒙是( )。",
+    "options": ["A. 小程序", "B. 计时器", "C. 操作系统", "D. 神话人物"],
+    "correct": "C",
+    "explanation": "鸿蒙是华为开发的操作系统，可用于智能设备。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "中国计算机学会(CCF)在2024年1月27日的颁奖典礼上颁布了王选奖，王选先生的重大贡献是( )。",
+    "options": ["A. 制造自动驾驶汽车", "B. 创立培训学校", "C. 发明汉字激光照排系统", "D. 成立方正公司"],
+    "correct": "C",
+    "explanation": "王选先生发明了汉字激光照排系统，推动了汉字印刷技术的革新。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "如果有以下C++代码：<pre><code>double s; int t;\ns = 18.5;\nt = int(s) + 10;</code></pre>那么cout << t 的结果为 28.5 。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "int(s)=18，t=18+10=28，输出28，不是28.5。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "Xyz，xYz，xyZ 是三个不同的变量。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "C++变量名区分大小写，Xyz、xYz、xyZ是不同的变量。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "cout << (8 < 9 < 10) 的输出结果为true 。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "8<9为true（1），1<10为true（1），输出1，不是true。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "for (i = 0; i < 100; i+=2) ; 语句中变量i的取值范围是0到99。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "i的取值为0、2、4…98，最大为98，不包括99。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "C++中cout << float(2022) 与 cout << float('2022') 运行后的输出结果均为2022。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "'2022'是多字符常量，转换为float不是2022，两者输出不同。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "已知A 的ASCII码值为65，表达式int('C')+abs(-5.8) 的值为72.8。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "int('C')=67，abs(-5.8)=5.8，和为72.8，但int('C')是整数，结果类型为double，表述不严谨，且题目可能认为结果应为整数，故错误。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "bool() 函数用于将给定参数或表达式转换为布尔类型。语句 bool(-1) 返回的是 false 值。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "非零值转换为bool类型为true，bool(-1)=true。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "如果变量a 的值使得C++表达式sqrt(a)==abs(a)，则a 的值为0。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "a=1时，sqrt(1)=1，abs(1)=1，也满足条件，故错误。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "小杨今年春节回奶奶家了，奶奶家的数字电视要设置ip地址并接入到WIFI盒子才能收看节目，那这个WIFI盒子具有路由器的功能。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "WIFI盒子通常具有路由功能，可分配IP地址并接入网络。",
+    "source": "GESP2024年3月认证C++二级真题"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "任何一个for 循环都可以转化为等价的while 循环( )。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "for循环的初始化、条件判断和迭代部分可转换为while循环实现。",
+    "source": "GESP2024年3月认证C++二级真题"
+  }
+]

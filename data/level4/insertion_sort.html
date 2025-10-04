@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>插入排序动画演示 —— 元探索柳老师</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "微软雅黑", sans-serif;
+      background: #f3f6fa;
+      color: #333;
+    }
+
+    h2 {
+      text-align: center;
+      padding: 1.5em 1em 0.5em;
+      color: #2b6cb0;
+    }
+
+    #controls {
+      background: #fff;
+      padding: 1em 2em;
+      margin: 0 auto;
+      width: fit-content;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8em;
+    }
+
+    #controls input[type="text"] {
+      padding: 0.4em 0.6em;
+      font-size: 1em;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    #controls input[type="range"] {
+      width: 120px;
+    }
+
+    #controls button {
+      background: #3182ce;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 0.5em 1em;
+      font-size: 0.95em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+    }
+
+    #controls button:hover {
+      background: #2b6cb0;
+    }
+
+    #mainContainer {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 2em;
+      padding: 2em;
+    }
+
+    #container {
+      width: 500px;
+      height: 380px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+      padding: 1em;
+      margin:16px 0;
+    }
+
+    .bar {
+      width: 80px;
+      margin: 0 6px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      border-radius: 6px;
+      font-size: 18px;
+      color: white;
+      transition: height 0.3s, background-color 0.3s;
+      position: relative;
+    }
+
+    .default { background-color: #63b3ed; }
+    .comparing { background-color: #ecc94b; }
+    .swapping { background-color: #fc8181; }
+    .sorted { background-color: #48bb78; }
+
+    .marker {
+      position: absolute;
+      top: -2em;
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+
+    .red { color: #e53e3e; }
+    .blue { color: #3182ce; top: -3.2em; }
+
+    #codeBlock {
+      width: 500px;
+      height: 380px;
+      background: #1e1e1e;
+      color: #dcdcdc;
+      padding: 1em;
+      border-radius: 10px;
+      overflow-y: auto;
+      font-family: Consolas, "Courier New", monospace;
+      white-space: pre;
+      border: 1px solid #333;
+    }
+
+    .highlight {
+      background-color: #264f78;
+      color: #fff;
+      font-weight: bold;
+      padding-left: 0.5em;
+      border-left: 4px solid #569cd6;
+    }
+
+    #log {
+      margin: 1.5em auto 0;
+      text-align: center;
+      font-size: 1.1em;
+      color: #444;
+      background: #edf2f7;
+      padding: 0.8em 1.2em;
+      border-radius: 6px;
+      width: fit-content;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    @media (max-width: 1100px) {
+      #mainContainer {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>插入排序动画演示</h2>
+
+  <div id="controls">
+    <label for="input"><i class="fas fa-list"></i> 输入纸牌：</label>
+    <input type="text" id="input" value="6,4,8,2,7" />
+    <button onclick="resetBars()"><i class="fas fa-sync-alt"></i> 重置</button>
+    <button onclick="prevStep()"><i class="fas fa-step-backward"></i> 上一步</button>
+    <button onclick="nextStep()"><i class="fas fa-step-forward"></i> 下一步</button>
+    <button onclick="autoRun()"><i class="fas fa-play"></i> 自动演示</button>
+    <label for="speed"><i class="fas fa-tachometer-alt"></i> 速度：</label>
+    <input type="range" id="speed" min="100" max="2000" step="100" value="800" />
+    <span id="speedDisplay">800</span>ms
+  </div>
+
+  <div id="log">点击“下一步”开始演示</div>
+
+  <div id="mainContainer">
+    <div id="container"></div>
+    <pre id="codeBlock"></pre>
+  </div>
+
+  <script>
+    let values = [], bars = [], i = 1, j = 0, key = 0, stepState = "init";
+    let redIndex = -1, blueIndex = -1, roundStep = 0, highlightSubState = "start";
+    let history = [], autoTimer = null;
+
+    const log = document.getElementById("log");
+    const speedInput = document.getElementById("speed");
+    const speedDisplay = document.getElementById("speedDisplay");
+    const codeBlock = document.getElementById("codeBlock");
+    const container = document.getElementById("container");
+
+    const cppCode = [
+      '#include <iostream>',
+      'using namespace std;',
+      '',
+      'void insertionSort(int arr[], int n) {',
+      '    for (int i = 1; i < n; i++) {',
+      '        int key = arr[i];     // 当前待插入的元素',
+      '        int j = i - 1;',
+      '        // 向左寻找插入位置',
+      '        while (j >= 0 && arr[j] > key) {',
+      '            arr[j + 1] = arr[j];  // 元素右移',
+      '            j--;',
+      '        }',
+      '        arr[j + 1] = key;  // 插入到正确位置',
+      '    }',
+      '}'
+    ];
+
+    function showCode() {
+      codeBlock.innerHTML = '';
+      cppCode.forEach(line => {
+        const div = document.createElement('div');
+        div.textContent = line;
+        codeBlock.appendChild(div);
+      });
+    }
+
+    function highlightCode(lineIndex) {
+      for (let k = 0; k < codeBlock.children.length; k++) {
+        codeBlock.children[k].classList.toggle('highlight', k === lineIndex);
+      }
+    }
+
+    function clearCodeHighlight() {
+      [...codeBlock.children].forEach(div => div.classList.remove('highlight'));
+    }
+
+    function createBar(value, index) {
+      const div = document.createElement("div");
+      div.className = "bar default";
+      div.style.height = value * 30 + "px";
+      div.dataset.index = index;
+      div.textContent = value;
+      return div;
+    }
+
+    function updateColors() {
+      for (let k = 0; k < values.length; k++) {
+        setColor(k, k < i ? 'sorted' : 'default');
+      }
+      if (redIndex >= 0) setColor(redIndex, 'swapping');
+      if (blueIndex >= 0 && blueIndex !== redIndex) setColor(blueIndex, 'comparing');
+    }
+
+    function setColor(idx, color) {
+      if (bars[idx]) bars[idx].className = "bar " + color;
+    }
+
+    function drawMarkers() {
+      bars.forEach((bar, idx) => {
+        bar.querySelectorAll('.marker').forEach(e => e.remove());
+        if (idx === redIndex) {
+          const marker = document.createElement("div");
+          marker.className = "marker red";
+          marker.textContent = "🔴i";
+          bar.appendChild(marker);
+        }
+        if (idx === blueIndex) {
+          const marker = document.createElement("div");
+          marker.className = "marker blue";
+          marker.textContent = "🔵j";
+          bar.appendChild(marker);
+        }
+      });
+    }
+
+    function redraw() {
+      container.innerHTML = "";
+      bars = values.map((val, idx) => createBar(val, idx));
+      bars.forEach(bar => container.appendChild(bar));
+    }
+
+    function updateLog(msg) {
+      let prefix = i < values.length ? `第 ${i} 轮第 ${roundStep + 1} 次：` : '';
+      log.innerText = prefix + msg;
+    }
+
+    function saveState() {
+      history.push({
+        values: values.slice(), i, j, key, stepState, redIndex, blueIndex, roundStep, highlightSubState
+      });
+    }
+
+    function loadState(state) {
+      Object.assign({values, i, j, key, stepState, redIndex, blueIndex, roundStep, highlightSubState}, state);
+      values = state.values.slice();
+      redraw(); updateColors(); drawMarkers(); updateLog(`恢复状态：i=${i}, j=${j}, key=${key}`);
+      highlightCodeByState();
+    }
+
+    function highlightCodeByState() {
+      if (stepState === "init") highlightCode(5);
+      else if (stepState === "compare") {
+        if (highlightSubState === "start") highlightCode(8);
+        else if (highlightSubState === "move") highlightCode(9);
+        else if (highlightSubState === "j--") highlightCode(10);
+        else if (highlightSubState === "done") highlightCode(11);
+      } else if (stepState === "insert") highlightCode(12);
+      else clearCodeHighlight();
+    }
+
+    function resetBars() {
+      clearInterval(autoTimer); history = [];
+      const input = document.getElementById("input").value;
+      values = input.split(",").map(n => parseInt(n.trim())).filter(n => !isNaN(n));
+      i = 1; j = 0; stepState = "init"; redIndex = -1; blueIndex = -1; roundStep = 0; highlightSubState = "start";
+      redraw(); updateColors(); drawMarkers(); updateLog("点击“下一步”开始演示"); clearCodeHighlight(); saveState();
+    }
+
+    function nextStep() {
+      if (i >= values.length) {
+        updateLog("排序完成 ✅");
+        for (let k = 0; k < values.length; k++) setColor(k, 'sorted');
+        drawMarkers(); clearCodeHighlight(); return;
+      }
+      saveState();
+      switch (stepState) {
+        case "init":
+          key = values[i]; j = i - 1; redIndex = i; blueIndex = j; roundStep = 0;
+          highlightSubState = "start"; updateLog(`准备插入第 ${i + 1} 张牌：${key}`);
+          drawMarkers(); updateColors(); highlightCode(5); stepState = "compare"; break;
+        case "compare":
+          roundStep++;
+          if (j >= 0 && values[j] > key) {
+            if (highlightSubState === "start") { highlightCode(8); highlightSubState = "move"; }
+            else if (highlightSubState === "move") {
+              highlightCode(9); updateLog(`第 ${j + 1} 张 ${values[j]} > ${key}，右移`);
+              values[j + 1] = values[j]; redraw(); drawMarkers(); updateColors(); highlightSubState = "j--";
+            } else if (highlightSubState === "j--") {
+              highlightCode(10); j--; blueIndex = j; drawMarkers(); highlightSubState = "start";
+            }
+          } else {
+            if (highlightSubState !== "done") { highlightCode(11); updateLog(`j 越界或不满足条件：j=${j}`); highlightSubState = "done"; }
+            else { stepState = "insert"; highlightSubState = "start"; }
+          }
+          break;
+        case "insert":
+          highlightCode(12); values[j + 1] = key;
+          updateLog(`将 ${key} 插入到位置 ${j + 2}`); redraw(); drawMarkers(); updateColors(); i++; stepState = "init";
+          break;
+      }
+    }
+
+    function prevStep() {
+      if (history.length <= 1) {
+        updateLog("已经是初始状态，不能再退回。");
+        return;
+      }
+      clearInterval(autoTimer); history.pop(); loadState(history[history.length - 1]);
+    }
+
+    function autoRun() {
+      const speed = parseInt(speedInput.value);
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => {
+        nextStep();
+        if (i >= values.length && stepState === "init") {
+          clearInterval(autoTimer); clearCodeHighlight();
+        }
+      }, speed);
+    }
+
+    speedInput.addEventListener("input", e => {
+      speedDisplay.innerText = e.target.value;
+    });
+
+    window.nextStep = nextStep;
+    window.autoRun = autoRun;
+    window.resetBars = resetBars;
+    window.prevStep = prevStep;
+
+    showCode();
+    resetBars();
+  </script>
+</body>
+</html>

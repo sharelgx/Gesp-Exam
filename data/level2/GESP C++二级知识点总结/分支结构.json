@@ -1,0 +1,30 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "以下选项中，不能用于表示分支结构的C++保留字是？",
+        "options": ["A. switch", "B. return", "C. else", "D. if"],
+        "correct": "B",
+        "explanation": "return是用于函数返回的语句，不是分支结构的关键字。分支结构的关键字包括if、else、switch等。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 单选题第3题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "执行下面的C++代码时输入 1 ，则输出是？<pre><code>\nint month;\ncin >> month;\nswitch(month){\n    case 1:\n        cout << \"Jan \";\n    case 3:\n        cout << \"Mar \";\n        break;\n    default:\n        ;\n}\n</code></pre>",
+        "options": ["A. Jan", "B. Mar", "C. Jan Mar", "D. 没有输出"],
+        "correct": "C",
+        "explanation": "输入1时，匹配case 1，输出\"Jan \"，由于没有break，继续执行case 3，输出\"Mar \"，然后遇到break退出。最终输出\"Jan Mar\"。",
+        "source": "2024年6月GESPC++二级真题.pdf 单选题第6题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "如果要找出整数 a 、 b 中较大一个，通常要用下面哪种程序结构？",
+        "options": ["A. 顺序结构", "B. 循环结构", "C. 分支结构", "D. 跳转结构"],
+        "correct": "C",
+        "explanation": "比较两个数的大小需要根据条件选择不同的执行路径，这需要使用分支结构（如if-else语句）。",
+        "source": "2023年GESP9月认证C++二级试卷解析.pdf 单选题第3题"
+    }
+]
+

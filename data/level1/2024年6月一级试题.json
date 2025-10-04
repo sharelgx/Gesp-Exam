@@ -1,0 +1,227 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "在C++中,下列不可做变量的是( )",
+    "options": ["A. five-Star", "B. five_star", "C. fiveStar", "D. _fiveStar"],
+    "correct": "A",
+    "explanation": "C++变量名只能包含字母、数字和下划线，且不能包含连字符（-）。选项A中的“five-Star”包含连字符，不符合变量命名规则，因此不可作为变量名。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "C++表达式3 - 3 * 3 / 5 的值是( )",
+    "options": ["A. -1.2", "B. 1", "C. 0", "D. 2"],
+    "correct": "D",
+    "explanation": "根据运算符优先级，先执行乘法和除法，再执行减法。计算过程为：3 * 3 = 9，9 / 5 = 1（整数除法，结果取整），3 - 1 = 2。因此表达式的值为2。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "在C++中,假设N为正整数,则表达式cout << (N % 3 + N % 7) 可能输出的最大值是( )",
+    "options": ["A. 6", "B. 8", "C. 9", "D. 10"],
+    "correct": "B",
+    "explanation": "N % 3的最大值为2（当N=2、5、8等时），N % 7的最大值为6（当N=6、13、20等时）。两者之和的最大值为2 + 6 = 8，因此可能输出的最大值是8。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "C++语句printf(\"5%%2={%d}\\n\",5 % 2) 执行后的输出是( )",
+    "options": ["A. 1={1}", "B. 5%2={5%2}", "C. 5%2={1}", "D. 5 ={1}"],
+    "correct": "C",
+    "explanation": "printf语句中，“%%”会输出一个“%”，5 % 2的结果为1。因此语句会输出“5%2={1}”。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "对整型变量i,执行C++语句cin >> i, cout << i 时如果输入5+2 ,下述说法正确的是( )",
+    "options": ["A. 将输出整数7", "B. 将输出5", "C. 语句执行将报错,输入表达式不能作为输出的参数", "D. 语句能执行,但输出内容不确定"],
+    "correct": "B",
+    "explanation": "cin读取整型变量时，会从输入中提取连续的数字字符，遇到非数字字符（如“+”）时停止。因此输入“5+2”时，i会被赋值为5，输出结果为5。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )<pre><code>float a;\na = 101.101;\na = 101;\nprintf(\"a+1={%.0f}\",a+1);</code></pre>",
+    "options": ["A. 102={102}", "B. a+1={a+1}", "C. a+1={102}", "D. a先被赋值为浮点数,后被赋值为整数,执行将报错"],
+    "correct": "C",
+    "explanation": "代码中a先被赋值为101.101，后被重新赋值为101（float类型可接受整数赋值）。a+1的结果为102，printf中“%.0f”表示输出整数部分，因此输出“a+1={102}”。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "表达式9/4 - 6 % (6 - 2) * 10 的值是( )",
+    "options": ["A. -17.75", "B. -18", "C. -14", "D. -12.75"],
+    "correct": "B",
+    "explanation": "根据运算符优先级，先计算括号内的6 - 2 = 4；再计算6 % 4 = 2；接着计算乘法2 * 10 = 20；然后计算除法9 / 4 = 2（整数除法）；最后计算减法2 - 20 = -18。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "下面C++代码执行时输入10后,正确的输出是( )<pre><code>int N;\ncout << \"请输入正整数:\";\ncin >> N;\nif (N % 3)\n  printf(\"第5行代码%2d\", N % 3);\nelse\n  printf(\"第6行代码%2d\", N % 3);</code></pre>",
+    "options": ["A. 第5行代码1", "B. 第6行代码1", "C. 第5行代码 1", "D. 第6行代码 1"],
+    "correct": "C",
+    "explanation": "输入10时，N % 3 = 1（非0，if条件为真）。printf中“%2d”表示输出宽度为2的整数，不足补空格，因此输出“第5行代码 1”。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "下面C++代码执行后输出是( )<pre><code>int Sum = 0, i = 0;\nfor ( ; i < 10; ) {\n  Sum += i++;\n  cout << i << \" \" << Sum;\n}</code></pre>",
+    "options": ["A. 9 45", "B. 10 55", "C. 10 45", "D. 11 55"],
+    "correct": "C",
+    "explanation": "循环中i从0开始，每次先执行Sum += i，再i自增。当i=9时，Sum累加至0+1+2+...+9=45，i自增后为10，循环结束。最终输出“10 45”。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "下面C++代码用于判断N是否为质数(只能被1和它本身整除的正整数)。程序执行后,下面有关描述正确的是( )<pre><code>int N;\ncout << \"请输入整数:\";\ncin >> N;\nbool Flag = false;\nif (N >= 2){\n  Flag = true;\n  for (int i=2; i < N; i++)\n    if (N % i == 0){\n      Flag = false;\n      break;\n    }\n}\nif(Flag)\n  cout << \"是质数\";\nelse\n  cout << \"不是质数\";</code></pre>",
+    "options": ["A. 如果输入负整数,可能输出“是质数”", "B. 如果输入2,将输出“不是质数”,因为此时循环不起作用", "C. 如果输入2,将输出“是质数”,即便此时循环体没有被执行", "D. 如果将if (N >= 2) 改为if (N > 2) 将能正确判断N是否质数"],
+    "correct": "C",
+    "explanation": "输入2时，N >= 2成立，Flag被设为true。for循环条件i < 2（i从2开始），循环体不执行，Flag保持true，因此输出“是质数”。选项C正确。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "下面的C++代码用于求1~N之间所有奇数之和,其中N为正整数,如果N为奇数,则求和时包括N。有关描述错误的是( )<pre><code>int N;\ncout << \"请输入正整数:\";\ncin >> N;\nint i = 1, Sum = 0;\nwhile (i <= N){\n  if (i % 2 == 1)\n    Sum += i;\n  i += 1;\n}\ncout << i << \" \" << Sum;</code></pre>",
+    "options": ["A. 执行代码时如果输入10,则最后一行输出将是11 25", "B. 执行代码时如果输入5,则最后一行输出将是6 9", "C. 将i += 1 移到if (i % 2 == 1) 前一行,同样能实现题目要求", "D. 删除if (i % 2 == 1) ,并将i += 1 改为i += 2 ,同样可以实现题目要求"],
+    "correct": "C",
+    "explanation": "若将i += 1移到if前，i会先自增，导致奇数判断延迟，例如i=1时先变为2，错过1的累加，无法正确求和。因此选项C描述错误。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "如果一个整数N能够表示为X*X 的形式,那么它就是一个完全平方数,下面C++代码用于完成判断N是否为一个完全平方数,在横线处应填入的代码是( )<pre><code>int N;\ncin >> N;\nfor(int i = 0; i <= N; i++)\n  if(______)\n    cout << N << \"是一个完全平方数\\n\";</code></pre>",
+    "options": ["A. i == N*N", "B. i*10 == N", "C. i+i == N", "D. i*i == N"],
+    "correct": "D",
+    "explanation": "完全平方数是能表示为X*X的数，因此判断条件应为i*i == N，当满足时N为完全平方数。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "执行下面C++代码后输出的cnt的值是( )<pre><code>int cnt=0;\nfor(int i = 0; i*i < 64; i+=2)\n  cnt++;\ncout << cnt;</code></pre>",
+    "options": ["A. 8", "B. 7", "C. 4", "D. 1"],
+    "correct": "C",
+    "explanation": "循环条件i*i < 64，i初始为0，每次加2。i的取值为0、2、4、6（0*0=0、2*2=4、4*4=16、6*6=36均小于64，8*8=64不满足），共循环4次，cnt=4。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "小杨父母带他到某培训机构给他报名参加CCF组织的GESP认证考试的第1级,那他可以选择的认证语言有几种?( )",
+    "options": ["A. 1", "B. 2", "C. 3", "D. 4"],
+    "correct": "C",
+    "explanation": "GESP认证一级支持的语言包括图形化（Scratch）、Python和C++，共3种。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "ENIAC于1946年投入运行,是世界上第一台真正意义上的计算机,它的主要部件都是( )组成的。",
+    "options": ["A. 感应线圈", "B. 电子管", "C. 晶体管", "D. 集成电路"],
+    "correct": "B",
+    "explanation": "ENIAC是第一代计算机，主要由电子管组成，体积庞大，功耗高。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "在C++代码中变量X 被赋值为16.44,则cout << X / 10 执行后输出的一定是1 。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "X为浮点型变量时，X / 10的结果为1.644，cout会输出该浮点值（默认保留六位小数），而非整数1。因此该说法错误。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "C++的整型变量N 被赋值为10,则语句cout << N / 4 << \"->\" << N % 4 << \"->\" << N / 4.0 执行后输出是2->2->2.0 。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "N / 4为2（整数除法），N % 4为2，N / 4.0为2.5（浮点除法）。因此输出应为“2->2->2.5”，而非“2->2->2.0”，该说法错误。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "定义C++的float 型变量N ,则语句cin >> N; cout << int(float(N)) 可以输入正负整数和浮点数,并将其转换为整数后输出。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "cin可接收正负整数和浮点数赋值给float变量，int(float(N))会将N强制转换为int类型（截断小数部分）并输出。该说法正确。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "C++的整型N 被赋值为5,语句printf(\"%d*2\",N) 执行后将输出10 。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "printf语句中“%d*2”会将N的值5代入，输出“5*2”，而非10。该说法错误。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "在C++中,break 语句用于终止当前层次的循环,循环可以是for 循环,也可以是while 循环。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "break语句可用于终止当前层次的for循环、while循环和do-while循环，该说法正确。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "在C++,continue 语句通常与if语句配合使用。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "continue语句用于跳过循环体剩余部分并进入下一次循环，通常与if语句配合，根据条件决定是否跳过，该说法正确。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "在C++代码中,不可以将变量命名为printf ,因为printf 是C++语言的关键字。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "printf是C语言标准库中的函数名，并非C++关键字，因此可以作为变量名（不推荐）。该说法错误。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "在C++中有整型变量N,则表达式N +=8/4||2 相当于N +=8 /(4 / 2) 。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "表达式N += 8/4 || 2中，8/4=2（非0为真），逻辑或运算结果为1，等价于N += 1；而8/(4/2)=8/2=4，N += 4。两者不等价，该说法错误。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "C++中定义变量int N ,则表达式(!!N) 的值也是N 的值。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "!!N是双重逻辑非运算，结果为1（若N≠0）或0（若N=0），与N的原始值不同（如N=5时，!!N=1≠5）。该说法错误。",
+    "source": "2024年6月GESP C++一级试题"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "GESP测试是对认证者的编程能力进行等级认证,同一级别的能力基本上与编程语言无关。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "GESP认证同一级别考察的核心编程能力（如逻辑思维、算法基础）与具体编程语言无关，不同语言的同级认证标准一致。该说法正确。",
+    "source": "2024年6月GESP C++一级试题"
+  }
+]

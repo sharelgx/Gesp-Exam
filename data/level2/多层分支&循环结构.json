@@ -1,0 +1,90 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是（ ）<pre><code>\nint cnt=0;\nfor (int i=1; i<9; i++)\n  for (int j=1; j<i; j+=2)\n    cnt += 1;\ncout << cnt;\n</code></pre>",
+        "options": ["A. 16", "B. 28", "C. 35", "D. 36"],
+        "correct": "A",
+        "explanation": "外层循环i从1到8，内层循环j每次递增2且j<i。i=1时j不执行；i=2时j=1（1次）；i=3时j=1（1次）；i=4时j=1,3（2次）；i=5时j=1,3（2次）；i=6时j=1,3,5（3次）；i=7时j=1,3,5（3次）；i=8时j=1,3,5,7（4次）。总计1+1+2+2+3+3+4=16次，故A正确。",
+        "source": "2023年9月GESP C++二级真题.pdf 单选题第10题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是（ ）<pre><code>\nint cnt=0;\nfor (int i=1; i<13; i+=3)\n  for (int j=1; j<i; j+=2)\n    if (i*j%2==0)\n      break;\n    else \n      cnt += 1;\ncout << cnt;\n</code></pre>",
+        "options": ["A. 1", "B. 3", "C. 15", "D. 没有输出"],
+        "correct": "B",
+        "explanation": "i取值1、4、7、10、13（仅前4个有效）。i=1时j不执行；i=4时j=1、3，j=1时i*j=4*1=4（偶，break），不计数；i=7时j=1、3、5，均为奇，cnt+=3；i=10时j=1、3、5、7、9，j=1时i*j=10*1=10（偶，break），不计数。总计cnt=3，故B正确。",
+        "source": "2023年9月GESP C++二级真题.pdf 单选题第11题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "在下列代码的横线处填写（ ），可以使得输出是“1357”<pre><code>\n#include <iostream>\nusing namespace std;\nint main(){\n  for (int i=1; i<=8; ) // 在此处填入代码\n    cout << i;\n  return 0;\n}\n</code></pre>",
+        "options": ["A. i++", "B. i += 2", "C. i *= 2", "D. i = i + 1"],
+        "correct": "B",
+        "explanation": "要求输出奇数1、3、5、7，每次i递增2。选项B满足条件，其他选项均生成连续整数或倍数，故B正确。",
+        "source": "GESP C++二级样题.pdf 单选题第14题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "下面C++代码用于输出N行N列的矩阵，对角线为1，横线处应填入（ ）<pre><code>\nint N; cin >> N;\nfor (int i=1; i<=N; i++){\n  for (int j=1; j<=N; j++)\n    if (__________) cout << 1 << \" \";\n    else cout << 0 << \" \";\n  cout << endl;\n}\n</code></pre>",
+        "options": ["A. i == j", "B. i != j", "C. i > j", "D. i < j"],
+        "correct": "A",
+        "explanation": "对角线元素满足行号i等于列号j，故条件为i==j，A正确。",
+        "source": "2023年6月GESP C++二级试题解析.pdf 单选题第7题"
+    },
+    {
+        "id": "5",
+        "type": "truefalse",
+        "question": "在C++中，for循环的循环体必须用花括号{}括起来。（对/错）",
+        "correct": "×",
+        "explanation": "若循环体为单条语句，可省略花括号，如`for(int i=0; i<10; i++) cout<<i;`，故说法错误。",
+        "source": "2023年3月GESP C++二级试题解析.pdf 判断题第14题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是（ ）<pre><code>\nint loopCount=0;\nfor (int i=0; i<10; i++){\n  for (int j=0; j<i; j++)\n    if (i*j % 2) break;\n  loopCount += 1;\n}\ncout << loopCount;\n</code></pre>",
+        "options": ["A. 25", "B. 16", "C. 10", "D. 9"],
+        "correct": "C",
+        "explanation": "外层循环i从0到9。i=0时j不执行，loopCount+=1；i=1时j=0，i*j=0（偶，不break），loopCount+=1；i=2时j=0、1，j=0时i*j=0（偶），j=1时i*j=2（偶），不break，loopCount+=1；以此类推，所有i均满足条件，共循环10次，故输出10，C正确。",
+        "source": "2024年6月GESP C++二级真题.pdf 单选题第10题"
+    },
+    {
+        "id": "7",
+        "type": "single",
+        "question": "下列代码段的功能是判断素数，横线处应填入（ ）<pre><code>\nint N, flag=true;\ncin >> N;\nfor (int i=2; i<N; i++){\n  if (N%i == 0){\n    flag=false;\n    ______;\n  }\n}\nif (flag) cout << \"是质数\";\nelse cout << \"非质数\";\n</code></pre>",
+        "options": ["A. continue", "B. break", "C. return", "D. exit"],
+        "correct": "B",
+        "explanation": "发现因数时应立即退出循环，使用break语句，B正确。",
+        "source": "2023年9月GESP C++二级真题.pdf 单选题第8题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "下面C++代码执行后输出逆序数，如输入123则输出321，横线处应填入（ ）<pre><code>\nint N, rst=0;\ncin >> N;\nwhile (N){\n  rst = rst*10 + N%10;\n  N = ______;\n}\ncout << rst;\n</code></pre>",
+        "options": ["A. N/10", "B. N%10", "C. N-10", "D. N*10"],
+        "correct": "A",
+        "explanation": "每次取N的个位（N%10）加入rst，然后N除以10去掉已处理的个位，故N=N/10，A正确。",
+        "source": "2024年9月GESP C++二级真题.pdf 单选题第12题"
+    },
+    {
+        "id": "9",
+        "type": "truefalse",
+        "question": "在嵌套循环中，break语句只能跳出当前层循环。（对/错）",
+        "correct": "√",
+        "explanation": "break语句仅终止当前所在循环层，如需跳出多层循环需结合标志位，故说法正确。",
+        "source": "2023年6月GESP C++二级试题解析.pdf 隐含考点"
+    },
+    {
+        "id": "10",
+        "type": "single",
+        "question": "下面C++代码用于输出九九乘法表，横线处应填入（ ）<pre><code>\nfor (int i=1; i<=9; i++){\n  for (int j=1; j<=i; j++)\n    cout << j << \"*\" << i << \"=\" << i*j << \" \";\n  cout << ______;\n}\n</code></pre>",
+        "options": ["A. endl", "B. i", "C. j", "D. 0"],
+        "correct": "A",
+        "explanation": "每行循环结束后需换行，使用endl，A正确。",
+        "source": "2023年9月GESP C++二级真题.pdf 单选题第11题（改编）"
+    }
+]

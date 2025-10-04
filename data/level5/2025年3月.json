@@ -1,0 +1,332 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "链表不具备的特点是( )。",
+    "options": [
+      "A. 可随机访问任何一个元素",
+      "B. 插入、删除操作不需要移动元素",
+      "C. 无需事先估计存储空间大小",
+      "D. 所需存储空间与存储元素个数成正比"
+    ],
+    "correct": "A",
+    "explanation": "链表的元素通过指针链接，访问元素需从表头开始顺序遍历，无法像数组那样通过索引随机访问。因此“可随机访问任何一个元素”是链表不具备的特点，选项A正确。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "双向链表中每个结点有两个指针域prev和next，分别指向该结点的前驱及后继结点。设p指向链表中的一个结点，它的前驱结点和后继结点均非空。要删除结点p，则下述语句中错误的是( )。",
+    "options": [
+      "A. p->next->prev = p->next; p->prev->next = p->prev; delete p;",
+      "B. p->prev->next = p->next; p->next->prev = p->prev; delete p;",
+      "C. p->next->prev = p->prev; p->next->prev->next = p->next; delete p;",
+      "D. p->prev->next = p->next; p->prev->next->prev = p->prev; delete p;"
+    ],
+    "correct": "A",
+    "explanation": "删除双向链表中的结点p时，需正确更新p的前驱结点的next指针和p的后继结点的prev指针，使它们跳过p直接指向对方。选项A中，`p->next->prev = p->next`和`p->prev->next = p->prev`会破坏链表的指针关系，导致链表断裂，是错误的操作。其余选项均能正确删除结点p。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "假设双向循环链表包含头尾哨兵结点（不存储实际内容），分别为head和tail，链表中每个结点有两个指针域prev和next，分别指向该结点的前驱及后继结点。下面代码实现了一个空的双向循环链表，横线上应填的最佳代码是( )。",
+    "options": [
+      "A. list->head->prev = list->head; list->tail->prev = list->head;",
+      "B. list->head->next = list->tail; list->tail->prev = list->head;",
+      "C. list->head->next = list->tail; list->tail->next = list->head;",
+      "D. list->tail->next = nullptr; list->head->next = list->tail;"
+    ],
+    "correct": "B",
+    "explanation": "<pre><code>// 链表结点 template &lt;typename T&gt; struct ListNode { T data; ListNode* prev; ListNode* next; // 构造函数 explicit ListNode(const T& val = T()) : data(val), prev(nullptr), next(nullptr) {} }; struct LinkedList { ListNode&lt;T&gt;* head; ListNode&lt;T&gt;* tail; }; void InitLinkedList(LinkedList* list) { list->head = new ListNode&lt;T&gt;; list->tail = new ListNode&lt;T&gt;; // 在此处填入代码 };</code></pre>\n初始化空的双向循环链表时，头哨兵结点head的next应指向尾哨兵结点tail，尾哨兵结点tail的prev应指向头哨兵结点head，形成循环结构。选项B符合这一要求，正确初始化了空链表。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "用以下辗转相除法（欧几里得算法）求gcd(84, 60)的步骤中，第二步计算的数是( )。",
+    "options": [
+      "A. 84和60",
+      "B. 60和24",
+      "C. 24和12",
+      "D. 12和0"
+    ],
+    "correct": "B",
+    "explanation": "<pre><code>int gcd(int a, int b) { int big = a > b ? a : b; int small = a < b ? a : b; if (big % small == 0) { return small; } else { return gcd(small, big % small); } }</code></pre>\n求gcd(84, 60)的步骤：\n1. 第一步：big=84，small=60，84%60=24，调用gcd(60, 24)；\n2. 第二步：big=60，small=24，60%24=12，调用gcd(24, 12)；\n因此第二步计算的数是60和24，选项B正确。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "根据唯一分解定理，下面整数的唯一分解是正确的( )。",
+    "options": [
+      "A. 18=3 × 6",
+      "B. 28=4 × 7",
+      "C. 36=2 × 3 × 6",
+      "D. 30=2 × 3 × 5"
+    ],
+    "correct": "D",
+    "explanation": "唯一分解定理要求将整数分解为质数的乘积。选项A中的6、B中的4、C中的6均为合数，不符合要求；选项D将30分解为2、3、5三个质数的乘积，符合唯一分解定理，正确。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "下述代码实现素数表的线性筛法，筛选出所有小于等于n的素数，横线上应填的最佳代码是( )。",
+    "options": [
+      "A. j < primes.size()",
+      "B. i * primes[j] <= n",
+      "C. j < primes.size() && i * primes[j] <= n",
+      "D. j <= n"
+    ],
+    "correct": "C",
+    "explanation": "<pre><code>vector&lt;int&gt; sieve_linear(int n) { vector&lt;bool&gt; is_prime(n + 1, true); vector&lt;int&gt; primes; if (n < 2) return primes; is_prime[0] = is_prime[1] = false; for (int i = 2; i <= n / 2; i++) { if (is_prime[i]) primes.push_back(i); for (int j = 0; ; j++) { // 在此处填入代码 is_prime[i * primes[j]] = false; if (i % primes[j] == 0) break; } } for (int i = n / 2 + 1; i <= n; i++) { if (is_prime[i]) primes.push_back(i); } return primes; }</code></pre>\n线性筛法中，循环需遍历已找到的素数（j < primes.size()），且需保证i*primes[j]不超过n（i * primes[j] <= n），以避免越界。选项C同时满足这两个条件，是正确的循环条件。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "在程序运行过程中，如果递归调用的层数过多，会因为( )引发错误。",
+    "options": [
+      "A. 系统分配的栈空间溢出",
+      "B. 系统分配的堆空间溢出",
+      "C. 系统分配的队列空间溢出",
+      "D. 系统分配的链表空间溢出"
+    ],
+    "correct": "A",
+    "explanation": "递归调用时，每次调用都会在栈内存中创建函数栈帧（存储局部变量、返回地址等）。若递归层数过多，栈空间会被耗尽，导致栈溢出错误。堆空间用于动态内存分配（如new操作），与递归调用的层数无关。因此选项A正确。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "对下面两个函数，说法错误的是( )。",
+    "options": [
+      "A. 两个函数的实现的功能相同。",
+      "B. 两个函数的时间复杂度均为O(n)。",
+      "C. factorialA采用递归方式。",
+      "D. factorialB采用递归方式。"
+    ],
+    "correct": "D",
+    "explanation": "<pre><code>int factorialA(int n) { if (n <= 1) return 1; return n * factorialA(n - 1); } int factorialB(int n) { if (n <= 1) return 1; int res = 1; for (int i = 2; i <= n; i++) res *= n; return res; }</code></pre>\nfactorialA通过递归实现阶乘计算，factorialB通过循环（迭代）实现阶乘计算，两者功能相同，时间复杂度均为O(n)。选项D称factorialB采用递归方式，与代码不符，是错误的说法。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "下列算法中，( )是不稳定的排序。",
+    "options": [
+      "A. 选择排序",
+      "B. 插入排序",
+      "C. 归并排序",
+      "D. 冒泡排序"
+    ],
+    "correct": "A",
+    "explanation": "不稳定排序是指排序后相同元素的相对顺序可能改变。选择排序在交换元素时可能破坏相同元素的相对顺序（如[2, 2, 1]排序后变为[1, 2, 2]，但原始两个2的顺序可能改变），因此是不稳定排序。插入排序、归并排序、冒泡排序均为稳定排序。选项A正确。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "考虑以下C++代码实现的快速排序算法，将数据从小到大排序，则横线上应填的最佳代码是( )。",
+    "options": [
+      "A. if (arr[j] > pivot) { i++; swap(arr[i], arr[j]); }",
+      "B. if (arr[j] < pivot) { i++; swap(arr[i], arr[j]); }",
+      "C. if (arr[j] < pivot) { swap(arr[i], arr[j]); i++; }",
+      "D. if (arr[j] == pivot) { i++; swap(arr[i], arr[j]); }"
+    ],
+    "correct": "B",
+    "explanation": "<pre><code>int partition(vector&lt;int&gt;& arr, int low, int high) { int pivot = arr[high]; // 基准值 int i = low - 1; for (int j = low; j < high; j++) { // 在此处填入代码 } swap(arr[i + 1], arr[high]); return i + 1; } // 快速排序 void quickSort(vector&lt;int&gt;& arr, int low, int high) { if (low < high) { int pi = partition(arr, low, high); quickSort(arr, low, pi - 1); quickSort(arr, pi + 1, high); } }</code></pre>\n快速排序的partition函数需将小于基准值pivot的元素放在左侧。当arr[j] < pivot时，应将i递增并交换arr[i]与arr[j]，使小于pivot的元素移至左侧。选项B的逻辑正确，符合快速排序的分区要求。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "若用二分法在[1, 100]内猜数，最多需要猜( )次。",
+    "options": [
+      "A. 100",
+      "B. 10",
+      "C. 7",
+      "D. 5"
+    ],
+    "correct": "C",
+    "explanation": "二分法每次将搜索范围缩小一半，对于范围[1, 100]，最多需要的猜测次数为log2(100)的向上取整。由于2^6=64 < 100，2^7=128 > 100，因此最多需要7次，选项C正确。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "下面代码实现了二分查找算法，在数组arr找到目标元素target的位置，则横线上能填写的最佳代码是( )。",
+    "options": [
+      "A. int mid = left + (right - left) / 2;",
+      "B. int mid = left;",
+      "C. int mid = (left + right) / 2;",
+      "D. int mid = right;"
+    ],
+    "correct": "A",
+    "explanation": "<pre><code>int binarySearch(int arr[], int left, int right, int target) { while (left <= right) { // 在此处填入代码 if (arr[mid] == target) return mid; else if (arr[mid] < target) left = mid + 1; else right = mid - 1; } return -1; }</code></pre>\n计算mid时，`left + (right - left) / 2`与`(left + right) / 2`结果相同，但前者可避免left + right溢出（当left和right为较大整数时）。因此选项A是更安全的最佳代码。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "贪心算法的核心特征是( )。",
+    "options": [
+      "A. 总是选择当前最优解",
+      "B. 回溯尝试所有可能",
+      "C. 分阶段解决子问题",
+      "D. 总能找到最优解"
+    ],
+    "correct": "A",
+    "explanation": "贪心算法的核心是在每一步选择中采取当前状态下的最优解（局部最优），但不保证全局最优。回溯尝试所有可能是回溯算法的特征，分阶段解决子问题是分治算法的特征。选项A正确描述了贪心算法的核心特征。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "函数int findMax(int arr[], int low, int high)计算数组中最大元素，其中数组arr从索引low到high，( )正确实现了分治逻辑。",
+    "options": [
+      "A. if (low == high) return arr[low]; int mid = (low + high) / 2; return arr[mid];",
+      "B. if (low >= high) return arr[low]; int mid = (low + high) / 2; int leftMax = findMax(arr, low, mid - 1); int rightMax = findMax(arr, mid, high); return leftMax + rightMax;",
+      "C. if (low > high) return 0; int mid = low + (high - low) / 2; int leftMax = findMax(arr, low, mid); int rightMax = findMax(arr, mid + 1, high); return leftMax * rightMax;",
+      "D. if (low == high) return arr[low]; int mid = low + (high - low) / 2; int leftMax = findMax(arr, low, mid); int rightMax = findMax(arr, mid + 1, high); return (leftMax > rightMax) ? leftMax : rightMax;"
+    ],
+    "correct": "D",
+    "explanation": "分治算法求解最大值的逻辑为：将数组分为左右两部分，分别递归求解两部分的最大值，再返回两者中的较大值。选项D的代码符合这一逻辑：当low == high时返回单个元素，否则分治计算左右最大值并比较。其余选项的逻辑错误（如返回中间元素、求和、求积等）。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "小杨编写了一个如下的高精度乘法函数，则横线上应填写的代码为( )。",
+    "options": [
+      "A. int temp = c[k];",
+      "B. int temp = c[k] + carry;",
+      "C. int temp = c[k] - carry;",
+      "D. int temp = c[k] * carry;"
+    ],
+    "correct": "B",
+    "explanation": "<pre><code>vector&lt;int&gt; multiply(vector&lt;int&gt;& a, vector&lt;int&gt;& b) { int m = a.size(), n = b.size(); vector&lt;int&gt; c(m + n, 0); // 逐位相乘，逆序存储 for (int i = 0; i < m; i++) { for (int j = 0; j < n; j++) { c[i + j] += a[i] * b[j]; } } // 处理进位 int carry = 0; for (int k = 0; k < c.size(); ++k) { // 在此处填入代码 c[k] = temp % 10; carry = temp / 10; } while (c.size() > 1 && c.back() == 0) c.pop_back(); return c; }</code></pre>\n高精度乘法中，处理进位时需将当前位的数值与上一轮的进位相加，再计算新的位值和进位。因此横线处应填入`int temp = c[k] + carry;`，选项B正确。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "单链表中删除某个结点p（非尾结点），但不知道头结点，可行的操作是将p的值设为p->next的值，然后删除p->next。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "在单链表中，若不知道头结点且p为非尾结点，可通过“值覆盖”法删除p：将p->next的值赋给p，再删除p->next。此操作等价于删除p结点，且无需头结点。因此该说法正确。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "链表存储线性表时要求内存中可用存储单元地址是连续的。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "链表的结点在内存中可以分散存储，通过指针链接形成逻辑上的连续结构，无需内存地址连续。而数组才要求内存单元地址连续。因此该说法错误。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "线性筛相对于埃拉托斯特尼筛法，每个合数只会被它的最小质因数筛去一次，因此效率更高。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "埃拉托斯特尼筛法中，每个合数可能被多个质因数重复标记；而线性筛法通过保证每个合数仅被其最小质因数标记，避免了重复操作，时间复杂度为O(n)，效率高于埃拉托斯特尼筛法。因此该说法正确。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "贪心算法通过每一步选择当前最优解，从而一定能获得全局最优解。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "贪心算法的局部最优选择不一定导致全局最优解。例如，在找零钱问题中，若货币面额为{1, 3, 4}，找6元时，贪心策略会选择4+1+1（3枚），而最优解为3+3（2枚）。因此该说法错误。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "递归函数必须具有一个终止条件，以防止无限递归。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "递归函数若没有终止条件，会无限调用自身，导致栈溢出。因此，递归函数必须包含终止条件（如当参数满足特定条件时返回），以确保递归能够结束。该说法正确。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "快速排序算法的时间复杂度与输入是否有序无关，始终稳定为O(n log n)。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "快速排序的时间复杂度与输入数据的有序性密切相关。当输入为已排序数组且选择第一个元素为基准时，时间复杂度会退化为O(n²)；仅平均情况下为O(n log n)。因此该说法错误。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "归并排序算法的时间复杂度与输入是否有序无关，始终稳定为O(n log n)。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "归并排序采用分治策略，无论输入数据是否有序，都会将数组分为两半并递归排序，最后合并，时间复杂度始终为O(n log n)。因此该说法正确。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "二分查找适用于对无序数组和有序数组的查找。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "二分查找的核心是通过比较中间元素与目标值缩小搜索范围，这依赖于数组的有序性。对无序数组使用二分查找会导致逻辑错误，无法保证找到目标值。因此该说法错误。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "小杨有100元去超市买东西，每个商品有各自的价格，每种商品只能买1个，小杨的目标是买到最多数量的商品。小杨采用的策略是每次挑价格最低的商品买，这体现了分治思想。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "B",
+    "explanation": "小杨每次选择价格最低的商品购买，以最大化商品数量，这是一种局部最优选择，体现的是贪心思想，而非分治思想（分治思想是将问题分解为子问题求解）。因此该说法错误。",
+    "source": "2025年3月 GESP C++五级试题"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "归并排序算法体现了分治算法，每次将大的待排序数组分成大小大致相等的两个小数组，然后分别对两个小数组进行排序，最后对排好序的两个小数组合并成有序数组。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "correct": "A",
+    "explanation": "归并排序的核心是分治策略：将大数组分为两个子数组，递归排序子数组后合并结果。该描述准确反映了归并排序与分治算法的关系，因此说法正确。",
+    "source": "2025年3月 GESP C++五级试题"
+  }
+]

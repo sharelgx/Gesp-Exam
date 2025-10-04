@@ -1,0 +1,83 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "下面的程序中，如果输入10 0 ，会输出( )<pre><code>1 #include<iostream>\n2 using namespace std;\n3 double Division(int a,int b) {\n4     if(b==0)\n5         throw \"Division by zero condition!\";\n6     else\n7         return (double)a/(double)b;\n8 }\n9 void func()\n10 {\n11     try\n12     {\n13         int len, time;\n14         cin>>len>>time\n15         cout<<Division(len,time)<<endl;\n16     }\n17     catch (...) \n18     { \n19         cout << \"error.\" << endl; return;\n20     }\n21 }\n22 int main()\n23 {\n24     func();\n25     return 0;\n26 }</code></pre>",
+        "options": ["A. Division by zero condition!", "B. 0", "C. 10", "D. 100"],
+        "correct": "A",
+        "explanation": "当输入10 0时，调用Division函数，b=0触发异常，抛出字符串\"Division by zero condition!\"。由于func函数中catch块使用(...)捕获所有异常，因此会输出该异常信息。",
+        "source": "2024年6月GESP C++四级真题.pdf 单选题第13题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "运行下面的代码，将出现( )<pre><code>double hmean(double a, double b) {\n    if (a == -b )\n        throw runtime_error(\"Runtime error occurred.\");\n    return 2.0*a*b/(a + b);\n}\nint main() {\n    double x = 10;\n    double y = -10;\n    try {\n        int result = hmean(x, y);\n        cout << \"hmean: \" << result << endl;\n    }\n    catch (const runtime_error& e) {\n        cout << \"Caught: \" << e.what() << endl;\n    }\n    catch (...) {\n        cout << \"Caught an unknown exception.\" << endl;\n    }\n    return 0;\n}\n</code></pre>",
+        "options": ["A. 屏幕上输出Caught: Runtime error occurred.", "B. 屏幕上输出Caught an unknown exception.", "C. 程序调用 std::terminate()", "D. 编译错误"],
+        "correct": "A",
+        "explanation": "hmean函数中当a == -b时抛出runtime_error异常。main函数中try块调用hmean(x, y)，其中x=10，y=-10，满足a == -b条件，抛出异常。catch (const runtime_error& e)捕获该异常，并输出e.what()，即\"Runtime error occurred.\"。",
+        "source": "2025年3月认证C++四级试题.pdf 单选题第14题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "运行下面的代码，将出现什么情况?( )<pre><code>double hmean(double a, double b) {\n    if (a == -b )\n        throw runtime_error(\"Runtime error occurred\");\n    return 2.0*a*b/(a + b);\n}\nint main() {\n    double x = 10;\n    double y = -10;\n    try {\n        int result = hmean(x, y);\n        cout << \"hmean: \" << result << endl;\n    }\n    catch (const runtime_error& e) {\n        cout << \"Caught: \" << e.what() << endl;\n    }\n    catch (...) {\n        cout << \"Caught an unknown exception.\" << endl;\n    }\n    return 0;\n}\n</code></pre>",
+        "options": ["A. 屏幕上输出Caught: Runtime error occurred", "B. 屏幕上输出Caught an unknown exception", "C. 程序调用 std::terminate()", "D. 编译错误"],
+        "correct": "A",
+        "explanation": "当调用hmean(10, -10)时，a == -b条件成立，抛出runtime_error异常。catch (const runtime_error& e)捕获该异常，并输出异常信息。注意异常信息字符串中没有感叹号，但what()会输出完整的异常消息字符串\"Runtime error occurred\"。",
+        "source": "2024年12月认证C++四级真题.pdf 单选题第15题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "下列关于C++语言中异常处理的叙述，正确的是( )。",
+        "options": ["A. 一个try子句可以有多个catch子句与之对应", "B. 如果try子句在执行时发生异常，就一定会进入某一个catch子句执行", "C. 如果try子句中没有可能发生异常的语句，会产生编译错误", "D. catch 子句处理异常后，会重新执行与之对应的try子句"],
+        "correct": "A",
+        "explanation": "A选项正确，一个try子句可以跟随多个catch子句，用于捕获不同类型的异常。B选项错误，只有当异常类型与某个catch子句匹配时才会进入该catch子句；C选项错误，try子句中没有异常语句不会产生编译错误；D选项错误，catch子句处理异常后，会继续执行try-catch块之后的语句，而不是重新执行try子句。",
+        "source": "2023年9月GESPC++四级试卷解析.pdf 单选题第12题"
+    },
+    {
+        "id": "5",
+        "type": "single",
+        "question": "在C++语言中，如果一个函数可能抛出异常，那么一定要在try子句里调用这个函数。( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "B",
+        "explanation": "不一定需要在try子句里调用可能抛出异常的函数。如果不在try子句里调用，当异常发生时，异常会向上层调用链传播，如果上层没有处理该异常，最终会导致程序终止。但这并不违反语法规则，只是会导致程序异常终止。",
+        "source": "2023年9月GESPC++四级试卷解析.pdf 判断题第6题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "在C++语言中try子句里抛出的结构体等类型的异常无法被catch捕获。( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "B",
+        "explanation": "C++的异常处理可以捕获任何类型的异常，包括结构体类型。只需要在catch子句中声明对应的结构体类型即可捕获该类型的异常。",
+        "source": "2024年3月认证C++四级真题.pdf 判断题第7题"
+    },
+    {
+        "id": "7",
+        "type": "single",
+        "question": "在下列代码的横线处填写( )，可以使得输出是“20 10”<pre><code>1 #include <iostream>\n2 using namespace std;\n3 void xchg(__________) {\n4     int t=*x;\n5     *x=*y;\n6     *y =t;\n7 }\n8 int main(){\n9     inta=10,b=20;\n10     xchg(&a,&b);\n11     cout<<a<<\" \"<<b<<endl;\n12     return 0;\n13 }</code></pre>",
+        "options": ["A. int x, int y", "B. int * x, int * y", "C. int a, int b", "D. int & a, int & b"],
+        "correct": "B",
+        "explanation": "该题虽然主要考察指针传递，但异常处理相关在于：如果参数类型不匹配，可能会导致运行时错误。这里需要使用指针传递才能修改实参的值，因此参数类型应为int*。",
+        "source": "2023年6月GESP C++四级试题解析.pdf 单选题第13题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "在C++语言中，如果一个函数可能抛出异常，那么一定要在try子句里调用这个函数。( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "B",
+        "explanation": "函数可能抛出异常时，不强制要求在try子句中调用。如果不在try子句中调用，异常会向调用链上层传播，若上层也没有处理，最终会导致程序调用std::terminate()终止运行，但这是运行时行为，不是编译错误。",
+        "source": "2023年6月GESP C++四级试题解析.pdf 判断题第6题"
+    },
+    {
+        "id": "9",
+        "type": "single",
+        "question": "运行下面的代码，屏幕上将输出( )<pre><code>1 #include <iostream>\n2 using namespace std;\n3 int divide(int a, int b) {\n4     if (b == 0) {\n5         throw runtime_error(\"division by zero error\");\n6     }\n7     return a / b;\n8 }\n9 int main() {\n10     int x = 10;\n11     int y = 0; // 设为 0 会导致除零错误\n12     try {\n13         int result = divide(x, y);\n14         cout << \"result: \" << result << endl;\n15     }\n16     catch (const runtime_error& e) {\n17         cout << \"caught an exception: \" << e.what() << endl;\n18     }\n19     return 0;\n20 }\n</code></pre>",
+        "options": ["A. division by zero error result: caught an exception:", "B. result: caught an exception: division by zero error", "C. caught an exception: division by zero error", "D. division by zero error caught an exception: division by zero error"],
+        "correct": "C",
+        "explanation": "当调用divide(10, 0)时，b=0触发异常，抛出runtime_error。catch块捕获该异常并输出e.what()，即\"division by zero error\"。由于异常被捕获，程序不会终止，而是继续执行catch块后的语句。",
+        "source": "2024年9月认证C++四级试题.pdf 单选题第15题"
+    }
+]

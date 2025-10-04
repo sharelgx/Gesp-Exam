@@ -1,0 +1,90 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "C++中，若要计算整数 -5 的绝对值，应使用以下哪个函数（ ）",
+        "options": ["A. abs()", "B. fabs()", "C. sqrt()", "D. max()"],
+        "correct": "A",
+        "explanation": "`abs()`函数用于计算整数的绝对值，`fabs()`用于计算浮点数的绝对值，`sqrt()`是计算平方根的函数，`max()`用于求两个数中的最大值。所以计算整数 -5的绝对值应使用`abs()`函数，A选项正确。",
+        "source": "综合知识点自编题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "执行以下代码后，输出结果是（ ）<pre><code>#include <iostream>\n#include <cmath>\nusing namespace std;\nint main(){\n  double num = 25.0;\n  cout << sqrt(num);\n  return 0;\n}\n</code></pre>",
+        "options": ["A. 5", "B. 5.0", "C. 625", "D. 0"],
+        "correct": "A",
+        "explanation": "`sqrt()`函数用于计算平方根，`sqrt(25.0)`返回的是5，所以输出结果为5，A选项正确。",
+        "source": "2023年9月GESP C++二级真题.pdf（改编）"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "在C++中，以下代码执行后的输出结果是（ ）<pre><code>#include <iostream>\n#include <algorithm>\nusing namespace std;\nint main(){\n  int a = 10, b = 20;\n  cout << max(a, b);\n  return 0;\n}\n</code></pre>",
+        "options": ["A. 10", "B. 20", "C. 30", "D. 100"],
+        "correct": "B",
+        "explanation": "`max()`函数用于返回两个数中的较大值，`max(10, 20)`返回20，所以输出结果为20，B选项正确。",
+        "source": "2024年6月GESP C++二级真题.pdf（改编）"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "下列关于`min`函数的说法，错误的是（ ）",
+        "options": ["A. `min`函数用于返回两个数中的较小值", "B. `min`函数只能比较整数", "C. 使用`min`函数需要包含`<algorithm>`头文件", "D. `min(3.5, 2.8)`的返回值是2.8"],
+        "correct": "B",
+        "explanation": "`min`函数不仅可以比较整数，还能比较浮点数等其他类型的数据，A、C、D选项说法均正确，B选项错误。",
+        "source": "2023年12月GESP C++二级真题.pdf（改编）"
+    },
+    {
+        "id": "5",
+        "type": "truefalse",
+        "question": "在C++中，`abs(-3.14)`可以正确得到3.14这个结果。（对/错）",
+        "correct": "√",
+        "explanation": "`abs(-3.14)`会先将`-3.14`取绝对值得到3.14，所以该说法正确。",
+        "source": "2024年3月GESP C++二级真题.pdf（改编）"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "执行以下代码，输出结果是（ ）<pre><code>#include <iostream>\n#include <cmath>\nusing namespace std;\nint main(){\n  int num = -8;\n  cout << abs(num);\n  return 0;\n}\n</code></pre>",
+        "options": ["A. -8", "B. 8", "C. 0", "D. 8.0"],
+        "correct": "B",
+        "explanation": "`abs()`函数对整数`-8`取绝对值，结果为8，所以输出8，B选项正确。",
+        "source": "2023年6月GESP C++二级试题解析.pdf（改编）"
+    },
+    {
+        "id": "7",
+        "type": "single",
+        "question": "以下代码执行后，输出的结果是（ ）<pre><code>#include <iostream>\n#include <algorithm>\nusing namespace std;\nint main(){\n  double x = 5.5, y = 3.2;\n  cout << min(x, y);\n  return 0;\n}\n</code></pre>",
+        "options": ["A. 5.5", "B. 3.2", "C. 2.3", "D. 8.7"],
+        "correct": "B",
+        "explanation": "`min()`函数返回两个数中的较小值，`min(5.5, 3.2)`返回3.2，所以输出结果是3.2，B选项正确。",
+        "source": "2024年9月GESP C++二级真题.pdf（改编）"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "在判断一个大于1的整数`n`是否为质数的代码中，常使用`sqrt()`函数优化判断过程，以下代码横线处应填入（ ）<pre><code>#include <iostream>\n#include <cmath>\nusing namespace std;\nbool isPrime(int n){\n  if (n <= 1) return false;\n  for (int i = 2; i <= ______; i++){\n    if (n % i == 0) return false;\n  }\n  return true;\n}\nint main(){\n  int num = 17;\n  if (isPrime(num)) cout << num << \"是质数\"; \n  else cout << num << \"不是质数\";\n  return 0;\n}\n</code></pre>",
+        "options": ["A. n", "B. n - 1", "C. sqrt(n)", "D. n / 2"],
+        "correct": "C",
+        "explanation": "在判断质数时，只需要检查从2到`sqrt(n)`之间是否存在能整除`n`的数即可，因为如果存在大于`sqrt(n)`的因数，必然存在一个小于`sqrt(n)`的对应因数。所以横线处应填入`sqrt(n)`，C选项正确。",
+        "source": "GESP C++ 二级样题.pdf（改编）"
+    },
+    {
+        "id": "9",
+        "type": "single",
+        "question": "执行下列代码，输出结果是（ ）<pre><code>#include <iostream>\n#include <cmath>\nusing namespace std;\nint main(){\n  int a = -10, b = 25;\n  cout << abs(a) + sqrt(b);\n  return 0;\n}\n</code></pre>",
+        "options": ["A. 5", "B. 15", "C. 25", "D. 35"],
+        "correct": "B",
+        "explanation": "`abs(a)`得到10，`sqrt(b)`得到5，所以输出结果为10 + 5 = 15，B选项正确。",
+        "source": "综合知识点自编题"
+    },
+    {
+        "id": "10",
+        "type": "truefalse",
+        "question": "在C++中，`max(3, 5, 7)`可以正确返回7。（对/错）",
+        "correct": "×",
+        "explanation": "`max()`函数只能比较两个数，`max(3, 5, 7)`这种用法是错误的，不能正确返回7，所以该说法错误。",
+        "source": "综合知识点自编题"
+    }
+]

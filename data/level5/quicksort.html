@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>归并排序动态演示</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#60a5fa; --muted:#94a3b8; --accent-2:#34d399;
+    }
+    *{box-sizing:border-box;font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
+    body{margin:0;background:linear-gradient(180deg,#071024 0%, #091229 100%);color:#e6eef8}
+    .container{max-width:1100px;margin:24px auto;padding:20px}
+    header{display:flex;align-items:center;gap:16px}
+    h1{margin:0;font-size:20px}
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:14px;border-radius:12px;box-shadow:0 8px 20px rgba(2,6,23,0.6);}
+    .top-controls{display:flex;gap:12px;align-items:center;margin-top:12px}
+    input[type=range]{width:160px}
+    .canvas{height:360px;border-radius:8px; background: linear-gradient(180deg,#07132555,#06203300); margin-top:14px;padding:14px;display:flex;align-items:end;gap:6px}
+    .bar{flex:1;border-radius:6px; background:linear-gradient(180deg,var(--accent), #064E8A);display:flex;align-items:flex-end;justify-content:center;color:#021428;font-weight:700}
+    .bar.small{background:linear-gradient(180deg,#fca5a5,#ef4444)}
+    .bar.mid{background:linear-gradient(180deg,#fcd34d,#f59e0b)}
+    .bar.active{box-shadow:0 6px 18px rgba(96,165,250,0.25);transform:translateY(-6px)}
+    .controls{display:flex;gap:8px;flex-wrap:wrap}
+    button{background:#0b1220;border:1px solid rgba(255,255,255,0.04);color:var(--accent);padding:8px 10px;border-radius:8px;cursor:pointer}
+    button.secondary{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.03)}
+    .info{display:flex;gap:12px;margin-top:10px;align-items:center}
+    .box{padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02)}
+    .layout{display:grid;grid-template-columns:1fr 380px;gap:14px;margin-top:14px}
+    pre{background:#031025;padding:12px;border-radius:8px;overflow:auto;max-height:420px}
+    .legend{display:flex;gap:8px;align-items:center}
+    .dot{width:12px;height:12px;border-radius:3px}
+    .dot.compare{background:#f59e0b}
+    .dot.merging{background:#34d399}
+    .dot.sorted{background:#60a5fa}
+    footer{margin-top:18px;color:var(--muted);font-size:13px}
+    @media(max-width:900px){.layout{grid-template-columns:1fr;}.canvas{height:280px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="panel" style="padding:10px 14px;display:flex;align-items:center;gap:12px">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="#60a5fa" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <div>
+          <h1>归并排序（Merge Sort）动态演示</h1>
+          <div style="color:var(--muted);font-size:13px">分治思想：分解 → 递归排序 → 合并。可视化展示拆分与合并流程。</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="panel top-controls">
+      <div class="controls">
+        <label class="box">数组大小: <input id="size" type="number" min="4" max="120" value="30" style="width:70px;margin-left:8px;background:transparent;color:inherit;border:none" /></label>
+        <label class="box">数值范围: 1 - <input id="maxVal" type="number" min="5" max="1000" value="100" style="width:70px;margin-left:8px;background:transparent;color:inherit;border:none" /></label>
+        <button id="gen">生成随机数组</button>
+        <button id="shuffle" class="secondary">打乱</button>
+        <button id="start">开始</button>
+        <button id="pause" class="secondary">暂停</button>
+        <button id="step" class="secondary">单步</button>
+        <button id="reset" class="secondary">重置</button>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:12px;align-items:center">
+        <div class="box">速度 <input id="speed" type="range" min="50" max="1200" value="300"></div>
+        <div class="box">当前操作: <span id="op">空闲</span></div>
+        <div class="box">已合并元素: <span id="mergedCount">0</span></div>
+      </div>
+    </section>
+
+    <div class="panel canvas" id="canvas"></div>
+
+    <div class="layout">
+      <div class="panel">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="color:var(--muted)">操作记录</div>
+          <div class="legend">
+            <div style="display:flex;align-items:center;gap:6px;color:var(--muted)"><div class="dot compare"></div> 比较</div>
+            <div style="display:flex;align-items:center;gap:6px;color:var(--muted)"><div class="dot merging"></div> 合并写入</div>
+            <div style="display:flex;align-items:center;gap:6px;color:var(--muted)"><div class="dot sorted"></div> 当前范围</div>
+          </div>
+        </div>
+        <pre id="log">生成或开始后，操作记录会显示在这里。
+
+教学提示：
+- 归并排序先把数组切成越来越小的块，直到每块只剩 1 个元素；
+- 然后把相邻两块按大小合并成有序块；
+- 合并时可统计逆序对或展示写回过程。
+</pre>
+      </div>
+
+      <div class="panel">
+        <div style="margin-bottom:8px;color:var(--muted)">伪代码（当前高亮行会随演示变化）</div>
+        <pre id="pseudocode">1 mergeSort(arr, l, r)
+2   if l >= r: return
+3   mid = (l+r)/2
+4   mergeSort(arr, l, mid)
+5   mergeSort(arr, mid+1, r)
+6   merge(arr, l, mid, r)
+
+7 merge(arr, l, mid, r)
+8   i = l; j = mid+1; k = 0
+9   while i <= mid and j <= r:
+10    if arr[i] <= arr[j]: temp[k++] = arr[i++]
+11    else: temp[k++] = arr[j++]; /* 产生逆序对 mid-i+1 */
+12   copy remainings
+13   write temp back to arr[l..r]
+</pre>
+      </div>
+    </div>
+
+    <footer class="panel" style="display:flex;justify-content:space-between;align-items:center">
+      <div>教学用：可用于课堂演示归并排序拆分与合并过程。</div>
+      <div style="color:var(--muted)">柳老师，如果需要我可以把它改成统计逆序对或显示内存写回指针。</div>
+    </footer>
+  </div>
+
+  <script>
+    // 可视化归并排序：先预计算操作步骤（action list），然后播放
+    const canvas = document.getElementById('canvas');
+    const log = document.getElementById('log');
+    const op = document.getElementById('op');
+    const mergedCount = document.getElementById('mergedCount');
+    const pseudocode = document.getElementById('pseudocode');
+
+    let arr = [];
+    let bars = [];
+    let actions = []; // 每个 action: {type:'compare'|'write'|'mark', data:...}
+    let idxAction = 0;
+    let timer = null;
+
+    function randInt(a,b){return Math.floor(Math.random()*(b-a+1))+a}
+
+    function genArray(){
+      const n = Math.max(4, Math.min(120, parseInt(document.getElementById('size').value)||30));
+      const maxv = Math.max(5, parseInt(document.getElementById('maxVal').value)||100);
+      arr = Array.from({length:n}, ()=>randInt(1,maxv));
+      renderArray();
+      actions = []; idxAction=0; log.textContent='已生成数组。\n'; op.textContent='空闲'; mergedCount.textContent='0'; highlightPseudo(null);
+    }
+
+    function renderArray(){
+      canvas.innerHTML=''; bars = [];
+      const n = arr.length;
+      const maxv = Math.max(...arr);
+      for(let i=0;i<n;i++){
+        const h = Math.max(6, Math.round((arr[i]/maxv)*(canvas.clientHeight-20)));
+        const bar = document.createElement('div');
+        bar.className='bar';
+        bar.style.height=h+'px';
+        bar.style.flex=(1)+'';
+        bar.style.minWidth=(Math.max(4, Math.floor(900/n)))+'px';
+        bar.dataset.index = i;
+        bar.textContent = arr[i];
+        canvas.appendChild(bar);
+        bars.push(bar);
+      }
+    }
+
+    // 记录步骤的归并排序（递归）
+    function prepareActions(){
+      actions = [];
+      const tmp = new Array(arr.length);
+      function rec(l,r){
+        if(l>=r) return;
+        const mid = Math.floor((l+r)/2);
+        // mark current range
+        actions.push({type:'mark', l, r, note:`split [${l},${r}] -> [${l},${mid}] & [${mid+1},${r}]`});
+        rec(l,mid);
+        rec(mid+1,r);
+        // merge process
+        let i=l,j=mid+1,k=l;
+        actions.push({type:'mark', l, r, note:`merge [${l},${mid}] & [${mid+1},${r}]`});
+        while(i<=mid && j<=r){
+          actions.push({type:'compare', i, j, l, r});
+          if(arr[i] <= arr[j]){
+            actions.push({type:'write', pos:k, val:arr[i], from:i}); tmp[k++]=arr[i++];
+          } else {
+            actions.push({type:'write', pos:k, val:arr[j], from:j}); tmp[k++]=arr[j++];
+          }
+        }
+        while(i<=mid){ actions.push({type:'write', pos:k, val:arr[i], from:i}); tmp[k++]=arr[i++]; }
+        while(j<=r){ actions.push({type:'write', pos:k, val:arr[j], from:j}); tmp[k++]=arr[j++]; }
+        for(let p=l;p<=r;p++){
+          actions.push({type:'copyBack', pos:p, val:tmp[p]});
+          arr[p]=tmp[p];
+        }
+        actions.push({type:'doneRange', l, r});
+      }
+      // clone array for simulation; we must not modify the displayed arr, so operate on a copy
+      const backup = arr.slice();
+      (function(){
+        // use a temp copy to simulate values during action generation
+        let sim = backup.slice();
+        function recSim(l,r){
+          if(l>=r) return;
+          const mid=Math.floor((l+r)/2);
+          actions.push({type:'mark', l, r, note:`split [${l},${r}] -> [${l},${mid}] & [${mid+1},${r}]`});
+          recSim(l,mid); recSim(mid+1,r);
+          actions.push({type:'mark', l, r, note:`merge [${l},${mid}] & [${mid+1},${r}]`});
+          let i=l,j=mid+1,k=l;
+          const tmpSim = new Array(r-l+1);
+          while(i<=mid && j<=r){
+            actions.push({type:'compare', i, j, l, r});
+            if(sim[i] <= sim[j]){ actions.push({type:'write', pos:k, val:sim[i], from:i}); tmpSim[k-l]=sim[i]; i++; }
+            else { actions.push({type:'write', pos:k, val:sim[j], from:j}); tmpSim[k-l]=sim[j]; j++; }
+            k++;
+          }
+          while(i<=mid){ actions.push({type:'write', pos:k, val:sim[i], from:i}); tmpSim[k-l]=sim[i]; i++; k++; }
+          while(j<=r){ actions.push({type:'write', pos:k, val:sim[j], from:j}); tmpSim[k-l]=sim[j]; j++; k++; }
+          for(let p=l;p<=r;p++){ actions.push({type:'copyBack', pos:p, val:tmpSim[p-l]}); sim[p]=tmpSim[p-l]; }
+          actions.push({type:'doneRange', l, r});
+        }
+        recSim(0, sim.length-1);
+      })();
+    }
+
+    function highlightPseudo(line){
+      const text = pseudocode.textContent.split('\n').map((ln,i)=>{
+        const n=i+1;
+        if(n===line) return '%'+ln+'%';
+        return ln;
+      }).join('\n');
+      pseudocode.innerHTML = '';
+      // simple highlight by wrapping %...%
+      const parts = text.split('%');
+      for(let i=0;i<parts.length;i++){
+        if(i%2===1){ // highlighted
+          const el = document.createElement('span'); el.style.background='rgba(52,211,153,0.12)'; el.textContent=parts[i]+"\n"; pseudocode.appendChild(el);
+        } else {
+          pseudocode.appendChild(document.createTextNode(parts[i]+"\n"));
+        }
+      }
+    }
+
+    function playNext(){
+      if(idxAction>=actions.length){ op.textContent='完成'; clearHighlights(); return clearInterval(timer); }
+      const a = actions[idxAction++];
+      // handle action
+      if(a.type==='mark'){
+        op.textContent = `范围 [${a.l},${a.r}]`; logInsert(`标记范围 ${a.l}-${a.r}: ${a.note}`);
+        clearHighlights(); highlightRange(a.l,a.r);
+        highlightPseudo(3);
+      } else if(a.type==='compare'){
+        op.textContent = `比较 ${a.i} 与 ${a.j}`; logInsert(`比较 indices ${a.i}(${getBarVal(a.i)}) vs ${a.j}(${getBarVal(a.j)})`);
+        clearHighlights(); highlightIndices([a.i,a.j]); highlightRange(a.l,a.r);
+        highlightPseudo(9);
+      } else if(a.type==='write'){
+        op.textContent = `写入 pos ${a.pos} <- ${a.val}`; logInsert(`写入: a[${a.pos}] = ${a.val} （来自 ${a.from}）`);
+        writeBarTemp(a.pos, a.val);
+        highlightPseudo(10);
+      } else if(a.type==='copyBack'){
+        op.textContent = `回写 ${a.pos} = ${a.val}`; logInsert(`回写位置 ${a.pos} = ${a.val}`);
+        setBarValue(a.pos, a.val);
+        mergedCount.textContent = parseInt(mergedCount.textContent) + 1;
+        highlightPseudo(13);
+      } else if(a.type==='doneRange'){
+        logInsert(`区间 [${a.l},${a.r}] 已有序`);
+        highlightRangeDone(a.l,a.r);
+        highlightPseudo(null);
+      }
+    }
+
+    function logInsert(s){
+      log.textContent = s + '\n' + log.textContent;
+    }
+
+    function clearHighlights(){
+      bars.forEach(b=>{ b.classList.remove('active'); b.classList.remove('small'); b.classList.remove('mid'); b.style.opacity=1; });
+    }
+    function highlightRange(l,r){
+      for(let i=0;i<bars.length;i++){
+        if(i>=l && i<=r){ bars[i].classList.add('active'); bars[i].style.opacity=1; }
+        else bars[i].style.opacity=0.35;
+      }
+    }
+    function highlightRangeDone(l,r){
+      for(let i=0;i<bars.length;i++){
+        if(i>=l && i<=r){ bars[i].style.boxShadow='0 8px 22px rgba(96,165,250,0.18)'; bars[i].style.transform='translateY(-6px)'; }
+      }
+    }
+    function highlightIndices(idxs){ idxs.forEach(i=>{ if(bars[i]) bars[i].classList.add('small'); }); }
+
+    function writeBarTemp(pos, val){
+      if(bars[pos]){ bars[pos].textContent = val; bars[pos].classList.add('mid'); }
+    }
+    function setBarValue(pos, val){ if(bars[pos]){ bars[pos].textContent = val; bars[pos].classList.remove('mid'); bars[pos].style.height = Math.max(6, Math.round((val/Math.max(...arr))*(canvas.clientHeight-20)))+'px'; arr[pos]=val; } }
+    function getBarVal(i){ return bars[i]?bars[i].textContent:'?'; }
+
+    // controls
+    document.getElementById('gen').addEventListener('click', ()=>{ genArray(); });
+    document.getElementById('shuffle').addEventListener('click', ()=>{ arr.sort(()=>Math.random()-0.5); renderArray(); log.textContent='已打乱数组。\n'+log.textContent; });
+    document.getElementById('reset').addEventListener('click', ()=>{ idxAction=0; actions=[]; mergedCount.textContent='0'; op.textContent='空闲'; log.textContent='已重置。\n'; renderArray(); clearHighlights(); highlightPseudo(null); });
+
+    document.getElementById('start').addEventListener('click', ()=>{
+      // prepare actions on a copy
+      const save = arr.slice();
+      prepareActions();
+      arr = save.slice(); renderArray(); idxAction=0; mergedCount.textContent='0';
+      const speed = document.getElementById('speed').value;
+      clearInterval(timer);
+      timer = setInterval(playNext, Math.max(20, speed));
+    });
+    document.getElementById('pause').addEventListener('click', ()=>{ clearInterval(timer); timer=null; op.textContent='暂停'; });
+    document.getElementById('step').addEventListener('click', ()=>{ if(actions.length===0){ const save=arr.slice(); prepareActions(); arr = save.slice(); renderArray(); } playNext(); });
+
+    // init
+    genArray();
+    window.addEventListener('resize', ()=>{ renderArray(); });
+  </script>
+</body>
+</html>

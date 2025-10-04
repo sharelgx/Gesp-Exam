@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📐 勾股数发现器</title>
+  <style>
+    body {
+      background: #fef2f2;
+      font-family: 'Comic Sans MS', cursive;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      color: #333;
+    }
+    h1 {
+      color: #ef4444;
+    }
+    .code-block {
+      background: #fff7ed;
+      border-radius: 12px;
+      padding: 1rem;
+      font-family: monospace;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 760px;
+      white-space: pre-wrap;
+      margin-bottom: 1rem;
+    }
+    .highlight {
+      background: #fee2e2;
+      border-left: 5px solid #ef4444;
+      padding-left: 0.5rem;
+    }
+    .output {
+      background: #ffffff;
+      border-left: 5px solid #f87171;
+      padding: 1rem;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 760px;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+    button {
+      background-color: #ef4444;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #dc2626;
+    }
+  </style>
+</head>
+<body>
+  <h1>📐 找出勾股三元组（a² + b² = c²）</h1>
+
+  <div class="code-block" id="code">
+<span>#include &lt;iostream&gt;</span>
+<span>#include &lt;cmath&gt;</span>
+<span>using namespace std;</span>
+<span></span>
+<span>for (int a = 1; a &lt; 50; ++a) {</span>
+<span>  for (int b = a; b &lt; 50; ++b) {</span>
+<span>    double c = sqrt(a * a + b * b);</span>
+<span>    if (c == (int)c) {</span>
+<span>      cout &lt;&lt; a &lt;&lt; "^2 + " &lt;&lt; b &lt;&lt; "^2 = " &lt;&lt; (int)c &lt;&lt; "^2" &lt;&lt; endl;</span>
+<span>    }</span>
+<span>  }</span>
+<span>}</span>
+  </div>
+
+  <button onclick="startDemo()">🚀 开始演示</button>
+  <button onclick="nextStep()">➡️ 下一步</button>
+
+  <div class="output" id="output">
+    📚 我们将逐个尝试 a 和 b，看看是否能找到一个整数 c，使得 a² + b² = c²！
+  </div>
+
+  <script>
+    let a = 1, b = 1, step = 0;
+    const codeLines = document.querySelectorAll("#code span");
+    const output = document.getElementById("output");
+
+    function clearHighlights() {
+      codeLines.forEach(el => el.classList.remove("highlight"));
+    }
+
+    function highlightLine(line) {
+      clearHighlights();
+      if (line >= 0 && line < codeLines.length) {
+        codeLines[line].classList.add("highlight");
+      }
+    }
+
+    function startDemo() {
+      a = 1;
+      b = 1;
+      step = 0;
+      output.innerHTML = "🎯 准备好了，我们要开始找勾股三元组了！";
+      clearHighlights();
+    }
+
+    function nextStep() {
+      if (a >= 50) {
+        output.innerHTML = "🎉 所有 a, b 都检查完了，演示结束！";
+        return;
+      }
+
+      switch (step) {
+        case 0:
+          highlightLine(4);
+          output.innerHTML = `🔢 当前 a = ${a}`;
+          step++;
+          break;
+        case 1:
+          highlightLine(5);
+          output.innerHTML = `🔢 当前 b = ${b}`;
+          step++;
+          break;
+        case 2:
+          highlightLine(6);
+          output.innerHTML = `📐 正在计算 c = √(${a}² + ${b}²)`;
+          step++;
+          break;
+        case 3:
+          let c = Math.sqrt(a * a + b * b);
+          highlightLine(7);
+          output.innerHTML = Number.isInteger(c)
+            ? `✅ 找到了一个勾股三元组：${a}² + ${b}² = ${c}²`
+            : `❌ ${a}² + ${b}² = ${c.toFixed(2)}²，不是整数。继续努力！`;
+          step++;
+          break;
+        case 4:
+          highlightLine(8);
+          step = 0;
+          b++;
+          if (b >= 50) {
+            a++;
+            b = a;
+          }
+          break;
+      }
+    }
+  </script>
+</body>
+</html>

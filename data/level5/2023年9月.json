@@ -1,0 +1,227 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "近年来，线上授课变得普遍，很多有助于改善教学效果的设备也逐渐流行，其中包括比较常用的手写板，那么它属于哪类设备?( )",
+    "options": ["A. 输入", "B. 输出", "C. 控制", "D. 记录"],
+    "correct": "A",
+    "explanation": "手写板的功能是将用户的手写信息输入到计算机中，属于输入设备。输出设备是将计算机处理结果呈现出来的设备，如显示器、打印机等；控制设备用于控制计算机运行，记录设备并非标准计算机设备分类。因此A选项正确。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "如果a 和b 均为int 类型的变量，且b 的值不为0，那么下列能正确判断“a 是b 的3倍”的表达式是( )",
+    "options": ["A. (a > 3==b)", "B. (a-b) % 3=0", "C. (a / b==3)", "D. (a==3 * b)"],
+    "correct": "D",
+    "explanation": "A选项表达式逻辑错误，“a > 3==b”并非判断a是b的3倍；B选项仅能判断a与b的差是3的倍数，不能直接说明a是b的3倍；C选项在a和b为整数时，若a=7、b=2，a/b的结果也为3，但实际上7并非2的3倍，存在误差；D选项“a==3*b”直接判断a是否等于b的3倍，逻辑严谨，正确。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "如果变量a 和b 分别为double 类型和int 类型，则表达式 (a=6, b=3 *(7+8) / 2, b+= a)的计算结果为( )",
+    "options": ["A. 6", "B. 21", "C. 28", "D. 不确定"],
+    "correct": "C",
+    "explanation": "逗号表达式从左到右依次计算，先执行a=6，再计算b=3*(7+8)/2=3*15/2=22（整数除法），最后执行b += a，即b=22+6=28。整个表达式的结果为最后一个表达式的结果，即28，因此C选项正确。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "有关下面C++代码说法错误的是( )<pre><code>//sumA()和sumB()用于求从1到N之和\n#include <iostream>\nusing namespace std;\nint sumA(int n){\n  int sum=0;\n  for (int i=1;i<n+1;i++)\n    sum+=i;\n  return sum;\n}\nint sumB(int n){\n  if(n ==1)\n    return 1;\n  else\n    return n+ sumB(n -1);\n}\nint main(){\n  int n=0;\n  cin>>n;\n  cout<<sumA(n)<<\" \"<<sumB(n)<<endl;\n  return 0;\n}</code></pre>",
+    "options": ["A. sumA() 用循环方式求从1 到N 之和，sumB() 用递归方式求从1 到N 之和。", "B. 默认情况下，如果输入正整数1000，能实现求从1 到1000 之和。", "C. 默认情况下，如果输入正整数100000，能实现求从1 到100000 之和。", "D. 一般说来，sumA() 的效率高于sumB() 。"],
+    "correct": "C",
+    "explanation": "sumA使用循环实现求和，sumB使用递归实现，A选项正确；1到1000的和为500500，未超过int类型的最大值（约21亿），可正确计算，B选项正确；1到100000的和为5000050000，超过int类型的最大值，会导致溢出，无法正确计算，C选项错误；递归存在函数调用开销，循环效率通常更高，D选项正确。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "下面C++代码以递归方式实现字符串反序，横线处应填上代码是( )<pre><code>//字符串反序\n#include <iostream>\n#include <string>\nusing namespace std;\nstring sReverse(string sIn){\n  if(sIn.length()<=1){\n    return sIn;\n  }else{\n    return__ _//此处填写代码\n  }\nint main(){\n  string sIn;\n  cin>>sIn;\n  cout<<sReverse(sIn)<<endl;\n  return 0;\n}</code></pre>",
+    "options": ["A. sIn[sIn.length() - 1] + sReverse(sIn.substr(0, sIn.length() - 1));", "B. sIn[0] + sReverse(sIn.substr(1, sIn.length() - 1));", "C. sReverse(sIn.substr(0, sIn.length() - 1)) + sIn[sIn.length() - 1];", "D. sReverse(sIn.substr(1, sIn.length() - 1)) + sIn[sIn.length() - 1];"],
+    "correct": "A",
+    "explanation": "字符串反序的递归逻辑是：取字符串的最后一个字符，拼接上剩余子串的反序结果。sIn[sIn.length() - 1]获取最后一个字符，sIn.substr(0, sIn.length() - 1)获取除最后一个字符外的子串，递归调用sReverse得到该子串的反序，因此A选项正确。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "印度古老的汉诺塔传说：创世时有三根金刚柱，其中一柱从下往上按照大小顺序摞着64片黄金圆盘，当圆盘逐一从一柱借助另外一柱全部移动到另外一柱时，宇宙毁灭。移动规则：在小圆盘上不能放大圆盘，在三根柱子之间一次只能移动一个圆盘。下面的C++代码以递归方式实现汉诺塔，横线处应填入代码是( )<pre><code>#include <iostream>\nusing namespace std;\n//递归实现汉诺塔，将N个圆盘从A通过B移动C\n//圆盘从底到顶，半径必须从大到小\nvoid Hanoi(string A,string B, string C,int N){\n  if(N==1){\n    cout<<A<<\"->\"<<C<<endl;\n  }else {\n    Hanoi(A,C,B, N-1);\n    cout<<A<<\"->\"<<C<<endl;\n    ;//此处填写代码\n  }\n}\nint main(){\n  Hanoi(\"甲\",\"乙\",\"丙\",3);\n  return 0;\n}</code></pre>",
+    "options": ["A. Hanoi(B, C, A, N - 2)", "B. Hanoi(B, A, C, N - 1)", "C. Hanoi(A, B, C, N - 2)", "D. Hanoi(C, B, A, N - 1)"],
+    "correct": "B",
+    "explanation": "汉诺塔的递归解决步骤为：将N-1个圆盘从A通过C移动到B，将第N个圆盘从A移动到C，再将N-1个圆盘从B通过A移动到C。因此横线处应填入Hanoi(B, A, C, N - 1)，B选项正确。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "根据下面C++代码的注释，两个横线处应分别填入( )<pre><code>#include <iostream\n#include <vector>\n#include <algorithm>\nusing namespace std;\nbool is0dd(int N){\n  return N%2==1;\n}\nbool compare(int a,int b){\n  if(a%2==0&&b%2==1)\n    return true;\n  return false;\n}\nint main(){\n  vector<int>1stA;//1stA是一个整型向量\n  for (inti=1;i<100; i++)\n    1stA.push_back(1);\n  //对1stA成员按比较函数执行结果排序\n  sort(1stA.begin(),1stA.end(),_ _);//此处填写代码1\n  vector<int>1stB;\n  for (int i=0;i<1IstA.size();i++)//1stB成员全为奇数\n    )//此处填写代码2\n    1stB.push_back(1stA[1]);\n  cout<<\"1stA:\";\n  for (inti=0;i<lstA.size();i++)\n    cout<<1stA[i]<<\"\";\n  cout<<endl;\n  cout<<\"1stB:\";\n  for (inti=0;i<1stB.size(); i++)\n    cout<<1stB[1]<<\"\";\n  cout<<endl;\n  return 0;\n}</code></pre>",
+    "options": ["A. compare 和isOdd(lstA[i])", "B. compare(x1,y1) 和isOdd", "C. compare 和isOdd", "D. compare(x1,y1) 和isOdd(lstA[i])"],
+    "correct": "A",
+    "explanation": "sort函数的第三个参数是排序规则函数的指针，只需传入函数名compare即可，无需参数，因此代码1处填compare；代码2处需要判断当前元素是否为奇数，应调用isOdd函数并传入lstA[i]作为参数，因此填isOdd(lstA[i])。A选项正确。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "有关下面代码正确的是( )<pre><code>//在C++语言中,可以通过函数指针的形式,将一个函数作为另一个函数的参数。\n//具体来说:bool checkNum(boo1(*Fx)(int),int N);声明了一个函数,\n//其第一个参数是函数指针类型,指向一个接收一个int参数且返回值为boo1的函数。\n#include <iostream>\nusing namespace std;\nbool isEven(int N){\n  return N%2==0;\n}\nbool checkNum(boo1(*Fx)(int),int N){\n  return Fx(N);\n}\nint main(){\n  cout<<checkNum(isEven,10)<<endl;\n  return 0;\n}</code></pre>",
+    "options": ["A. checkNum() 函数定义错误。", "B. 将isEven 作为checkNum() 参数将导致错误。", "C. 执行后将输出1 。", "D. 运行时触发异常。"],
+    "correct": "C",
+    "explanation": "checkNum函数的第一个参数是函数指针，isEven函数的参数和返回值类型与该指针匹配，可以作为参数传入，A、B选项错误；调用checkNum(isEven,10)时，实际执行isEven(10)，10是偶数，返回true，在C++中true输出为1，因此程序执行后输出1，C选项正确，D选项错误。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "有关下面C++代码正确的是( )<pre><code>#include <iostream>\nusing namespace std;\nbool is0dd(int N){\n  return N%2==1;\n}\nint Square(int N){\n  return N*N;\n}\nbool checkNum(boo1(*Fx)(int),int x){\n  return Fx(x);\n}\nint main(){\n  cout<<checkNum(is0dd,10)<<endl;//输出行A\n  cout<<checkNum(Square,10)<<endl;//输出行B\n  return 0;\n}</code></pre>",
+    "options": ["A. checkNum() 函数定义错误。", "B. 输出行A 的语句将导致编译错误。", "C. 输出行B 的语句将导致编译错误。", "D. 该代码没有编译错误。"],
+    "correct": "C",
+    "explanation": "checkNum函数的第一个参数是指向返回值为bool、参数为int的函数的指针，而Square函数的返回值为int，与函数指针类型不匹配，因此输出行B的语句会导致编译错误，C选项正确；checkNum函数定义正确，A选项错误；输出行A中isOdd函数的类型与checkNum的参数匹配，不会导致错误，B选项错误。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "下面代码执行后的输出是( )<pre><code>#include<iostream>\nusing namespace std;\nint jumpFloor(int N){\n  cout<<N<<\"#\";\n  if(N==1|| N==2){\n    return N;\n  }else{\n    return jumpFloor(N-1)+jumpFloor(N-2);\n  }\n}\nint main(){\n  cout<jumpFloor(4)<<endl;\n  return 0;\n}</code></pre>",
+    "options": ["A. 4#3#2#2#4", "B. 4#3#2#2#1#5", "C. 4#3#2#1#2#4", "D. 4#3#2#1#2#5"],
+    "correct": "D",
+    "explanation": "函数jumpFloor(4)的调用过程如下：首先输出4#，然后调用jumpFloor(3)和jumpFloor(2)。jumpFloor(3)输出3#，调用jumpFloor(2)和jumpFloor(1)；jumpFloor(2)输出2#并返回2；jumpFloor(1)输出1#并返回1，因此jumpFloor(3)返回2+1=3。jumpFloor(2)输出2#并返回2。最终jumpFloor(4)返回3+2=5。整个输出序列为4#3#2#1#2#5，D选项正确。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "下面代码中的isPrimeA() 和isPrimeB() 都用于判断参数N 是否素数，有关其时间复杂度的正确说法是( )<pre><code>#include <iostream\n#include<cmath>\nusing namespace std;\nbool isPrimeA(int N){\n  if(N<2)\n    return false;\n  for(inti=2;i<N;i++)\n    if(N%i==0)\n      return false;\n  return true;\n}\nboolisPrimeB(int N){\n  if(N<2)\n    return false;\n  int endNum=int(sqrt(N));\n  for(inti=2;i<=endNum;i++)\n    if(N%i==0)\n      return false;\n  return true;\n}\nint main(){\n  cout<<boolalpha;\n  cout<<isPrimeA(13)<<\"\"<<isPrimeB(13)<<endl;\n  return 0;\n}</code></pre>",
+    "options": ["A. isPrimeA() 的最坏时间复杂度是 O(N)，isPrimeB() 的最坏时间复杂度是 O(log N)，isPrimeB() 优于isPrimeA() 。", "B. isPrimeA() 的最坏时间复杂度是 O(N)，isPrimeB() 的最坏时间复杂度是 O(N^(1/2))，isPrimeB() 优于isPrimeA() 。", "C. isPrimeA() 的最坏时间复杂度是 O(N^(1/2))，isPrimeB() 的最坏时间复杂度是 O(N)，isPrimeA() 优于isPrimeB() 。", "D. isPrimeA() 的最坏时间复杂度是 O(log N)，isPrimeB() 的最坏时间复杂度是 O(N)，isPrimeA() 优于isPrimeB()"],
+    "correct": "B",
+    "explanation": "isPrimeA的循环从2到N-1，最坏时间复杂度为O(N)；isPrimeB的循环从2到sqrt(N)，最坏时间复杂度为O(√N)。由于√N远小于N（对于较大的N），isPrimeB的效率更高，B选项正确。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "下面代码用于归并排序，其中merge() 函数被调用次数为( )<pre><code>#include <iostream>\nusing namespace std;\nvoid mergeSort(int*listData,int start,int end);\nvoid merge(int*listData,int start,int middle,int end);\nvoid mergeSort(int*listData,int start,int end){\n  if(start >=end)\n    return;\n  int middle=(start+end)/2;\n  mergeSort(listData, start, middle);\n  mergeSort(1istData,middle +1,end);\n  merge(listData, start, middle,end);\n}\nvoid merge(int*listData,int start,int middle,int end){\n  int leftSize= middle - start+1;\n  int rightsize =end-middle;\n  int*left=new int[leftSize];\n  int*right=new int[rightsize];\n  for(inti=0;i<leftSize; i++)\n    left[i] = listData[start + i];\n  for (intj=0;j<rightsize; j++)\n    right[j]=1istData[middle +1+j];\n  inti=0,j=0,k=start;\n  while (i<leftSize &8j<rightSize){\n    if(1eft[i]<=right[j]){\n      listData[k]=1eft[i];\n      i++;\n    }else{\n      1istData[k]=right[j];\n      j++;\n    }\n    k++;\n  }\n  while (i<leftSize){\n    arr[k] = left[i];\n    i++;\n    k++;\n  }\n  while(j<rightSize) {\n    1istData[k]=right[j];\n    j++;\n    k++;\n  }\n  delete[] left;\n  delete[] right;\n}\nint main(){\n  int lstA[]={1,3,2,7,11,5,3};\n  int size=sizeof(1stA)/sizeof(1stA[0]);\n  mergeSort(1stA,e,size-1);//对1stA执行归并排序\n  for(inti=0;i<size; i++)\n    cout<<1stA[i]《\"\";\n  cout<<endl;\n  return 0;\n}</code></pre>",
+    "options": ["A. 0", "B. 1", "C. 6", "D. 7"],
+    "correct": "C",
+    "explanation": "归并排序中，merge函数的调用次数与数组长度相关。对于长度为7的数组，递归过程会将数组不断二分，最终merge函数共被调用6次，C选项正确。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "在上题的归并排序算法中，mergeSort(listData, start, middle); 和mergeSort(listData, middle + 1, end); 涉及到的算法为( )",
+    "options": ["A. 搜索算法", "B. 分治算法", "C. 贪心算法", "D. 递推算法"],
+    "correct": "B",
+    "explanation": "归并排序的核心思想是分治算法，即将大问题分解为规模较小的子问题，分别解决后再合并结果。上述两个函数调用将原数组分为两个子数组并递归排序，体现了分治算法的思想，B选项正确。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "归并排序算法的基本思想是( )",
+    "options": ["A. 将数组分成两个子数组，分别排序后再合并。", "B. 随机选择一个元素作为枢轴，将数组划分为两个部分。", "C. 从数组的最后一个元素开始，依次与前一个元素比较并交换位置。", "D. 比较相邻的两个元素，如果顺序错误就交换位置。"],
+    "correct": "A",
+    "explanation": "归并排序的基本步骤是：将数组分为两个子数组，分别对两个子数组进行排序，然后将排序后的子数组合并为一个有序数组，A选项正确；B选项是快速排序的思想，C、D选项是冒泡排序的思想。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "有关下面代码的说法正确的是( )<pre><code>#include<iostream>\nclass Node{\npublic:\n  int Value;\n  Node*Next;\n  Node(int Val, Node* Nxt =nullptr){\n    Value=Val;\n    Next =Nxt;\n  }\n};\nint main(){\n  Node*finstNode = new Node(10);\n  finstNode->Next=new Node(100);\n  finstNode->Next->Next=new Node(111,firstNode);\n  return 0;\n}</code></pre>",
+    "options": ["A. 上述代码构成单向链表。", "B. 上述代码构成双向链表。", "C. 上述代码构成循环链表。", "D. 上述代码构成指针链表。"],
+    "correct": "C",
+    "explanation": "代码中，firstNode的Next指向第二个节点，第二个节点的Next指向第三个节点，第三个节点的Next指向firstNode，形成一个环形结构，因此构成循环链表，C选项正确；单向链表无环形结构，双向链表需有prev指针，“指针链表”并非标准术语。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "TCP/IP的传输层的两个不同的协议分别是UDP和TCP。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "TCP/IP协议栈的传输层主要包含两个协议：传输控制协议（TCP）和用户数据报协议（UDP），TCP提供可靠传输，UDP提供不可靠传输。该说法正确。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "在特殊情况下流程图中可以出现三角框和圆形框。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "标准流程图中常用的图形有矩形（处理框）、菱形（判断框）、椭圆形（起止框）等，三角框并非流程图的标准图形，该说法错误。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "找出自然数N 以内的所有质数，常用算法有埃氏筛法和线性筛法，其中埃氏筛法效率更高。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "线性筛法是埃氏筛法的改进版本，其核心是每个合数只被它的最小质因数筛选一次，避免了埃氏筛法中合数被多次筛选的情况，因此线性筛法的效率更高，该说法错误。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "在C++中，可以使用二分法查找链表中的元素。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "二分法查找需要随机访问元素，而链表的存储结构是链式的，无法通过索引直接访问中间元素，只能顺序访问，因此二分法不适合用于链表查找，该说法错误。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "在C++中，通过恰当的实现，可以将链表首尾相接，形成循环链表。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "循环链表的实现方式就是将链表的最后一个节点的Next指针指向头节点，使链表形成环形，因此通过恰当实现可以做到，该说法正确。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "贪心算法的解可能不是最优解。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "贪心算法通过每一步选择局部最优解来寻求全局最优，但局部最优的累积不一定能得到全局最优解，例如在某些找零问题中，贪心算法可能无法找到最少硬币数。因此该说法正确。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "一般说来，冒泡排序算法优于归并排序。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "冒泡排序的时间复杂度为O(N²)，而归并排序的时间复杂度为O(N log N)，对于大规模数据，归并排序的效率远高于冒泡排序，因此该说法错误。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "C++语言中的qsort 库函数是不稳定排序。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "qsort函数基于快速排序算法实现，快速排序是不稳定排序（即相等元素的相对顺序可能在排序后改变），因此qsort是不稳定排序，该说法正确。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "质数的判定和筛法的目的并不相同，质数判定旨在判断特定的正整数是否为质数，而质数筛法意在筛选出范围内的所有质数。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "质数判定针对单个数字，判断其是否为质数；质数筛法（如埃氏筛、线性筛）针对一个范围，找出该范围内的所有质数，二者目的不同，该说法正确。",
+    "source": "2023年9月 GESP C++五级真题"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "下面的C++代码执行后将输出0 5 1 6 2 3 4 。<pre><code>#include<iostream>\n#include <algorithm>\nusing namespace std;\nbool compareModulo5(int a,int b){\n  return a%5<b%5;\n}\nint main(){\n  int 1st[7];\n  for (inti=0;i<7;i++)\n    1st[i]=i;\n  //对序列所有元素按compareModu1o5结果排序\n  sort(1st,1st+7,compareModulo5);\n  for(inti=0;i<7;i++)\n    cout<<1st[i]<<\"\";\n  cout<<endl;\n  return 0;\n}</code></pre>",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "数组元素为0~6，它们对5的余数分别为0、1、2、3、4、0、1。compareModulo5函数按余数升序排序，排序后元素顺序为0（余0）、5（余0）、1（余1）、6（余1）、2（余2）、3（余3）、4（余4），即输出“0 5 1 6 2 3 4”，该说法正确。",
+    "source": "2023年9月 GESP C++五级真题"
+  }
+]

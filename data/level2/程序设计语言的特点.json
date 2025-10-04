@@ -1,0 +1,63 @@
+[
+    {
+      "id": "1",
+      "type": "single",
+      "question": "下列关于C++语言的叙述，正确的是( )｡",
+      "options": ["A. char类型变量不能赋值给int类型变量", "B. 两个int类型变量相乘，计算结果还是int类型", "C. 计算两个int类型变量相乘时，若乘积超出int取值范围，程序会报错崩溃", "D. 计算两个double类型变量相除时，若除数为0.0，程序会报错崩溃"],
+      "correct": "B",
+      "explanation": "A错误，char可隐式转换为int；C错误，超出范围会溢出但不崩溃；D错误，除数为0.0会得到无穷大或NaN，不崩溃。",
+      "source": "2023年6月 GESP C++二级试题解析.pdf 单选题 第3题"
+    },
+    {
+      "id": "2",
+      "type": "single",
+      "question": "下列关于C++语言的叙述，不正确的是( )｡",
+      "options": ["A. if语句中的判断条件必须用小括号括起来", "B. for语句中循环条件可省略，表示循环一直执行", "C. 循环体包含多条语句时，可用缩进消除二义性", "D. 运算符具有不同优先级"],
+      "correct": "C",
+      "explanation": "循环体多条语句必须用花括号{}括起，缩进不能消除二义性，C错误。",
+      "source": "2023年6月 GESP C++二级试题解析.pdf 单选题 第4题"
+    },
+    {
+      "id": "3",
+      "type": "single",
+      "question": "以下哪个是C++语言的关键字?( )",
+      "options": ["A. main", "B. max", "C. double", "D. sqrt"],
+      "correct": "C",
+      "explanation": "double是关键字，main、max、sqrt均为函数名或标识符，C正确。",
+      "source": "2023年6月 GESP C++二级试题解析.pdf 单选题 第5题"
+    },
+    {
+      "id": "4",
+      "type": "single",
+      "question": "以下关于C++语言的说法，错误的是( )｡",
+      "options": ["A. 变量定义时必须指定类型", "B. 标识符不能以数字开头", "C. 关键字不能作为变量名", "D. 标识符可以包含特殊符号如&"],
+      "correct": "D",
+      "explanation": "标识符只能含字母、数字、下划线，不能包含&等特殊符号，D错误。",
+      "source": "2023年3月 GESP C++二级试题解析.pdf 单选题 第4题"
+    },
+    {
+      "id": "5",
+      "type": "truefalse",
+      "question": "C++是一种高级程序设计语言｡(对/错)",
+      "correct": "√",
+      "explanation": "C++属于高级语言，需编译为机器码执行，说法正确。",
+      "source": "2023年9月 GESP C++二级真题.pdf 判断题 第10题"
+    },
+    {
+      "id": "6",
+      "type": "truefalse",
+      "question": "在C++中，使用数学函数（如sqrt、abs）时，需包含<cmath>或<math.h>头文件｡(对/错)",
+      "correct": "√",
+      "explanation": "数学函数属于标准库，需包含对应头文件才能使用，说法正确。",
+      "source": "2023年6月 GESP C++二级试题解析.pdf 判断题 第3题"
+    },
+    {
+      "id": "7",
+      "type": "single",
+      "question": "下列关于C++数据类型的说法，错误的是( )｡",
+      "options": ["A. bool类型占用1字节内存", "B. char类型有256种取值", "C. int类型取值范围是无限的", "D. double类型通常占用8字节内存"],
+      "correct": "C",
+      "explanation": "int类型取值范围有限（如-2^31~2^31-1），C错误。",
+      "source": "2023年3月 GESP C++二级试题解析.pdf 单选题 第3题"
+    }
+  ]

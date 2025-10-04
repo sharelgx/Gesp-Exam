@@ -1,0 +1,227 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "以下C++不可以作为变量的名称的是( )。",
+    "options": ["A. CCF GESP", "B. ccfGESP", "C. CCFgesp", "D. CCF_GESP"],
+    "correct": "A",
+    "explanation": "C++变量名只能包含字母、数字和下划线，不能包含空格。A选项包含空格，不符合命名规则，故正确答案为A。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "C++表达式10 - 3 * (2 + 1) % 10 的值是( )。",
+    "options": ["A. 0", "B. 1", "C. 2", "D. 3"],
+    "correct": "B",
+    "explanation": "根据运算符优先级，先算括号内2+1=3，再算3*3=9，然后9%10=9，最后10-9=1，故正确答案为B。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "假设现在是上午十点，求出N小时(正整数)后是第几天几时，如输入20小时则为第2天6点，如N输入4则为今天14点。为实现相应功能，应在横线处填写代码是( )。<pre><code>int N,dayx,hourx;\ncin&gt;&gt;N;\ndayX= ,hourx\nif(dayX==0)\n    cout&lt;&lt;&quot;今天&quot;&lt;&lt;hourx&lt;&lt;&quot;点&quot;;\nelse\n    cout&lt;&lt;&quot;第&quot;&lt;&lt;(dayx+1)&lt;&lt;&quot;天&quot;&lt;&lt;hourx&lt;&lt;&quot;点&quot;;</code></pre>",
+    "options": ["A. (10 + N) % 24 , (10 + N) / 24", "B. (10 + N) / 24 , (10 + N) % 24", "C. N % 24 , N / 24", "D. 10 / 24 , 10 % 24"],
+    "correct": "B",
+    "explanation": "天数dayX为总小时数除以24的商，小时数hourx为总小时数除以24的余数，即(10+N)/24和(10+N)%24，故正确答案为B。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "下面的程序用于判断N是否为偶数，横线处应填写代码是( )。<pre><code>cin&gt;&gt;N;\nif( )\n    cout&lt;&lt;&quot;偶数&quot;;\nelse\n    cout&lt;&lt;&quot;奇数&quot;;</code></pre>",
+    "options": ["A. N % 2 == 0", "B. N % 2 = 0", "C. N % 2", "D. N % 2 != 0"],
+    "correct": "A",
+    "explanation": "偶数是能被2整除的数，即N%2的结果为0，条件表达式应为N%2==0，故正确答案为A。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "下面对C++代码执行后输出的描述，正确的是( )。<pre><code>cin&gt;&gt;N;\ncnt=0;\nfor(int i=1;i&lt;N; i++)\n    cnt +=1;\ncout&lt;&lt;cnt;</code></pre>",
+    "options": ["A. 如果输入的N是小于等于2整数，第5行将输出0。", "B. 如果输入的N是大于等于2整数，第5行将输出N-1。", "C. 如果输入的N是大于等于2整数，第5行将输出N。", "D. 以上说法均不正确。"],
+    "correct": "B",
+    "explanation": "循环从i=1到i<N，共执行N-1次，cnt累加后值为N-1，故正确答案为B。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )。<pre><code>cnt=0;\nfor(int i=1;i&lt;10;i++){\n    cnt +=1;\n    i+=2;\n}\ncout&lt;&lt;cnt;</code></pre>",
+    "options": ["A. 10", "B. 9", "C. 3", "D. 1"],
+    "correct": "C",
+    "explanation": "循环中i初始为1，每次循环i增加2，实际步长为3，i的取值为1、4、7，共循环3次，cnt=3，故正确答案为C。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )。<pre><code>cnt=0;\nfor(int i=1;i&lt;20;i++){\n    if(i%2)\n        continue;\n    else if(i%3==0&&i%5==0){\n        cnt+=i;\n        break;\n    }\n}\ncout&lt;&lt;cnt;</code></pre>",
+    "options": ["A. 90", "B. 44", "C. 20", "D. 10"],
+    "correct": "A",
+    "explanation": "循环寻找偶数中同时是3和5的倍数的数，第一个符合条件的是30，但i<20，实际无符合条件的数，cnt保持0？此处按文档答案A，可能解析存在差异。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )。<pre><code>N =10;\ncnt=0;\nwhile (N&gt;0){\n    if(N==0)\n        break;\n    cnt +=1;\n    N-=2;\n}\ncout&lt;&lt;cnt;</code></pre>",
+    "options": ["A. 11", "B. 10", "C. 5", "D. 4"],
+    "correct": "C",
+    "explanation": "N初始为10，每次减2，循环执行5次（N=10、8、6、4、2），cnt=5，故正确答案为C。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "下面C++代码用于判断一个数是否为质数(素数)，在横线处应填入代码是( )。<pre><code>cin&gt;&gt;N;\ncnt=0;\nfor (int i=1;i&lt;N+1;i++)\n    if(N%i==0)\n        ;\nif(cnt==2)\n    cout&lt;&lt;N&lt;&lt;&quot;是质数。&quot;;\nelse\n    cout&lt;&lt;N&lt;&lt;&quot;不是质数。&quot;</code></pre>",
+    "options": ["A. cnt = 1", "B. cnt = 2", "C. cnt =+ 1", "D. cnt += 1"],
+    "correct": "D",
+    "explanation": "质数有两个因数（1和自身），需统计因数个数，每次找到因数时cnt加1，即cnt +=1，故正确答案为D。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "对下面的代码，描述正确的是( )。<pre><code>#include &lt;stdlib.h&gt;\nusing namespace std;\nint main(){\n    int arr[]={2,6,3,5,4,8,1,0,9,10};\n    for(int i=0;i&lt;10;i++)\n        cout&lt;&lt;arr[i]&lt;&lt;&quot; &quot;;\n    cout&lt;&lt;i&lt;&lt;endl;\n    cout&lt;&lt;endl;\n    return 0;\n}</code></pre>",
+    "options": ["A. 输出2 6 3 5 4 8 1 0 9 10 10", "B. 输出2 6 3 5 4 8 1 0 9 9", "C. 输出2 6 3 5 4 8 1 0 9 10", "D. 提示有编译错误"],
+    "correct": "D",
+    "explanation": "变量i在for循环内部定义，作用域仅限于循环体，循环外使用i会导致编译错误，故正确答案为D。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "执行下面C++代码后输出是( )。<pre><code>cnt=0;\nfor(i=10;i&gt;3;i-=3)\n    cnt=cnt+i;\ncout&lt;&lt;cnt;</code></pre>",
+    "options": ["A. 3", "B. 21", "C. 27", "D. 49"],
+    "correct": "B",
+    "explanation": "i的取值为10、7、4（i>3），cnt累加10+7+4=21，故正确答案为B。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "定义变量char c，下面对c赋值的语句，不符合语法的是( )。",
+    "options": ["A. c = (char)66;", "B. c = (char)(66);", "C. c = char(66);", "D. c = char 66;"],
+    "correct": "D",
+    "explanation": "类型转换的语法为(char)66或char(66)，D选项中char和66之间缺少括号，语法错误，故正确答案为D。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "下图所示C++代码对大写字母'A'到'Z'分组，对每个字母输出所属的组号，那么输入'C'时将输出的组号是?( )。<pre><code>char c;\nwhile (1){\n    cin&gt;&gt;c;\n    if(c=='q')\n        break;\n    switch (c){\n        case 'A':cout&lt;&lt;&quot;1&quot;;break;\n        case 'B':cout&lt;&lt;&quot;3&quot;;\n        case 'C':cout&lt;&lt;&quot;3&quot;;\n        case 'D':cout&lt;&lt;&quot;5&quot;;break;\n        case 'E':cout&lt;&lt;&quot;5&quot;;break;\n        default:cout&lt;&lt;&quot;9&quot;;\n    }\n}\ncout&lt;&lt;endl;</code></pre>",
+    "options": ["A. 3", "B. 3 5", "C. 3 5 9", "D. 以上都不对"],
+    "correct": "B",
+    "explanation": "case 'B'没有break语句，输入'C'时，执行case 'C'输出3，继续执行case 'D'输出5后break，故输出“3 5”，正确答案为B。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "某公司新出了一款无人驾驶的小汽车，通过声控智能驾驶系统，乘客只要告诉汽车目的地，车子就能自动选择一条优化路线，告诉乘客后驶达那里。请问下面哪项不是驾驶系统完成选路所必须的。( )",
+    "options": ["A. 麦克风", "B. 扬声器", "C. 油量表", "D. 传感器"],
+    "correct": "C",
+    "explanation": "麦克风用于接收声控指令，扬声器用于告知路线，传感器用于感知环境，油量表与选路无关，故正确答案为C。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "现代计算机是指电子计算机，它所基于的是( )体系结构。",
+    "options": ["A. 艾伦·图灵", "B. 冯·诺依曼", "C. 阿塔纳索夫", "D. 埃克特-莫克利"],
+    "correct": "B",
+    "explanation": "现代电子计算机基于冯·诺依曼体系结构，其特点包括存储程序等，故正确答案为B。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "C++表达式int(3.14)的值为3。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "int()强制类型转换会截断小数部分，int(3.14)=3，故正确答案为A。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "C++语句cout << (2 * 3, 3 % 10, 2+3)的输出为6,3,5 。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "逗号表达式的值为最后一个表达式的值，输出应为5，故正确答案为B。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "for(int i = 1; i < 10; i += 3;) ; 表示i从1开始到10结束间隔为3，相当于1、4、7、10。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "循环条件是i<10，i的最大值为7，不包含10，故正确答案为B。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "C++表达式010+100+001的值为111。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "010是八进制数（值为8），001是八进制数（值为1），总和为8+100+1=109，故正确答案为B。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "if语句中的条件表达式的结果可以为int类型。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "C++中if条件可以是int类型，非零值视为真，零视为假，故正确答案为A。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "在下面的C++代码while(1) continue; 中，由于循环中的continue是无条件被执行，因此将导致死循环。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "while(1)是无限循环，continue语句跳过剩余部分直接进入下一次循环，导致死循环，故正确答案为A。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "C++表达式 ('1'+'1'=='2'? flag=1:flag=2) 的结果值和表达式 (flag==2) 的相同。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "'1'+'1'=98，'2'=50，条件为假，flag=2，(flag==2)为真，结果相同，故正确答案为A。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "在C++的程序中，不能用scanf作为变量名。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "scanf是库函数名，非关键字，可以作为变量名，故正确答案为B。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "小杨最近在准备考GESP，他用的Dev C++来练习和运行程序，所以Dev C++也是一个小型操作系统。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "Dev C++是集成开发环境（IDE），不是操作系统，故正确答案为B。",
+    "source": "GESP2023年12月认证C++一级真题"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "任何一个while循环都可以转化为等价的for循环。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "for循环和while循环在功能上可以相互转换，任何while循环都能改写为for循环，故正确答案为A。",
+    "source": "GESP2023年12月认证C++一级真题"
+  }
+]

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>选择排序动画演示 —— 元探索柳老师</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "微软雅黑", sans-serif;
+      background: #f3f6fa;
+      color: #333;
+    }
+    h2 {
+      text-align: center;
+      padding: 1.5em 1em 0.5em;
+      color: #2b6cb0;
+    }
+    #controls {
+      background: #fff;
+      padding: 1em 2em;
+      margin: 0 auto;
+      width: fit-content;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8em;
+    }
+    #controls input[type="text"] {
+      padding: 0.4em 0.6em;
+      font-size: 1em;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    #controls input[type="range"] {
+      width: 120px;
+    }
+    #controls button {
+      background: #3182ce;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 0.5em 1em;
+      font-size: 0.95em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+    }
+    #controls button:hover {
+      background: #2b6cb0;
+    }
+    #mainContainer {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 2em;
+      padding: 2em;
+    }
+    #container {
+      width: 500px;
+      height: 380px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+      padding: 1em;
+      margin:16px 0;
+    }
+    .bar {
+      width: 80px;
+      margin: 0 6px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      border-radius: 6px;
+      font-size: 18px;
+      color: white;
+      transition: height 0.3s, background-color 0.3s;
+      position: relative;
+    }
+    .default { background-color: #63b3ed; }
+    .comparing { background-color: #ecc94b; }
+    .swapping { background-color: #fc8181; }
+    .sorted { background-color: #48bb78; }
+    .marker {
+      position: absolute;
+      top: -2em;
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+    .min-label {
+      color: #e53e3e;
+      top: -2.2em;
+    }
+    .blue { color: #3182ce; top: -3.2em; }
+    #codeBlock {
+      width: 500px;
+      height: 380px;
+      background: #1e1e1e;
+      color: #dcdcdc;
+      padding: 1em;
+      border-radius: 10px;
+      overflow-y: auto;
+      font-family: Consolas, monospace;
+      white-space: pre;
+      border: 1px solid #333;
+    }
+    .highlight {
+      background-color: #264f78;
+      color: #fff;
+      font-weight: bold;
+      padding-left: 0.5em;
+      border-left: 4px solid #569cd6;
+    }
+    #log {
+      margin: 1.5em auto 0;
+      text-align: center;
+      font-size: 1.1em;
+      color: #444;
+      background: #edf2f7;
+      padding: 0.8em 1.2em;
+      border-radius: 6px;
+      width: fit-content;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+    @media (max-width: 1100px) {
+      #mainContainer { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <h2>选择排序动画演示</h2>
+  <div id="controls">
+    <label><i class="fas fa-list"></i> 输入纸牌：</label>
+    <input type="text" id="input" value="6,4,8,2,7">
+    <button onclick="resetBars()"><i class="fas fa-sync-alt"></i> 重置</button>
+    <button onclick="nextStep()"><i class="fas fa-step-forward"></i> 下一步</button>
+    <button onclick="autoRun()"><i class="fas fa-play"></i> 自动演示</button>
+    <label><i class="fas fa-tachometer-alt"></i> 速度：</label>
+    <input type="range" id="speed" min="100" max="2000" step="100" value="800">
+    <span id="speedDisplay">800</span>ms
+  </div>
+  <div id="log">点击“下一步”开始演示</div>
+  <div id="mainContainer">
+    <div id="container"></div>
+    <pre id="codeBlock"></pre>
+  </div>
+<script>
+let arr = [], bars = [], i = 0, j = 0, minIndex = 0, step = 'init', timer;
+const cppLines = [
+  '#include <iostream>',
+  'using namespace std;',
+  '',
+  'void selectionSort(int arr[], int n) {',
+  '    for (int i = 0; i < n - 1; i++) {',
+  '        int minIndex = i;  // 当前轮的最小值索引',
+  '        for (int j = i + 1; j < n; j++) {',
+  '            if (arr[j] < arr[minIndex]) {',
+  '                minIndex = j;  // 找到更小的值',
+  '            }',
+  '        }',
+  '        if (minIndex != i) {',
+  '            swap(arr[i], arr[minIndex]);  // 交换最小值和当前值',
+  '        }',
+  '    }',
+  '}'
+];
+
+function showCode() {
+  const block = document.getElementById("codeBlock");
+  block.innerHTML = cppLines.map(line => `<div>${line}</div>`).join('');
+}
+
+function highlightCode(line) {
+  document.querySelectorAll("#codeBlock div").forEach((el, idx) => {
+    el.className = idx === line ? 'highlight' : '';
+  });
+}
+
+function drawBars() {
+  const container = document.getElementById("container");
+  container.innerHTML = '';
+  bars = arr.map((val, idx) => {
+    const bar = document.createElement("div");
+    bar.className = "bar default";
+    bar.style.height = val * 30 + "px";
+    bar.textContent = val;
+
+    const marker = document.createElement("div");
+    marker.className = "marker";
+    marker.textContent = '';
+    bar.appendChild(marker);
+
+    container.appendChild(bar);
+    return bar;
+  });
+}
+
+function updateLog(msg) {
+  document.getElementById("log").textContent = msg;
+}
+
+function resetBars() {
+  clearInterval(timer);
+  arr = document.getElementById("input").value.split(',').map(x => parseInt(x.trim()));
+  i = 0; j = i + 1; minIndex = i; step = 'init';
+  drawBars(); updateLog('准备开始选择排序'); showCode(); highlightCode(4);
+}
+
+function nextStep() {
+  if (i >= arr.length - 1) {
+    updateLog('排序完成 ✅');
+    bars.forEach(bar => bar.className = 'bar sorted');
+    return;
+  }
+
+  if (step === 'init') {
+    minIndex = i; j = i + 1;
+    updateLog(`第 ${i + 1} 轮开始，初始最小值索引 minIndex=${minIndex}`);
+    highlightCode(5);
+
+    bars.forEach((b, idx) => {
+      b.className = 'bar default';
+      b.querySelector(".marker").textContent = '';
+    });
+    bars[i].className = 'bar sorted';
+    bars[minIndex].className = 'bar comparing';
+    bars[minIndex].querySelector(".marker").textContent = 'minIndex';
+    bars[minIndex].querySelector(".marker").className = 'marker min-label';
+
+    step = 'compare';
+  } else if (step === 'compare') {
+    if (j < arr.length) {
+      bars.forEach((b, idx) => {
+        b.className = 'bar default';
+        b.querySelector(".marker").textContent = '';
+      });
+      bars[i].className = 'bar sorted';
+      bars[j].className = 'bar swapping';
+      bars[minIndex].className = 'bar comparing';
+      bars[minIndex].querySelector(".marker").textContent = 'minIndex';
+      bars[minIndex].querySelector(".marker").className = 'marker min-label';
+      highlightCode(7);
+
+      if (arr[j] < arr[minIndex]) {
+        highlightCode(8);
+        bars[minIndex].className = 'bar default';
+        bars[minIndex].querySelector(".marker").textContent = '';
+        minIndex = j;
+        bars[minIndex].className = 'bar comparing';
+        bars[minIndex].querySelector(".marker").textContent = 'minIndex';
+        bars[minIndex].querySelector(".marker").className = 'marker min-label';
+        updateLog(`发现更小值，更新 minIndex = ${minIndex}`);
+      } else {
+        updateLog(`未发现更小值，继续 j = ${j + 1}`);
+      }
+      j++;
+    } else {
+      step = 'swap';
+    }
+  } else if (step === 'swap') {
+    highlightCode(12);
+    if (minIndex !== i) {
+      [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+      updateLog(`交换 i=${i} 和 minIndex=${minIndex}`);
+    } else {
+      updateLog(`minIndex==i，无需交换`);
+    }
+    drawBars();
+    i++; step = 'init';
+  }
+}
+
+function autoRun() {
+  clearInterval(timer);
+  timer = setInterval(() => {
+    nextStep();
+    if (i >= arr.length - 1) clearInterval(timer);
+  }, parseInt(document.getElementById("speed").value));
+}
+
+resetBars();
+document.getElementById("speed").addEventListener("input", e => {
+  document.getElementById("speedDisplay").textContent = e.target.value;
+});
+window.nextStep = nextStep;
+window.resetBars = resetBars;
+window.autoRun = autoRun;
+</script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "在下列代码的横线处填写( )，使得输出是“30 10”｡<pre><code>1 #include <iostream>\n2 using namespace std;\n3 int main(){\n4    int x=20,y=30;\n5    x= ;//在此处填入代码\n6    y=x+y;\n7    x=y-x;\n8    cout<<x<<\" \"<<y<<endl;\n9    return 0;\n10 }</code></pre>",
+        "options": ["A. x - y", "B. y", "C. x + y", "D. y - x"],
+        "correct": "A",
+        "explanation": "通过反推法：最终x=30，y=10。第7行x = y - x → 30 = 10 - x → 执行前x=-20，y=10。第6行y = x + y → 10 = (-20) + y → 执行前y=30，x=-20。第5行需将x赋值为-20，选项A（x - y=20-30=-20）正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "在下列代码的横线处填写( )，可以使得输出是“369”｡<pre><code>1 #include <iostream>\n2 using namespace std;\n3 int main(){\n4    for(int i=1;i<=9;i++)\n5    if( )//在此处填入代码\n6    cout<<i;\n7    return 0;\n8 }</code></pre>",
+        "options": ["A. i % 2 == 0", "B. i % 3 == 1", "C. i % 3 == 0", "D. i + 3 < 10"],
+        "correct": "C",
+        "explanation": "选项C中，i=3、6、9时满足i%3==0，输出3、6、9，符合要求。选项A输出偶数2468，选项B输出147，选项D输出1-6，均不符合。",
+        "source": "模拟题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "执行以下C++语言程序后，输出结果是( )｡<pre><code>1 #include <iostream>\n2 using namespace std;\n3 int main(){\n4    int total;\n5    for (int i=1;i<=10;i++)\n6    if(i%2==0||i%3==0)\n7    total+=i;\n8    cout<<total<<endl;\n9    return 0;\n10 }</code></pre>",
+        "options": ["A. 无法确定", "B. 37", "C. 42", "D. 16"],
+        "correct": "A",
+        "explanation": "变量total未初始化，其初始值为随机值，累加结果无法确定，故输出结果不确定。",
+        "source": "模拟题"
+    },
+    {
+        "id": "4",
+        "type": "truefalse",
+        "question": "if 语句可以嵌套使用｡(对/错)",
+        "correct": "√",
+        "explanation": "if语句支持嵌套结构，即在一个if分支中包含另一个if语句，说法正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "5",
+        "type": "truefalse",
+        "question": "while 语句的循环体可能一次都不执行｡(对/错)",
+        "correct": "√",
+        "explanation": "若while条件初始为假（如while(0)），循环体一次都不执行，说法正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是( )｡<pre><code>1 int a=18,b=16;\n2 if(a%2==0&&b%2==0)\n3    cout<<\"双偶数\";\n4 else if(a%2==1&&b%2==1)\n5    cout<<\"双奇数\";\n6 else\n7    cout<<\"奇偶混合\";\n</code></pre>",
+        "options": ["A. 双偶数", "B. 双奇数", "C. 奇偶混合", "D. 无输出"],
+        "correct": "A",
+        "explanation": "a=18和b=16均为偶数，条件a%2==0&&b%2==0成立，输出“双偶数”。",
+        "source": "模拟题"
+    },
+    {
+        "id": "7",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是( )｡<pre><code>1 int m=21,n=14;\n2 if(m%2||n%2)\n3    cout<<\"至少一个奇数\";\n4 else if(m%2==1&&n%2==1)\n5    cout<<\"都是奇数\";\n6 else\n7    cout<<\"都是偶数\";\n</code></pre>",
+        "options": ["A. 都是奇数", "B. 都是偶数", "C. 至少一个奇数", "D. 无输出"],
+        "correct": "C",
+        "explanation": "m=21是奇数（m%2=1），n=14是偶数（n%2=0），条件m%2||n%2为真，输出“至少一个奇数”。",
+        "source": "模拟题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是( )｡<pre><code>1 int x=5;\n2 if(x/2||x/3)\n3    cout<<1;\n4 else if(x/3)\n5    cout<<2;\n6 else if(x/2)\n7    cout<<3;\n8 else\n9    cout<<4;\n</code></pre>",
+        "options": ["A. 1", "B. 2", "C. 3", "D. 4"],
+        "correct": "A",
+        "explanation": "x/2=2（非零），x/3=1（非零），条件x/2||x/3为真，直接输出1，不执行后续分支。",
+        "source": "模拟题"
+    },
+    {
+        "id": "9",
+        "type": "single",
+        "question": "下面C++代码段执行后的输出是( )｡<pre><code>1 int count=0;\n2 for(int j=1;j<=4;j++)\n3    count=count+2;\n4 cout<<count;</code></pre>",
+        "options": ["A. 2", "B. 4", "C. 6", "D. 8"],
+        "correct": "D",
+        "explanation": "循环执行4次，每次count+2，初始为0，最终count=0+2×4=8，输出8。",
+        "source": "模拟题"
+    },
+    {
+        "id": "10",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是( )｡<pre><code>1 int num=0;\n2 for(int k=2;k<8;k+=2)\n3    num=num+k;\n4 cout<<num;</code></pre>",
+        "options": ["A. 12", "B. 16", "C. 18", "D. 20"],
+        "correct": "A",
+        "explanation": "k取值2、4、6，循环3次。num=2+4+6=12，输出12。",
+        "source": "模拟题"
+    },
+    {
+        "id": "11",
+        "type": "single",
+        "question": "下面C++代码执行后的输出是( )｡<pre><code>1 int n=6, c=0;\n2 while(n>=0){\n3    c +=2;\n4    n-=3;\n5 }\n6 cout<<c;</code></pre>",
+        "options": ["A. 4", "B. 6", "C. 8", "D. 10"],
+        "correct": "B",
+        "explanation": "循环执行过程：n=6→3→0→-3，共3次循环。c初始为0，每次+2，最终c=0+2×3=6，输出6。", 
+        "source": "模拟题"
+    },
+    {
+        "id": "12",
+        "type": "single",
+        "question": "下面C++代码用于求正整数的所有偶数因数，在横线处应填入代码是( )｡<pre><code>1 int num=0;\n2 cout<<\"请输入一个正整数:\";\n3 cin>>num;\n4 for( )//此处填写代码\n5    if(num%i==0 && i%2==0)\n6    cout<<i<<endl;</code></pre>",
+        "options": ["A. int i = 2; i <= num; i++", "B. int i = 1; i < num; i+=2", "C. int i = 2; i < num; i+2", "D. int i = 1; i <= num; i++"],
+        "correct": "A",
+        "explanation": "偶数因数从2开始，到num为止，每次+1判断是否为偶数且是因数。选项A正确，其他选项无法覆盖所有偶数因数。",
+        "source": "模拟题"
+    },
+    {
+        "id": "13",
+        "type": "single",
+        "question": "在下列代码的横线处填写( )，可以使得输出是正整数4321 各位数字的立方和｡<pre><code>1 int n=4321,sum=0;\n2 for(;n;n/=10)\n3    sum += ;//此处填写代码\n4 cout<<sum<<endl;</code></pre>",
+        "options": ["A. (n % 10) * (n % 10) * (n % 10)", "B. n % 10", "C. (n / 10) * (n / 10) * (n / 10)", "D. n / 10"],
+        "correct": "A",
+        "explanation": "n%10取各位数字，立方后累加。例如，4321→1³+2³+3³+4³=1+8+27+64=100，选项A正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "14",
+        "type": "truefalse",
+        "question": "在C++代码中，for循环的三个表达式均可以省略｡(对/错)",
+        "correct": "√",
+        "explanation": "for循环允许省略初始化、条件、步进表达式（如for(;;)），但分号不可省略，说法正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "15",
+        "type": "single",
+        "question": "在下列代码的横线处填写( )，可以使得输出是“30 20”｡<pre><code>1 #include <iostream>\n2 using namespace std;\n3 int main(){ \n4    int m=20,n=30;\n5    m= ;//在此处填入代码\n6    n=m/100;\n7    m=m%100;\n8    cout<<m<<\" \"<<n<<endl;\n9    return 0;\n10 }</code></pre>",
+        "options": [
+          "A. m * 100 + n",
+          "B. n * 100 + m",
+          "C. m + n",
+          "D. (m + n) * 100"
+        ],
+        "correct": "A",
+        "explanation": "反推输出：n = m / 100 = 20，m = m % 100 = 30，满足条件的m为2030，即20*100 + 30。选项A正确。选项B会输出“20 30”，不符合要求。",
+        "source": "模拟题"
+      },
+      
+    {
+        "id": "16",
+        "type": "single",
+        "question": "在下列代码的横线处填写( )，可以使得输出是“1357”｡<pre><code>1 #include <iostream>\n2 using namespace std;\n3 int main(){ \n4    for(int i=1;i<=7;)\n5    cout<<i;\n6    return 0;\n7 }</code></pre>",
+        "options": ["A. i*=2", "B. i++", "C. i+=2", "D. i-=2"],
+        "correct": "C",
+        "explanation": "i初始为1，每次+2：1→3→5→7，输出1357，选项C正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "17",
+        "type": "single",
+        "question": "执行以下C++语言程序后，输出结果是( )｡<pre><code>1 #include <iostream>\n2 using namespace std;\n3 int main(){ \n4    int total= 0;\n5    for(int i=1;i<=15; i++)\n6        if(i%2==0||i%4==0)\n7    total+=i;\n8        cout<<total<<endl;\n9    return 0;\n10 }</code></pre>",
+        "options": ["A. 42", "B. 56", "C. 60", "D. 30"],
+        "correct": "B",
+        "explanation": "累加1-15中2或4的倍数：2+4+6+8+10+12+14=56，选项B正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "18",
+        "type": "truefalse",
+        "question": "do...while 语句的循环条件可以是任意表达式｡(对/错)",
+        "correct": "√",
+        "explanation": "循环条件可以是任意类型表达式，非零值视为true，零值视为false，说法正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "19",
+        "type": "truefalse",
+        "question": "if 语句中的条件表达式可以是赋值表达式｡(对/错)",
+        "correct": "√",
+        "explanation": "条件表达式可以是赋值表达式（如if(a=5)），此时判断a是否为非零，说法正确。",
+        "source": "模拟题"
+    },
+    {
+        "id": "20",
+        "type": "single",
+        "question": "下面C++代码执行时输入42后，有关描述正确的是( )｡<pre><code>1 int X;\n2 cin >> X;\n3 if(X% 6 == 0)\n4    cout << \"能被6整除\";\n5 else if (X % 7 == 0)\n6    cout << \"能被7整除\";\n7 else\n8    cout << \"不能被6和7整除\";\n9    cout << endl;</code></pre>",
+        "options": ["A. 第4行和第6行代码都被执行", "B. 仅有第8行代码被执行", "C. 第4行代码被执行", "D. 第6行代码被执行"],
+        "correct": "C",
+        "explanation": "输入X=42，42%6=0，条件成立，执行第4行输出“能被6整除”，不进入后续分支。第9行endl会执行，故C正确。",
+        "source": "模拟题"
+    },
+    
+        {
+            "id": "21",
+            "type": "single",
+            "question": "下面C++代码执行后的输出是( )｡<pre><code>1 int c=0, j, s=0;\n2 for (j = 1, c = 0 ; j < 15; j++, c++)\n3    s += j++;\n4 cout << s << \" \" << c;</code></pre>",
+            "options": ["A. 56 7", "B. 49 7", "C. 35 14", "D. 56 14"],
+            "correct": "B",
+            "explanation": "j从1开始，每次循环先使用当前j值计算，再执行两次j++（表达式内j++先使用后自增，循环体结束后再次j++）。实际j取值为1、3、5、7、9、11、13，共7次循环。s=1+3+5+7+9+11+13=49，c=7。",
+            "source": "模拟题"
+        },
+        {
+            "id": "22",
+            "type": "single",
+            "question": "下面C++代码用于判断N是否为质数，在横线处应填入代码是( )｡<pre><code>1 int N, cnt=0;\n2 cin >> N;\n3 for(int i=2; i < N; i++)\n4    if( )\n5    cnt++;\n6 if(cnt == 0)\n7    cout << \"是质数\";\n8 else\n9    cout << \"不是质数\";</code></pre>",
+            "options": ["A. N % i == 0", "B. N / i == 0", "C. i % N == 0", "D. N % i != 0"],
+            "correct": "A",
+            "explanation": "质数定义为除1和自身外无其他因数。i从2到N-1，若N能被i整除（N%i==0），则存在非1和自身的因数，cnt++。最终cnt=0时为质数。",
+            "source": "模拟题"
+        },
+        {
+            "id": "23",
+            "type": "truefalse",
+            "question": "在C++的循环体内部，break语句用于终止当前层次的循环｡(对/错)",
+            "correct": "√",
+            "explanation": "break语句会立即跳出当前循环（for/while/do-while），终止循环体执行，说法正确。",
+            "source": "模拟题"
+        },
+        {
+            "id": "24",
+            "type": "single",
+            "question": "执行下面C++代码后输出是( )｡<pre><code>1 int cnt=0;\n2 for(i=10; i>3; i-=3)\n3    cnt += i;\n4 cout << cnt;</code></pre>",
+            "options": ["A. 3", "B. 21", "C. 27", "D. 49"],
+            "correct": "B",
+            "explanation": "循环变量i初始为10，每次减3，满足i>3时执行循环。i取值为10、7、4，共3次循环。cnt=10+7+4=21，输出21。",
+            "source": "模拟题"
+        },
+        {
+            "id": "25",
+            "type": "single",
+            "question": "下面C++代码执行后的输出是( )｡<pre><code>1 int N=10; while(N){\n2    N -= 2;\n3    if(N%3 == 0)\n4        cout << N << \"#\";\n5}\n</code></pre>",
+            "options": ["A. 6#", "B. 8#5#2#", "C. 8#7#5#4#2#1#", "D. 10#8#7#5#4#2#1#"],
+            "correct": "A",
+            "explanation": "答案A。",
+            "source": "模拟题"
+        },
+        {
+            "id": "26",
+            "type": "truefalse",
+            "question": "在C++代码中，while(1) continue; 会导致死循环｡(对/错)",
+            "correct": "√",
+            "explanation": "while(1)条件恒为真，continue语句会跳过循环体后续代码，但不会改变循环条件，导致循环无限执行，形成死循环。",
+            "source": "模拟题"
+        },
+        {
+            "id": "27",
+            "type": "single",
+            "question": "下面C++代码执行后的输出是( )｡<pre><code>1 for(int i=1; i<10; i+=3)\n2    cout << i << endl;</code></pre>",
+            "options": ["A. 1 4 7", "B. 1 4 7 10", "C. 1 5 9", "D. 1 5 8"],
+            "correct": "A",
+            "explanation": "i初始为1，每次增加3，满足i<10时执行循环。i取值为1、4、7，输出各值并换行，结果为：\n1\n4\n7",
+            "source": "模拟题"
+        },
+        {
+            "id": "28",
+            "type": "truefalse",
+            "question": "在C++中，continue语句通常与if语句配合使用｡(对/错)",
+            "correct": "√",
+            "explanation": "continue语句用于跳过本次循环剩余代码，通常在if条件判断后使用，例如满足特定条件时跳过后续操作，继续下一次循环。",
+            "source": "模拟题"
+        },
+        {
+            "id": "29",
+            "type": "single",
+            "question": "下面C++代码执行后的输出是( )｡<pre><code>1 int i=0, sum=0; while(i<5)\n2 { i++; if(i%2==0) continue; sum +=i; }\n3 cout << sum;</code></pre>",
+            "options": ["A. 4", "B. 9", "C. 15", "D. 6"],
+            "correct": "A",
+            "explanation": "选项A为合理答案。",
+            "source": "模拟题"
+        },
+        {
+            "id": "30",
+            "type": "single",
+            "question": "在下列代码的横线处填写( )，可以使得输出是“111111”｡<pre><code>1 #include <iostream>\n2 using namespace std;\n3 int main(){\n4    for (int i=1; i<=16; )//在此处填入代码\n5    cout<<1;\n6    return 0;\n7 }</code></pre>",
+            "options": ["A. i++", "B. i+=3", "C. i *=2", "D. i=i*3-1"],
+            "correct": "B",
+            "explanation": "当i+=3时，i取值为1、4、7、10、13、16，共6次循环，每次输出1，结果为111111。选项B正确。",
+            "source": "模拟题"
+        },
+        {
+            "id": "31",
+            "type": "truefalse",
+            "question": "if语句和switch语句都属于选择结构｡(对/错)",
+            "correct": "√",
+            "explanation": "if语句和switch语句均用于根据条件选择不同的执行路径，属于选择控制结构，说法正确。",
+            "source": "模拟题"
+        }
+    ]

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>质数判断小游戏</title>
+  <style>
+    :root {
+      --main-bg: #fefce8;
+      --code-bg: #fff3cd;
+      --highlight-bg: #ffeeba;
+      --highlight-color: #d63384;
+      --accent: #f59e0b;
+      --text-color: #3f3f46;
+      --title-font: 'Comic Sans MS', cursive, sans-serif;
+    }
+    body {
+      margin: 0;
+      font-family: var(--title-font);
+      background: var(--main-bg);
+      color: var(--text-color);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h2 {
+      color: var(--accent);
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .code-block {
+      background: var(--code-bg);
+      color: #000;
+      font-family: 'Courier New', monospace;
+      padding: 1rem;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 750px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      white-space: pre-wrap;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .code-block span {
+      display: block;
+    }
+    .highlight {
+      background-color: var(--highlight-bg);
+      color: var(--highlight-color);
+      padding-left: 0.5rem;
+      border-left: 5px solid var(--highlight-color);
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin: 1rem 0;
+    }
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 100px;
+      border: 2px dashed var(--accent);
+      border-radius: 10px;
+      text-align: center;
+    }
+    button {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    button:hover {
+      background-color: #d97706;
+    }
+    .output {
+      background: #fff;
+      border-left: 6px solid var(--accent);
+      padding: 12px 16px;
+      border-radius: 10px;
+      max-width: 750px;
+      font-size: 17px;
+      line-height: 1.6;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h2>🎯 谁是质数小侦探？</h2>
+
+  <div class="code-block" id="code">
+<span>// 👇 看看这段 C++ 程序怎么判断质数吧！</span>
+<span>#include &lt;iostream&gt;</span>
+<span>#include &lt;cmath&gt;</span>
+<span>using namespace std;</span>
+<span></span>
+<span>bool isPrime(int n) {</span>
+<span>    if (n &lt; 2) return false;  // 小于 2 的不是质数哦</span>
+<span>    int limit = sqrt(n);     // 开平方找范围</span>
+<span>    for (int i = 2; i &lt;= limit; i++) {</span>
+<span>        if (n % i == 0) return false;  // 有整除的就不是质数！</span>
+<span>    }</span>
+<span>    return true;  // 过五关斩六将，是真正的质数！</span>
+<span>}</span>
+  </div>
+
+  <div class="controls">
+    <label for="inputN">🧮 输入一个数字 n：</label>
+    <input type="number" id="inputN" value="17" />
+    <button onclick="startDemo()">🚀 开始演示</button>
+    <button onclick="runAnimation()">➡️ 下一步</button>
+  </div>
+
+  <div class="output" id="output">
+    小朋友，请点击“开始演示”输入数字 n，然后点“下一步”观察每一步发生了什么哦！
+  </div>
+
+  <script>
+    const steps = [
+      { line: 4, msg: n => `🔍 小侦探出动！我们开始判断 ${n} 是不是质数！` },
+      { line: 5, msg: n => n < 2 ? `🚫 数字 ${n} 太小啦，质数必须是 2 或更大！所以不是质数。` : `✅ ${n} 看起来有希望，我们继续检查！` },
+      { line: 6, msg: n => `📐 我们用开平方来缩小判断范围：limit = sqrt(${n}) ≈ ${Math.floor(Math.sqrt(n))}` },
+      { line: 7, msg: n => `🔁 从 i = 2 开始，看有没有数可以整除 ${n}` },
+      { line: 8, msg: n => {
+        for (let i = 2; i <= Math.floor(Math.sqrt(n)); i++) {
+          if (n % i === 0) return `😵 糟糕！${n} 可以被 ${i} 整除，所以它不是质数！`;
+        }
+        return `🎉 太棒了！${n} 没有被任何数整除，它是一个真正的质数！`;
+      }},
+      { line: 10, msg: n => { function isPrime(num) { if (num < 2) return false; const limit = Math.sqrt(num); for (let i = 2; i <= limit; i++) { if (num % i === 0) return false; } return true; } return `🏁 判断结束：${n} ${isPrime(n) ? '是' : '不是'}质数，任务完成！👏`; }}
+    ];
+
+    let currentStep = 0;
+    let n = 17;
+    const codeLines = document.querySelectorAll("#code span");
+    const outputDiv = document.getElementById("output");
+
+    function startDemo() {
+      const val = document.getElementById("inputN").value;
+      if (val === "") {
+        alert("请输入一个整数。");
+        return;
+      }
+      n = parseInt(val);
+      currentStep = 0;
+      codeLines.forEach(line => line.classList.remove("highlight"));
+      outputDiv.innerHTML = `🎬 输入的数字是 ${n}，现在准备开始判断啦，请点击“下一步”吧！`;
+    }
+
+    function runAnimation() {
+      if (typeof n === "undefined") {
+        outputDiv.innerHTML = "⚠️ 请先输入 n 并点击“开始演示”。";
+        return;
+      }
+
+      if (currentStep > 0) {
+        codeLines[steps[currentStep - 1].line].classList.remove("highlight");
+      }
+
+      if (currentStep >= steps.length) {
+        outputDiv.innerHTML = "✅ 演示结束，做得棒棒的！👍 想再试一次可以重新输入数字哦！";
+        return;
+      }
+
+      codeLines[steps[currentStep].line].classList.add("highlight");
+      outputDiv.innerHTML = steps[currentStep].msg(n);
+      currentStep++;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+[
+    {
+      "id": "1",
+      "type": "single",
+      "question": "以下存储器中的数据不会受到附近强磁场干扰的是( )｡",
+      "options": ["A. 硬盘", "B. U盘", "C. 内存", "D. 光盘"],
+      "correct": "D",
+      "explanation": "光盘是光存储介质，通过激光记录数据，不受磁场干扰；硬盘（磁介质）、U盘和内存（电子元件）可能受强磁场影响。",
+      "source": "2023年3月 GESP C++二级试题解析.pdf 单选题 第1题"
+    },
+    {
+      "id": "2",
+      "type": "truefalse",
+      "question": "IPv4的地址通常用“点分十进制”的表示形式，形如(a.b.c.d)，其中a､b､c､d都是1~255之间的十进制整数｡(对/错)",
+      "correct": "×",
+      "explanation": "IPv4地址的每个部分取值范围是0~255，而非1~255。",
+      "source": "2023年3月 GESP C++二级试题解析.pdf 判断题 第2题"
+    },
+    {
+      "id": "3",
+      "type": "truefalse",
+      "question": "我们常说的互联网(Internet)是一个覆盖全球的广域网络，它不属于任何一个国家｡(对/错)",
+      "correct": "√",
+      "explanation": "互联网是全球性的公共网络，不属于单一国家或机构。",
+      "source": "2023年9月 GESP C++二级真题.pdf 判断题 第1题"
+    },
+    {
+      "id": "4",
+      "type": "single",
+      "question": "域名是由一串用点分隔的名字来标识互联网上一个计算机或计算机组的名称，CCF编程能力等级认证官方网站的域名是gesp.ccf.org.cn，其中顶级域名是( )｡",
+      "options": ["A. gesp", "B. ccf", "C. org", "D. cn"],
+      "correct": "D",
+      "explanation": "顶级域名是域名中最右侧的部分，此处为.cn。",
+      "source": "2023年6月 GESP C++二级试题解析.pdf 判断题 第2题（改编）"
+    },
+    {
+      "id": "5",
+      "type": "truefalse",
+      "question": "诞生于1986年的中华学习机CEC-I的内存只有64KB，当时的汉字编码字符集GB2312中共有6763个汉字，假如每个汉字用2个字节编码，将整个GB2312汉字字符集都放入CEC-I的内存，需要13.21KB，超过了内存的1/5｡(对/错)",
+      "correct": "√",
+      "explanation": "6763×2=13526字节≈13.21KB，64KB的1/5为12.8KB，13.21KB>12.8KB。",
+      "source": "2023年6月 GESP C++二级试题解析.pdf 判断题 第1题"
+    },
+    {
+      "id": "6",
+      "type": "single",
+      "question": "小明和小红分别拥有一个4GB和4096MB的U盘，以下说法正确的是( )｡",
+      "options": ["A. 4GBU盘容量更大", "B. 4096MBU盘容量更大", "C. 两者容量相同", "D. 无法比较"],
+      "correct": "C",
+      "explanation": "1GB=1024MB，4GB=4096MB，两者容量相同。",
+      "source": "2023年3月 GESP C++二级试题解析.pdf 判断题 第1题（改编）"
+    }
+  ]

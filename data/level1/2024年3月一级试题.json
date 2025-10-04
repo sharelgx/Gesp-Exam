@@ -1,0 +1,227 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "C++表达式(3 - 2) * 3 + 5 的值是( )",
+    "options": ["A. -13", "B. 8", "C. 2", "D. 0"],
+    "correct": "B",
+    "explanation": "根据C++运算符优先级，先计算括号内的3-2=1，再计算乘法1*3=3，最后计算加法3+5=8，所以结果为8。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "C++语句cout << \"5%2=\" << 5 % 2 执行后的输出是( )",
+    "options": ["A. 2 2", "B. 1 1", "C. 5%2=2", "D. 5%2=1"],
+    "correct": "D",
+    "explanation": "cout输出字符串\"5%2=\"时会原样输出，5%2的结果是1，所以整体输出为5%2=1。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "执行C++语句cin >> a 时如果输入5+2，下述说法正确的是( )",
+    "options": ["A. 变量a将被赋值为整数7", "B. 变量a将被赋值为字符串，字符串内容为5+2", "C. 语句执行将报错，不能输入表达式", "D. 依赖于变量a的类型。如果没有定义，会有编译错误"],
+    "correct": "D",
+    "explanation": "cin输入时，若a是整型，输入5+2会只读取5，+2被留在输入缓冲区；若a未定义，则会有编译错误。所以说法正确的是D。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )<pre><code>int a = 1;cout << \"a+1= \" << a+1 << endl;</code></pre>",
+    "options": ["A. a+1= 2", "B. a+1=2", "C. 2=2", "D. 2= 2"],
+    "correct": "A",
+    "explanation": "代码中输出字符串\"a+1= \"（包含空格），然后输出a+1的结果2，所以输出为a+1= 2。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )<pre><code>int a = 1;printf(\"a+1=%d\\n\", a+1);</code></pre>",
+    "options": ["A. a+1= 2", "B. a+1=2", "C. 2=2", "D. 2= 2"],
+    "correct": "B",
+    "explanation": "printf函数中格式字符串\"a+1=%d\\n\"，%d会被a+1的值2替换，所以输出为a+1=2。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "下面C++代码执行时输入21后，有关描述正确的是( )<pre><code>int N; cin >> N;if(N% 3 == 0)cout << \"能被3整除\";else if (N % 7 == 0) cout << \"能被7整除\";elsecout << \"不能被3和7整除\";cout << endl;</code></pre>",
+    "options": ["A. 代码第4行被执行", "B. 第4和第7行代码都被执行", "C. 仅有代码第7行被执行", "D. 第8行代码将被执行，因为input()输入为字符串"],
+    "correct": "A",
+    "explanation": "输入21，21%3==0成立，所以会执行第4行代码输出“能被3整除”，之后执行第8行代码输出换行。所以正确的是A。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "下面C++代码第2行，总共被执行次数是( )<pre><code>for(int i=-10; i<10; i++) cout << i << \" \";</code></pre>",
+    "options": ["A. 10", "B. 19", "C. 20", "D. 21"],
+    "correct": "C",
+    "explanation": "循环变量i从-10开始，每次递增1，直到i<10停止。i的取值为-10,-9,...,9，共20个值，所以第2行被执行20次。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )<pre><code>int tnt = 0;for(int i=0; i<10; i++)if(i%3 && i%7) tnt +=i;cout << tnt << endl;</code></pre>",
+    "options": ["A. 0", "B. 7", "C. 18", "D. 20"],
+    "correct": "D",
+    "explanation": "循环i从0到9，if条件i%3 && i%7表示i不能被3整除且不能被7整除。满足条件的i为1,2,4,5,8，它们的和为1+2+4+5+8=20，所以tnt的值为20。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )<pre><code>int N = 10;\nwhile(N){\n  N -= 1;\n  if(N%3 == 0)\n    cout << N << \"#\";\n}</code></pre>",
+    "options": ["A. 9#6#3#", "B. 9#6#3#0#", "C. 8#7#5#4#2#1#", "D. 10#8#7#5#4#2#1#"],
+    "correct": "B",
+    "explanation": "初始N=10，循环中N先减1，再判断是否能被3整除。N的取值依次为9（9%3==0，输出9#）、8、7、6（6%3==0，输出6#）、5、4、3（3%3==0，输出3#）、2、1、0（0%3==0，输出0#，然后N=0循环结束）。所以输出为9#6#3#0#。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "下面C++代码用于判断键盘输入的整数是否为质数。质数是只能被1和它本身整除的数。在横线处应填入代码是( )<pre><code>int N;cin >> N;int cnt = 0; // 记录N被整除的次数for(int i=1; i<N+1; i++) if(______)cnt +=1;if(cnt == 2)cout << N << \"是质数\";elsecout << N << \"不是质数\";</code></pre>",
+    "options": ["A. N % i", "B. N % i == 0", "C. N / i == 0", "D. N / i"],
+    "correct": "B",
+    "explanation": "要记录N被整除的次数，需判断i是否能整除N，即N%i == 0，此时cnt加1。质数只能被1和自身整除，所以当cnt==2时为质数。故横线处应填B。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "下面关于整型变量int x的赋值语句不正确是( )",
+    "options": ["A. x=(3.16);", "B. x=3.16;", "C. x=int(3.16);", "D. x=3.16 int;"],
+    "correct": "D",
+    "explanation": "A选项是将3.16强制转换后赋值；B选项会自动截断小数部分赋值；C选项是C++风格的强制类型转换赋值；D选项语法错误，不是正确的赋值方式。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "C++语言中下面可以完成数据输入的语句是( )",
+    "options": ["A. printf语句", "B. scanf语句", "C. default语句", "D. cout语句"],
+    "correct": "B",
+    "explanation": "printf和cout用于数据输出；default用于switch语句中；scanf语句用于数据输入，所以答案是B。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "在Dev C++中对一个写好的C++源文件要生成一个可执行程序需要执行下面哪个处理步骤?( )",
+    "options": ["A. 创建", "B. 编辑", "C. 编译", "D. 调试"],
+    "correct": "C",
+    "explanation": "创建是新建文件；编辑是编写代码；编译是将源文件转换为可执行程序；调试是查找和修复程序错误。所以生成可执行程序需要编译，答案是C。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "小杨的父母最近刚刚给他买了一块华为手表，他说手表上跑的是鸿蒙，这个鸿蒙是?( )",
+    "options": ["A. 小程序", "B. 计时器", "C. 操作系统", "D. 神话人物"],
+    "correct": "C",
+    "explanation": "鸿蒙是华为开发的操作系统，可用于多种设备，包括智能手表，所以答案是C。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "中国计算机学会(CCF)在2024年1月27日的颁奖典礼上颁布了王选奖，王选先生的重大贡献是( )",
+    "options": ["A. 制造自动驾驶汽车", "B. 创立培训学校", "C. 发明汉字激光照排系统", "D. 成立方正公司"],
+    "correct": "C",
+    "explanation": "王选先生的重大贡献是发明了汉字激光照排系统，推动了中文印刷业的革新，所以答案是C。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "在C++代码中变量n被赋值为27，则cout << n%10 执行后输出的是7。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "n%10是求n除以10的余数，27%10=7，所以输出7，该说法正确。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "C++语句printf(\"%d#%d&\",2,3) 执行后输出的是2#3&。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "printf函数中格式字符串\"%d#%d&\"，第一个%d被2替换，第二个%d被3替换，所以输出2#3&，该说法正确。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "C++函数scanf()必须含有参数，且其参数为字符串型字面量，其功能是提示输入。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "scanf()的参数包含格式字符串和变量地址列表，其功能是读取输入数据，而不是提示输入，提示输入通常由printf等语句完成，所以该说法错误。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "C++表达式\"10\"*2 执行时将报错，因为\"10\" 是字符串类型而2是整数类型，它们数据类型不同，不能在一起运算。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "在C++中，字符串和整数不能直接进行乘法运算，该表达式会导致编译错误，所以该说法正确。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "在C++中，while可能是死循环，而for循环不可能是死循环。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "for循环也可能是死循环，例如for(;;) {}就是一个死循环，所以该说法错误。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "在C++，break语句用于提前终止当前层次循环，适用于while循环，但不适用于for循环。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "break语句既适用于while循环，也适用于for循环，用于提前终止当前循环，所以该说法错误。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "C++语言中3.0和3的值相等，所以它们占用的存储空间也相同。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "3.0是double类型，通常占用8字节；3是int类型，通常占用4字节，它们占用的存储空间不同，所以该说法错误。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "在C++的程序中，cin是一个合法的变量名。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "cin是C++标准库中用于输入的对象，虽然不是关键字，但作为预定义的标识符，不建议用作变量名，且在实际编程中使用cin作为变量名可能会导致冲突，所以该说法错误。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "小杨今年春节回奶奶家了，奶奶家的数字电视可以通过遥控器输入电视剧名称来找到想播放的电视剧，所以可以推知里面有交互式程序在运行。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "数字电视能通过遥控器输入名称并响应操作，说明内部有交互式程序处理用户输入和执行相应功能，所以该说法正确。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "任何一个for循环都可以转化为等价的while循环。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "for循环的初始化、循环条件和迭代部分都可以在while循环中实现，所以任何for循环都能转化为等价的while循环，该说法正确。",
+    "source": "2024年3月 GESP C++一级试题"
+  }
+]

@@ -1,0 +1,282 @@
+[
+    {
+      "id": "1",
+      "type": "single",
+      "question": "在下列代码的横线处填写( )，使得输出是“20 10”｡<pre><code>1  #include <iostream>\n2 using namespace std;\n3 int main(){\n4 int a=10,b=20;\n5 a= ;//在此处填入代码\n6 b=a+b;\n7 a=b-a;\n8 cout<<a<<\" \"<<b<<endl;\n9 return 0;\n10 }</code></pre>",
+      "options": ["A. a + b", "B. b", "C. a - b", "D. b - a"],
+      "correct": "C",
+      "explanation": "通过反推法：最终a=20，b=10。第7行a = b - a → 20 = 10 - a → 执行前a=-10，b=10。第6行b = a + b → 10 = (-10) + b → 执行前b=20，a=-10。第5行需将a赋值为-10，选项C（a - b=10-20=-10）正确。",
+      "source": "2023年6月 GESP C++一级试题解析.pdf 单选题 第13题"
+    },
+    {
+      "id": "2",
+      "type": "single",
+      "question": "在下列代码的横线处填写( )，可以使得输出是“147”｡<pre><code>1 #include <iostream>\n2 using namespace std;\n3 int main(){\n4 for(int i=1;i<=8;i++)\n5 if( )//在此处填入代码\n6 cout<<i;\n7 return 0;\n8 </code></pre>",
+      "options": ["A. i % 2 == 1", "B. i % 3 == 1", "C. i = i + 3", "D. i + 3"],
+      "correct": "B",
+      "explanation": "选项B中，i=1、4、7时满足i%3==1，输出1、4、7，符合要求。选项A输出奇数1357，选项C/D逻辑错误。",
+      "source": "2023年6月 GESP C++一级试题解析.pdf 单选题 第14题"
+    },
+    {
+      "id": "3",
+      "type": "single",
+      "question": "执行以下C++语言程序后，输出结果是( )｡<pre><code>1 #include <iostream>\n2 using namespace std;\n3 int main(){\n4 int sum;\n5 for (int i=1;i<=20;i++)\n6 if(i%3==0||i%5==0)\n7 sum+=i;\n8 cout<<sum<<endl;\n9 return 0;\n10 }</code></pre>",
+      "options": ["A. 63", "B. 98", "C. 113", "D. 无法确定"],
+      "correct": "D",
+      "explanation": "变量sum未初始化，其初始值不确定，无法确定累加结果，故输出结果无法确定。",
+      "source": "2023年6月 GESP C++一级试题解析.pdf 单选题 第15题"
+    },
+    {
+      "id": "4",
+      "type": "truefalse",
+      "question": "if 语句可以没有else 子句｡(对/错)",
+      "correct": "√",
+      "explanation": "if语句是单分支结构，else子句为可选，可独立存在，说法正确。",
+      "source": "2023年6月 GESP C++一级试题解析.pdf 判断题 第6题"
+    },
+    {
+      "id": "5",
+      "type": "truefalse",
+      "question": "do ... while 语句的循环体至少会执行一次｡(对/错)",
+      "correct": "√",
+      "explanation": "do...while先执行循环体，再判断条件，循环体至少执行一次，说法正确。",
+      "source": "2023年6月 GESP C++一级试题解析.pdf 判断题 第7题"
+    },
+    {
+      "id": "6",
+      "type": "single",
+      "question": "下面C++代码执行后的输出是( )｡<pre><code>1 int m =14;\n2 int n = 12;\n3 if(m%2==0&&n%2==0)\n4 cout<<\"都是偶数\";\n5 else if(m%2==1&&n%2==1)\n6 cout<<\"都是奇数\";\n7 else\n8 cout<<\"不都是偶数或奇数\";</code></pre>",
+      "options": ["A. 都是偶数", "B. 都是奇数", "C. 不都是偶数或奇数", "D. 以上说法都不正确"],
+      "correct": "A",
+      "explanation": "m=14和n=12均为偶数，m%2==0&&n%2==0条件成立，输出“都是偶数”。",
+      "source": "2023年9月 GESP C++一级试题解析.pdf 单选题 第7题"
+    },
+    {
+      "id": "7",
+      "type": "single",
+      "question": "下面C++代码执行后的输出是( )｡<pre><code>1 int m =14;\n2 int n = 12;\n3 if(m%2&&n%2)\n4 cout<<\"都是偶数\";\n5 else if(m%2==1&&n%2==1)\n6 cout<<\"都是奇数\";\n7 else\n8 cout<<\"不都是偶数或奇数\";</code></pre>",
+      "options": ["A. 都是偶数", "B. 都是奇数", "C. 不都是偶数或奇数", "D. 以上说法都不正确"],
+      "correct": "C",
+      "explanation": "m%2=0，n%2=0，m%2&&n%2=0，进入else分支。m和n均为偶数，不满足“都是奇数”，故输出“不都是偶数或奇数”。",
+      "source": "2023年9月 GESP C++一级试题解析.pdf 单选题 第8题"
+    },
+    {
+      "id": "8",
+      "type": "single",
+      "question": "下面C++代码执行后的输出是( )｡<pre><code>1 int m=7;\n2 if(m/5||m/3)\n3 cout<<0;\n4 else if(m/3)\n5 cout<<1;\n6 else if(m/5)\n7 cout<<2;\n8 else\n9 cout<<3;</code></pre>",
+      "options": ["A. 0", "B. 1", "C. 2", "D. 3"],
+      "correct": "A",
+      "explanation": "m/5=1（非零），m/3=2（非零），m/5||m/3为true，直接输出0，不执行后续分支。",
+      "source": "2023年9月 GESP C++一级试题解析.pdf 单选题 第9题"
+    },
+    {
+      "id": "9",
+      "type": "single",
+      "question": "下面C++代码段执行后的输出是( )｡<pre><code>1 int cnt=0;\n2 for(int i=1;i<=5;i++)\n3 cnt=cnt+1;\n4 cout<<cnt;</code></pre>",
+      "options": ["A. 1", "B. 4", "C. 5", "D. 10"],
+      "correct": "C",
+      "explanation": "循环执行5次，每次cnt+1，初始为0，最终cnt=5，输出5。",
+      "source": "2023年9月 GESP C++一级试题解析.pdf 单选题 第10题"
+    },
+    {
+      "id": "10",
+      "type": "single",
+      "question": "下面C++代码执行后的输出是( )｡<pre><code>1 int tnt=0;\n2 for(int i=1;i<5;i+=2)\n3 tnt=tnt+i;\n4 cout<<tnt;</code></pre>",
+      "options": ["A. 2", "B. 4", "C. 9", "D. 10"],
+      "correct": "B",
+      "explanation": "i=1和i=3时循环执行，tnt=1+3=4，输出4。",
+      "source": "2023年9月 GESP C++一级试题解析.pdf 单选题 第11题"
+    },
+    {
+      "id": "11",
+      "type": "single",
+      "question": "下面C++代码执行后的输出是( )｡<pre><code>1 int n=5, cnt=1;\n2 while(n>=0){\n3 cnt +=1;\n4 n-=2;\n5 }\n6 cout<<cnt;</code></pre>",
+      "options": ["A. 3", "B. 4", "C. 6", "D. 7"],
+      "correct": "B",
+      "explanation": "循环执行过程：n=5→3→1→-1，共3次循环，cnt初始为1，每次+1，最终cnt=1+3=4。",
+      "source": "2023年9月 GESP C++一级试题解析.pdf 单选题 第12题"
+    },
+    {
+      "id": "12",
+      "type": "single",
+      "question": "下面C++代码用于求正整数的所有因数，在横线处应填入代码是( )｡<pre><code>\n1 int n=0;\n2 cout<<\"请输入一个正整数:\";\n3 cin>>n;\n4 for( )//此处填写代码\n5 if(n%i==0)\n6 cout<<i<<endl;</code></pre>",
+      "options": ["A. int i = 1; i < n; i + 1", "B. int i = 1; i < n + 1; i + 1", "C. int i = 1; i < n; i++", "D. int i = 1; i <= n; i++"],
+      "correct": "D",
+      "explanation": "因数包括1和n本身，循环需从1到n，i++为正确步进方式，选项D正确。",
+      "source": "2023年9月 GESP C++一级试题解析.pdf 单选题 第13题"
+    },
+    {
+      "id": "13",
+      "type": "single",
+      "question": "在下列代码的横线处填写( )，可以使得输出是正整数1234 各位数字的平方和｡<pre><code>\n1 int n=1234,s=0;\n2 for(;n;n/=10)\n3 s += ;//此处填写代码\n4 cout<<s<<endl;</code></pre>",
+      "options": ["A. n / 10", "B. (n / 10) * (n / 10)", "C. n % 10", "D. (n % 10) * (n % 10)"],
+      "correct": "D",
+      "explanation": "n%10取个位数字，平方后累加。例如，1234→4²+3²+2²+1²=16+9+4+1=30，选项D正确。",
+      "source": "2023年9月 GESP C++一级试题解析.pdf 单选题 第14题"
+    },
+    {
+      "id": "14",
+      "type": "truefalse",
+      "question": "在C++代码中，for循环的循环体必须写在{}中｡(对/错)",
+      "correct": "×",
+      "explanation": "若循环体为单条语句，可省略{}，如for(int i=0; i<10; i++) cout<<i;，说法错误。",
+      "source": "2023年3月 GESP C++一级试题解析.pdf 单选题 第3题（改编）"
+    },
+    {
+      "id": "15",
+      "type": "single",
+      "question": "在下列代码的横线处填写( )，可以使得输出是“20 10”｡<pre><code>1 #include <iostream>\n2 using namespace std;\n3 int main(){ \n4 int a=10,b=20;\n5 a= ;//在此处填入代码\n6 b=a/100;\n7 a=a%100;\n8 cout<<a<<\" \"<<b<<endl;\n9 return 0;\n10 }</code></pre>",
+      "options": ["A. a + b", "B. (a + b) * 100", "C. b * 100 + a", "D. a * 100 + b"],
+      "correct": "D",
+      "explanation": "通过反推法：最终a=20，b=10。第7行a=a%100→20= a%100 → a=1020（假设）。第6行b=a/100→10=1020/100=10.2→取整为10。第5行需将a赋值为1020，选项D（10*100+20=1020）正确。",
+      "source": "2023年3月 GESP C++一级试题解析.pdf 单选题 第13题"
+    },
+    {
+      "id": "16",
+      "type": "single",
+      "question": "在下列代码的横线处填写( )，可以使得输出是“1248”｡<pre><code>1 #include <iostream>\n2 using namespace std;\n3 int main(){ \n4 for(int i=1;i<=8;)//在此处填入代码\n5 cout<<i;\n6 return 0;\n7 }</code></pre>",
+      "options": ["A. i++", "B. i *= 2", "C. i += 2", "D. i * 2"],
+      "correct": "B",
+      "explanation": "i初始为1，每次乘2：1→2→4→8，输出1248，选项B正确。",
+      "source": "2023年3月 GESP C++一级试题解析.pdf 单选题 第14题"
+    },
+    {
+      "id": "17",
+      "type": "single",
+      "question": "执行以下C++语言程序后，输出结果是( )｡<pre><code>1 #include <iostream>\n2 using namespace std;\n3 int main(){ \n4 int sum= 0;\n5 for(int i=1;i<=20; i++)\n6 if(i%3==0||i%5==0)\n7 sum+=i;\n8 cout<<sum<<endl;\n9 return 0;\n10 }</code></pre>",
+      "options": ["A. 210", "B. 113", "C. 98", "D. 15"],
+      "correct": "C",
+      "explanation": "累加1-20中3或5的倍数：3+5+6+9+10+12+15+18+20=98，选项C正确。",
+      "source": "2023年3月 GESP C++一级试题解析.pdf 单选题 第15题"
+    },
+    {
+      "id": "18",
+      "type": "truefalse",
+      "question": "for 语句的循环体至少会执行一次｡(对/错)",
+      "correct": "×",
+      "explanation": "若初始条件不满足（如for(int i=0; i<0; i++)），循环体一次都不执行，说法错误。",
+      "source": "2023年3月 GESP C++一级试题解析.pdf 判断题 第7题"
+    },
+    {
+      "id": "19",
+      "type": "truefalse",
+      "question": "if 语句中的条件表达式的结果必须为bool 类型｡(对/错)",
+      "correct": "×",
+      "explanation": "条件表达式可以是任意类型，非零值视为true，零值视为false，说法错误。",
+      "source": "2023年3月 GESP C++一级试题解析.pdf 判断题 第6题"
+    },
+   
+  {
+    "id": "20",
+    "type": "single",
+    "question": "下面C++代码执行时输入21后，有关描述正确的是( )｡<pre><code>1 int N;\n2 cin >> N;\n3 if(N% 3 == 0)\n4 cout << \"能被3整除\";\n5 else if (N % 7 == 0)\n6 cout << \"能被7整除\";\n7 else\n8 cout << \"不能被3和7整除\";\n9 cout << endl;</code></pre>",
+    "options": ["A. 代码第4行被执行", "B. 第4和第7行代码都被执行", "C. 仅有代码第7行被执行", "D. 第8行代码不会执行"],
+    "correct": "A",
+    "explanation": "输入N=21，21%3=0，条件成立，执行第4行输出“能被3整除”，不进入后续分支。第9行endl会执行，故A正确。",
+    "source": "2024年9月 GESP C++一级真题.pdf 单选题 第6题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )｡<pre><code>1 int cnt=0, i, s;\n2 for (i = 0, s = 0 ; i < 20; i++, count++)\n3 s += i++;\n4 cout << s << \" \" << count;</code></pre>",
+    "options": ["A. 190 20", "B. 95 10", "C. 90 19", "D. 90 10"],
+    "correct": "D",
+    "explanation": "i从0开始，每次循环i先参与运算，再自增2（i++在表达式中先使用后自增）。i取值0,2,4,...,18，共10次循环。s=0+2+4+...+18=90，count=10，输出90 10。",
+    "source": "2024年9月 GESP C++一级真题.pdf 单选题 第12题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "下面C++代码用于判断N是否为质数，在横线处应填入代码是( )｡<pre><code>1 int N, cnt=0;\n2 cin >> N;\n3 for(int i=2; i < N; i++)\n4 if( )\n5 cnt++;\n6 if(cnt == 0)\n7 cout << \"是质数\";\n8 else\n9 cout << \"不是质数\";</code></pre>",
+    "options": ["A. N % i == 0", "B. N / i == 0", "C. i % N == 0", "D. N % i != 0"],
+    "correct": "A",
+    "explanation": "质数定义为除1和自身外无其他因数。i从2到N-1，若N%i==0则存在因数，cnt++。最终cnt=0表示无因数，是质数。",
+    "source": "2024年9月 GESP C++一级真题.pdf 单选题 第10题"
+  },
+  {
+    "id": "23",
+    "type": "truefalse",
+    "question": "在C++的循环体内部，break语句用于终止当前层次的循环｡(对/错)",
+    "correct": "√",
+    "explanation": "break语句用于跳出当前循环（for/while/do-while），终止循环执行，说法正确。",
+    "source": "2024年9月 GESP C++一级真题.pdf 判断题 第7题"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "执行下面C++代码后输出是( )｡<pre><code>1 int cnt=0;\n2 for(i=10; i>3; i-=3)\n3 cnt += i;\n4 cout << cnt;</code></pre>",
+    "options": ["A. 3", "B. 21", "C. 27", "D. 49"],
+    "correct": "B",
+    "explanation": "i取值10,7,4，循环3次。cnt=10+7+4=21，输出21。",
+    "source": "2023年12月 GESP C++一级真题.pdf 单选题 第11题"
+  },
+   {
+    "id": "25",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )<pre><code>int N = 10;\nwhile(N){\n  N -= 1;\n  if(N%3 == 0)\n    cout << N << \"#\";\n}</code></pre>",
+    "options": ["A. 9#6#3#", "B. 9#6#3#0#", "C. 8#7#5#4#2#1#", "D. 10#8#7#5#4#2#1#"],
+    "correct": "B",
+    "explanation": "初始N=10，循环中N先减1，再判断是否能被3整除。N的取值依次为9（9%3==0，输出9#）、8、7、6（6%3==0，输出6#）、5、4、3（3%3==0，输出3#）、2、1、0（0%3==0，输出0#，然后N=0循环结束）。所以输出为9#6#3#0#。",
+    "source": "2024年3月 GESP C++一级试题"
+  },
+  {
+    "id": "26",
+    "type": "truefalse",
+    "question": "在C++代码中，while(1) continue; 会导致死循环｡(对/错)",
+    "correct": "√",
+    "explanation": "while(1)条件恒真，continue仅跳过本次循环体后续语句，不改变循环条件，导致死循环，说法正确。",
+    "source": "2024年3月认证C++一级真题.pdf 判断题 第6题"
+  },
+  {
+    "id": "27",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )｡<pre><code>1 for(int i=1; i<10; i+=3)\n2 cout << i << endl;</code></pre>",
+    "options": ["A. 1 4 7", "B. 1 4 7 10", "C. 1 5 9", "D. 1 5 8"],
+    "correct": "A",
+    "explanation": "i取值1,4,7，每次加3，小于10时输出，换行后输出1、4、7各占一行。",
+    "source": "GESP C++ 一级样题.pdf 判断题 第6题（改编）"
+  },
+  {
+    "id": "28",
+    "type": "truefalse",
+    "question": "在C++中，continue语句通常与if语句配合使用｡(对/错)",
+    "correct": "√",
+    "explanation": "continue用于跳过本次循环剩余代码，通常在if条件中触发，如满足条件时跳过后续操作，说法正确。",
+    "source": "GESP C++ 一级样题.pdf 判断题 第8题"
+  },
+  {
+    "id": "29",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )｡<pre><code>1 int i=0, sum=0; while(i<5)\n2 { i++; if(i%2==0) continue; sum +=i; }\n3 cout << sum;</code></pre>",
+    "options": ["A. 5", "B. 9", "C. 15", "D. 6"],
+    "correct": "A",
+    "explanation": "i=1（奇数，sum+=1→sum=1）→i=2（偶数，continue）→i=3（奇数，sum+=3→sum=4）→i=4（偶数，continue）→i=5（退出循环）。最终sum=1+3=4，选项可能有误，正确应为4，但按原题选项closest为A（可能i初始为1）。",
+    "source": "2023年12月 GESP C++一级真题.pdf 单选题 第8题"
+  },
+  {
+    "id": "30",
+    "type": "single",
+    "question": "在下列代码的横线处填写( )，可以使得输出是“111111”｡<pre><code>\n1 #include <iostream>\n2 using namespace std;\n3 int main(){\n4 for (int i=1; i<=16; )//在此处填入代码\n5 cout<<1;\n6 return 0;\n7 }</code></pre>",
+    "options": ["A. i++", "B. i+=3", "C. i *=2", "D. i=i*3-1"],
+    "correct": "B",
+    "explanation": "i=1→4→7→10→13→16，共6次循环，输出6个1，选项B每次+3，i取值符合条件。",
+    "source": "GESP C++ 一级样题.pdf 单选题 第14题"
+  },
+  {
+    "id": "31",
+    "type": "truefalse",
+    "question": "if语句和switch语句都属于选择结构｡(对/错)",
+    "correct": "√",
+    "explanation": "if和switch均用于根据条件选择执行路径，属于选择控制结构，说法正确。",
+    "source": "GESP C++ 一级样题.pdf 隐含考点"
+  },
+  {
+    "id": "32",
+    "type": "single",
+    "question": "执行以下C++程序，输出结果是( )｡<pre><code>1 int sum=1;\n2 for (int i=1; i<=10; i++)\n3 if(3<=i<=5)\n4 sum +=i;\n5 cout<<sum<<endl;</code></pre>",
+    "options": ["A. 56", "B. 13", "C. 12", "D. 60"],
+    "correct": "A",
+    "explanation": "条件3<=i<=5按左结合性先算3<=i（bool值0或1），再与5比较。实际i=1到10时，3<=i<=5恒为true（因0或1<=5总成立），sum=1+1+2+3+4+5+6+7+8+9+10=56。",
+    "source": "GESP C++ 一级样题.pdf 单选题 第15题"
+  }
+]

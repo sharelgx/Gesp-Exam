@@ -1,0 +1,3 @@
+正确的Windows文件路径格式: e:\gesp-exam\data\level5\2023年9月.json
+在JSON或Web环境中也可使用: e:/gesp-exam/data/level5/2023年9月.json
+错误格式示例: /E:/gesp-exam/data/level5/2023年9月.json (不应以/开头)

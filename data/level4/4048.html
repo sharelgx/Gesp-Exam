@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>做题计划逐步动画演示</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      background: #f6f9fc;
+      user-select: none;
+    }
+    .left, .right {
+      flex: 1;
+    }
+    h1 {
+      color: #333;
+    }
+    .input-area, .log-area {
+      margin-bottom: 20px;
+    }
+    textarea {
+      width: 100%;
+      height: 80px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      user-select: none;
+    }
+    button:disabled {
+      background-color: #9e9e9e;
+      cursor: not-allowed;
+    }
+    .log {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 10px;
+      max-height: 300px;
+      overflow-y: auto;
+      white-space: pre-line;
+      font-size: 16px;
+      line-height: 1.4em;
+    }
+    .result {
+      font-weight: bold;
+      color: #2a7;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    .bar {
+      display: flex;
+      gap: 4px;
+      margin-top: 10px;
+    }
+    .bar div {
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      color: #fff;
+      font-size: 14px;
+      border-radius: 4px;
+    }
+    .success { background-color: #4caf50; }
+    .fail { background-color: #f44336; }
+
+    .code-box {
+      background-color: #1e1e1e;
+      color: #dcdcdc;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: monospace;
+      white-space: pre;
+      overflow-x: auto;
+      max-height: 350px;
+    }
+    .highlight {
+      background-color: #444444;
+      display: block;
+    }
+
+    .btn-group {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="left">
+    <h1>📘 做题计划 逐步动画演示</h1>
+    <div class="input-area">
+      <label>输入题单题目数量（用空格分隔）:</label><br />
+      <textarea id="inputArea">3 1 4 1</textarea><br />
+      <button id="startBtn" onclick="startSimulation()">开始模拟</button>
+      <div class="btn-group">
+        <button id="prevBtn" onclick="stepPrev()" disabled>上一步</button>
+        <button id="nextBtn" onclick="stepNext()" disabled>下一步</button>
+      </div>
+    </div>
+
+    <div class="log-area">
+      <h2>📋 日志</h2>
+      <div class="log" id="logBox"></div>
+      <div class="bar" id="barBox"></div>
+      <p class="result" id="resultText"></p>
+    </div>
+  </div>
+
+  <div class="right">
+    <h2>🧠 代码高亮</h2>
+    <div class="code-box" id="codeBox">
+      <span id="c1">int n;</span>
+      <span id="c2">cin &gt;&gt; n;</span>
+      <span id="c3">vector&lt;int&gt; a(n);</span>
+      <span id="c4">for (int i = 0; i &lt; n; i++) cin &gt;&gt; a[i];</span>
+      <span id="c5">sort(a.begin(), a.end());</span>
+      <span id="c6">int k = 0;</span>
+      <span id="c7">for (int i = 0; i &lt; n; i++) {</span>
+      <span id="c8">  if (a[i] &gt;= k + 1) {</span>
+      <span id="c9">    k++;</span>
+      <span id="c10">  }</span>
+      <span id="c11">}</span>
+      <span id="c12">cout &lt;&lt; k;</span>
+    </div>
+  </div>
+
+  <script>
+    let steps = [];
+    let a = [];
+    let currentStep = -1;
+    let k = 0;
+
+    function clearHighlights() {
+      document.querySelectorAll('.code-box span').forEach(el => el.classList.remove('highlight'));
+    }
+
+    function highlightLine(id) {
+      clearHighlights();
+      if (id) document.getElementById(id).classList.add('highlight');
+    }
+
+    function startSimulation() {
+      const input = document.getElementById("inputArea").value.trim();
+      a = input.split(/\s+/).map(Number);
+      if (a.length === 0 || a.some(isNaN)) {
+        alert("请输入有效的数字，且数量不能为0");
+        return;
+      }
+      a.sort((x, y) => x - y);
+      steps = [];
+      k = 0;
+      currentStep = -1;
+
+      // 初始状态（排序后）
+      steps.push({
+        day: 0,
+        log: "",
+        bars: "",
+        k: 0,
+        highlight: "c5"
+      });
+
+      // 模拟每一天
+      for (let i = 0; i < a.length; i++) {
+        const need = k + 1;
+        if (a[i] >= need) {
+          k++;
+          steps.push({
+            day: k,
+            log: `✅ 第${k}天：用题单(${a[i]}) 完成 ${need} 题\n`,
+            bars: { success: k },
+            k: k,
+            highlight: "c9"
+          });
+        } else {
+          steps.push({
+            day: k + 1,
+            log: `❌ 跳过题单(${a[i+1]})，不够第 ${need} 天的题量\n`,
+            bars: { fail: true },
+            k: k,
+            highlight: "c8"
+          });
+        }
+      }
+
+      // 结束状态
+      steps.push({
+        day: k,
+        log: `✅ 小杨最多可以坚持 ${k} 天不偷懒。`,
+        bars: { final: true },
+        k: k,
+        highlight: "c12"
+      });
+
+      currentStep = 0;
+      renderStep();
+      document.getElementById("prevBtn").disabled = true;
+      document.getElementById("nextBtn").disabled = false;
+      document.getElementById("startBtn").disabled = true;
+    }
+
+    function renderStep() {
+      const step = steps[currentStep];
+
+      // 更新日志累积显示
+      let logText = "";
+      for (let i = 1; i <= currentStep; i++) {
+        logText += steps[i].log || "";
+      }
+      document.getElementById("logBox").innerText = logText;
+
+      // 更新进度条
+      let barsHtml = "";
+      for (let i = 1; i <= currentStep; i++) {
+        if (steps[i].bars) {
+          if (steps[i].bars.success) {
+            barsHtml += `<div class='success'>${steps[i].bars.success}</div>`;
+          } else if (steps[i].bars.fail) {
+            barsHtml += `<div class='fail'>×</div>`;
+          }
+        }
+      }
+      document.getElementById("barBox").innerHTML = barsHtml;
+
+      // 更新结果文本，只在最后一步显示
+      document.getElementById("resultText").innerText =
+        currentStep === steps.length - 1 ? `✅ 小杨最多可以坚持 ${step.k} 天不偷懒。` : "";
+
+      highlightLine(step.highlight);
+
+      // 按钮状态控制
+      document.getElementById("prevBtn").disabled = currentStep <= 0;
+      document.getElementById("nextBtn").disabled = currentStep >= steps.length - 1;
+    }
+
+    function stepNext() {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        renderStep();
+      }
+    }
+
+    function stepPrev() {
+      if (currentStep > 0) {
+        currentStep--;
+        renderStep();
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "以下定义中，哪个可以正确声明一个指向每行含4个int元素的二维数组的行指针？<pre><code>int arr[3][4];\n______;</code></pre>",
+    "options": ["A. int *p = arr;", "B. int p[4] = arr[0];", "C. int (*p)[4] = arr;", "D. int **p = arr;"],
+    "correct": "C",
+    "explanation": "二维数组 arr 是 int[3][4]，可用 int (*p)[4] 表示“指向含4个int的一维数组的指针”。",
+    "source": "指针与二维数组模拟题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "以下代码的输出结果是（ ）<pre><code>int a[2][3] = {{1, 2, 3}, {4, 5, 6}};\ncout << *(*(a + 1) + 2);</code></pre>",
+    "options": ["A. 2", "B. 3", "C. 5", "D. 6"],
+    "correct": "D",
+    "explanation": "a+1 是第2行，*(a+1)是a[1]，再加2表示a[1][2]，值为6。",
+    "source": "指针与二维数组模拟题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "下面代码中 p[1][2] 的输出结果是（ ）<pre><code>int a[2][3] = {{1,2,3},{4,5,6}};\nint (*p)[3] = a;\ncout << p[1][2];</code></pre>",
+    "options": ["A. 3", "B. 4", "C. 5", "D. 6"],
+    "correct": "D",
+    "explanation": "p 是行指针，p[1][2] 表示 a[1][2]，即 6。",
+    "source": "指针与二维数组模拟题"
+  },
+  {
+    "id": "4",
+    "type": "truefalse",
+    "question": "二维数组在 C++ 中是按“行优先”顺序存储的，即一整行排在一起再下一行。（对/错）",
+    "correct": "√",
+    "explanation": "二维数组按 row-major 顺序存储，因此行内元素在内存中是连续的。",
+    "source": "指针与二维数组模拟题"
+  },
+  {
+    "id": "5",
+    "type": "truefalse",
+    "question": "在表达式中，数组名 a 和 &a[0] 在二维数组中永远等价。（对/错）",
+    "correct": "×",
+    "explanation": "a 是指向 a[0] 的指针，类型为 int(*)[列数]；&a[0] 也是指向第一行，但概念不同，不能简单等价。",
+    "source": "指针与二维数组模拟题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "以下代码输出的结果是（ ）<pre><code>int a[2][3] = {{1,2,3},{4,5,6}};\nint *p = &a[0][0];\ncout << *(p + 4);</code></pre>",
+    "options": ["A. 4", "B. 5", "C. 6", "D. 3"],
+    "correct": "B",
+    "explanation": "二维数组按行存储，p+4 指向 a[1][1]，值为 5。",
+    "source": "指针与二维数组模拟题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "若定义 int a[2][3]，下列函数参数能正确接收该数组的是（ ）<pre><code>void func(_____ a)</code></pre>",
+    "options": ["A. int a[][]", "B. int *a", "C. int a[2][3]", "D. int a[][2]"],
+    "correct": "C",
+    "explanation": "传递二维数组时，第二维必须指定；选项 C 是标准写法。",
+    "source": "指针与二维数组模拟题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "已知 <pre><code>int a[2][3] = {{1,2,3},{4,5,6}};\nint (*q)[3] = a + 1;</code></pre>以下哪个是 q 指向的数据？",
+    "options": ["A. {1,2,3}", "B. {4,5,6}", "C. {2,3,4}", "D. {3,4,5}"],
+    "correct": "B",
+    "explanation": "a + 1 表示指向第二行，即 {4,5,6}。",
+    "source": "指针与二维数组模拟题"
+  },
+  {
+    "id": "9",
+    "type": "truefalse",
+    "question": "通过 int (*p)[3] 访问二维数组时，可以使用 p[i][j] 的形式访问元素。（对/错）",
+    "correct": "√",
+    "explanation": "行指针 p 可视为二维数组，p[i][j] 是标准访问方式。",
+    "source": "指针与二维数组模拟题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "以下代码的输出是（ ）<pre><code>int a[3][3] = {{0,1,2},{3,4,5},{6,7,8}};\nint *p = &a[0][0];\ncout << *(p + 7);</code></pre>",
+    "options": ["A. 6", "B. 7", "C. 8", "D. 5"],
+    "correct": "B",
+    "explanation": "p+7 表示第3行第2列 a[2][1]，其值为 7。",
+    "source": "指针与二维数组模拟题"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "若 <pre><code>int a[2][3]; int *p = (int *)a;</code></pre>哪种说法是正确的？",
+    "options": ["A. p[3] 等价于 a[1][0]", "B. p[2] 等价于 a[0][2]", "C. p[4] 等价于 a[1][1]", "D. 以上全对"],
+    "correct": "D",
+    "explanation": "二维数组按行排列，转换为 int* 后 p[i] 对应按顺序展开的 a[][]。",
+    "source": "指针与二维数组模拟题"
+  },
+  {
+    "id": "12",
+    "type": "truefalse",
+    "question": "int a[2][3] 与 int **p 是相同类型，因此可以互换使用。（对/错）",
+    "correct": "×",
+    "explanation": "a 是 int[2][3] 类型，指向数组行；int ** 是指向指针的指针，类型完全不同。",
+    "source": "指针与二维数组模拟题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "以下函数声明中，哪个能正确接收 int a[3][3] 传入的参数？<pre><code>int a[3][3];\n_______</code></pre>",
+    "options": [
+      "A. void func(int a[][])",
+      "B. void func(int a[][3])",
+      "C. void func(int *a[3])",
+      "D. void func(int **a)"
+    ],
+    "correct": "B",
+    "explanation": "二维数组作为参数时，需指定第二维大小；B 正确。",
+    "source": "指针与二维数组模拟题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "若定义 `int a[2][3];`，则表达式 `*(*(a + 1) + 2)` 访问的是（ ）",
+    "options": ["A. a[1][2]", "B. a[2][1]", "C. a[0][2]", "D. a[2][0]"],
+    "correct": "A",
+    "explanation": "a+1 表示第2行，+2 后为 a[1][2]。",
+    "source": "指针与二维数组模拟题"
+  },
+  {
+    "id": "15",
+    "type": "truefalse",
+    "question": "二维数组名 `a` 与 `&a[0][0]` 在访问方式和类型上完全等价。（对/错）",
+    "correct": "×",
+    "explanation": "`a` 是 `int (*)[列数]`，而 `&a[0][0]` 是 `int*`，虽然可以间接访问同样的内存，但类型不同。",
+    "source": "指针与二维数组模拟题"
+  }
+]

@@ -1,0 +1,227 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "高级语言编写的程序需要经过以下( )操作，可以生成在计算机上运行的可执行代码。",
+    "options": ["A. 编辑", "B. 保存", "C. 调试", "D. 编译"],
+    "correct": "D",
+    "explanation": "编译是把高级语言变成计算机可以识别的二进制语言的过程，从而生成可执行代码。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "能够实现下面流程图功能的伪代码是( )。<pre><code>条件判断\n否\n语句块\n是\n(流程继续)</code></pre>",
+    "options": ["A. if 条件判断then 语句块", "B. if 条件判断then 什么也不做else 语句块", "C. while 条件判断do 语句块", "D. while not 条件判断do 语句块"],
+    "correct": "D",
+    "explanation": "流程图中当条件判断不成立时执行语句块，并重新判断，符合while not 条件判断do 语句块的逻辑。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "下列关于C++语言的叙述，正确的是( )。",
+    "options": ["A. char 类型变量不能赋值给int 类型的变量。", "B. 两个int 类型变量相乘，计算结果还是int 类型。", "C. 计算两个int 类型变量相乘时，如果乘积超出了int 类型的取值范围，程序会报错崩溃。", "D. 计算两个double 类型变量相除时，如果除数的值为0.0，程序会报错崩溃。"],
+    "correct": "B",
+    "explanation": "A选项char类型可赋值给int类型；C选项int类型溢出会得到错误结果但程序不崩溃；D选项double除数为0.0会得到INF等特殊值，程序不崩溃；B选项正确。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "下列关于C++语言的叙述，不正确的是( )。",
+    "options": ["A. if 语句中的判断条件必须用小括号‘(’和‘)’括起来。", "B. for 语句中两个‘;’之间的循环条件可以省略，表示循环继续执行的条件一直满足。", "C. 循环体包含多条语句时，可以用缩进消除二义性。", "D. 除了“先乘除、后加减”，还有很多运算符优先级。"],
+    "correct": "C",
+    "explanation": "循环体包含多条语句时，必须用花括号‘{’和‘}’括起来，缩进不能消除二义性，C选项错误。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "以下哪个是C++语言的关键字?( )",
+    "options": ["A. main", "B. max", "C. double", "D. sqrt"],
+    "correct": "C",
+    "explanation": "double是C++预先定义的关键字，用于表示双精度浮点类型，其余选项均为函数名。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "以下哪个不是C++语言的运算符?( )",
+    "options": ["A. >=", "B. /=", "C. ||", "D. <>"],
+    "correct": "D",
+    "explanation": "A是大于等于运算符，B是除并赋值运算符，C是逻辑或运算符，D不是C++中的运算符。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "如果a 为int 类型的变量，b 为char 类型的变量，则下列哪个语句不符合C++语法?( )",
+    "options": ["A. a=a+1.0;", "B. a=( int )(b-' 0');", "C. b=( char )(a+' 0');", "D. (int) b=a;"],
+    "correct": "D",
+    "explanation": "强制类型转换的结果是值，不能作为被赋值的变量，D选项语法错误。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "如果用两个int 类型的变量a 和b 分别表达平行四边形的两条边长，用int类型的变量h 表达a 边对应的高，则下列哪个表达式不能用来计算b 边对应的高? )",
+    "options": ["A. a / b *(0.0+h)", "B. (0.0+a * h) / b", "C. a * h / (b + 0.0)", "D. (a+0.0) * h / b"],
+    "correct": "A",
+    "explanation": "A选项中a / b为两个int类型相除，会发生整数除法截断，导致结果错误；其他选项通过加0.0将运算转换为浮点数运算，可正确计算。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "以下哪个循环语句会无限次执行?( )",
+    "options": ["A. for (int a = 0; a; a++) ;", "B. for (bool b = false; b <= true; b++) ;", "C. for (char c = 'A'; c < 'z'; c++) ;", "D. for (double d = 0.0; d < 10.0; d += 0.001) ;"],
+    "correct": "B",
+    "explanation": "bool类型中false为0，true为1，b++后false变为true，true仍为true，循环条件b <= true始终成立，导致无限循环。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "如果a 为char 类型的变量，且a 的值为'C'(已知'C'的ASCII 码为67)，则执行cout << (a + 2);会输出( )。",
+    "options": ["A. E", "B. C+2", "C. C2", "D. 69"],
+    "correct": "D",
+    "explanation": "char类型与int类型运算时会自动转换为int类型，'C' + 2的结果为67 + 2 = 69，输出整数69。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "如果a 和b 均为int 类型的变量，下列表达式能正确判断“a 等于1 且b 等于1”的是( )。",
+    "options": ["A. (a==b) &&(b==1)", "B. (a && b)", "C. (a==b==1)", "D. (a * b==1)"],
+    "correct": "A",
+    "explanation": "A选项通过逻辑与&&连接两个条件，正确判断a和b均为1；B选项只要a和b非0就成立；C选项逻辑错误；D选项a和b为-1时也成立。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "如果a 为char 类型的变量，下列哪个表达式可以正确判断“a 是数字”?( )",
+    "options": ["A. '0' <= a && a<= '9'", "B. '1' <= a && a<= '0'", "C. '0' <=a<= '9'", "D. '1' <=a<='0'"],
+    "correct": "A",
+    "explanation": "数字字符的ASCII码范围是'0'到'9'，A选项用逻辑与&&正确判断a是否在该范围内。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "在下列代码的横线处填写( )，使得输出是9。<pre><code>#include <iostream>\nint main(){\n  using namespace std;\n  char a='3',b='6';\n  cout<<______;\n  return 0;\n}</code></pre>",
+    "options": ["A. (a + b)", "B. (a + b - '0')", "C. (char)(a + b)", "D. (char)(a + b - '0')"],
+    "correct": "D",
+    "explanation": "'3'的ASCII码为51，'6'为54，a + b - '0' = 51 + 54 - 48 = 57，对应字符'9'，需强制转换为char类型输出。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "在下列代码的横线处填写( )，可以使得输出是42。<pre><code>#include <iostream>\nusing namespace std;\nint main(){\n  int sum=0;\n  for(int i=1;i<=20;i++)\n    if(______)\n      sum+=i;\n  cout<<sum<<endl;\n  return 0;\n}</code></pre>",
+    "options": ["A. i % 3 == 0", "B. 20 % i == 0", "C. i <= 8", "D. i >= 18"],
+    "correct": "B",
+    "explanation": "20的因数有1、2、4、5、10、20，这些数的和为1+2+4+5+10+20=42，B选项判断i是否为20的因数，符合要求。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "执行以下C++语言程序后，输出结果是( )。<pre><code>#include <iostream>\nusing namespace std;\nint main(){\n  for (char x='A';x<='D';x++)\n    if((x!='A')+(x=='C')+(x=='D')+(x!='D')==3)\n      cout<<x;\n  return 0;\n}</code></pre>",
+    "options": ["A. A", "B. B", "C. C", "D. D"],
+    "correct": "C",
+    "explanation": "",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "诞生于1986年的中华学习机CEC-I入选了2021年的CCF计算机历史记忆(一类)，它的内存只有64KB。当时的汉字编码字符集GB2312中共有6763个汉字，假如每个汉字用2个字节编码，将整个GB2312汉字字符集都放入CEC-I的内存，也只占用了不超过1/5的内存空间。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "6763个汉字占用6763×2=13526字节≈13.21KB，64KB的1/5为12.8KB，13.21KB超过12.8KB，所以错误。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "域名是由一串用点分隔的名字来标识互联网上一个计算机或计算机组的名称，CCF编程能力等级认证官方网站的域名是gesp.ccf.org.cn，其中顶级域名是gesp。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "顶级域名是域名中最右边的部分，gesp.ccf.org.cn的顶级域名是.cn，所以错误。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "在使用C++语言编写程序时，不能使用sqrt、abs等数学函数，包含<cmath>或<math.h>头文件后就能够使用了。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "sqrt、abs等数学函数声明在<cmath>或<math.h>头文件中，包含后可使用，所以正确。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "在C++语言中，标识符中可以有下划线‘_’。同时，‘_’也是C++语言的运算符。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "C++标识符中可以包含下划线，但下划线不是C++的运算符，所以错误。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "如果a是double类型的变量，而且值为3.5，则表达式a * 10的计算结果为35，且结果类型为int。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "double类型与int类型运算结果为double类型，a * 10的结果为35.0，类型是double，所以错误。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "在if语句中，如果条件成立时需要执行多条语句，可以使用大括号‘{’和‘}’将这些语句括起来。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "大括号可将多条语句组成复合语句，作为if条件成立时的执行体，正确。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "循环语句的循环体有可能无限制地执行下去。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "当循环条件始终为真时，循环体将无限执行，形成无限循环，正确。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "++和==都是C++语言的运算符，但+=不是。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "++是自增运算符，==是比较运算符，+=是复合赋值运算符，三者都是C++的运算符，所以错误。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "如果a为char类型的变量，且取值为大写字母'F'，则执行语句a=a+1;后，a的值会变为大写字母'G'。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "大写字母'F'的ASCII码加1后为'G'的ASCII码，所以a的值变为'G'，正确。",
+    "source": "2023年6月 GESP C++二级试题"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "表达式sqrt(9.0)的计算结果为3，且结果类型为int。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "sqrt函数的返回值类型为double，sqrt(9.0)的结果为3.0，类型是double，所以错误。",
+    "source": "2023年6月 GESP C++二级试题"
+  }
+]

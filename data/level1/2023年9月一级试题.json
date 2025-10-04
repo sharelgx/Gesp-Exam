@@ -1,0 +1,222 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "我们通常说的“内存”属于计算机中的( )。",
+    "options": ["A. 输出设备", "B. 输入设备", "C. 存储设备", "D. 打印设备"],
+    "correct": "C",
+    "explanation": "内存是一种用于暂时存储数据和程序的存储设备，“存”字也体现了其存储功能，所以本题正确答案为C。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "以下C++不可以作为变量的名称的是( )。",
+    "options": ["A. redStar", "B. RedStar", "C. red_star", "D. red star"],
+    "correct": "D",
+    "explanation": "C++中的变量名只能包含字母、数字和下划线，不能包含空格。D选项中含有空格，不符合命名规则，所以本题正确答案为D。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "C++表达式2 - 1 && 2 % 10 的值是( )。",
+    "options": ["A. 0", "B. 1", "C. 2", "D. 3"],
+    "correct": "B",
+    "explanation": "算术运算符优先级高于逻辑运算符。先计算2-1=1，2%10=2，再计算1&&2，逻辑与运算中两个非零值结果为1，所以本题正确答案为B。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "下面C++代码段执行后的输出是( )。<pre><code>int a=3,b=4;\ncout&lt;&lt;&quot;a+b=&quot;&lt;&lt;a+b;</code></pre>",
+    "options": ["A. 3+4= 7", "B. 3+4=7", "C. a+b=7", "D. a+b=a+b"],
+    "correct": "C",
+    "explanation": "双引号中的内容会原样输出，a+b会计算结果并输出，所以输出为“a+b=7”，本题正确答案为C。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "在C++语言中，int类型的变量x、y、z的值分别为2、4、6，以下表达式的值为真的是( )。",
+    "options": ["A. x>y || x>z", "B. x != z - y", "C. z>y+x", "D. x<y || !x<z"],
+    "correct": "D",
+    "explanation": "A选项中x>y为假，x>z为假，逻辑或结果为假；B选项z-y=2，x=2，x!=z-y为假；C选项y+x=6，z=6，z>y+x为假；D选项x<y为真，逻辑或结果为真，所以本题正确答案为D。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "对int类型的变量a、b、c，下列语句不符合C++语法是( )。",
+    "options": ["A. c += 5;", "B. b = c % 2.5;", "C. a = (b=3, c=4, b+c);", "D. a -= a = (b=6)/(c=2);"],
+    "correct": "B",
+    "explanation": "%运算符的操作数只能是整数，2.5是浮点数，c%2.5不符合语法规则，所以本题正确答案为B。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )。<pre><code>int m =14;\nint n =12;\nif(m%2==0 && n%2==0)\n    cout&lt;&lt;&quot;都是偶数&quot;;\nelse if(m%2==1 && n%2==1)\n    cout&lt;&lt;&quot;都是奇数&quot;;\nelse\n    cout&lt;&lt;&quot;不都是偶数或奇数&quot;;</code></pre>",
+    "options": ["A. 都是偶数", "B. 都是奇数", "C. 不都是偶数或奇数", "D. 以上说法都不正确"],
+    "correct": "A",
+    "explanation": "14和12都是偶数，对2取余结果都为0，满足第一个if条件，输出“都是偶数”，所以本题正确答案为A。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )。<pre><code>int m =14;\nint n =12;\nif(m%2 && n%2)\n    cout&lt;&lt;&quot;都是偶数&quot;;\nelse if(m%2==1 && n%2==1)\n    cout&lt;&lt;&quot;都是奇数&quot;;\nelse\n    cout&lt;&lt;&quot;不都是偶数或奇数&quot;;</code></pre>",
+    "options": ["A. 都是偶数", "B. 都是奇数", "C. 不都是偶数或奇数", "D. 以上说法都不正确"],
+    "correct": "C",
+    "explanation": "14%2=0，12%2=0，第一个if条件中0&&0为假；第二个if条件判断是否都是奇数，14和12都是偶数，条件为假；进入else分支，输出“不都是偶数或奇数”，所以本题正确答案为C。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )。<pre><code>int m=7;\nif(m/5 || m/3)\n    cout&lt;&lt;0;\nelse if(m/3)\n    cout&lt;&lt;1;\nelse if(m/5)\n    cout&lt;&lt;2;\nelse\n    cout&lt;&lt;3;</code></pre>",
+    "options": ["A. 0", "B. 1", "C. 2", "D. 3"],
+    "correct": "A",
+    "explanation": "整数除法中7/5=1，7/3=2，第一个if条件1||2为真，输出0，所以本题正确答案为A。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "下面C++代码段执行后的输出是( )。<pre><code>int cnt=0;\nfor(int i=1;i&lt;=5; i++)\n    cnt = cnt +1;\ncout&lt;&lt;cnt;</code></pre>",
+    "options": ["A. 1", "B. 4", "C. 5", "D. 10"],
+    "correct": "C",
+    "explanation": "循环从i=1到i=5共执行5次，每次cnt加1，初始cnt=0，最终cnt=5，所以本题正确答案为C。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )。<pre><code>int tnt=0;\nfor(int i=1;i&lt;5;i+=2)\n    tnt = tnt +i;\ncout&lt;&lt;tnt;</code></pre>",
+    "options": ["A. 2", "B. 4", "C. 9", "D. 10"],
+    "correct": "B",
+    "explanation": "循环中i的取值为1、3（i<5），tnt累加1+3=4，所以本题正确答案为B。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "下面C++代码执行后的输出是( )。<pre><code>int n =5;\nint cnt=1;\nwhile(n&gt;=0){\n    cnt +=1;\n    n -=2;\n}\ncout&lt;&lt;cnt;</code></pre>",
+    "options": ["A. 3", "B. 4", "C. 6", "D. 7"],
+    "correct": "B",
+    "explanation": "循环执行过程：n=5时cnt=2，n=3；n=3时cnt=3，n=1；n=1时cnt=4，n=-1，循环结束，输出cnt=4，所以本题正确答案为B。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "下面C++代码用于求正整数的所有因数，即输出所有能整除一个正整数的数。如，输入10，则输出为1、2、5、10；输入12，则输出为1、2、3、4、6、12；输入17，则输出为1、17。在横线处应填入代码是( )。<pre><code>int n=0;\ncout&lt;&lt;&quot;请输入一个正整数:&quot;;\ncin&gt;&gt;n;\nfor( )//此处填写代码\n    if(n%i==0)\n        cout&lt;&lt;i&lt;&lt;endl;</code></pre>",
+    "options": ["A. int i = 1; i < n; i + 1", "B. int i = 1; i < n + 1; i + 1", "C. int i = 1; i < n; i++", "D. int i = 1; i < n + 1; i++"],
+    "correct": "D",
+    "explanation": "求因数需遍历1到n，i < n + 1等价于i <= n；i++使i递增，i + 1不会改变i的值，会导致死循环。D选项正确，所以本题正确答案为D。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "在下列代码的横线处填写( )，可以使得输出是正整数1234各位数字的平方和。<pre><code>int n =1234,s=0;\nfor(;n;n/=10)\n    s += ;//此处填写代码\ncout&lt;&lt;s&lt;&lt;endl;</code></pre>",
+    "options": ["A. n / 10", "B. (n / 10) * (n / 10)", "C. n % 10", "D. (n % 10) * (n % 10)"],
+    "correct": "D",
+    "explanation": "n%10获取当前个位数字，平方后累加得到各位数字的平方和。1234的各位数字平方和为1²+2²+3²+4²=30，D选项正确，所以本题正确答案为D。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "执行以下C++语言程序后，输出结果是( )。<pre><code>int n=5,s=1;\nfor(;n=0;n--)\n    s *=n;\ncout&lt;&lt;s&lt;&lt;endl;</code></pre>",
+    "options": ["A. 1", "B. 0", "C. 120", "D. 无法确定"],
+    "correct": "A",
+    "explanation": "for循环的条件是n=0（赋值操作，结果为0），循环体不执行，s保持初始值1，输出1，所以本题正确答案为A。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "早期计算机内存不够大，可以将字库固化在一个包含只读存储器的扩展卡中插入计算机主板帮助处理汉字。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "早期计算机内存有限，将字库固化在只读存储器扩展卡中是常见的解决汉字处理问题的方法，所以本题正确。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "神威·太湖之光超级计算机是中国自主研制的超级计算机，在全球超级计算机TOP500排行榜中多次荣膺榜首。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "神威·太湖之光是中国自主研制的超级计算机，曾多次在全球超级计算机TOP500排行榜中排名第一，所以本题正确。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "C++表达式int(3.14)的值为3。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "int()是强制类型转换，将浮点型3.14转换为整型时取整数部分3，所以本题正确。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "C++语句cout << (2, 3, \"23\")的输出为2, 3, 23。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "逗号表达式的值为最后一个表达式的值，所以输出“23”，而非“2, 3, 23”，本题错误。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "C++的循环语句for (int i = 0; i < 10; i += 2)表示i从0开始到10结束但不包含10，间隔为2。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "i的取值为0、2、4、6、8，小于10，间隔为2，所以本题正确。",
+    "source": "2023年9月 GESP C++一级试题"
+  },
+  {
+    "id": "21",
+    "type": "truefalse",
+    "question": "C++表达式('1' + '1')的值为'2'。( )",
+    "correct": "×",
+    "explanation": "本题考察字符运算，'1'的ASCII码值是49，'1'+'1'=98，对应的字符不是'2'，故错误。",
+    "source": "2023年9月 GESP C++一级试题解析.pdf"
+  },
+  {
+    "id": "22",
+    "type": "truefalse",
+    "question": "在C++语言中，do-while循环不可能导致死循环，但while有可能。( )",
+    "correct": "×",
+    "explanation": "本题考察循环结构，只要条件一直成立，do-while循环也会导致死循环，故错误。",
+    "source": "2023年9月 GESP C++一级试题解析.pdf"
+  },
+  {
+    "id": "23",
+    "type": "truefalse",
+    "question": "在下面的C++代码中，由于循环中的continue是无条件被执行，因此将导致死循环。for (int i=1;i<10;i++)continue;( )",
+    "correct": "×",
+    "explanation": "本题考察循环结构，循环变量i会递增，当i=10时退出循环，不会死循环，故错误。",
+    "source": "2023年9月 GESP C++一级试题解析.pdf"
+  },
+  {
+    "id": "24",
+    "type": "truefalse",
+    "question": "在C++代码中，不可以将变量命名为cout，因为cout是C++的关键字。( )",
+    "correct": "×",
+    "explanation": "本题考察C++知识，cout不是关键字，是一个类的对象，故错误。",
+    "source": "2023年9月 GESP C++一级试题解析.pdf"
+  },
+  {
+    "id": "25",
+    "type": "truefalse",
+    "question": "C++是一种高级程序设计语言。( )",
+    "correct": "√",
+    "explanation": "本题考察C++语言性质，C++属于高级程序设计语言，故正确。",
+    "source": "2023年9月 GESP C++一级试题解析.pdf"
+  }
+]

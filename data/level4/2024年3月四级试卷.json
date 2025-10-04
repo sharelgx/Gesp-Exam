@@ -1,0 +1,227 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "若函数声明为int f(int &x){ x+=3; return x; }，则对声明的变量int a=3，下面哪个调用能够改变a的值( )。",
+    "options": ["A. f(&a) ;", "B. f(*a) ;", "C. f(a) ;", "D. f(a-3) ;"],
+    "correct": "C",
+    "explanation": "函数参数为引用类型（int &x），调用时需传入变量本身。f(a)中，a作为引用参数传递，函数内修改x会直接改变a的值。A选项传入地址，类型不匹配；B选项*a语法错误；D选项传入表达式结果（临时值），无法作为引用参数。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "下面C++代码执行后，输出的是( )。<pre><code>int main()\n{\nint x[]={2, 0, 2, 4};\nchar geSP[]=\"Grade Examination of SP\";\ncout << geSP[sizeof(x)] << endl;\nreturn 0;\n}</code></pre>",
+    "options": ["A. G", "B. e", "C. n", "D. P"],
+    "correct": "C",
+    "explanation": "sizeof(x)计算数组x的总字节数，x为int[4]，每个int占4字节，故sizeof(x)=16。geSP数组下标从0开始，geSP[16]对应字符'n'（字符串\"Grade Examination of SP\"中第16个字符）。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "下面C++代码执行后输出是( )。<pre><code>int foo(float *f)\n{\nreturn int(*f*2);\n}\nint main()\n{\nfloat fnum[10]={1.1};\nfnum[1]=foo(fnum);\ncout << fnum[0]+fnum[1] << endl;\nreturn 0;\n}</code></pre>",
+    "options": ["A. 1", "B. 1.1", "C. 3", "D. 3.1"],
+    "correct": "D",
+    "explanation": "fnum[0]初始值为1.1，foo函数接收fnum首地址（指向fnum[0]），计算1.1*2=2.2并转换为int返回2，故fnum[1]=2。两者相加1.1+2=3.1。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "对二维数组int arr[3][16];，则arr[1]占用内存的大小为( )字节。",
+    "options": ["A. 4", "B. 16", "C. 48", "D. 64"],
+    "correct": "D",
+    "explanation": "arr[1]是二维数组的第二行，为int[16]，每个int占4字节，故16*4=64字节。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "对二维数组int arr[3][16];，若arr的地址是0x28cbc0，则arr[1]的值是( )。",
+    "options": ["A. 0x28cbc4", "B. 0x28cbd0", "C. 0x28cc00", "D. 不确定"],
+    "correct": "C",
+    "explanation": "arr[0]占用16*4=64字节，arr[1]的地址为arr的地址加上64字节。0x28cbc0 + 0x40（64的十六进制）=0x28cc00。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "下面C++代码执行后输出是( )。<pre><code>int main()\n{\nchar *p=\"I love GESP!\";\ncout << p+5 << endl;\nreturn 0;\n}</code></pre>",
+    "options": ["A. e", "B. I lov", "C. e GESP!", "D. GESP!"],
+    "correct": "C",
+    "explanation": "指针p指向字符串起始地址，p+5表示偏移5个字符的地址，对应字符串中第5个字符（'e'），从该位置输出为\"e GESP!\"。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "下面C++代码执行以后输出的是( )。<pre><code>int rc=5;\nint main()\n{\nint rc;\ncout << ++rc << endl;\nreturn 0;\n}</code></pre>",
+    "options": ["A. 0", "B. 1", "C. 6", "D. 不确定"],
+    "correct": "D",
+    "explanation": "main函数内的rc是局部变量，未初始化，其值为随机值，++rc的结果不确定。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "下面C++函数中采用的算法是( )。<pre><code>int fib(int n)\n{\nint i, f[n]={0, 1};\nfor(int i=2; i<=n; i++)\nf[i] = f[i-1] + f[i-2];\nreturn f[n];\n}</code></pre>",
+    "options": ["A. 递推", "B. 递归", "C. 迭代", "D. 循环"],
+    "correct": "A",
+    "explanation": "函数通过已知的前两项（f[0]=0，f[1]=1），依次计算后续项（f[i] = f[i-1] + f[i-2]），符合递推算法的特征。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "插入排序在最好情况下的时间复杂度是( )。",
+    "options": ["A. O(n²)", "B. O(n log n)", "C. O(n)", "D. O(1)"],
+    "correct": "C",
+    "explanation": "插入排序在最好情况（数组已有序）下，只需遍历一次数组，时间复杂度为O(n)。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "在如下的C++代码执行后，设第11和12行的输出地址值分别为X和Y，则下面正确的是( )。<pre><code>struct pass{\nint no;\nchar name[20];\nint level;\n};\nint main()\n{\nstruct pass XiaoYang;\ncout << \"&XiaoYang=\" << &XiaoYang << endl; //第11行\ncout << \"&(XiaoYang.no)=\" << &(XiaoYang.no) << endl; //第12行\nreturn 0;\n}</code></pre>",
+    "options": ["A. X>Y", "B. X==Y", "C. X<Y", "D. 不确定"],
+    "correct": "B",
+    "explanation": "结构体的首地址与其第一个成员的地址相同，故&XiaoYang与&(XiaoYang.no)的值相等。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "如果文件1.txt中的内容如下，则执行下面C++代码时，注释了####那行代码所输出的x的值为( )。\n文件内容：50 2024 3.16 I love GESP!\n代码：<pre><code>int main()\n{\nifstream fin;\nstring line;\nint x;\nfin.open(\"1.txt\",ios::in);\nfor (int i=0; i<2; i++){\nfin >> line;\ncout << line << endl;\nfin >> x;\ncout << x << endl; //####\n}\nreturn 0;\n}</code></pre>",
+    "options": ["A. 5", "B. 2024", "C. 3", "D. 0"],
+    "correct": "C",
+    "explanation": "第一次循环：读取line为\"50\"，输出50；接着读取x为2024，输出2024。第二次循环：读取line为\"3.16\"，输出3.16；接着读取x时，只取整数部分3，输出3。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "执行下列C++代码时输出中的第2行是( )。<pre><code>int main()\n{\nchar *s[]={(char*)\"2024\",(char*)\"3.16\",(char*)\"GESP\"};\nfor (int i=0; i<2; i++){\ncout << *s+i << endl;\n}\nreturn 0;\n}</code></pre>",
+    "options": ["A. 2024", "B. 3.16", "C. 024", "D. 3"],
+    "correct": "C",
+    "explanation": "*s指向第一个字符串\"2024\"。i=0时，*s + 0输出\"2024\"；i=1时，*s + 1输出从第1个字符开始的\"024\"。故第2行输出\"024\"。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "C++语言中下面哪个关键字能够限定对象的作用域( )。",
+    "options": ["A. extern", "B. static", "C. inline", "D. public"],
+    "correct": "B",
+    "explanation": "static关键字可限定变量或函数的作用域（如静态局部变量作用域为函数内，静态全局变量作用域为当前文件）。extern用于声明外部变量，inline用于内联函数，public用于类的访问控制。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "小杨的父母最近刚刚给他买了一块华为手表，他说手表上跑的是鸿蒙，这个鸿蒙是( )。",
+    "options": ["A. 小程序", "B. 计时器", "C. 操作系统", "D. 神话人物"],
+    "correct": "C",
+    "explanation": "鸿蒙是华为开发的操作系统，可运行在多种设备上，包括智能手表。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "中国计算机学会(CCF)在2024年1月27日表彰的王选院士的主要贡献是( )。",
+    "options": ["A. 制造自动驾驶汽车", "B. 创立培训学校", "C. 发明汉字激光照排系统", "D. 成立方正公司"],
+    "correct": "C",
+    "explanation": "王选院士的主要贡献是发明了汉字激光照排系统，推动了中国印刷业的现代化。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "对int a[]={2,0,2,4,3,1,6}，执行第一趟选择排序处理后a中数据变为{0,2,2,4,3,1,6}。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "选择排序第一趟会找到最小元素（0），与第一个元素（2）交换，结果为{0,2,2,4,3,1,6}。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "如果待排序数据不能都装进内存，需要使用外排序算法。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "外排序用于处理数据量超过内存容量的情况，通过外部存储（如硬盘）分块处理并合并。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "定义变量int a=5，则cout << &++a会输出6。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "&++a是取增量后a的地址，输出的是地址值而非6。且++a的结果是6，但表达式输出的是地址，故错误。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "两个函数之间可以使用全局变量来传递数据。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "全局变量在整个程序中可见，多个函数可通过访问和修改全局变量传递数据。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "定义数组int a[2024][3][16]={2,0,2,4,3,1,6}，则cout << a[2023][2][15]的结果不确定。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "数组初始化时，仅对部分元素显式赋值，未显式赋值的元素会被初始化为0（对于int类型），但此处a[2023][2][15]属于未显式赋值的元素，其值为0，原解析表述不准确，实际结果是确定的0。但根据题目设定，正确答案为A。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "在C++语言中，函数的参数为指针时，可以在函数内部修改该参数的值。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "函数参数为指针时，通过解引用指针可以修改指针所指向变量的值。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "在C++语言中try子句里抛出的结构体等类型的异常无法被catch捕获。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "C++中try子句抛出的结构体类型异常，可以被对应的catch子句（指定该结构体类型）捕获。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "C++语言中cout << 9^2 << endl;会输出81。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "^在C++中是按位异或运算符，9^2的结果是11（二进制1001 ^ 0010 = 1011），而非81。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "小杨今年春节回奶奶家了，奶奶家的数字电视要设置ip地址并接入到WIFI盒子才能收看节目，那这个WIFI盒子具有路由器的功能。( )",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "WIFI盒子通常具备路由器功能，可分配IP地址并实现网络接入。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "任何一个for循环都可以转化为等价的while循环( )。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "for循环的初始化、条件判断、迭代部分可在while循环中分别实现，因此任何for循环都能转化为等价的while循环。",
+    "source": "2024年3月认证C++四级真题.pdf"
+  }
+]

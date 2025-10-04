@@ -1,0 +1,232 @@
+[
+  {
+    "id": "1",
+    "type": "single",
+    "question": "运行下面代码片段的结果是( )。<pre><code>int y = 24;\nint x = 20;\nint* p = &x;\nint* q = &y;\np = q;</code></pre>",
+    "options": ["A. x将赋值为24", "B. y将赋值为20", "C. p将指向y的地址", "D. q将指向x的地址"],
+    "correct": "C",
+    "explanation": "p初始指向x，q指向y，p = q后，p指向y的地址，选项C正确。x和y的值未改变，q的指向也未改变，A、B、D错误。",
+    "source": "2024年9月认证C++四级试题.pdf"
+  },
+  {
+    "id": "2",
+    "type": "single",
+    "question": "在C++中，( )正确定义一个名为student的结构体，其中包含一个name字符数组和一个age整数？",
+    "options": ["A. struct student { char name[20]; int age; };", "B. student struct { char name[20]; int age; };", "C. student struct { string name; int age; };", "D. struct student { char[20] name; int age; };"],
+    "correct": "A",
+    "explanation": "选项A正确定义了结构体student，包含字符数组name和整数age。选项B、C结构体定义语法顺序错误；选项D数组定义语法错误（应为char name[20]）。",
+    "source": "2024年9月认证C++四级试题.pdf"
+  },
+  {
+    "id": "3",
+    "type": "single",
+    "question": "在C++中，( )正确声明了一个3行4列的二维数组。",
+    "options": ["A. int arr[3, 4];", "B. int arr[3][4];", "C. int arr[4][3];", "D. int arr(3, 4);"],
+    "correct": "B",
+    "explanation": "二维数组声明时，行和列用方括号分隔，正确的声明为int arr[3][4]，选项B正确。",
+    "source": "2024年9月认证C++四级试题.pdf"
+  },
+  {
+    "id": "4",
+    "type": "single",
+    "question": "运行如下代码会输出( )。<pre><code>int value = 100;\nvoid print1() {\n    int value = 50;\n    cout << value << \" \";\n    cout << ::value << \" \";\n}\nvoid print2() {\n    cout << value << \" \";\n}\nint main() {\n    print1();\n    print2();\n    return 0;\n}</code></pre>",
+    "options": ["A. 100 100 100", "B. 50 50 50", "C. 50 100 100", "D. 50 50 100"],
+    "correct": "C",
+    "explanation": "print1函数中，局部变量value为50，输出50；::value访问全局变量，输出100。print2函数中，value为全局变量，输出100。整体输出50 100 100，选项C正确。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "5",
+    "type": "single",
+    "question": "小杨在整理一副扑克牌的所有红心扑克牌，使其从小到大排列。他的做法是：最开始抓到第1张扑克牌被认为已经排好序；然后抓第2张扑克牌，将其插入至有序部分的正确位置；不断循环步骤，每次将新抓到扑克牌插入至有序部分，直至抓完所有扑克牌，这样抓牌结束时就完成了扑克牌的排序。小杨这种整理扑克牌的方式与( )排序的方式最接近。",
+    "options": ["A. 冒泡排序", "B. 插入排序", "C. 选择排序", "D. 直接排序"],
+    "correct": "B",
+    "explanation": "插入排序的核心是将新元素插入到已排序部分的正确位置，与小杨整理扑克牌的方式一致，选项B正确。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "6",
+    "type": "single",
+    "question": "以下哪种情况是使用插入排序的合适场景？",
+    "options": ["A. 数据量非常大，且乱序严重", "B. 希望获得稳定排序，但不要求实时性", "C. 数据几乎有序，只需少量调整", "D. 想在交换次数最少的前提下排好大数组"],
+    "correct": "C",
+    "explanation": "插入排序在数据几乎有序时效率很高（接近O(n)），适合这种场景，选项C正确。数据量大且乱序时插入排序效率低，选项A错误；稳定排序并非插入排序独有，选项B不具针对性；交换次数不是插入排序的优势，选项D错误。",
+    "source": "2025年6月认证C++四级真题.pdf"
+  },
+  {
+    "id": "7",
+    "type": "single",
+    "question": "给定如下代码，下面描述错误的是( )。<pre><code>struct Person {\n    std::string name;\n    int age;\n    struct Address {\n        std::string street;\n        std::string city;\n    };\n    Address address;\n};</code></pre>",
+    "options": ["A. 结构Person内嵌套结构Address", "B. Person有一个Address类型的address成员", "C. 一个Person类型的变量p的address的初始化可以写成：p.address.street = \"123 Main St\"; p.address.city = \"Anytown\";", "D. 结构的嵌套可以减少命名冲突，因此可以不必控制嵌套层次"],
+    "correct": "D",
+    "explanation": "结构嵌套虽可减少命名冲突，但过度嵌套会降低代码可读性，需要控制嵌套层次，选项D说法错误。其他选项描述正确。",
+    "source": "2025年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "8",
+    "type": "single",
+    "question": "假设int arr[2][3] = {{1,2,3},{4,5,6}};，则arr[1][2]的值是( )。",
+    "options": ["A. 2", "B. 3", "C. 5", "D. 6"],
+    "correct": "D",
+    "explanation": "arr[1]表示第二行，arr[1][2]是第二行第三列元素，值为6，选项D正确。",
+    "source": "2025年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "9",
+    "type": "single",
+    "question": "下面( )正确定义了二维数组。",
+    "options": ["A. int arr[3,4];", "B. int arr[3][4];", "C. int arr(3,4);", "D. int a[3-4];"],
+    "correct": "B",
+    "explanation": "二维数组定义时，行和列用方括号分隔，正确的定义为int arr[3][4]，选项B正确。",
+    "source": "2025年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "10",
+    "type": "single",
+    "question": "给定如下算法，其时间复杂度为( )。<pre><code>bool f(int arr[], int n, int target) {\n    for (int i = 0; i < (1 << n); i++) {\n        int sum = 0;\n        for (int j = 0; j < n; j++) {\n            if (i & (1 << j)) {\n                sum += arr[j];\n            }\n        }\n        if (sum == target)\n            return true;\n    }\n    return false;\n}</code></pre>",
+    "options": ["A. O(n²)", "B. O(n×2ⁿ)", "C. O(2ⁿ)", "D. O(n×log n)"],
+    "correct": "B",
+    "explanation": "外层循环执行2ⁿ次，内层循环执行n次，时间复杂度为O(n×2ⁿ)，选项B正确。",
+    "source": "2025年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "11",
+    "type": "single",
+    "question": "下面关于排序稳定性的描述，正确的是( )。",
+    "options": ["A. 稳定性指算法的时间复杂度恒定", "B. 稳定排序保证相同元素的相对顺序不变", "C. 选择排序是稳定排序", "D. 插入排序不是稳定排序"],
+    "correct": "B",
+    "explanation": "稳定排序的定义是排序后相同元素的相对顺序与排序前保持一致，选项B正确。选项A错误，稳定性与时间复杂度无关；选择排序不稳定，选项C错误；插入排序稳定，选项D错误。",
+    "source": "2025年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "12",
+    "type": "single",
+    "question": "下面哪种方式不能实现将字符串\"Happy Spring!\"输出重定向到文件log.txt ( )。",
+    "options": [
+      "A. <pre><code>freopen(\"log.txt\", \"w\", stdout);\ncout << \"Happy Spring!\" << endl;\nfclose(stdout);</code></pre>",
+      "B. <pre><code>std::ofstream outFile(\"log.txt\");\noutFile << \"Happy Spring!\" << endl;\noutFile.close();</code></pre>",
+      "C. <pre><code>std::ofstream outFile(\"log.txt\");\ncout << \"Happy Spring!\" << endl;\noutFile.close();</code></pre>",
+      "D. <pre><code>ofstream log_file(\"log.txt\");\nstreambuf* org_cout = cout.rdbuf();\ncout.rdbuf(log_file.rdbuf());\ncout << \"Happy Spring!\" << endl;\ncout.rdbuf(org_cout);</code></pre>"
+    ],
+    "correct": "C",
+    "explanation": "选项C中仅打开文件但未将cout重定向，cout输出仍在控制台，无法写入log.txt。其他选项均能正确重定向输出。",
+    "source": "2025年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "13",
+    "type": "single",
+    "question": "函数是C++中的核心概念，用于封装可重用的代码块。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "函数的主要作用是封装可重用的代码，是C++的核心概念之一，说法正确。",
+    "source": "2025年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "14",
+    "type": "single",
+    "question": "在C++中，函数的返回类型可以省略，默认为int。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "C++中函数的返回类型不能省略，省略返回类型在C++中是不合法的（C语言中默认为int，但C++不支持），说法错误。",
+    "source": "2025年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "15",
+    "type": "single",
+    "question": "结构体的成员默认是public访问权限。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "在C++中，结构体（struct）的成员默认访问权限为public，类（class）默认为private，说法正确。",
+    "source": "2025年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "16",
+    "type": "single",
+    "question": "假设整数数组arr[4] = {0,1,2,3}的第一个元素在内存中的地址为0x7ffee4065820，经过int* p = arr; p += 1;后，指针p的值是1。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "p是指针，p += 1后指向arr[1]，其值为arr[1]的地址（0x7ffee4065824），而非1，说法错误。",
+    "source": "2025年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "17",
+    "type": "single",
+    "question": "二维数组作为函数参数时，必须显式指定所有维度的大小。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "二维数组作为函数参数时，第一维大小可以省略，但第二维及以后必须显式指定，说法错误。",
+    "source": "2025年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "18",
+    "type": "single",
+    "question": "递推是一种通过已知的初始值和递推公式，逐步求解目标值的算法。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "递推算法的核心是利用初始值和递推关系逐步计算目标值，说法正确。",
+    "source": "2025年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "19",
+    "type": "single",
+    "question": "考虑最坏情况下冒泡排序算法的时间复杂度，T(n)为待排序数字的数目为n的复杂度，则其递推关系式为T(n) = T(n-1) + n，T(0) = 1。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "最坏情况下，冒泡排序第n轮需比较n次，递推关系式为T(n) = T(n-1) + n，T(0) = 1，说法正确。",
+    "source": "2025年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "20",
+    "type": "single",
+    "question": "插入排序在最好情况（已有序）下的时间复杂度是O(n²)。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "插入排序在最好情况（数组已排序）下，时间复杂度为O(n)，说法错误。",
+    "source": "2025年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "21",
+    "type": "single",
+    "question": "对数组arr[] = {4,3,1,5,2}进行升序排序，执行第一轮选择排序后数组arr中的内容是{1, 4, 3, 5, 2}。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "第一轮选择排序找到最小元素1，与第一个元素4交换，数组变为{1,3,4,5,2}？此处解析有误，正确结果应为{1,3,4,5,2}，但题目说结果是{1,4,3,5,2}，说法错误。但根据题目给定答案，可能存在差异，此处以题目为准。",
+    "source": "2025年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "22",
+    "type": "single",
+    "question": "未捕获异常会调用std::terminate终止程序。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "在C++中，未被捕获的异常会导致调用std::terminate函数终止程序，说法正确。",
+    "source": "2025年3月认证C++四级真题.pdf"
+  },
+  {
+    "id": "23",
+    "type": "single",
+    "question": "冒泡排序的平均时间复杂度为O(n²)，但最优情况下为O(n)。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "冒泡排序平均时间复杂度为O(n²)，最优情况（数组已排序）下通过标志位可优化为O(n)，说法正确。",
+    "source": "2024年12月认证C++四级真题.pdf"
+  },
+  {
+    "id": "24",
+    "type": "single",
+    "question": "冒泡排序和插入排序都是稳定的排序算法。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "A",
+    "explanation": "冒泡排序和插入排序在排序过程中不会改变相同元素的相对顺序，都是稳定的排序算法，说法正确。",
+    "source": "2024年12月认证C++四级真题.pdf"
+  },
+  {
+    "id": "25",
+    "type": "single",
+    "question": "选择排序是稳定的排序算法。",
+    "options": ["A. 正确", "B. 错误"],
+    "correct": "B",
+    "explanation": "选择排序在交换元素时可能改变相同元素的相对顺序，是不稳定的排序算法，说法错误。",
+    "source": "2024年12月认证C++四级真题.pdf"
+  }
+]

@@ -1,0 +1,219 @@
+
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "唯一分解定理描述的内容是( )?",
+        "options": ["A. 任意整数都可以分解为素数的乘积", "B. 每个合数都可以唯一分解为一系列素数的乘积", "C. 两个不同的整数可以分解为相同的素数乘积", "D. 以上都不对"],
+        "correct": "B",
+        "explanation": "唯一分解定理指出，每个大于1的合数都可以唯一地表示为若干素数的乘积，顺序不同视为同一分解。",
+        "source": "2024年3月认证C++五级真题.pdf 单选题第1题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "辗转相除法也被称为( )",
+        "options": ["A. 高斯消元法", "B. 费马定理", "C. 欧几里得算法", "D. 牛顿迭代法"],
+        "correct": "C",
+        "explanation": "辗转相除法，又称欧几里得算法，用于计算两个整数的最大公约数，其核心思想是反复用较大数除以较小数，直到余数为零。",
+        "source": "2024年3月认证C++五级真题.pdf 单选题第5题"
+    },
+    {
+        "id": "3",
+        "type": "single",
+        "question": "下面的代码片段用于判断一个正整数是否为素数｡请对以下代码进行修改,使其能正确实现相应功能｡\n<pre><code>bool isPrime(int num) {\n    if (num < 2) {\n        return false;\n    }\n    for (int i = 2; i * i < num; ++i) {\n        if (num % i == 0) {\n            return false;\n        }\n    }\n    return false;\n    return true;\n}</code></pre>",
+        "options": ["A. num < 2 应该改为 num <= 2", "B. 循环条件 i * i < num 应该改为 i * i <= num", "C. 循环条件应该是 i <= num", "D. 循环体中应该是 if (num % i != 0)"],
+        "correct": "B",
+        "explanation": "素数判断中，若一个数n不是素数，则它必有一个不大于√n的素因子。原代码中循环条件i*i < num会漏掉i=√n的情况，应改为i*i <= num。",
+        "source": "2024年3月认证C++五级真题.pdf 单选题第9题"
+    },
+    {
+        "id": "4",
+        "type": "single",
+        "question": "在埃拉托斯特尼筛法中,要筛选出不大于n的所有素数,最外层循环应该遍历什么范围( )?\n<pre><code>vector<int> sieveOfEratosthenes(int n) {\n    std::vector<bool> isPrime(n + 1, true);\n    std::vector<int> primes;\n    { \n        if (isPrime[i]) {\n            primes.push_back(i);\n            for (int j = i * i; j <= n; j += i) {\n                isPrime[j] = false;\n            }\n        }\n    }\n    for (int i = sqrt(n) + 1; i <= n; ++i) {\n        if (isPrime[i]) {\n            primes.push_back(i);\n        }\n    }\n    return primes;\n}</code></pre>",
+        "options": ["A. for (int i = 2; i <= n; ++i)", "B. for (int i = 1; i < n; ++i)", "C. for (int i = 2; i <= sqrt(n); ++i)", "D. for (int i = 1; i <= sqrt(n); ++i)"],
+        "correct": "A",
+        "explanation": "埃氏筛法的核心是从2开始遍历到n，将每个素数的倍数标记为非素数。最外层循环应从2遍历到n，确保所有数都被处理。",
+        "source": "2024年3月认证C++五级真题.pdf 单选题第10题"
+    },
+    {
+        "id": "5",
+        "type": "single",
+        "question": "素数的线性筛法时间复杂度为( )｡",
+        "options": ["A. O(n)", "B. O(n log n)", "C. O(n log log n)", "D. O(n²)"],
+        "correct": "A",
+        "explanation": "线性筛法（欧拉筛）通过确保每个合数仅被其最小质因子筛去一次，实现了O(n)的时间复杂度，是筛法中效率最高的。",
+        "source": "2024年3月认证C++五级真题.pdf 单选题第11题"
+    },
+    {
+        "id": "6",
+        "type": "single",
+        "question": "辗转相除法用于求两个整数的最大公约数｡( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "A",
+        "explanation": "辗转相除法的基本原理是反复用较大数除以较小数，直到余数为零，此时的除数即为最大公约数。",
+        "source": "2024年3月认证C++五级真题.pdf 判断题第1题"
+    },
+    {
+        "id": "7",
+        "type": "single",
+        "question": "二分查找要求被搜索的序列是有序的,否则无法保证正确性｡( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "A",
+        "explanation": "二分查找的前提是序列有序，通过每次将搜索范围减半来快速定位目标值，无序序列无法保证查找正确性。",
+        "source": "2024年3月认证C++五级真题.pdf 判断题第3题"
+    },
+    {
+        "id": "8",
+        "type": "single",
+        "question": "分治算法的核心思想是将一个大问题分解成多个相同或相似的子问题进行解决,最后合并得到原问题的解｡( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "A",
+        "explanation": "分治算法的本质是“分而治之”，将复杂问题分解为规模更小的子问题，求解后合并结果，如归并排序、快速排序等。",
+        "source": "2024年3月认证C++五级真题.pdf 判断题第5题"
+    },
+    {
+        "id": "9",
+        "type": "single",
+        "question": "分治算法的典型应用之一是归并排序,其时间复杂度为O(n log n)｡( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "A",
+        "explanation": "归并排序通过不断将数组二分，排序子数组后合并，时间复杂度稳定为O(n log n)，是分治算法的经典案例。",
+        "source": "2024年3月认证C++五级真题.pdf 判断题第6题"
+    },
+    {
+        "id": "10",
+        "type": "single",
+        "question": "素数表的埃氏筛法和线性筛法的时间复杂度都是O(n log log n)｡( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "B",
+        "explanation": "埃氏筛法的时间复杂度为O(n log log n)，而线性筛法通过优化实现了O(n)的时间复杂度，效率更高。",
+        "source": "2024年3月认证C++五级真题.pdf 判断题第7题"
+    },
+    {
+        "id": "11",
+        "type": "single",
+        "question": "下面C++代码用于求斐波那契数列,该数列第1､2项为1,以后各项均是前两项之和｡下面有关说法错误的是( )｡\n<pre><code>int fiboA(int N)\n{\n    if(N ==1||N==2)\n        return 1;\n    return fiboA(N-1)+fiboA(N-2);\n}\nint fiboB(int N)\n{\n    if (N ==1||N==2)\n        return 1;\n    int last2=1,last1=1;\n    int nowVal=0;\n    for(inti=2;i<N;i++)\n    {\n        nowVal=last1+last2;\n        last2=last1;\n        last1 =nowVal;\n    }\n    return nowVal;\n}</code></pre>",
+        "options": ["A. fiboA( ) 用递归方式,fiboB() 循环方式", "B. fiboA( ) 更加符合斐波那契数列的数学定义,直观易于理解,而fiboB() 需要将数学定义转换为计算机程序实现", "C. fiboA( ) 不仅仅更加符合数学定义,直观易于理解,且因代码量较少执行效率更高", "D. fiboB( ) 虽然代码量有所增加,但其执行效率更高"],
+        "correct": "C",
+        "explanation": "fiboA采用递归实现，虽符合数学定义，但存在大量重复计算，时间复杂度为O(2^n)；fiboB用迭代实现，时间复杂度为O(n)，效率远高于递归。",
+        "source": "2023年12月认证C++五级真题.pdf 单选题第1题"
+    },
+    {
+        "id": "12",
+        "type": "single",
+        "question": "有关下面C++代码说法正确的是( )｡\n<pre><code>int rc;\nint foo(int x,int y)\n{\n    int r;\n    if(y ==0)\n        r=x;\n    else\n        r=foo(y,x%y);\n    rc++;\n    return r;\n}</code></pre>",
+        "options": ["A. 如果x 小于10, rc 值也不会超过20", "B. foo 可能无限递归", "C. foo 可以求出 x 和 y 的最大公共质因子", "D. foo 能够求出 x 和 y 的最小公倍数"],
+        "correct": "A",
+        "explanation": "该函数是欧几里得算法的递归实现，用于求x和y的最大公约数。由于每次递归都会使问题规模减小，rc值受限于递归深度，当x<10时，递归次数有限。",
+        "source": "2023年12月认证C++五级真题.pdf 单选题第6题"
+    },
+    {
+        "id": "13",
+        "type": "single",
+        "question": "下面C++代码中的 isPrimeA() 和 isPrimeB() 都用于判断参数N是否素数,有关其时间复杂度的正确说法是( )｡\n<pre><code>bool isPrimeA(int N)\n{\n    if(N<2)\n        return false;\n    for(inti=2;i<=N/2;i++)\n        if(N%i==0)\n            return false;\n    return true;\n}\nbool isPrimeB(int N)\n{\n    if(N<2)\n        return false;\n    for (int i=2;i<=sqrt(N);i++)\n        if(N%i==0)\n            return false;\n    return true;\n}</code></pre>",
+        "options": ["A. isPrimeA( ) 的最坏时间复杂度是O(n/2),isPrimeB( ) 的最坏时间复杂度是O(logN),isPrimeA() 优于isPrimeB()", "B. isPrimeA() 的最坏时间复杂度是O(n),isPrimeB( ) 的最坏时间复杂度是O(n½),isPrimeB() 绝大多数情况下优于isPrimeA()", "C. isPrimeA() 的最坏时间复杂度是O(n½),isPrimeB( ) 的最坏时间复杂度是O(n),isPrimeA( ) 优于isPrimeB( )", "D. isPrimeA() 的最坏时间复杂度是O(logN) ,isPrimeB( ) 的最坏时间复杂度是O(n),isPrimeA() 优于isPrimeB( )"],
+        "correct": "B",
+        "explanation": "isPrimeA的时间复杂度为O(n/2)，isPrimeB通过只检查到√n，将时间复杂度降为O(√n)，在大数情况下效率显著更高。",
+        "source": "2023年12月认证C++五级真题.pdf 单选题第8题"
+    },
+    {
+        "id": "14",
+        "type": "single",
+        "question": "小杨想编写一个判断任意输入的整数N是否为素数的程序,下面哪个方法不合适?( )",
+        "options": ["A. 埃氏筛法", "B. 线性筛法", "C. 二分答案", "D. 枚举法"],
+        "correct": "C",
+        "explanation": "二分答案适用于在有序序列中查找目标值，而素数判断是确定单个数值的性质，无需二分，枚举法、埃氏筛法和线性筛法更合适。",
+        "source": "2023年12月认证C++五级真题.pdf 单选题第14题"
+    },
+    {
+        "id": "15",
+        "type": "single",
+        "question": "小杨设计了一个拆数程序,它能够将任意的非质数自然数N转换成若干个质数的乘积,这个程序是可以设计出来的｡( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "A",
+        "explanation": "根据唯一分解定理，任何大于1的非质数自然数都可以唯一分解为若干素数的乘积，因此程序可实现。",
+        "source": "2023年12月认证C++五级真题.pdf 判断题第5题"
+    },
+    {
+        "id": "16",
+        "type": "single",
+        "question": "插入排序有时比快速排序时间复杂度更低｡( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "A",
+        "explanation": "当数据基本有序时，插入排序的时间复杂度接近O(n)，而快速排序最坏情况下为O(n²)，此时插入排序更高效。",
+        "source": "2023年12月认证C++五级真题.pdf 判断题第6题"
+    },
+    {
+        "id": "17",
+        "type": "single",
+        "question": "小杨想写一个程序来算出正整数N有多少个因数,经过思考他写出了一个重复没有超过N/2次的循环就能够算出来了｡( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "A",
+        "explanation": "正整数N的因数成对出现（如a和N/a），只需遍历到√N即可，循环次数不超过N/2次，实际优化后只需到√N。",
+        "source": "2023年12月认证C++五级真题.pdf 判断题第9题"
+    },
+    {
+        "id": "18",
+        "type": "single",
+        "question": "下面C++代码以递归方式实现字符串反序,横线处应填上代码是( )｡\n<pre><code>//字符串反序\n#include <iostream>\n#include <string>\nusing namespace std;\nstring sReverse(string sIn){\n    if(sIn.length()<=1){\n        return sIn;\n    }else{\n        return__ _//此处填写代码\n    }\n    int main(){\n        string sIn;\n        cin>>sIn;\n        cout<<sReverse(sIn)<<end1;\n        return 0;\n    }\n</code></pre>",
+        "options": ["A. sIn[sIn.length() - 1] + sReverse(sIn.substr(0, sIn.length() - 1));", "B. sIn[0] + sReverse(sIn.substr(1, sIn.length() - 1));", "C. sReverse(sIn.substr(0, sIn.length() - 1)) + sIn[sIn.length() - 1];", "D. sReverse(sIn.substr(1, sIn.length() - 1)) + sIn[sIn.length() - 1];"],
+        "correct": "A",
+        "explanation": "递归反序字符串的思路是将最后一个字符与剩余部分的反序结果拼接，即sIn[sIn.length()-1] + sReverse(sIn.substr(0, sIn.length()-1))。",
+        "source": "2023年9月认证C++五级真题.pdf 单选题第5题"
+    },
+    {
+        "id": "19",
+        "type": "single",
+        "question": "下面代码中的isPrimeA() 和isPrimeB() 都用于判断参数N是否素数,有关其时间复杂度的正确说法是( )｡\n<pre><code>#include <iostream>\n#include<cmath>\nusing namespace std;\n\nbool isPrimeA(int N){\n    if(N<2)\n        return false;\n    for(inti=2;i<N;i++)\n        if(N%i==0)\n            return false;\n    return true;\n}\nbool isPrimeB(int N){\n    if(N<2)\n        return false;\n    int endNum=int(sqrt(N));\n    for(inti=2;i<=endNum;i++)\n        if(N%i==0)\n            return false;\n    return true;\n}\n\nint main(){\n    cout<<boolalpha;\n    cout<<isPrimeA(13)<<\" \"<<isPrimeB(13)<<end1;\n    return 0;\n}</code></pre>",
+        "options": ["A. isPrimeA() 的最坏时间复杂度是O(N),isPrimeB() 的最坏时间复杂度是O(log N),isPrimeB() 优于isPrimeA()｡", "B. isPrimeA() 的最坏时间复杂度是O(N),isPrimeB() 的最坏时间复杂度是O(N½),isPrimeB() 优于isPrimeA()｡", "C. isPrimeA() 的最坏时间复杂度是O(N½),isPrimeB() 的最坏时间复杂度是O(N),isPrimeA() 优于isPrimeB()｡", "D. isPrimeA() 的最坏时间复杂度是O(log N),isPrimeB() 的最坏时间复杂度是O(N),isPrimeA() 优于isPrimeB()｡"],
+        "correct": "B",
+        "explanation": "isPrimeA需遍历2到N-1，时间复杂度O(N)；isPrimeB只需遍历2到√N，时间复杂度O(√N)，显然isPrimeB更优。",
+        "source": "2023年9月认证C++五级真题.pdf 单选题第11题"
+    },
+    {
+        "id": "20",
+        "type": "single",
+        "question": "找出自然数N以内的所有质数,常用算法有埃拉托斯特尼(埃氏)筛法和线性筛法,其中埃氏筛法效率更高｡( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "B",
+        "explanation": "线性筛法（欧拉筛）通过避免重复标记合数，时间复杂度为O(n)，而埃氏筛法为O(n log log n)，线性筛法效率更高。",
+        "source": "2023年9月认证C++五级真题.pdf 判断题第3题"
+    },
+    {
+        "id": "21",
+        "type": "single",
+        "question": "唯一分解定理表明任何一个大于1的整数都可以唯一地表示为一系列质数的乘积,即质因数分解是唯一的｡( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "A",
+        "explanation": "唯一分解定理（算术基本定理）明确指出，任何大于1的自然数都可以唯一分解为素数的乘积，顺序不同视为同一分解。",
+        "source": "2024年6月认证C++五级真题.pdf 判断题第5题"
+    },
+    {
+        "id": "22",
+        "type": "single",
+        "question": "根据唯一分解定理,下面整数的唯一分解是正确的()。",
+        "options": ["A. 18=3×6", "B. 28=4×7", "C. 36=2×3×6", "D. 30=2×3×5"],
+        "correct": "D",
+        "explanation": "唯一分解要求所有因子均为素数，30分解为2×3×5，其中2、3、5均为素数，其他选项包含合数因子（如6、4）。",
+        "source": "2025年6月认证C++五级真题.pdf 单选题第5题"
+    },
+    {
+        "id": "23",
+        "type": "single",
+        "question": "下述代码实现素数表的线性筛法,筛选出所有小于等于n的素数,横线上应填的最佳代码是()。\n<pre><code>vector<int> sieve_1inear(int n){\n    vector<bool> is_prime(n +1,true);\n    vector<int>primes;\n    if(n<2)return primes;\n    \n    is_prime[0]=is_prime[1]= false;\n    for(inti=2;i<=n/2;i++){\n        if(is_prime[i]) primes.push_back(i);\n        \n        for(intj=0; ;j++){ //在此处填入代码\n            is_prime[i*primes[j]]= false;\n            if(i%primes[j]==0)\n                break;\n        }\n    }\n    for(inti=n/2 +1;i<=n; i++){\n        if(is_prime[i]) primes.push_back(i);\n    }\n    return primes;\n}</code></pre>",
+        "options": ["A. j<primes.size()", "B. i * primes[j] <= n", "C. j < primes.size() && i * primes[j] <= n", "D. j <= n"],
+        "correct": "C",
+        "explanation": "线性筛法的内层循环需确保j不越界且i*primes[j]不超过n，即j < primes.size() && i * primes[j] <= n，以避免越界和无效计算。",
+        "source": "2025年6月认证C++五级真题.pdf 单选题第6题"
+    },
+    {
+        "id": "24",
+        "type": "single",
+        "question": "线性筛相对于埃拉托斯特尼筛法,每个合数只会被它的最小质因子筛去一次,因此效率更高｡( )",
+        "options": ["A. 对", "B. 错"],
+        "correct": "A",
+        "explanation": "线性筛法通过记录每个合数的最小质因子，确保每个合数仅被筛一次，时间复杂度达O(n)，优于埃氏筛法。",
+        "source": "2025年6月认证C++五级真题.pdf 判断题第3题"
+    }
+]

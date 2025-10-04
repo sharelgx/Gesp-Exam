@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>冒泡排序动画演示 —— 元探索柳老师</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "微软雅黑", sans-serif;
+      background: #f3f6fa;
+      color: #333;
+    }
+
+    h2 {
+      text-align: center;
+      padding: 1.5em 1em 0.5em;
+      color: #2b6cb0;
+    }
+
+    #controls {
+      background: #fff;
+      padding: 1em 2em;
+      margin: 0 auto;
+      width: fit-content;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8em;
+    }
+
+    #controls input[type="text"] {
+      padding: 0.4em 0.6em;
+      font-size: 1em;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    #controls input[type="range"] {
+      width: 120px;
+    }
+
+    #controls button {
+      background: #3182ce;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 0.5em 1em;
+      font-size: 0.95em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+    }
+
+    #controls button:hover {
+      background: #2b6cb0;
+    }
+
+    #mainContainer {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 2em;
+      padding: 2em;
+    }
+
+    #container {
+      width: 500px;
+      height: 380px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+      padding: 1em;
+      margin:16px 0;
+    }
+
+    .bar {
+      width: 80px;
+      margin: 0 6px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      border-radius: 6px;
+      font-size: 18px;
+      color: white;
+      transition: height 0.3s, background-color 0.3s;
+      position: relative;
+    }
+
+    .default { background-color: #63b3ed; }
+    .comparing { background-color: #ecc94b; }
+    .swapping { background-color: #fc8181; }
+    .sorted { background-color: #48bb78; }
+
+    .marker {
+      position: absolute;
+      top: -2em;
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+
+    .red { color: #e53e3e; }
+    .blue { color: #3182ce; top: -3.2em; }
+
+    #codeBlock {
+      width: 500px;
+      height: 380px;
+      background: #1e1e1e;
+      color: #dcdcdc;
+      padding: 1em;
+      border-radius: 10px;
+      overflow-y: auto;
+      font-family: Consolas, "Courier New", monospace;
+      white-space: pre;
+      border: 1px solid #333;
+    }
+
+    .highlight {
+      background-color: #264f78;
+      color: #fff;
+      font-weight: bold;
+      padding-left: 0.5em;
+      border-left: 4px solid #569cd6;
+    }
+
+    #log {
+      margin: 1.5em auto 0;
+      text-align: center;
+      font-size: 1.1em;
+      color: #444;
+      background: #edf2f7;
+      padding: 0.8em 1.2em;
+      border-radius: 6px;
+      width: fit-content;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    @media (max-width: 1100px) {
+      #mainContainer {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>冒泡排序动画演示</h2>
+
+  <div id="controls">
+    <label for="input"><i class="fas fa-list"></i> 输入纸牌：</label>
+    <input type="text" id="input" value="8,5,3,7,2" />
+    <button onclick="resetBars()"><i class="fas fa-sync-alt"></i> 重置</button>
+    <button onclick="nextStep()"><i class="fas fa-step-forward"></i> 下一步</button>
+    <button onclick="autoRun()"><i class="fas fa-play"></i> 自动演示</button>
+    <label for="speed"><i class="fas fa-tachometer-alt"></i> 速度：</label>
+    <input type="range" id="speed" min="100" max="2000" step="100" value="800" />
+    <span id="speedDisplay">800</span>ms
+  </div>
+
+  <div id="log">点击“下一步”开始演示</div>
+
+  <div id="mainContainer">
+    <div id="container"></div>
+    <pre id="codeBlock"></pre>
+  </div>
+
+  <script>
+    let values = [];
+    let bars = [];
+    let i = 0, j = 0;
+    let n = 0;
+    let sortedCount = 0; // 已排序个数
+    let state = "init"; // init, comparing, swapping, nextRound
+    let autoTimer = null;
+    let comparingIndices = [-1, -1]; // 标记比较的两张牌
+    let highlightSubState = "start";
+
+    const codeBlock = document.getElementById("codeBlock");
+    const cppCode = [
+      '#include <iostream>',
+      'using namespace std;',
+      '',
+      'void bubbleSort(int arr[], int n) {',
+      '    for (int i = 0; i < n - 1; i++) {',
+      '        // 每一轮将最大值“冒”到末尾',
+      '        for (int j = 0; j < n - 1 - i; j++) {',
+      '            if (arr[j] > arr[j + 1]) {',
+      '                // 交换相邻两个数',
+      '                swap(arr[j], arr[j + 1]);',
+      '            }',
+      '        }',
+      '    }',
+      '}'
+    ];
+
+    function showCode() {
+      codeBlock.innerHTML = '';
+      cppCode.forEach(line => {
+        const div = document.createElement('div');
+        div.textContent = line;
+        codeBlock.appendChild(div);
+      });
+    }
+
+    function highlightCode(lineIndex) {
+      for (let k = 0; k < codeBlock.children.length; k++) {
+        codeBlock.children[k].classList.toggle('highlight', k === lineIndex);
+      }
+    }
+
+    function clearCodeHighlight() {
+      [...codeBlock.children].forEach(div => div.classList.remove('highlight'));
+    }
+
+    function highlightCodeByState() {
+      if (state === "init") highlightCode(4);
+      else if (state === "comparing") highlightCode(6);
+      else if (state === "swapping") {
+        if (highlightSubState === "start") highlightCode(7);
+        else if (highlightSubState === "swap") highlightCode(9);
+      }
+    }
+
+    function createBar(value, index) {
+      const div = document.createElement("div");
+      div.className = "bar default";
+      div.style.height = value * 30 + "px";
+      div.dataset.index = index;
+      div.textContent = value;
+      return div;
+    }
+
+    function resetBars() {
+      clearInterval(autoTimer);
+      const input = document.getElementById("input").value;
+      values = input.split(",").map(n => parseInt(n.trim())).filter(n => !isNaN(n));
+      n = values.length;
+      sortedCount = 0;
+      i = 0;
+      j = 0;
+      state = "init";
+      comparingIndices = [-1, -1];
+      highlightSubState = "start";
+      const container = document.getElementById("container");
+      container.innerHTML = "";
+      bars = values.map((val, i) => createBar(val, i));
+      bars.forEach(bar => container.appendChild(bar));
+      updateLog(`准备开始冒泡排序，数组长度为 ${n}。`);
+      updateColors();
+      drawMarkers();
+      showCode();
+      clearCodeHighlight();
+    }
+
+    function updateLog(text) {
+      document.getElementById("log").innerText = text;
+    }
+
+    function updateColors() {
+      bars.forEach((bar, idx) => {
+        if (idx >= n - sortedCount) {
+          bar.className = "bar sorted"; // 已排序
+        } else {
+          bar.className = "bar default";
+        }
+      });
+      // 标记比较中的两张牌
+      if (comparingIndices[0] >= 0 && comparingIndices[1] >= 0) {
+        bars[comparingIndices[0]].className = "bar comparing";
+        bars[comparingIndices[1]].className = "bar comparing";
+      }
+    }
+
+    function drawMarkers() {
+      bars.forEach(bar => {
+        bar.querySelectorAll('.marker').forEach(e => e.remove());
+      });
+      if (comparingIndices[0] >= 0) {
+        const markerRed = document.createElement("div");
+        markerRed.className = "marker red";
+        markerRed.textContent = "🔴arr[j]";
+        bars[comparingIndices[0]].appendChild(markerRed);
+      }
+      if (comparingIndices[1] >= 0) {
+        const markerBlue = document.createElement("div");
+        markerBlue.className = "marker blue";
+        markerBlue.textContent = "🔵arr[j+1]";
+        bars[comparingIndices[1]].appendChild(markerBlue);
+      }
+    }
+
+    function swap(arr, x, y) {
+      [arr[x], arr[y]] = [arr[y], arr[x]];
+    }
+
+    function nextStep() {
+      if (sortedCount === n - 1) {
+        comparingIndices = [-1, -1];
+        updateColors();
+        drawMarkers();
+        updateLog("排序完成 ✅");
+        clearInterval(autoTimer);
+        clearCodeHighlight();
+        return;
+      }
+
+      switch(state) {
+        case "init":
+          j = 0;
+          updateLog(`第 ${i + 1} 轮开始：准备进行比较`);
+          highlightCodeByState();
+          state = "comparing";
+          break;
+
+        case "comparing":
+          if (j < n - 1 - sortedCount) {
+            comparingIndices = [j, j + 1];
+            updateColors();
+            drawMarkers();
+            updateLog(`第 ${i + 1} 轮，第 ${j + 1} 次比较：第 ${j + 1} 张牌 ${values[j]} 与 第 ${j + 2} 张牌 ${values[j + 1]}`);
+            highlightSubState = "start";
+            highlightCodeByState();
+            state = "swapping";
+          } else {
+            // 本轮结束，最大值确定
+            updateLog(`第 ${i + 1} 轮结束，最大值确定为第 ${n - sortedCount} 张牌 ${values[n - 1 - sortedCount]}`);
+            sortedCount++;
+            i++;
+            comparingIndices = [-1, -1];
+            updateColors();
+            drawMarkers();
+            highlightCodeByState();
+            state = "init";
+          }
+          break;
+
+        case "swapping":
+          if (values[j] > values[j + 1]) {
+            updateLog(`第 ${i + 1} 轮，第 ${j + 1} 次比较结果：交换 第 ${j + 1} 张牌 ${values[j]} 和 第 ${j + 2} 张牌 ${values[j + 1]}`);
+            swap(values, j, j + 1);
+            redrawBars();
+            updateColors();
+            drawMarkers();
+            highlightSubState = "swap";
+            highlightCodeByState();
+          } else {
+            updateLog(`第 ${i + 1} 轮，第 ${j + 1} 次比较结果：不交换，顺序正确`);
+          }
+          j++;
+          state = "comparing";
+          break;
+      }
+    }
+
+    function redrawBars() {
+      const container = document.getElementById("container");
+      container.innerHTML = "";
+      bars = values.map((val, idx) => createBar(val, idx));
+      bars.forEach(bar => container.appendChild(bar));
+    }
+
+    function autoRun() {
+      const speed = parseInt(document.getElementById("speed").value);
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => {
+        nextStep();
+        if (sortedCount === n - 1) clearInterval(autoTimer);
+      }, speed);
+    }
+
+    document.getElementById("speed").addEventListener("input", e => {
+      document.getElementById("speedDisplay").innerText = e.target.value;
+    });
+
+    window.nextStep = nextStep;
+    window.autoRun = autoRun;
+    window.resetBars = resetBars;
+
+    showCode();
+    resetBars();
+  </script>
+</body>
+</html>

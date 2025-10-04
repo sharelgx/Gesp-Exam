@@ -1,0 +1,45 @@
+[
+    {
+        "id": "1",
+        "type": "single",
+        "question": "下列4个表达式中，答案不是整数8的是？",
+        "options": ["A. abs(-8)", "B. min(max(8, 9), 10)", "C. int(8.88)", "D. sqrt(64)"],
+        "correct": "B",
+        "explanation": "A. abs(-8)=8；B. min(max(8,9),10)=min(9,10)=9；C. int(8.88)=8；D. sqrt(64)=8。只有选项B的结果是9，不是8。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 单选题第5题"
+    },
+    {
+        "id": "2",
+        "type": "single",
+        "question": "C++表达式 int(-123.123 / 10) 的值是？",
+        "options": ["A. -124", "B. -123", "C. -13", "D. -12"],
+        "correct": "D",
+        "explanation": "-123.123/10=-12.3123，强制转换为整数时截断小数部分，结果为-12。",
+        "source": "2023年GESP9月认证C++二级试卷解析.pdf 单选题第5题"
+    },
+    {
+        "id": "3",
+        "type": "truefalse",
+        "question": "已知 A 的ASCII码值为65，表达式 int('C')+abs(-5.8) 的值为72.8。",
+        "correct": "×",
+        "explanation": "'C'的ASCII码值为67，abs(-5.8)=5.8，但int('C')=67是整数，67+5.8=72.8。然而题目问的是表达式的值，应该是72（整数运算）或72.8（浮点运算），需要看具体的运算规则。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 判断题第6题"
+    },
+    {
+        "id": "4",
+        "type": "truefalse",
+        "question": "如果变量 a 的值使得C++表达式 sqrt(a)==abs(a) ，则 a 的值为0。",
+        "correct": "×",
+        "explanation": "当a≥0时，abs(a)=a，所以需要sqrt(a)=a，解得a=0或a=1。因此a的值不仅仅是0，还可以是1。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 判断题第8题"
+    },
+    {
+        "id": "5",
+        "type": "truefalse",
+        "question": "bool() 函数用于将给定参数或表达式转换为布尔类型。语句 bool(-1) 返回的是 false 值。",
+        "correct": "×",
+        "explanation": "在C++中，非零数值转换为布尔类型时结果为true，只有0转换为false。因此bool(-1)返回true，不是false。",
+        "source": "GESP2024年3月认证C++二级真题.pdf 判断题第7题"
+    }
+]
+

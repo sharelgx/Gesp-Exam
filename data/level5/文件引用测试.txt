@@ -1,0 +1,6 @@
+正确引用格式示例:
+1. 在代码中: e:\gesp-exam\data\level5\2023年9月.json
+2. 在URL或Web环境中: e:/gesp-exam/data/level5/2023年9月.json
+3. 带行号的引用: e:\gesp-exam\data\level5\2023年9月.json#L96
+
+错误格式示例: /e:/gesp-exam/data/level5/2023年9月.json#L96-96 (不应以/开头)
