@@ -1,0 +1,22 @@
+# 开发工具文件夹
+.cursor/
+.superdesign/
+.codebuddy/
+
+# 临时文件
+temp.txt
+json_check.out
+
+# 文档文件
+CLAUDE.md
+.windsurfrules
+
+# Node modules (如果有的话)
+node_modules/
+
+# 日志文件
+*.log
+
+# 系统文件
+.DS_Store
+Thumbs.db
