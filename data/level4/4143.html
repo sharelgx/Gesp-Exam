@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排兵布阵算法可视化</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(to bottom right, #eff6ff, #e0e7ff);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #312e81;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .panel {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: #1f2937;
+            margin-bottom: 16px;
+            font-size: 1.25em;
+        }
+        
+        .grid-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .grid {
+            display: inline-block;
+            border: 4px solid #1f2937;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .grid-row {
+            display: flex;
+        }
+        
+        .grid-cell {
+            width: 64px;
+            height: 64px;
+            border: 1px solid #9ca3af;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .cell-default { background: #bfdbfe; }
+        .cell-zero { background: #374151; color: white; }
+        .cell-valid { background: #86efac; }
+        .cell-invalid { background: #f87171; }
+        
+        .info-panel {
+            background: #eef2ff;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .info-label {
+            font-weight: 600;
+        }
+        
+        .info-value {
+            color: #4f46e5;
+            font-size: 1.1em;
+        }
+        
+        .info-value.max {
+            color: #16a34a;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        
+        .status-valid { color: #16a34a; }
+        .status-invalid { color: #dc2626; }
+        
+        .legend {
+            margin-top: 16px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+        
+        .legend-box {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #9ca3af;
+        }
+        
+        .code-panel {
+            background: #1f2937;
+            border-radius: 8px;
+            padding: 16px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        
+        .code-line {
+            font-family: 'Courier New', monospace;
+            color: #d1d5db;
+            padding: 4px 8px;
+            line-height: 1.8;
+            transition: all 0.3s;
+        }
+        
+        .code-line.highlight {
+            background: #fbbf24;
+            color: #1f2937;
+            margin: 0 -8px;
+            padding: 4px 8px;
+        }
+        
+        .controls {
+            margin-top: 24px;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            color: white;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn-play { background: #4f46e5; }
+        .btn-play:hover { background: #4338ca; }
+        .btn-step { background: #2563eb; }
+        .btn-step:hover { background: #1d4ed8; }
+        .btn-step:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-reset { background: #6b7280; }
+        .btn-reset:hover { background: #4b5563; }
+        
+        .speed-control {
+            margin-top: 16px;
+        }
+        
+        .speed-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #374151;
+            font-size: 0.9em;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #d1d5db;
+            outline: none;
+        }
+        
+        .explanation {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .explanation p {
+            margin-bottom: 12px;
+            line-height: 1.6;
+            color: #374151;
+        }
+        
+        .explanation ol {
+            margin-left: 32px;
+            margin-bottom: 12px;
+        }
+        
+        .explanation li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>排兵布阵算法可视化</h1>
+        
+        <div class="main-grid">
+            <!-- 左侧：网格显示 -->
+            <div class="panel">
+                <h2>地图网格</h2>
+                <div class="grid-container">
+                    <div class="grid" id="grid"></div>
+                </div>
+                
+                <div class="info-panel">
+                    <div class="info-row">
+                        <span class="info-label">当前矩形：</span>
+                        <span class="info-value" id="rect-info">(1,1) → (1,1)</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">当前面积：</span>
+                        <span class="info-value" id="current-area">0</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">最大面积：</span>
+                        <span class="info-value max" id="max-area">0</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">状态：</span>
+                        <span class="status-valid" id="status">✓ 有效区域</span>
+                    </div>
+                </div>
+                
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-box cell-valid"></div>
+                        <span>当前检查区域（全为1）</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box cell-invalid"></div>
+                        <span>当前检查区域（包含0）</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box cell-zero"></div>
+                        <span>不适合排兵（0）</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box cell-default"></div>
+                        <span>适合排兵（1）</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右侧：代码显示 -->
+            <div class="panel">
+                <h2>算法代码</h2>
+                <div class="code-panel" id="code"></div>
+                
+                <div class="controls">
+                    <div class="button-group">
+                        <button class="btn-play" onclick="togglePlay()">
+                            <span id="play-icon">▶</span>
+                            <span id="play-text">播放</span>
+                        </button>
+                        <button class="btn-step" onclick="nextStep()" id="step-btn">
+                            <span>⏭</span>
+                            <span>下一步</span>
+                        </button>
+                        <button class="btn-reset" onclick="reset()">
+                            <span>🔄</span>
+                            <span>重置</span>
+                        </button>
+                    </div>
+                    
+                    <div class="speed-control">
+                        <label class="speed-label">播放速度: <span id="speed-value">1000</span>ms</label>
+                        <input type="range" min="200" max="2000" step="200" value="1000" 
+                               oninput="updateSpeed(this.value)">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="explanation">
+            <h2>算法说明</h2>
+            <p><strong>思路：</strong>枚举所有可能的矩形区域，检查是否全为1，记录最大面积。</p>
+            <p><strong>步骤：</strong></p>
+            <ol>
+                <li>四重循环枚举矩形的上边界(x1)、左边界(y1)、下边界(x2)、右边界(y2)</li>
+                <li>对于每个矩形，从左向右扩展右边界，逐列检查是否全为1</li>
+                <li>如果遇到0，则停止扩展该矩形的右边界</li>
+                <li>每次扩展成功时计算面积并更新最大值</li>
+            </ol>
+            <p><strong>时间复杂度：</strong>O(n²m²) 适用于 n,m ≤ 12 的小规模数据</p>
+        </div>
+    </div>
+    
+    <script>
+        const grid = [
+            [0, 1, 1],
+            [1, 0, 1],
+            [0, 1, 1],
+            [1, 1, 1]
+        ];
+        const n = 4, m = 3;
+        
+        const codeLines = [
+            { line: 1, indent: 0, text: "// 枚举矩形上边界 (x1)、左边界 (y1)" },
+            { line: 2, indent: 0, text: "for (int x1 = 1; x1 <= n; x1++)" },
+            { line: 3, indent: 1, text: "for (int y1 = 1; y1 <= m; y1++)" },
+            { line: 4, indent: 2, text: "// 枚举矩形下边界 (x2)" },
+            { line: 5, indent: 2, text: "for (int x2 = x1; x2 <= n; x2++) {" },
+            { line: 6, indent: 3, text: "int all_one = 1;  // 当前区域是否全是1" },
+            { line: 7, indent: 3, text: "// 从左往右扩展右边界 (y2)" },
+            { line: 8, indent: 3, text: "for (int y2 = y1; y2 <= m; y2++) {" },
+            { line: 9, indent: 4, text: "// 检查当前这一列是否都为1" },
+            { line: 10, indent: 4, text: "for (int x = x1; x <= x2; x++)" },
+            { line: 11, indent: 5, text: "all_one &= a[x][y2];" },
+            { line: 12, indent: 4, text: "// 如果遇到0，说明矩形不再全是1，直接跳出" },
+            { line: 13, indent: 4, text: "if (!all_one) break;" },
+            { line: 14, indent: 4, text: "// 否则计算当前矩形面积并更新最大值" },
+            { line: 15, indent: 4, text: "int area = (x2 - x1 + 1) * (y2 - y1 + 1);" },
+            { line: 16, indent: 4, text: "ans = max(ans, area);" },
+            { line: 17, indent: 3, text: "}" },
+            { line: 18, indent: 2, text: "}" }
+        ];
+        
+        let state = {
+            x1: 1, y1: 1, x2: 1, y2: 1,
+            maxArea: 0,
+            currentArea: 0,
+            isValid: true,
+            step: 0,
+            highlightLine: 1,
+            isPlaying: false,
+            speed: 1000,
+            timer: null
+        };
+        
+        function initGrid() {
+            const gridEl = document.getElementById('grid');
+            gridEl.innerHTML = '';
+            
+            for (let i = 0; i < n; i++) {
+                const row = document.createElement('div');
+                row.className = 'grid-row';
+                for (let j = 0; j < m; j++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'grid-cell';
+                    cell.id = `cell-${i}-${j}`;
+                    cell.textContent = grid[i][j];
+                    row.appendChild(cell);
+                }
+                gridEl.appendChild(row);
+            }
+        }
+        
+        function initCode() {
+            const codeEl = document.getElementById('code');
+            codeEl.innerHTML = codeLines.map(item => {
+                const indentSpaces = '&nbsp;&nbsp;&nbsp;&nbsp;'.repeat(item.indent);
+                return `<div class="code-line" id="code-${item.line}">${indentSpaces}${item.text}</div>`;
+            }).join('');
+        }
+        
+        function updateDisplay() {
+            // 更新网格颜色
+            for (let i = 0; i < n; i++) {
+                for (let j = 0; j < m; j++) {
+                    const cell = document.getElementById(`cell-${i}-${j}`);
+                    const inRect = i >= state.x1-1 && i <= state.x2-1 && 
+                                   j >= state.y1-1 && j <= state.y2-1;
+                    const isZero = grid[i][j] === 0;
+                    
+                    cell.className = 'grid-cell';
+                    if (inRect && !state.isValid) {
+                        cell.classList.add('cell-invalid');
+                    } else if (inRect && state.isValid) {
+                        cell.classList.add('cell-valid');
+                    } else if (isZero) {
+                        cell.classList.add('cell-zero');
+                    } else {
+                        cell.classList.add('cell-default');
+                    }
+                }
+            }
+            
+            // 更新代码高亮
+            codeLines.forEach(item => {
+                const line = document.getElementById(`code-${item.line}`);
+                if (item.line === state.highlightLine) {
+                    line.classList.add('highlight');
+                } else {
+                    line.classList.remove('highlight');
+                }
+            });
+            
+            // 更新信息面板
+            document.getElementById('rect-info').textContent = 
+                `(${state.x1},${state.y1}) → (${state.x2},${state.y2})`;
+            document.getElementById('current-area').textContent = state.currentArea;
+            document.getElementById('max-area').textContent = state.maxArea;
+            
+            const statusEl = document.getElementById('status');
+            if (state.isValid) {
+                statusEl.textContent = '✓ 有效区域';
+                statusEl.className = 'status-valid';
+            } else {
+                statusEl.textContent = '✗ 包含0';
+                statusEl.className = 'status-invalid';
+            }
+        }
+        
+        function checkValid(x1, y1, x2, y2) {
+            for (let i = x1; i <= x2; i++) {
+                for (let j = y1; j <= y2; j++) {
+                    if (grid[i-1][j-1] === 0) return false;
+                }
+            }
+            return true;
+        }
+        
+        function nextStep() {
+            if (state.step === 0) {
+                state.highlightLine = 10;
+                state.isValid = checkValid(state.x1, state.y1, state.x2, state.y2);
+                state.step = 1;
+            } else if (state.step === 1 && !state.isValid) {
+                state.highlightLine = 13;
+                state.step = 2;
+            } else if (state.step === 1 && state.isValid) {
+                state.highlightLine = 15;
+                const area = (state.x2 - state.x1 + 1) * (state.y2 - state.y1 + 1);
+                state.currentArea = area;
+                if (area > state.maxArea) state.maxArea = area;
+                state.step = 2;
+            } else if (state.step === 2) {
+                if (!state.isValid || state.y2 === m) {
+                    state.y2 = state.y1;
+                    if (state.x2 < n) {
+                        state.x2++;
+                        state.highlightLine = 5;
+                    } else {
+                        state.x2 = state.x1;
+                        if (state.y1 < m) {
+                            state.y1++;
+                            state.highlightLine = 3;
+                        } else {
+                            state.y1 = 1;
+                            if (state.x1 < n) {
+                                state.x1++;
+                                state.highlightLine = 2;
+                            } else {
+                                stopPlay();
+                                alert('算法执行完成！最大面积为：' + state.maxArea);
+                                return;
+                            }
+                        }
+                    }
+                    state.isValid = true;
+                    state.currentArea = 0;
+                } else {
+                    state.y2++;
+                    state.highlightLine = 8;
+                }
+                state.step = 0;
+            }
+            
+            updateDisplay();
+        }
+        
+        function togglePlay() {
+            state.isPlaying = !state.isPlaying;
+            
+            if (state.isPlaying) {
+                document.getElementById('play-icon').textContent = '⏸';
+                document.getElementById('play-text').textContent = '暂停';
+                document.getElementById('step-btn').disabled = true;
+                play();
+            } else {
+                stopPlay();
+            }
+        }
+        
+        function play() {
+            if (state.isPlaying) {
+                nextStep();
+                state.timer = setTimeout(play, state.speed);
+            }
+        }
+        
+        function stopPlay() {
+            state.isPlaying = false;
+            document.getElementById('play-icon').textContent = '▶';
+            document.getElementById('play-text').textContent = '播放';
+            document.getElementById('step-btn').disabled = false;
+            if (state.timer) {
+                clearTimeout(state.timer);
+                state.timer = null;
+            }
+        }
+        
+        function reset() {
+            stopPlay();
+            state = {
+                x1: 1, y1: 1, x2: 1, y2: 1,
+                maxArea: 0,
+                currentArea: 0,
+                isValid: true,
+                step: 0,
+                highlightLine: 1,
+                isPlaying: false,
+                speed: state.speed,
+                timer: null
+            };
+            updateDisplay();
+        }
+        
+        function updateSpeed(value) {
+            state.speed = parseInt(value);
+            document.getElementById('speed-value').textContent = value;
+        }
+        
+        // 初始化
+        initGrid();
+        initCode();
+        updateDisplay();
+    </script>
+</body>
+</html>
