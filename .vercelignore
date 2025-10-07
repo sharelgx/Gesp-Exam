@@ -31,6 +31,12 @@ js/question-loader20250729.js
 
 # 压缩包
 *.zip
+*.rar
+*.7z
+*.tar.gz
+
+# 暂时排除data目录以加快构建速度
+data/
 
 # 可能的大文件夹（如果不需要的话）
 # data/level2/GESP C++二级知识点总结/
