@@ -3,7 +3,7 @@
 .superdesign/
 .codebuddy/
 
-# 临时文件
+# 临时文件和构建输出
 temp.txt
 json_check.out
 
@@ -11,7 +11,7 @@ json_check.out
 CLAUDE.md
 .windsurfrules
 
-# Node modules (如果有的话)
+# Node modules
 node_modules/
 
 # 日志文件
@@ -29,16 +29,20 @@ Thumbs.db
 js/question-loader20250707.js
 js/question-loader20250729.js
 
-# 压缩包
+# 压缩包（全局）
 *.zip
 *.rar
 *.7z
 *.tar.gz
 
-# 暂时排除data目录以加快构建速度
-data/
+# data目录中的压缩包和非网站内容
+data/**/*.zip
+data/**/*.rar
+data/**/*.7z
+data/**/*.tar.gz
+data/**/GESP C++二级知识点总结/
 
-# 可能的大文件夹（如果不需要的话）
-# data/level2/GESP C++二级知识点总结/
-.DS_Store
-Thumbs.db
+# 其他非必要文件
+*.tmp
+*.bak
+*.swp
