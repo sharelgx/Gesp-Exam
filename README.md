@@ -51,7 +51,7 @@ GESP-Exam是一个专注于GESP（全国青少年等级考试）编程等级考�
 
 ### 在线访问
 
-访问 [https://gesp-exam.vercel.app/](https://gesp-exam.vercel.app/) 即可在线使用本平台。
+访问 [https://gesp.free.nf/](https://gesp.free.nf/) 即可在线使用本平台。
 
 ## 项目结构
 
